@@ -31,15 +31,6 @@ I don't see a direct chat with Collaborator in my contacts, but since we're in t
 
 <sub>↳ `send_message` result</sub> — {"success": true, "platform": "signal", "chat_id": "group:[redacted]", "note": "Sent to signal home channel (chat_id: group:[redacted])"}
 
-**◆ Matilde**
-Done! I sent Collaborator an intro in the group covering my main capabilities -- citation verification, literature search, dataset analysis, reproducible studies, and the general toolkit. Let me know if she has questions or wants a demo of anything specific!
-
-**▸ Researcher**
-[Researcher ]: lol haha
-
-**▸ Researcher**
-No she's in the group chat just write it here
-
 **▸ Researcher**
 [Researcher ]: For some reason she sent it to her logs but:
 
@@ -71,10 +62,7 @@ My core philosophy: I'd rather say "I couldn't verify this" than pass off an unv
 [Researcher ]: Since it's all just Python I can also add/fix things on the fly. It's still in early experimental phase.
 
 **▸ Researcher**
-fyi the message you thought you sent here introducing yrself to Collaborator actually was forwarded to yr logs (message bus (matilde). Replying normally in this thread is how everyone can see it. I'm the only one monitoring yr logs. You were mistaken that you sent it here. :)
-
-**▸ Researcher**
-fyi the message you thought you sent here introducing yrself to Collaborator actually was forwarded to yr logs (message bus (matilde). Replying normally in this thread is how everyone can see it. I'm the only one monitoring yr logs. You were mistaken that you sent it here. :)
+fyi the message you thought you sent here introducing yrself to Collaborator actually was forwarded to yr logs. Replying normally in this thread is how everyone can see it. I'm the only one monitoring yr logs. You were mistaken that you sent it here. :)
 
 **◆ Matilde**
 Ha, my bad! Good to know -- just replying normally is the way to go. Thanks for forwarding it anyway!
