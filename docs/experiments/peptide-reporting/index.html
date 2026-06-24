@@ -64,10 +64,10 @@ a:hover{color:var(--accent-2)}
 }
 .deck b{color:var(--ink);font-weight:600}
 .byline{
-  font-family:var(--mono); font-size:.74rem; line-height:1.9; color:var(--ink-faint);
+  font-family:var(--mono); font-size:.76rem; line-height:1.9; color:var(--ink-soft);
   letter-spacing:.01em; padding-top:1.2rem; border-top:1px solid var(--rule);
 }
-.byline a{color:var(--ink-soft)}
+.byline a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px}
 .byline .who{color:var(--accent-2);font-weight:500}
 
 /* staggered entrance */
@@ -252,6 +252,14 @@ a:hover{color:var(--accent-2)}
 .methodology li{margin-bottom:.5rem}
 .methodology a{color:var(--accent);font-family:var(--mono);font-size:.85em}
 
+/* ============ PROCESS BARS ============ */
+.pbar-row{display:flex;align-items:center;gap:.9rem;margin:.34rem 0;min-height:28px}
+.pbar-label{width:195px;flex-shrink:0;text-align:right;font-family:var(--mono);font-size:.73rem;color:var(--ink-soft);line-height:1.2}
+.pbar-track{flex:1;height:18px;background:var(--surface-2);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:2px;transform-origin:left center;animation:grow .8s cubic-bezier(.22,.85,.2,1) both}
+.pbar-val{width:40px;flex-shrink:0;font-family:var(--mono);font-size:.74rem;font-weight:500;color:var(--ink)}
+@media (max-width:760px){.pbar-label{width:118px;font-size:.65rem}}
+
 /* ============ FOOTER ============ */
 .foot{border-top:1.5px solid var(--ink);margin-top:3.5rem;padding:2rem 0 4rem;
   font-family:var(--mono);font-size:.74rem;color:var(--ink-faint);line-height:1.8}
@@ -285,7 +293,7 @@ a:hover{color:var(--accent-2)}
     <div class="byline">
       Community pharmacovigilance · method after <a href="https://doi.org/10.64898/2026.03.12.26348253">Sehgal et al. (2026)</a><br>
       Source: Arctic Shift Reddit archive · r/Peptides, r/Nootropics, r/bpc_157 · encoded with qwen3.5:9b on local Ollama (zero API cost)<br>
-      Compiled by <span class="who">Matilde</span>, an agentic open-science research assistant · 23 June 2026
+      Compiled by <a class="who" href="https://github.com/NimbleCoAI/Matilde" target="_blank">Matilde</a>, an agentic open-science research assistant · 23 June 2026
     </div>
   </header>
 
@@ -311,6 +319,7 @@ a:hover{color:var(--accent-2)}
     <div class="tab" onclick="showTab('literature')">Literature</div>
     <div class="tab" onclick="showTab('posts')">Sample Posts</div>
     <div class="tab" onclick="showTab('method')">Method</div>
+    <div class="tab" onclick="showTab('process')">Process</div>
   </div>
 
   <!-- OVERVIEW -->
@@ -485,6 +494,46 @@ a:hover{color:var(--accent-2)}
     </div>
   </div>
 
+  <!-- PROCESS -->
+  <div id="process" class="panel">
+    <p class="lede"><span class="drop">T</span>his wasn't one query. Over 20.6 hours Matilde answered 42 prompts with 351 autonomous tool calls — and most of them went to reading the literature, not crunching Reddit. The full reasoning trace is published; this is its shape.</p>
+
+    <div class="figures" style="margin-bottom:2.2rem">
+      <div class="fig"><div class="n">351</div><div class="l">Tool calls</div></div>
+      <div class="fig"><div class="n">42</div><div class="l">Human prompts</div></div>
+      <div class="fig"><div class="n">8.4</div><div class="l">Calls / prompt</div></div>
+      <div class="fig"><div class="n">18</div><div class="l">Distinct tools</div></div>
+      <div class="fig"><div class="n">20.6h</div><div class="l">Span of work</div></div>
+    </div>
+
+    <div class="card">
+      <h3>Where the effort went</h3>
+      <div class="vlegend" id="process-cat-legend"></div>
+      <div id="process-cats"></div>
+    </div>
+
+    <div class="card">
+      <h3>Every tool, by call count</h3>
+      <div id="process-tools"></div>
+    </div>
+
+    <div class="card">
+      <h3>What the shape tells you</h3>
+      <div class="prose">
+        <p><b>Research dwarfs everything.</b> 230 of 351 tool calls — two-thirds of the work — were literature and web research (190 searches, 40 extractions). Encoding the Reddit corpus was the easy part; the rigor was in checking every community signal against the published record.</p>
+        <p><b>It worked like an agent, not a query.</b> 42 human prompts produced 351 tool calls — roughly 8 autonomous actions per ask — plus 56 exposed reasoning blocks and one <code>delegate_task</code> that fanned out a parallel literature researcher per peptide.</p>
+        <p><b>The heavy compute never touched a paid API.</b> The 2,979 model inferences that encoded the corpus all ran on a local GPU (qwen3.5:9b via Ollama) at <b>zero API cost</b>. The agent loop ran on a frontier model; the grunt work ran in-house.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Read the raw trace</h3>
+      <div class="prose">
+        <p>None of this is reconstructed after the fact. The complete working session — prompts, replies, tool calls, tool results, and reasoning — is published as <a href="https://github.com/NimbleCoAI/open-science/blob/main/experiments/peptide-reporting/trace/peptide-reasoning-trace.md" target="_blank">a readable transcript</a> and <a href="https://github.com/NimbleCoAI/open-science/blob/main/experiments/peptide-reporting/trace/peptide-reasoning-trace.sanitized.jsonl" target="_blank">machine-readable JSONL</a>, alongside the <a href="https://github.com/NimbleCoAI/open-science/tree/main/experiments/peptide-reporting/data" target="_blank">full dataset</a>.</p>
+      </div>
+    </div>
+  </div>
+
   <footer class="foot">
     <div class="big">Show your work — including how it thought.</div>
     An open-science experiment from NimbleCo. Dataset, reasoning traces, and this dashboard are released for anyone to verify, fork, or build on.<br>
@@ -498,6 +547,8 @@ const DATA = {"normalized": {"post_counts": {"BPC-157": 344, "Semax": 143, "Sela
 
 const PEPTIDE_COLORS = {"BPC-157": "#b04a3a", "Selank": "#2c6c8c", "Semax": "#5f7a3a"};
 const PEPTIDE_KEYS = {"BPC-157": "bpc157", "Selank": "selank", "Semax": "semax"};
+const TRACE_STATS = {"totals": {"tool_calls": 351, "prompts": 42, "assistant_msgs": 249, "reasoning_blocks": 56, "sessions": 11, "distinct_tools": 18, "hours": 20.6, "calls_per_prompt": 8.4}, "tools": [{"name": "web_search", "count": 190, "cat": "research"}, {"name": "execute_code", "count": 43, "cat": "code"}, {"name": "web_extract", "count": 40, "cat": "research"}, {"name": "terminal", "count": 20, "cat": "code"}, {"name": "browser_vision", "count": 10, "cat": "browse"}, {"name": "read_file", "count": 10, "cat": "code"}, {"name": "todo", "count": 6, "cat": "coord"}, {"name": "browser_click", "count": 6, "cat": "browse"}, {"name": "matilde_verify_citation", "count": 6, "cat": "cite"}, {"name": "process", "count": 5, "cat": "code"}, {"name": "search_files", "count": 3, "cat": "code"}, {"name": "send_message", "count": 2, "cat": "coord"}, {"name": "browser_navigate", "count": 2, "cat": "browse"}, {"name": "write_file", "count": 2, "cat": "code"}, {"name": "browser_scroll", "count": 2, "cat": "browse"}, {"name": "patch", "count": 2, "cat": "code"}, {"name": "delegate_task", "count": 1, "cat": "coord"}, {"name": "matilde_verify_bibliography", "count": 1, "cat": "cite"}], "categories": [{"key": "research", "label": "Literature & web research", "count": 230}, {"key": "code", "label": "Code & data", "count": 85}, {"key": "browse", "label": "Browsing sources", "count": 20}, {"key": "coord", "label": "Planning & coordination", "count": 9}, {"key": "cite", "label": "Citation checking", "count": 7}], "batch": {"local_inferences": 2979, "api_cost_usd": 0, "gpu": "qwen3.5:9b on local Ollama"}};
+const CAT_COLORS = {research:'var(--accent)', code:'var(--sem)', browse:'var(--sel)', cite:'var(--novel)', coord:'var(--mixed)'};
 
 function showTab(id){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
@@ -648,9 +699,22 @@ function showPostTab(pep, el){
   document.getElementById('post-list').innerHTML=html;
 }
 
+function pbar(label,count,max,color){
+  const pct=Math.max(count/max*100,1.5);
+  return `<div class="pbar-row"><div class="pbar-label">${label}</div><div class="pbar-track"><div class="pbar-fill" style="width:${pct}%;background:${color}"></div></div><div class="pbar-val">${count}</div></div>`;
+}
+function renderProcess(){
+  const S=TRACE_STATS;
+  const cmax=Math.max(...S.categories.map(c=>c.count));
+  document.getElementById('process-cats').innerHTML=S.categories.map(c=>pbar(c.label,c.count,cmax,CAT_COLORS[c.key])).join('');
+  document.getElementById('process-cat-legend').innerHTML=S.categories.map(c=>`<span><span class="vdot" style="background:${CAT_COLORS[c.key]}"></span> ${c.label} <b style="color:var(--ink)">${c.count}</b></span>`).join('');
+  const tmax=Math.max(...S.tools.map(t=>t.count));
+  document.getElementById('process-tools').innerHTML=S.tools.map(t=>pbar(t.name,t.count,tmax,CAT_COLORS[t.cat])).join('');
+}
 renderOverview();
 for(const pep of ["BPC-157","Selank","Semax"]){ renderPeptideChart(pep); renderPeptideLit(pep); renderPeptideRefs(pep); }
 renderComparison();
+renderProcess();
 showLitTab('all', document.querySelector('#lit-tabs .sub-tab'));
 showPostTab('BPC-157', document.querySelector('#post-tabs .sub-tab'));
 </script>
