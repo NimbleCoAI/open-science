@@ -143,6 +143,17 @@ a:hover{color:var(--accent-2)}
 .bird-card .te-reo{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--accent-2);margin-top:.2rem}
 .bird-card .sci{font-family:var(--mono);font-size:.68rem;color:var(--ink-faint);margin-top:.3rem}
 .bird-card .stats{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margin-top:.5rem;line-height:1.6}
+.bird-card .play-btn{
+  display:flex;align-items:center;gap:.45rem;margin-top:.7rem;padding:.4rem .7rem;
+  background:var(--surface-2);border:1px solid var(--rule);border-radius:999px;
+  font-family:var(--mono);font-size:.7rem;color:var(--accent);cursor:pointer;
+  transition:all .18s ease;width:fit-content;
+}
+.bird-card .play-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.bird-card .play-btn.playing{background:var(--accent-2);color:#fff;border-color:var(--accent-2)}
+.bird-card .play-btn svg{width:14px;height:14px;fill:currentColor}
+.bird-card .xc-link{font-family:var(--mono);font-size:.62rem;color:var(--ink-faint);margin-top:.3rem;display:block}
+.bird-card .xc-link:hover{color:var(--accent)}
 
 /* ============ MAP ============ */
 #map{height:520px;border-radius:8px;border:1px solid var(--rule);margin:1rem 0 1.5rem}
@@ -653,46 +664,46 @@ tr:hover td{background:var(--surface-2)}
 <script>
 // ==================== DATA ====================
 const SPECIES_DATA = [
-  {en:"Tūī",teReo:"Tūī",sci:"Prosthemadera novaeseelandiae",recs:249,qa:131,songs:214,calls:21,
+  {en:"Tūī",teReo:"Tūī",sci:"Prosthemadera novaeseelandiae",recs:249,qa:131,songs:214,calls:21,xcId:975474,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tui_%28Prosthemadera_novaeseelandiae%29_Tiritiri_Matangi.jpg/500px-Tui_%28Prosthemadera_novaeseelandiae%29_Tiritiri_Matangi.jpg",
    note:"NZ's most complex songbird. 116 A-quality songs in dataset."},
-  {en:"New Zealand Bellbird",teReo:"Korimako",sci:"Anthornis melanura",recs:103,qa:67,songs:74,calls:25,
+  {en:"New Zealand Bellbird",teReo:"Korimako",sci:"Anthornis melanura",recs:103,qa:67,songs:74,calls:25,xcId:152939,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/New_Zealand_bellbird_%28Anthornis_melanura%29_male_Tiritiri_Matangi.jpg/500px-New_Zealand_bellbird_%28Anthornis_melanura%29_male_Tiritiri_Matangi.jpg",
    note:"The other major honeyeater. Comparison pipeline planned."},
-  {en:"New Zealand Kaka",teReo:"Kākā",sci:"Nestor meridionalis",recs:55,qa:25,songs:10,calls:43,
+  {en:"New Zealand Kaka",teReo:"Kākā",sci:"Nestor meridionalis",recs:55,qa:25,songs:10,calls:43,xcId:326938,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Scrapping_kaka.jpg/500px-Scrapping_kaka.jpg",
    note:"Mostly calls (43) vs songs (10). Different vocal structure from honeyeaters."},
-  {en:"Kea",teReo:"Kea",sci:"Nestor notabilis",recs:15,qa:8,songs:0,calls:15,
+  {en:"Kea",teReo:"Kea",sci:"Nestor notabilis",recs:15,qa:8,songs:0,calls:15,xcId:405529,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Nestor_notabilis_-Fiordland%2C_New_Zealand-8b.jpg/500px-Nestor_notabilis_-Fiordland%2C_New_Zealand-8b.jpg",
    note:"All calls, no songs. Alpine parrot of the Southern Alps."},
-  {en:"Kererū",teReo:"Kererū",sci:"Hemiphaga novaeseelandiae",recs:16,qa:5,songs:4,calls:7,
+  {en:"Kererū",teReo:"Kererū",sci:"Hemiphaga novaeseelandiae",recs:16,qa:5,songs:4,calls:7,xcId:957404,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/New_Zealand_pigeon_%28Hemiphaga_novaeseelandiae%29_Waitakere.jpg/500px-New_Zealand_pigeon_%28Hemiphaga_novaeseelandiae%29_Waitakere.jpg",
    note:"NZ wood pigeon. Deep wing-beats audible in flight."},
-  {en:"Morepork",teReo:"Ruru",sci:"Ninox novaeseelandiae",recs:41,qa:21,songs:15,calls:24,
+  {en:"Morepork",teReo:"Ruru",sci:"Ninox novaeseelandiae",recs:41,qa:21,songs:15,calls:24,xcId:33770,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Morepork_0A2A7676.jpg/500px-Morepork_0A2A7676.jpg",
    note:"NZ's only surviving native owl. Named for its call."},
-  {en:"New Zealand Fantail",teReo:"Pīwakawaka",sci:"Rhipidura fuliginosa",recs:49,qa:25,songs:32,calls:15,
+  {en:"New Zealand Fantail",teReo:"Pīwakawaka",sci:"Rhipidura fuliginosa",recs:49,qa:25,songs:32,calls:15,xcId:984431,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/The_New_Zealand_fantail_%28Rhipidura_fuliginosa%29_%2826323434203%29.jpg/500px-The_New_Zealand_fantail_%28Rhipidura_fuliginosa%29_%2826323434203%29.jpg",
    note:"Acrobatic insectivore with a distinctive fanned tail."},
-  {en:"Grey Warbler",teReo:"Riroriro",sci:"Gerygone igata",recs:57,qa:29,songs:47,calls:8,
+  {en:"Grey Warbler",teReo:"Riroriro",sci:"Gerygone igata",recs:57,qa:29,songs:47,calls:8,xcId:153000,
    img:"https://upload.wikimedia.org/wikipedia/commons/7/74/Grey_Gerygone_-_Pureora_Forest_Park%2C_New_Zealand.jpg",
    note:"Heard more than seen. One of NZ's most widespread birds."},
-  {en:"North Island Kōkako",teReo:"Kōkako",sci:"Callaeas wilsoni",recs:21,qa:5,songs:17,calls:4,
+  {en:"North Island Kōkako",teReo:"Kōkako",sci:"Callaeas wilsoni",recs:21,qa:5,songs:17,calls:4,xcId:534280,
    img:"https://upload.wikimedia.org/wikipedia/commons/a/a2/K%C5%8Dkako.jpg",
    note:"Endangered. Famous haunting duet song."},
-  {en:"North Island Saddleback",teReo:"Tīeke",sci:"Philesturnus rufusater",recs:38,qa:22,songs:23,calls:12,
+  {en:"North Island Saddleback",teReo:"Tīeke",sci:"Philesturnus rufusater",recs:38,qa:22,songs:23,calls:12,xcId:794902,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/North_Island_Saddleback_0A2A0096.jpg/500px-North_Island_Saddleback_0A2A0096.jpg",
    note:"Once near-extinction; now thriving on predator-free islands."},
-  {en:"North Island Brown Kiwi",teReo:"Kiwi",sci:"Apteryx mantelli",recs:24,qa:7,songs:3,calls:20,
+  {en:"North Island Brown Kiwi",teReo:"Kiwi",sci:"Apteryx mantelli",recs:24,qa:7,songs:3,calls:20,xcId:955810,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/500px-TeTuatahianui.jpg",
    note:"Nocturnal. Distinctive shrill whistle-call."},
-  {en:"Kākāpō",teReo:"Kākāpō",sci:"Strigops habroptilus",recs:1,qa:0,songs:0,calls:0,
+  {en:"Kākāpō",teReo:"Kākāpō",sci:"Strigops habroptilus",recs:1,qa:0,songs:0,calls:0,xcId:295659,
    img:"https://upload.wikimedia.org/wikipedia/commons/a/aa/Sirocco_full_length_portrait.jpg",
    note:"World's only flightless parrot. Booming call carries for km."},
-  {en:"Weka",teReo:"Weka",sci:"Gallirallus australis",recs:34,qa:22,songs:9,calls:23,
+  {en:"Weka",teReo:"Weka",sci:"Gallirallus australis",recs:34,qa:22,songs:9,calls:23,xcId:345371,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/0A2A9595_Weka.jpg/500px-0A2A9595_Weka.jpg",
    note:"Flightless rail. Loud co-operative calling at dusk."},
-  {en:"Rifleman",teReo:"Tītipounamu",sci:"Acanthisitta chloris",recs:33,qa:13,songs:6,calls:26,
+  {en:"Rifleman",teReo:"Tītipounamu",sci:"Acanthisitta chloris",recs:33,qa:13,songs:6,calls:26,xcId:956962,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Lake_Sylvan_-_Rifleman_%285626163357%29_%28cropped%29.jpg/500px-Lake_Sylvan_-_Rifleman_%285626163357%29_%28cropped%29.jpg",
    note:"NZ's smallest bird. High-pitched contact calls at ~8kHz."}
 ];
@@ -783,6 +794,61 @@ document.querySelectorAll('.tab').forEach(tab => {
 });
 
 // ==================== SPECIES GALLERY ====================
+// Audio player state
+let currentAudio = null;
+let currentBtn = null;
+
+function togglePlay(btn, xcId) {
+  const playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  const stopIcon = '<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
+  
+  // If something is playing, stop it
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+    if (currentBtn) {
+      currentBtn.classList.remove('playing');
+      currentBtn.innerHTML = playIcon + ' Listen';
+    }
+    // If clicking same button, just stop
+    if (currentBtn === btn) { currentBtn = null; return; }
+  }
+  
+  // Start playing via XC embed audio
+  btn.classList.add('playing');
+  btn.innerHTML = stopIcon + ' Playing...';
+  currentBtn = btn;
+  
+  const audio = new Audio(`https://xeno-canto.org/${xcId}/download`);
+  audio.crossOrigin = 'anonymous';
+  currentAudio = audio;
+  
+  audio.addEventListener('ended', () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = playIcon + ' Listen';
+    currentAudio = null;
+    currentBtn = null;
+  });
+  
+  audio.addEventListener('error', () => {
+    // Fallback: open XC page instead
+    btn.classList.remove('playing');
+    btn.innerHTML = playIcon + ' Listen';
+    window.open(`https://xeno-canto.org/${xcId}`, '_blank');
+    currentAudio = null;
+    currentBtn = null;
+  });
+  
+  audio.play().catch(() => {
+    // Autoplay blocked — open XC page
+    btn.classList.remove('playing');
+    btn.innerHTML = playIcon + ' Listen';
+    window.open(`https://xeno-canto.org/${xcId}`, '_blank');
+    currentAudio = null;
+    currentBtn = null;
+  });
+}
+
 (function(){
   const g = document.getElementById('species-gallery');
   SPECIES_DATA.forEach(s => {
@@ -796,6 +862,10 @@ document.querySelectorAll('.tab').forEach(tab => {
         <div class="sci">${s.sci}</div>
         <div class="stats">${s.recs} recordings · ${s.qa} A-quality<br>${s.songs} songs · ${s.calls} calls</div>
         <div style="margin-top:.4rem;font-size:.82rem;color:var(--ink-soft);font-style:italic">${s.note}</div>
+        <div class="play-btn" onclick="togglePlay(this, ${s.xcId})">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Listen
+        </div>
+        <a class="xc-link" href="https://xeno-canto.org/${s.xcId}" target="_blank">XC${s.xcId} on Xeno-Canto →</a>
       </div>`;
     g.appendChild(card);
   });
