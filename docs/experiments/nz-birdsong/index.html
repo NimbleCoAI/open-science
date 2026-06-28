@@ -80,7 +80,7 @@ a:hover{color:var(--accent-2)}
 
 /* ============ FIGURES ============ */
 .figures{
-  display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+  display:grid;grid-template-columns:repeat(7,1fr);gap:0;
   border-bottom:1.5px solid var(--ink);margin-bottom:2.4rem;
 }
 .fig{padding:1.5rem 1.2rem 1.6rem;border-right:1px solid var(--rule);position:relative}
@@ -303,11 +303,12 @@ tr:hover td{background:var(--surface-2)}
     <div class="fig"><div class="n">5</div><div class="l">Syllable<br>types</div></div>
     <div class="fig"><div class="n">116</div><div class="l">Tūī songs<br>analysed</div></div>
     <div class="fig"><div class="n">42</div><div class="l">Bellbird songs<br>analysed</div></div>
+    <div class="fig"><div class="n">25</div><div class="l">Kākā calls<br>analysed</div></div>
   </div>
 
   <div class="note">
     <div class="mark">Scope</div>
-    <div>This is an <b>extended replication</b> of Hill &amp; Ji (2014) using crowd-sourced field recordings. We analysed all <b>116 tūī A-quality songs</b> and <b>42 bellbird</b> recordings, with geographic variation across 10 regions. Discrepancies with Hill's manual classification are discussed. Full unsupervised clustering is pending.</div>
+    <div>This is an <b>extended replication</b> of Hill &amp; Ji (2014) using crowd-sourced field recordings. We analysed all <b>116 tūī A-quality songs</b>, <b>47 bellbird</b>, and <b>25 kākā</b> recordings, with geographic variation across 10 regions. Discrepancies with Hill's manual classification are discussed.</div>
   </div>
 
   <!-- ============ TAB BAR ============ -->
@@ -348,14 +349,15 @@ tr:hover td{background:var(--surface-2)}
     
     <div class="two-col">
       <div class="card">
-        <h3>Tūī vs Bellbird: Complexity Gap</h3>
+        <h3>Three Species Compared</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Tūī average <b>151 syllables per recording</b> vs bellbird's 118 — 28% more vocal output. 
-          Tūī also use high-frequency syllables 12× more often (11.1% vs 0.9%), suggesting a wider 
-          frequency range. This aligns with tūī having one of the most complex vocal systems among passerines.
+          Tūī average <b>151 syllables per recording</b>, bellbird 112, kākā just 55. 
+          Tūī use high-frequency syllables 12× more than bellbird (11.1% vs 1.7%) and 22× more than kākā (4.3%). 
+          Kākā vocalisations are dominated by low-frequency (69%) with 18.5% harmonic — a simpler repertoire 
+          consistent with their call-heavy vocal style (43 calls vs 10 songs in our dataset).
         </p>
         <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          116 tūī (17,554 syllables) + 42 bellbird (4,951 syllables)
+          116 tūī · 47 bellbird · 25 kākā · 24,185 total syllables
         </div>
       </div>
       <div class="card">
@@ -600,9 +602,9 @@ tr:hover td{background:var(--surface-2)}
       <div class="pbar-row"><div class="pbar-label">XC API Query</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--pos)"></div></div><div class="pbar-val">3,096</div></div>
       <div class="pbar-row"><div class="pbar-label">Species Identified</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent)"></div></div><div class="pbar-val">177</div></div>
       <div class="pbar-row"><div class="pbar-label">Tūī Songs Analysed</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--tui)"></div></div><div class="pbar-val">116</div></div>
-      <div class="pbar-row"><div class="pbar-label">Bellbird Songs Analysed</div><div class="pbar-track"><div class="pbar-fill" style="width:36.2%;background:var(--bellbird)"></div></div><div class="pbar-val">42</div></div>
-      <div class="pbar-row"><div class="pbar-label">Tūī Syllables</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent-2)"></div></div><div class="pbar-val">17,554</div></div>
-      <div class="pbar-row"><div class="pbar-label">Bellbird Syllables</div><div class="pbar-track"><div class="pbar-fill" style="width:28.2%;background:var(--bellbird)"></div></div><div class="pbar-val">4,951</div></div>
+      <div class="pbar-row"><div class="pbar-label">Bellbird Songs Analysed</div><div class="pbar-track"><div class="pbar-fill" style="width:40.5%;background:var(--bellbird)"></div></div><div class="pbar-val">47</div></div>
+      <div class="pbar-row"><div class="pbar-label">Kākā Calls Analysed</div><div class="pbar-track"><div class="pbar-fill" style="width:21.6%;background:var(--kaka)"></div></div><div class="pbar-val">25</div></div>
+      <div class="pbar-row"><div class="pbar-label">Total Syllables</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent-2)"></div></div><div class="pbar-val">24,185</div></div>
       <div class="pbar-row"><div class="pbar-label">Citations Verified</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--pos)"></div></div><div class="pbar-val">5/5</div></div>
     </div>
   </div>
