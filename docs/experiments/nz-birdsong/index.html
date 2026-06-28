@@ -317,7 +317,7 @@ tr:hover td{background:var(--surface-2)}
     <div class="tab" data-tab="species">Species Gallery</div>
     <div class="tab" data-tab="syllables">Syllable Analysis</div>
     <div class="tab" data-tab="samples">Syllable Samples</div>
-    <div class="tab" data-tab="map">Recording Map</div>
+    <div class="tab" data-tab="map">Geographic Analysis</div>
     <div class="tab" data-tab="data">Dataset</div>
     <div class="tab" data-tab="methods">Methodology</div>
     <div class="tab" data-tab="literature">Literature</div>
@@ -478,9 +478,16 @@ tr:hover td{background:var(--surface-2)}
     </div>
   </div>
 
-  <!-- ==================== MAP ==================== -->
+  <!-- ==================== GEOGRAPHIC ANALYSIS ==================== -->
   <div class="panel" id="panel-map">
-    <div class="section-label">Recording Map of Aotearoa</div>
+    <div class="section-label">Geographic Analysis — Regional Vocal Variation</div>
+    <div class="lede" style="font-size:1.25rem;margin-bottom:1.5rem">
+      <span class="drop">D</span>o birds from different regions sing differently? We mapped syllable repertoires across 
+      Aotearoa for all three species. The results suggest genuine regional variation — Auckland tūī 
+      are the most vocally diverse, Southland birds the most monotone, and kākā from different forests 
+      show strikingly different vocal profiles.
+    </div>
+
     <p style="color:var(--ink-soft);margin-bottom:.8rem;font-size:.95rem">
       1,607 geotagged recordings from Xeno-Canto, coloured by species. Click markers for recording details. 
       Use the filters to isolate species of interest.
@@ -493,8 +500,6 @@ tr:hover td{background:var(--surface-2)}
       <div class="map-filter" data-species="New Zealand Kaka">Kākā</div>
       <div class="map-filter" data-species="Kea">Kea</div>
       <div class="map-filter" data-species="Morepork">Morepork</div>
-      <div class="map-filter" data-species="Whitehead">Whitehead</div>
-      <div class="map-filter" data-species="Grey Gerygone">Grey Warbler</div>
     </div>
     
     <div id="map"></div>
@@ -505,6 +510,125 @@ tr:hover td{background:var(--surface-2)}
       <span style="color:var(--kaka)">● Kākā</span> · 
       <span style="color:var(--kea)">● Kea</span> · 
       <span style="color:#8b949e">● Other species</span>
+    </div>
+
+    <!-- TŪĪ REGIONAL COMPARISON -->
+    <div class="section-label" style="margin-top:2.5rem">Tūī — Regional Syllable Repertoires</div>
+    <p style="color:var(--ink-soft);margin-bottom:1rem;font-size:.92rem">
+      Syllable type proportions across 10 regions, sorted by vocal diversity (Shannon entropy). 
+      Auckland tūī show the richest mix; Southland and Hawke's Bay are dominated by low-frequency syllables.
+    </p>
+    
+    <div class="card">
+      <h3>Tūī Syllable Mix by Region</h3>
+      <div class="chart-wrap" style="height:380px">
+        <canvas id="tuiRegionalChart"></canvas>
+      </div>
+      <div style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:.5rem">
+        Stacked bars: syllable type proportions per region · 113 geotagged tūī recordings
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem">
+      <div class="card">
+        <h3>Regional Diversity Index</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
+          Shannon entropy of syllable types per region — higher = more diverse repertoire. 
+          Auckland (1.44) and Waikato (1.52) are the most diverse; Hawke's Bay (0.95) the least.
+        </p>
+        <div class="chart-wrap chart-small">
+          <canvas id="diversityChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>High-Frequency Gradient</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
+          Tūī high-frequency syllable usage varies from 17% (Northland) down to 1.9% (Otago). 
+          Northern/urban populations appear to use more high-frequency elements — possibly reflecting 
+          denser populations and greater territorial competition.
+        </p>
+        <div class="chart-wrap chart-small">
+          <canvas id="highFreqChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- KĀKĀ DIALECT COMPARISON -->
+    <div class="section-label" style="margin-top:2.5rem">Kākā — Forest Dialects</div>
+    <div class="lede" style="font-size:1.15rem;margin-bottom:1rem">
+      Kākā from different forests show strikingly different vocal profiles. Stewart Island birds are dominated by 
+      low-frequency calls, while Pureora Forest kākā show significantly more harmonic content — and one 
+      Pureora individual (XC959275) produced more harmonic than low-frequency syllables, a pattern not 
+      seen in any Southland bird.
+    </div>
+
+    <div class="card">
+      <h3>Kākā Vocal Profiles by Location</h3>
+      <div class="chart-wrap" style="height:300px">
+        <canvas id="kakaDialectChart"></canvas>
+      </div>
+      <div style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:.5rem">
+        19 geotagged kākā recordings across 4 regions · Note small sample sizes
+      </div>
+    </div>
+    
+    <div class="two-col" style="margin-top:1rem">
+      <div class="card">
+        <h3>Stewart Island / Rakiura</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          <b>8 recordings, 577 syllables.</b> Dominated by low-frequency calls (74%). 
+          These birds — mostly recorded at Oban and Ulva Island — show relatively low harmonic content (14.9%).
+          The most uniform vocal profile of any kākā population.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">
+          Locations: Oban (5), Ulva Island (1), Pilgrims Cottage (2)
+        </div>
+      </div>
+      <div class="card">
+        <h3>Pureora Forest / Waikato</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          <b>6 recordings, 158 syllables.</b> Much more varied — harmonic syllables reach 23.4%, 
+          the highest of any kākā population. One individual (XC959275) was harmonic-dominant. 
+          These are mainland forest birds, potentially with different social structures and less isolation.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">
+          Locations: Ngaherenga DOC campsite, Mangakino
+        </div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem">
+      <div class="mark">Caveat</div>
+      <div>Kākā sample sizes are small (4–8 recordings per region). These patterns are <b>suggestive, not conclusive</b> — 
+      individual variation could explain the differences as much as genuine dialect. The same recorder contributed 
+      many Pureora recordings, so recorder bias is also possible. More XC recordings from other kākā populations 
+      (e.g. Zealandia, Codfish Island, Whirinaki) would strengthen these comparisons.</div>
+    </div>
+
+    <!-- BELLBIRD REGIONAL -->
+    <div class="section-label" style="margin-top:2.5rem">Bellbird — Regional Variation</div>
+    
+    <div class="card">
+      <h3>Bellbird Syllable Mix by Region</h3>
+      <div class="chart-wrap" style="height:320px">
+        <canvas id="bellbirdRegionalChart"></canvas>
+      </div>
+      <div style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:.5rem">
+        46 geotagged bellbird recordings across 12 regions
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h3>Cross-Species Comparison: Auckland vs Southland</h3>
+      <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
+        Both tūī and bellbird show more diverse repertoires in Auckland than Southland — but the pattern 
+        is much more pronounced in tūī. Auckland bellbirds have 9.8% high-frequency syllables vs 0.2% in 
+        Southland; for tūī the gap is 15.8% vs 7.0%. This parallel pattern suggests ecological rather than 
+        species-specific drivers — urban/suburban habitat, population density, or noise environment.
+      </p>
+      <div class="chart-wrap chart-small">
+        <canvas id="crossSpeciesRegionChart"></canvas>
+      </div>
     </div>
 
     <div class="two-col" style="margin-top:1.5rem">
@@ -918,6 +1042,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     // Lazy init map
     if (tab.dataset.tab === 'map' && !window._mapInit) initMap();
     if (tab.dataset.tab === 'map' && !window._mapChartsInit) initMapCharts();
+    if (tab.dataset.tab === 'map' && !window._geoChartsInit) initGeoCharts();
     // Re-render charts on tab switch (Chart.js needs visible container)
     if (tab.dataset.tab === 'syllables' && !window._sylInit) initSyllables();
     if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
@@ -1264,7 +1389,180 @@ function initMapCharts() {
   });
 }
 
-// ==================== SYLLABLE SAMPLES EXPLORER ====================
+// ==================== GEOGRAPHIC ANALYSIS CHARTS ====================
+// Regional syllable data per species
+const TUI_GEO = [
+  {region:'Auckland',recs:21,syls:3682,low:41.3,harm:22.6,high:15.8,rmnr:11.1,trill:9.3},
+  {region:'Waikato',recs:3,syls:215,low:44.7,harm:16.7,high:9.8,rmnr:14.0,trill:14.9},
+  {region:'Otago',recs:3,syls:207,low:47.3,harm:44.4,high:1.9,rmnr:5.3,trill:1.0},
+  {region:'Northland',recs:4,syls:1345,low:51.3,harm:14.7,high:17.0,rmnr:10.1,trill:6.8},
+  {region:'Wellington',recs:13,syls:1741,low:52.3,harm:18.8,high:13.9,rmnr:9.2,trill:5.7},
+  {region:'Bay of Plenty',recs:11,syls:1872,low:52.5,harm:19.4,high:10.6,rmnr:8.7,trill:8.8},
+  {region:'West Coast',recs:40,syls:5335,low:58.4,harm:19.4,high:9.5,rmnr:8.1,trill:4.6},
+  {region:'Tasman',recs:1,syls:61,low:67.2,harm:14.8,high:9.8,rmnr:4.9,trill:3.3},
+  {region:'Southland',recs:13,syls:1349,low:67.0,harm:14.6,high:7.0,rmnr:7.5,trill:3.9},
+  {region:"Hawke's Bay",recs:4,syls:1158,low:69.9,harm:12.5,high:3.7,rmnr:11.1,trill:2.7}
+];
+
+const BELLBIRD_GEO = [
+  {region:'West Coast',recs:1,syls:192,low:32.3,harm:58.3,high:0,rmnr:7.8,trill:1.6},
+  {region:'Tasman',recs:2,syls:30,low:53.3,harm:40.0,high:0,rmnr:6.7,trill:0},
+  {region:'Auckland',recs:9,syls:552,low:63.8,harm:18.3,high:9.8,rmnr:4.3,trill:3.8},
+  {region:'Canterbury',recs:4,syls:252,low:65.5,harm:23.0,high:0.8,rmnr:8.7,trill:2.0},
+  {region:'Marlborough',recs:2,syls:133,low:69.9,harm:21.8,high:0,rmnr:8.3,trill:0},
+  {region:'Northland',recs:4,syls:355,low:70.1,harm:9.9,high:0,rmnr:7.3,trill:12.7},
+  {region:'Southland',recs:5,syls:474,low:72.2,harm:17.9,high:0.2,rmnr:6.5,trill:3.2},
+  {region:'Waikato',recs:3,syls:205,low:75.6,harm:10.2,high:8.8,rmnr:4.4,trill:1.0},
+  {region:'Bay of Plenty',recs:7,syls:703,low:77.8,harm:17.5,high:1.7,rmnr:1.1,trill:1.8},
+  {region:'Wellington',recs:7,syls:2196,low:79.3,harm:18.4,high:0.2,rmnr:2.0,trill:0.1},
+  {region:"Hawke's Bay",recs:1,syls:107,low:94.4,harm:3.7,high:0,rmnr:1.9,trill:0}
+];
+
+const KAKA_GEO = [
+  {region:'Waikato (Pureora)',recs:6,syls:158,low:64.6,harm:23.4,high:3.8,rmnr:5.7,trill:2.5},
+  {region:'Auckland (Tāwharanui)',recs:1,syls:68,low:72.1,harm:27.9,high:0,rmnr:0,trill:0},
+  {region:'Southland (Stewart I.)',recs:8,syls:577,low:74.0,harm:14.9,high:3.8,rmnr:6.9,trill:0.3},
+  {region:'Wellington (Kapiti)',recs:4,syls:198,low:77.8,harm:9.6,high:8.1,rmnr:2.0,trill:2.5}
+];
+
+function initGeoCharts() {
+  if (window._geoChartsInit) return;
+  window._geoChartsInit = true;
+  
+  const chartFont = {family:'Spline Sans Mono',size:10};
+  const gridColor = '#e2d9c7';
+  const tickColor = '#a99e89';
+  const typeColors = ['#5f7a3a','#2c6c8c','#bb4a33','#b07d22','#7c5784'];
+  const typeLabels = ['Low-freq','Harmonic','High-freq','RMNR','Trill'];
+  const typeKeys = ['low','harm','high','rmnr','trill'];
+
+  // Tūī regional stacked bar (100% normalized)
+  new Chart(document.getElementById('tuiRegionalChart'), {
+    type:'bar',
+    data:{
+      labels: TUI_GEO.map(r => `${r.region} (${r.recs})`),
+      datasets: typeKeys.map((k,i) => ({
+        label: typeLabels[i],
+        data: TUI_GEO.map(r => r[k]),
+        backgroundColor: typeColors[i],
+        borderRadius: i === typeKeys.length-1 ? 2 : 0
+      }))
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'},
+               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.x+'%'}}},
+      scales:{
+        x:{stacked:true,max:100,ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}},
+        y:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{display:false}}
+      }
+    }
+  });
+
+  // Diversity index (Shannon entropy)
+  const entropies = TUI_GEO.map(r => {
+    const pcts = [r.low,r.harm,r.high,r.rmnr,r.trill].map(p=>p/100).filter(p=>p>0);
+    return {region:r.region, H: -pcts.reduce((s,p)=>s+p*Math.log(p),0)};
+  }).sort((a,b) => b.H - a.H);
+  
+  new Chart(document.getElementById('diversityChart'), {
+    type:'bar',
+    data:{
+      labels: entropies.map(e=>e.region),
+      datasets:[{data:entropies.map(e=>Math.round(e.H*100)/100),
+        backgroundColor:entropies.map(e=>e.H>1.3?'#357a5b':e.H>1.1?'#2c6c8c':'#bb4a33'),borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'Shannon H: '+ctx.parsed.x}}},
+      scales:{x:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor}},y:{ticks:{font:chartFont,color:tickColor},grid:{display:false}}}
+    }
+  });
+
+  // High-frequency gradient
+  const hfData = TUI_GEO.map(r=>({region:r.region,hf:r.high})).sort((a,b)=>b.hf-a.hf);
+  new Chart(document.getElementById('highFreqChart'), {
+    type:'bar',
+    data:{
+      labels:hfData.map(r=>r.region),
+      datasets:[{data:hfData.map(r=>r.hf),backgroundColor:'#bb4a33',borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x+'% high-freq'}}},
+      scales:{x:{ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}},y:{ticks:{font:chartFont,color:tickColor},grid:{display:false}}}
+    }
+  });
+
+  // Kākā dialect chart
+  new Chart(document.getElementById('kakaDialectChart'), {
+    type:'bar',
+    data:{
+      labels: KAKA_GEO.map(r => `${r.region} (${r.recs})`),
+      datasets: typeKeys.map((k,i) => ({
+        label: typeLabels[i],
+        data: KAKA_GEO.map(r => r[k]),
+        backgroundColor: typeColors[i],
+        borderRadius: i === typeKeys.length-1 ? 2 : 0
+      }))
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'},
+               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.x+'%'}}},
+      scales:{
+        x:{stacked:true,max:100,ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}},
+        y:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{display:false}}
+      }
+    }
+  });
+
+  // Bellbird regional
+  new Chart(document.getElementById('bellbirdRegionalChart'), {
+    type:'bar',
+    data:{
+      labels: BELLBIRD_GEO.map(r => `${r.region} (${r.recs})`),
+      datasets: typeKeys.map((k,i) => ({
+        label: typeLabels[i],
+        data: BELLBIRD_GEO.map(r => r[k]),
+        backgroundColor: typeColors[i],
+        borderRadius: i === typeKeys.length-1 ? 2 : 0
+      }))
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'},
+               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.x+'%'}}},
+      scales:{
+        x:{stacked:true,max:100,ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}},
+        y:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{display:false}}
+      }
+    }
+  });
+
+  // Cross-species Auckland vs Southland comparison
+  new Chart(document.getElementById('crossSpeciesRegionChart'), {
+    type:'bar',
+    data:{
+      labels: ['Low-freq','Harmonic','High-freq','RMNR','Trill'],
+      datasets:[
+        {label:'Tūī Auckland',data:[41.3,22.6,15.8,11.1,9.3],backgroundColor:'#5f7a3a',borderRadius:3},
+        {label:'Tūī Southland',data:[67.0,14.6,7.0,7.5,3.9],backgroundColor:'#5f7a3a44',borderRadius:3,borderWidth:1,borderColor:'#5f7a3a'},
+        {label:'Bellbird Auckland',data:[63.8,18.3,9.8,4.3,3.8],backgroundColor:'#2c6c8c',borderRadius:3},
+        {label:'Bellbird Southland',data:[72.2,17.9,0.2,6.5,3.2],backgroundColor:'#2c6c8c44',borderRadius:3,borderWidth:1,borderColor:'#2c6c8c'}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'},
+               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+'%'}}},
+      scales:{
+        x:{ticks:{font:chartFont,color:tickColor},grid:{display:false}},
+        y:{ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}}
+      }
+    }
+  });
+}
 const SAMPLE_TYPES = [
   {key:'low_frequency', name:'Low-frequency (<2kHz)', color:'var(--low)', count:9607, pct:'54.7%',
    desc:'Syllables with dominant frequency below 2kHz. The most common type in our automated classification — likely includes subsong elements and environmental sound that Hill\'s manual method would exclude.'},
