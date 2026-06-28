@@ -264,6 +264,19 @@ tr:hover td{background:var(--surface-2)}
 
 /* Leaflet popup override */
 .leaflet-popup-content-wrapper{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);border-radius:6px}
+
+/* ============ SAMPLE EXPLORER ============ */
+.syl-type-section{margin-bottom:2.5rem}
+.syl-type-section h3{font-family:var(--display);font-weight:600;font-size:1.3rem;color:var(--ink);margin-bottom:1rem;
+  display:flex;align-items:center;gap:.6rem}
+.syl-type-section h3 .syl-dot{width:10px;height:10px;border-radius:2px;display:inline-block}
+.syl-type-section .syl-desc{font-size:.9rem;color:var(--ink-soft);margin-bottom:1rem;max-width:60ch}
+.sample-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.sample-card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.sample-card img{width:100%;display:block;border-bottom:1px solid var(--rule)}
+.sample-card .sample-audio{padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem}
+.sample-card audio{flex:1;height:32px}
+.sample-card .sample-label{font-family:var(--mono);font-size:.68rem;color:var(--ink-faint);padding:0 1rem .7rem}
 .leaflet-popup-content{font-family:var(--mono);font-size:.78rem;color:var(--ink);line-height:1.5;margin:10px 14px}
 .leaflet-popup-tip{background:var(--surface)}
 </style>
@@ -306,6 +319,7 @@ tr:hover td{background:var(--surface-2)}
     <div class="tab" data-tab="data">Dataset</div>
     <div class="tab" data-tab="methods">Methodology</div>
     <div class="tab" data-tab="literature">Literature</div>
+    <div class="tab" data-tab="samples">Syllable Samples</div>
   </nav>
 
   <!-- ==================== OVERVIEW ==================== -->
@@ -651,6 +665,20 @@ tr:hover td{background:var(--surface-2)}
       <p><b>Geographic variation:</b> Compare syllable repertoires across NZ regions, following Hill et al. (2015).</p>
       <p><b>Kākā vocalisations:</b> 55 recordings (25 A-quality, 10 songs). Different vocal structure from honeyeaters — 
       interesting methodological challenge for the pipeline.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SYLLABLE SAMPLES ==================== -->
+  <div class="panel" id="panel-samples">
+    <div class="section-label">Syllable Type Explorer</div>
+    <p style="color:var(--ink-soft);margin-bottom:1.5rem;font-size:.95rem">
+      Representative examples of each syllable type, selected at median duration from the tūī dataset. 
+      Each shows a spectrogram (0–12kHz, magma colormap matching Hill's Raven Pro visualisations) with a playable audio clip.
+      Three examples per type show the variation within each category.
+    </p>
+
+    <div id="sample-types">
+      <!-- Populated by JS -->
     </div>
   </div>
 
@@ -1137,6 +1165,52 @@ function initMapCharts() {
     }
   });
 }
+
+// ==================== SYLLABLE SAMPLES EXPLORER ====================
+const SAMPLE_TYPES = [
+  {key:'low_frequency', name:'Low-frequency (<2kHz)', color:'var(--low)', count:9607, pct:'54.7%',
+   desc:'Syllables with dominant frequency below 2kHz. The most common type in our automated classification — likely includes subsong elements and environmental sound that Hill\'s manual method would exclude.'},
+  {key:'harmonic', name:'Harmonic', color:'var(--harmonic)', count:3301, pct:'18.8%',
+   desc:'Clear harmonic structure with integer multiples of the fundamental frequency. Hill found these most common (~15%). The spectrogram shows distinct parallel bands — the acoustic signature of a resonant vocal tract.'},
+  {key:'high_frequency', name:'High-frequency (≥5kHz)', color:'var(--high)', count:1946, pct:'11.1%',
+   desc:'Syllables with dominant frequency at or above 5kHz — near the upper limit of human hearing. Tūī produce these 12× more often than bellbird (11.1% vs 0.9%), making it the clearest inter-species difference.'},
+  {key:'trill', name:'Trill', color:'var(--trill)', count:1093, pct:'6.2%',
+   desc:'Rapid frequency modulation (>10 Hz) — the characteristic "warbling" sound. The spectrogram shows rapid up-and-down sweeps in frequency over short time spans.'},
+  {key:'rmnr', name:'RMNR (Rapid Modulated Narrowband Repeat)', color:'var(--rmnr)', count:762, pct:'9.2%',
+   desc:'Short, rapidly repeated notes within a narrow frequency band. Hill described these as machine-gun-like bursts. Distinguished from trills by the narrower frequency range.'}
+];
+
+(function(){
+  const container = document.getElementById('sample-types');
+  if (!container) return;
+  
+  SAMPLE_TYPES.forEach(type => {
+    const section = document.createElement('div');
+    section.className = 'syl-type-section';
+    
+    let samplesHtml = '';
+    for (let i = 0; i < 3; i++) {
+      samplesHtml += `
+        <div class="sample-card">
+          <img src="samples/${type.key}_${i}.png" alt="${type.name} example ${i+1}" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <div class="sample-audio">
+            <audio controls preload="none" src="samples/${type.key}_${i}.wav"></audio>
+          </div>
+          <div class="sample-label">Example ${i+1} · median-duration syllable with 200ms context padding</div>
+        </div>`;
+    }
+    
+    section.innerHTML = `
+      <h3><span class="syl-dot" style="background:${type.color}"></span> ${type.name}
+        <span style="font-family:var(--mono);font-size:.72rem;font-weight:400;color:var(--ink-faint)">${type.count.toLocaleString()} syllables (${type.pct})</span>
+      </h3>
+      <p class="syl-desc">${type.desc}</p>
+      <div class="sample-grid">${samplesHtml}</div>`;
+    
+    container.appendChild(section);
+  });
+})();
 
 // ==================== INIT VISIBLE TABS ====================
 // Overview is default, no charts needed there
