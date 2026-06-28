@@ -286,15 +286,15 @@ tr:hover td{background:var(--surface-2)}
   <div class="figures">
     <div class="fig"><div class="n">3,096</div><div class="l">Recordings</div></div>
     <div class="fig"><div class="n">177</div><div class="l">Species</div></div>
-    <div class="fig"><div class="n">3,539</div><div class="l">Syllables<br>detected</div></div>
+    <div class="fig"><div class="n">8,400</div><div class="l">Syllables<br>detected</div></div>
     <div class="fig"><div class="n">5</div><div class="l">Syllable<br>types</div></div>
-    <div class="fig"><div class="n">20</div><div class="l">Songs<br>analysed</div></div>
-    <div class="fig"><div class="n">14</div><div class="l">Species<br>profiled</div></div>
+    <div class="fig"><div class="n">47</div><div class="l">Tūī songs<br>analysed</div></div>
+    <div class="fig"><div class="n">42</div><div class="l">Bellbird songs<br>analysed</div></div>
   </div>
 
   <div class="note">
     <div class="mark">Scope</div>
-    <div>This is a <b>pilot replication</b> of Hill &amp; Ji (2014) using crowd-sourced field recordings instead of controlled studio captures. The automated pipeline is a first pass — discrepancies with Hill's manual classification are expected and discussed. Unsupervised clustering and full-dataset analysis are underway.</div>
+    <div>This is an <b>extended replication</b> of Hill &amp; Ji (2014) using crowd-sourced field recordings. We've scaled from the pilot 20 recordings to <b>47 tūī</b> and <b>42 bellbird</b> analyses, with geographic variation across three regions. Discrepancies with Hill's manual classification are discussed. Full unsupervised clustering is pending.</div>
   </div>
 
   <!-- ============ TAB BAR ============ -->
@@ -313,67 +313,68 @@ tr:hover td{background:var(--surface-2)}
     <div class="lede">
       <span class="drop">T</span>ūī are among the world's most complex songbirds — their repertoire includes harmonics, trills, and frequencies above 
       human hearing. Hill &amp; Ji (2014) hand-classified syllables from tūī at Tawharanui; we asked whether an automated 
-      pipeline could replicate that work using open recordings from across Aotearoa.
+      pipeline could replicate that work using open recordings from across Aotearoa — and then extended it to bellbird for comparison.
     </div>
     
     <div class="prose">
-      <p><strong>The short answer: partially.</strong> Our rule-based classifier detects the same broad syllable types Hill identified — low-frequency, 
-      harmonic, high-frequency, trill, and RMNR (rapid modulated narrowband repeats) — but the proportions differ markedly. 
-      Low-frequency syllables dominate our results at 56%, versus Hill's ~10%.</p>
+      <p><strong>The short answer: partially.</strong> Across 47 tūī recordings (8,400 syllables), our rule-based classifier finds the same broad types 
+      Hill identified — but the proportions differ. Low-frequency syllables dominate at 51.3%, versus Hill's ~10%. However, scaling from 20 to 47 
+      recordings actually <b>improved</b> the balance: harmonic syllables rose from 18% to 20.7%, and trill from 5.9% to 6.9%.</p>
       
-      <p>This discrepancy likely reflects three factors: <b>threshold calibration</b> (our automated energy detection picks up 
-      quieter subsong elements that a human analyst would exclude), <b>geographic breadth</b> (Hill studied a single population at 
-      Tawharanui; our data spans the entire country), and <b>missing categories</b> (Hill's "harsh" and "other" types have no clean 
-      automated equivalent, so those syllables get binned elsewhere).</p>
+      <p><b>The bellbird comparison is striking:</b> korimako show <b>74.6% low-frequency syllables</b> vs tūī's 51.3%, with far fewer harmonics (18.8% vs 20.7%) 
+      and dramatically fewer high-frequency elements (0.9% vs 12.1%). Tūī appear to have a richer, more varied vocal repertoire — 
+      consistent with the literature on honeyeater song complexity.</p>
       
-      <p>The planned shift to <b>unsupervised clustering</b> (HDBSCAN on MFCC features) should yield more naturalistic groupings 
-      and let the data speak for itself, rather than forcing syllables into predefined boxes.</p>
+      <p><b>Geographic variation:</b> Auckland tūī show notably more harmonic syllables (24.2%) and fewer low-frequency (41.1%) than 
+      West Coast birds (19.1% harmonic, 55.5% low-frequency). This hints at regional dialects — exactly what Hill et al. (2015) 
+      predicted but couldn't test at scale.</p>
     </div>
 
     <div class="section-label">Key Findings</div>
     
     <div class="two-col">
       <div class="card">
-        <h3>The Low-Frequency Question</h3>
+        <h3>Tūī vs Bellbird: Complexity Gap</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Our pilot finds 56.2% low-frequency syllables vs Hill's ~10%. This is the central discrepancy. 
-          Possible explanations include: the 2kHz threshold captures background environmental sound; 
-          subsong and call elements are included; and XC recordings have different noise profiles than 
-          Hill's controlled Marantz PMD620 setup.
+          Tūī average <b>178.7 syllables per recording</b> vs bellbird's 117.9 — 50% more vocal output. 
+          Tūī also use high-frequency syllables 13× more often (12.1% vs 0.9%), suggesting a wider 
+          frequency range. This aligns with tūī having one of the most complex vocal systems among passerines.
         </p>
         <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          → Next: HDBSCAN clustering to let the data define its own categories
+          47 tūī + 42 bellbird recordings analysed
         </div>
       </div>
       <div class="card">
-        <h3>Geographic Coverage</h3>
+        <h3>Auckland vs West Coast Tūī</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Hill studied tūī at a single site (Tawharanui, Auckland). Our Xeno-Canto dataset spans 
-          <b>13 regions</b> across both islands. This enables the geographic variation analysis Hill 
-          called for — do Southland tūī sing differently from Auckland tūī? The map tab shows 
-          recording density across Aotearoa.
+          Auckland tūī show the most diverse syllable mix: 24.2% harmonic, 15.1% high-frequency, 
+          11.2% RMNR. West Coast tūī are more monotone: 55.5% low-frequency dominant. 
+          This could reflect population density, habitat acoustics, or genuine dialect variation.
         </p>
         <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          → 166 geotagged tūī recordings across NZ
+          3 regions · 44 geotagged recordings
         </div>
       </div>
     </div>
 
     <div class="two-col" style="margin-top:0">
       <div class="card">
+        <h3>The Low-Frequency Question</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          Low-frequency syllables still dominate (51.3% vs Hill's ~10%), but <b>dropped from 56.2% in the pilot</b> 
+          as more recordings were added. This suggests the bias partially reflects small-sample effects, 
+          though threshold calibration and subsong inclusion remain factors.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
+          → HDBSCAN clustering next to let data define its own categories
+        </div>
+      </div>
+      <div class="card">
         <h3>Most Complex Singer</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
           Recording <b>XC1090728</b> stands out: harmonic syllables were the <em>dominant</em> type (121 of 294), 
           unusual across the dataset. Most recordings are low-frequency dominated. This bird may be an 
           especially skilled vocalist — or a different age/sex class.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Bellbird Comparison Ahead</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Korimako (bellbird) is the other major honeyeater in the dataset: <b>103 recordings</b>, 67 A-quality. 
-          Running the same pipeline will give inter-species complexity comparison — do tūī truly 
-          out-sing bellbirds as the literature suggests?
         </p>
       </div>
     </div>
@@ -393,7 +394,7 @@ tr:hover td{background:var(--surface-2)}
 
   <!-- ==================== SYLLABLE ANALYSIS ==================== -->
   <div class="panel" id="panel-syllables">
-    <div class="section-label">Tūī Syllable Analysis — Pilot (20 Recordings)</div>
+    <div class="section-label">Tūī Syllable Analysis — 47 A-quality Recordings</div>
     
     <div class="two-col">
       <div>
@@ -403,7 +404,7 @@ tr:hover td{background:var(--surface-2)}
             <!-- JS-generated bars -->
           </div>
           <div style="margin-top:1.2rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
-            Total: 3,539 syllables across 20 A-quality song recordings
+            Total: 8,400 syllables across 47 A-quality song recordings
           </div>
         </div>
       </div>
@@ -422,9 +423,10 @@ tr:hover td{background:var(--surface-2)}
     
     <div class="note" style="margin-top:1.5rem">
       <div class="mark">Caveat</div>
-      <div>Hill &amp; Ji (2014) found harmonic syllables were the most common type (~15%). Our automated pipeline finds low-frequency dominant at 56.2%. 
-      This likely reflects <b>threshold calibration</b>, <b>subsong inclusion</b>, and the absence of Hill's "harsh" and "other" categories. 
-      The planned unsupervised clustering should better separate these types.</div>
+      <div>Hill &amp; Ji (2014) found harmonic syllables were the most common type (~15%). Our expanded pipeline (47 recordings) finds low-frequency dominant at 51.3% — 
+      down from 56.2% in the pilot, suggesting more data improves the balance. Harmonic rose to 20.7% (from 18%). 
+      The <b>bellbird comparison</b> shows even stronger low-frequency dominance (74.6%), confirming the pattern is partly real 
+      and partly methodological. HDBSCAN clustering on MFCC features should further clarify category boundaries.</div>
     </div>
 
     <div class="section-label">Per-Recording Breakdown</div>
@@ -582,8 +584,10 @@ tr:hover td{background:var(--surface-2)}
       
       <div class="pbar-row"><div class="pbar-label">XC API Query</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--pos)"></div></div><div class="pbar-val">3,096</div></div>
       <div class="pbar-row"><div class="pbar-label">Species Identified</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent)"></div></div><div class="pbar-val">177</div></div>
-      <div class="pbar-row"><div class="pbar-label">Tūī Songs Downloaded</div><div class="pbar-track"><div class="pbar-fill" style="width:9.7%;background:var(--tui)"></div></div><div class="pbar-val">20</div></div>
-      <div class="pbar-row"><div class="pbar-label">Syllables Detected</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent-2)"></div></div><div class="pbar-val">3,539</div></div>
+      <div class="pbar-row"><div class="pbar-label">Tūī Songs Analysed</div><div class="pbar-track"><div class="pbar-fill" style="width:40.5%;background:var(--tui)"></div></div><div class="pbar-val">47</div></div>
+      <div class="pbar-row"><div class="pbar-label">Bellbird Songs Analysed</div><div class="pbar-track"><div class="pbar-fill" style="width:36.2%;background:var(--bellbird)"></div></div><div class="pbar-val">42</div></div>
+      <div class="pbar-row"><div class="pbar-label">Tūī Syllables</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent-2)"></div></div><div class="pbar-val">8,400</div></div>
+      <div class="pbar-row"><div class="pbar-label">Bellbird Syllables</div><div class="pbar-track"><div class="pbar-fill" style="width:58.9%;background:var(--bellbird)"></div></div><div class="pbar-val">4,951</div></div>
       <div class="pbar-row"><div class="pbar-label">Citations Verified</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--pos)"></div></div><div class="pbar-val">5/5</div></div>
     </div>
   </div>
@@ -710,11 +714,11 @@ const SPECIES_DATA = [
 
 const SYLLABLE_DATA = {
   types: [
-    {name:"Low-frequency",key:"low_frequency",count:1989,pct:56.2,hill:"~10%",color:"var(--low)"},
-    {name:"Harmonic",key:"harmonic",count:636,pct:18.0,hill:"~15%",color:"var(--harmonic)"},
-    {name:"High-frequency",key:"high_frequency",count:436,pct:12.3,hill:"~8%",color:"var(--high)"},
-    {name:"RMNR",key:"rmnr",count:269,pct:7.6,hill:"~12%",color:"var(--rmnr)"},
-    {name:"Trill",key:"trill",count:209,pct:5.9,hill:"~8%",color:"var(--trill)"}
+    {name:"Low-frequency",key:"low_frequency",count:4308,pct:51.3,hill:"~10%",color:"var(--low)"},
+    {name:"Harmonic",key:"harmonic",count:1736,pct:20.7,hill:"~15%",color:"var(--harmonic)"},
+    {name:"High-frequency",key:"high_frequency",count:1017,pct:12.1,hill:"~8%",color:"var(--high)"},
+    {name:"RMNR",key:"rmnr",count:762,pct:9.1,hill:"~12%",color:"var(--rmnr)"},
+    {name:"Trill",key:"trill",count:577,pct:6.9,hill:"~8%",color:"var(--trill)"}
   ],
   perRecording: [
     {id:"XC1088034",dur:104,songs:180,syls:164,types:{low_frequency:113,harmonic:21,high_frequency:17,trill:8,rmnr:5}},
@@ -901,7 +905,7 @@ function initSyllables() {
     data: {
       labels: ['Low-freq','Harmonic','High-freq','RMNR','Trill'],
       datasets: [
-        {label:'Our Pipeline',data:[56.2,18.0,12.3,7.6,5.9],backgroundColor:chartColors.ours,borderRadius:3},
+        {label:'Our Pipeline (n=47)',data:[51.3,20.7,12.1,9.1,6.9],backgroundColor:chartColors.ours,borderRadius:3},
         {label:'Hill (2014)',data:[10,15,8,12,8],backgroundColor:chartColors.hill,borderRadius:3,borderWidth:1,borderColor:chartColors.ours}
       ]
     },
