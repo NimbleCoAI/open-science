@@ -3,893 +3,1068 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aotearoa Birdsong Analysis - Tūī Song Complexity</title>
+<title>Aotearoa Birdsong — Tūī Song Complexity</title>
+<meta name="description" content="An open-science analysis of New Zealand birdsong from Xeno-Canto, replicating Hill & Ji (2014) tūī syllable categorisation. 3,096 recordings, 177 species.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <style>
-:root {
-    --bg: #0d1117; --surface: #161b22; --border: #30363d;
-    --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
-    --green: #3fb950; --yellow: #d29922; --red: #f85149;
-    --purple: #bc8cff; --orange: #f0883e;
+:root{
+  --paper:#f3eee4; --paper-2:#ece4d4; --surface:#fffdf8; --surface-2:#faf6ed;
+  --ink:#211c16; --ink-soft:#675e4f; --ink-faint:#a99e89;
+  --rule:#e2d9c7; --rule-2:#cfc3aa;
+  --accent:#1f4257; --accent-2:#6b8f3a;
+  --pos:#357a5b; --neg:#bb4a33; --neu:#a4977c;
+  --tui:#5f7a3a; --bellbird:#2c6c8c; --kaka:#b04a3a; --kea:#b07d22;
+  --low:#5f7a3a; --harmonic:#2c6c8c; --high:#bb4a33; --trill:#7c5784; --rmnr:#b07d22;
+  --serif:'Newsreader',Georgia,serif;
+  --display:'Fraunces',Georgia,serif;
+  --mono:'Spline Sans Mono',ui-monospace,monospace;
+  --shadow:0 1px 1px rgba(33,28,22,.03),0 10px 30px -16px rgba(33,28,22,.22);
+  --shadow-lg:0 2px 4px rgba(33,28,22,.05),0 24px 60px -28px rgba(33,28,22,.32);
+  --maxw:1060px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-header { text-align: center; padding: 40px 20px; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
-header h1 { font-size: 2.2em; margin-bottom: 10px; }
-header h1 span { color: var(--accent); }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 30px; }
-.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
-.stat-card .number { font-size: 2.2em; font-weight: bold; color: var(--accent); }
-.stat-card .label { color: var(--text-muted); font-size: 0.85em; margin-top: 4px; }
-.section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-.section h2 { font-size: 1.4em; margin-bottom: 16px; color: var(--accent); }
-.section h3 { font-size: 1.1em; margin: 16px 0 8px; color: var(--text-muted); }
-.chart-container { position: relative; height: 450px; margin: 20px 0; }
-.chart-small { height: 300px; }
-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
-th { color: var(--accent); font-weight: 600; background: rgba(88,166,255,0.05); position: sticky; top: 0; }
-td.num { text-align: right; font-variant-numeric: tabular-nums; }
-.scientific { color: var(--text-muted); font-size: 0.8em; }
-.small-text { font-size: 0.8em; color: var(--text-muted); }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .chart-container { height: 350px; } }
-.methods-box { background: rgba(88,166,255,0.05); border-left: 3px solid var(--accent); padding: 16px; border-radius: 0 8px 8px 0; margin: 16px 0; }
-.methods-box h4 { color: var(--accent); margin-bottom: 8px; }
-.methods-box ul { padding-left: 20px; color: var(--text-muted); }
-.methods-box li { margin-bottom: 4px; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }
-.badge.harmonic { background: rgba(88,166,255,0.2); color: #58a6ff; }
-.badge.low { background: rgba(63,185,80,0.2); color: #3fb950; }
-.badge.high { background: rgba(248,81,73,0.2); color: #f85149; }
-.badge.trill { background: rgba(188,140,255,0.2); color: #bc8cff; }
-.badge.rmnr { background: rgba(240,136,62,0.2); color: #f0883e; }
-.callout { background: rgba(210,153,34,0.1); border: 1px solid rgba(210,153,34,0.3); border-radius: 8px; padding: 16px; margin: 16px 0; font-size: 0.9em; }
-.callout.info { background: rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.3); }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.85em; border-top: 1px solid var(--border); margin-top: 30px; }
-.highlight { color: var(--accent); font-weight: bold; }
-.table-scroll { overflow-x: auto; max-height: 500px; overflow-y: auto; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif); background:var(--paper); color:var(--ink);
+  line-height:1.62; font-size:18px; font-weight:400;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+::selection{background:#d9c9a8;color:#221c14}
+a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{color:var(--accent-2)}
+.wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 1.6rem}
+
+/* ============ MASTHEAD ============ */
+.masthead{padding:4.5rem 0 1.6rem;border-bottom:1.5px solid var(--ink);margin-bottom:0}
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; font-weight:500; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--accent-2); display:flex; align-items:center; gap:.7rem;
+  margin-bottom:1.4rem;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule-2)}
+.masthead h1{
+  font-family:var(--display); font-optical-sizing:auto;
+  font-weight:600; font-size:clamp(2.5rem,6.5vw,4.6rem); line-height:.99;
+  letter-spacing:-.018em; color:var(--ink); margin-bottom:1.1rem; max-width:18ch;
+}
+.masthead h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.deck{
+  font-family:var(--serif); font-size:clamp(1.05rem,2.2vw,1.4rem); line-height:1.45;
+  color:var(--ink-soft); max-width:54ch; font-weight:400; margin-bottom:1.8rem;
+}
+.deck b{color:var(--ink);font-weight:600}
+.byline{
+  font-family:var(--mono); font-size:.76rem; line-height:1.9; color:var(--ink-soft);
+  letter-spacing:.01em; padding-top:1.2rem; border-top:1px solid var(--rule);
+}
+.byline a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px}
+.byline .who{color:var(--accent-2);font-weight:500}
+
+.masthead>*{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.75,.2,1) forwards}
+.masthead .eyebrow{animation-delay:.05s}
+.masthead h1{animation-delay:.16s}
+.masthead .deck{animation-delay:.30s}
+.masthead .byline{animation-delay:.42s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ============ FIGURES ============ */
+.figures{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+  border-bottom:1.5px solid var(--ink);margin-bottom:2.4rem;
+}
+.fig{padding:1.5rem 1.2rem 1.6rem;border-right:1px solid var(--rule);position:relative}
+.fig:last-child{border-right:none}
+.fig .n{font-family:var(--display);font-weight:600;font-size:2.3rem;line-height:1;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:lining-nums}
+.fig .l{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:.6rem;line-height:1.4}
+.fig:nth-child(1) .n{color:var(--accent-2)}
+
+/* ============ TABS ============ */
+.tab-bar{display:flex;gap:.2rem;flex-wrap:wrap;position:sticky;top:0;z-index:20;
+  background:var(--paper);padding:.7rem 0 .6rem;margin-bottom:2rem;border-bottom:1px solid var(--rule)}
+.tab{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;color:var(--ink-soft);
+  cursor:pointer;padding:.45rem .85rem;border-radius:999px;border:1px solid transparent;
+  transition:all .18s ease;white-space:nowrap}
+.tab:hover{color:var(--ink);background:var(--surface-2)}
+.tab.active{color:var(--surface);background:var(--ink);border-color:var(--ink)}
+.panel{display:none;animation:fade .5s ease both}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ============ CARDS ============ */
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:1.8rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.card h3{font-family:var(--display);font-weight:600;font-size:1.35rem;letter-spacing:-.01em;
+  color:var(--ink);margin-bottom:1.3rem;display:flex;align-items:baseline;gap:.6rem}
+.card h3::before{content:"";width:.6rem;height:.6rem;border-radius:2px;background:var(--accent-2);
+  display:inline-block;transform:translateY(-1px);flex-shrink:0}
+
+/* ============ LEDE & PROSE ============ */
+.lede{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.4;
+  letter-spacing:-.01em;color:var(--ink);margin-bottom:2rem;max-width:58rem}
+.lede .drop{float:left;font-family:var(--display);font-weight:600;font-size:3.6rem;line-height:.72;
+  padding:.32rem .55rem 0 0;color:var(--accent-2)}
+.prose{max-width:58rem}
+.prose p{margin-bottom:1.1rem;color:var(--ink-soft)}
+.prose p b,.prose p strong{color:var(--ink);font-weight:600}
+.section-label{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:2.4rem 0 1.1rem;
+  display:flex;align-items:center;gap:.8rem}
+.section-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* ============ NOTE ============ */
+.note{
+  display:flex;gap:1rem;background:var(--surface-2);border:1px solid var(--rule-2);
+  border-left:3px solid var(--accent-2);border-radius:3px;padding:1.1rem 1.3rem;
+  margin:0 0 2.4rem;font-size:.92rem;line-height:1.55;color:var(--ink-soft);
+}
+.note .mark{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-2);white-space:nowrap;padding-top:.18rem}
+.note b{color:var(--ink);font-weight:600}
+
+/* ============ SPECIES GALLERY ============ */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin:1.5rem 0 2rem}
+.bird-card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease;cursor:default}
+.bird-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.bird-card img{width:100%;height:160px;object-fit:cover;display:block;border-bottom:1px solid var(--rule)}
+.bird-card .info{padding:.9rem 1rem}
+.bird-card .name{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--ink);line-height:1.2}
+.bird-card .te-reo{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--accent-2);margin-top:.2rem}
+.bird-card .sci{font-family:var(--mono);font-size:.68rem;color:var(--ink-faint);margin-top:.3rem}
+.bird-card .stats{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margin-top:.5rem;line-height:1.6}
+
+/* ============ MAP ============ */
+#map{height:520px;border-radius:8px;border:1px solid var(--rule);margin:1rem 0 1.5rem}
+.map-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.map-filter{font-family:var(--mono);font-size:.72rem;padding:.35rem .7rem;border-radius:999px;
+  background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-soft);cursor:pointer;transition:all .16s}
+.map-filter:hover{border-color:var(--rule-2);color:var(--ink)}
+.map-filter.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.map-legend{font-family:var(--mono);font-size:.7rem;color:var(--ink-faint);margin:.5rem 0}
+
+/* ============ CHARTS ============ */
+.chart-wrap{position:relative;height:380px;margin:1rem 0}
+.chart-small{height:280px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+
+/* ============ TABLES ============ */
+.search-box{width:100%;padding:.7rem 1rem;background:var(--surface-2);border:1px solid var(--rule-2);
+  border-radius:5px;color:var(--ink);font-family:var(--mono);font-size:.85rem;margin-bottom:1.2rem}
+.search-box:focus{outline:none;border-color:var(--accent)}
+.search-box::placeholder{color:var(--ink-faint)}
+table{width:100%;border-collapse:collapse;font-size:.85em}
+th{background:transparent;color:var(--ink-faint);padding:.6rem .55rem;text-align:left;
+  font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  border-bottom:1.5px solid var(--ink)}
+td{padding:.55rem;border-bottom:1px solid var(--rule);font-family:var(--serif)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.82rem}
+tr:hover td{background:var(--surface-2)}
+.table-scroll{overflow-x:auto;max-height:500px;overflow-y:auto}
+
+/* ============ SYLLABLE BARS ============ */
+.syl-bar-row{display:flex;align-items:center;gap:.8rem;margin:.5rem 0;min-height:32px}
+.syl-label{width:130px;flex-shrink:0;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--ink-soft)}
+.syl-track{flex:1;height:22px;background:var(--surface-2);border:1px solid var(--rule);border-radius:3px;overflow:hidden;position:relative}
+.syl-fill{height:100%;border-radius:2px;transform-origin:left;animation:grow .8s cubic-bezier(.22,.85,.2,1) both}
+.syl-val{width:60px;flex-shrink:0;font-family:var(--mono);font-size:.76rem;font-weight:500;color:var(--ink)}
+.syl-pct{font-size:.68rem;color:var(--ink-faint);margin-left:.3rem}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.syl-bar-row:nth-child(1) .syl-fill{animation-delay:.05s}
+.syl-bar-row:nth-child(2) .syl-fill{animation-delay:.12s}
+.syl-bar-row:nth-child(3) .syl-fill{animation-delay:.19s}
+.syl-bar-row:nth-child(4) .syl-fill{animation-delay:.26s}
+.syl-bar-row:nth-child(5) .syl-fill{animation-delay:.33s}
+
+/* ============ LIT COMPARISON ============ */
+.lit-card{background:var(--surface-2);border:1px solid var(--rule);border-radius:5px;
+  padding:1.1rem 1.3rem;margin:.7rem 0;border-left:3px solid var(--rule-2)}
+.lit-card.match{border-left-color:var(--pos)}
+.lit-card.gap{border-left-color:var(--neg)}
+.lit-card h4{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--ink);margin-bottom:.5rem}
+.lit-tag{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;padding:.22rem .55rem;border-radius:999px;display:inline-block;margin-left:.5rem}
+.tag-match{background:#357a5b1f;color:var(--pos)}
+.tag-gap{background:#bb4a331f;color:var(--neg)}
+.lit-card p{font-size:.92rem;line-height:1.55;color:var(--ink-soft);margin:.4rem 0}
+.lit-ref{font-family:var(--mono);font-size:.74rem;color:var(--accent);display:block;margin-top:.35rem}
+
+/* ============ METHODOLOGY ============ */
+.methodology{max-width:68ch}
+.methodology h3{font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--ink);margin-bottom:1rem}
+.methodology h4{font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin:1.8rem 0 .7rem}
+.methodology p,.methodology li{font-size:.95rem;color:var(--ink-soft);margin-bottom:.6rem;line-height:1.6}
+.methodology p b,.methodology li b{color:var(--ink);font-weight:600}
+.methodology ul,.methodology ol{padding-left:1.3rem}
+.methodology li{margin-bottom:.5rem}
+.methodology a{color:var(--accent);font-family:var(--mono);font-size:.85em}
+
+/* ============ PROCESS BARS ============ */
+.pbar-row{display:flex;align-items:center;gap:.9rem;margin:.34rem 0;min-height:28px}
+.pbar-label{width:195px;flex-shrink:0;text-align:right;font-family:var(--mono);font-size:.73rem;color:var(--ink-soft);line-height:1.2}
+.pbar-track{flex:1;height:18px;background:var(--surface-2);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:2px;transform-origin:left center;animation:grow .8s cubic-bezier(.22,.85,.2,1) both}
+.pbar-val{width:40px;flex-shrink:0;font-family:var(--mono);font-size:.74rem;font-weight:500;color:var(--ink)}
+
+/* ============ REF CARDS ============ */
+.ref-card{background:var(--surface-2);border:1px solid var(--rule);border-radius:5px;
+  padding:1.1rem 1.3rem;margin:.7rem 0}
+.ref-card .ref-title{font-family:var(--display);font-weight:600;font-size:1.02rem;color:var(--ink);line-height:1.25}
+.ref-card .ref-meta{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin:.4rem 0}
+.ref-card .ref-status{font-family:var(--mono);font-size:.68rem;padding:.2rem .5rem;border-radius:999px;display:inline-block}
+.ref-card .verified{background:#357a5b1f;color:var(--pos)}
+.ref-card a{font-family:var(--mono);font-size:.74rem;color:var(--accent);text-decoration:none}
+.ref-card a:hover{text-decoration:underline}
+
+/* ============ FOOTER ============ */
+.foot{border-top:1.5px solid var(--ink);margin-top:3.5rem;padding:2rem 0 4rem;
+  font-family:var(--mono);font-size:.74rem;color:var(--ink-faint);line-height:1.8}
+.foot a{color:var(--ink-soft)}
+.foot .big{font-family:var(--display);font-size:1.05rem;color:var(--ink-soft);margin-bottom:.6rem;font-style:italic}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:760px){
+  body{font-size:17px}
+  .figures{grid-template-columns:repeat(3,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .card{padding:1.2rem}
+  .masthead{padding:3rem 0 1.4rem}
+  .note{flex-direction:column;gap:.55rem}
+  .gallery{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  #map{height:360px}
+  .syl-label{width:90px;font-size:.68rem}
+  .pbar-label{width:118px;font-size:.65rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .masthead>*{opacity:1;transform:none}
+}
+
+/* Leaflet popup override */
+.leaflet-popup-content-wrapper{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);border-radius:6px}
+.leaflet-popup-content{font-family:var(--mono);font-size:.78rem;color:var(--ink);line-height:1.5;margin:10px 14px}
+.leaflet-popup-tip{background:var(--surface)}
 </style>
 </head>
 <body>
-<div class="container">
-<header>
-    <h1>🪶 <span>Aotearoa Birdsong</span> Analysis</h1>
-    <p style="color: var(--text-muted); font-size: 1.1em;">Tūī song complexity &amp; NZ bird recording inventory from Xeno-Canto</p>
-    <p style="color: var(--text-muted); margin-top: 8px; font-size: 0.9em;">
-        Replicating Hill &amp; Ji (2014) syllable categorisation · 175 species · 2,244 recordings · 3,539 syllables analysed
-    </p>
-</header>
 
-<div class="stats-grid">
-    <div class="stat-card"><div class="number">175</div><div class="label">NZ Bird Species</div></div>
-    <div class="stat-card"><div class="number">2,244</div><div class="label">Total Recordings</div></div>
-    <div class="stat-card"><div class="number">249</div><div class="label">Tūī Recordings</div></div>
-    <div class="stat-card"><div class="number">3,539</div><div class="label">Syllables Detected</div></div>
-    <div class="stat-card"><div class="number">5</div><div class="label">Syllable Types</div></div>
-    <div class="stat-card"><div class="number">20</div><div class="label">Songs Analysed</div></div>
-</div>
+<div class="wrap">
 
-<!-- SYLLABLE ANALYSIS SECTION -->
-<div class="section">
-    <h2>🔬 Tūī Syllable Analysis (Pilot: 20 recordings)</h2>
-    <p style="color: var(--text-muted); margin-bottom: 16px;">
-        Following Hill &amp; Ji (2014): DFT=256, Hann window, 50% overlap, 44.1kHz. 
-        Syllables parcellated using ≥20ms pause criterion.
-    </p>
-    
-    <div class="two-col">
-        <div>
-            <div class="chart-container chart-small">
-                <canvas id="syllableChart"></canvas>
-            </div>
-        </div>
-        <div>
-            <h3>Syllable Type Distribution</h3>
-            <table>
-                <tr><th>Type</th><th>Count</th><th>%</th><th>Hill (2014)</th></tr>
-                <tr><td><span class="badge low">Low-frequency</span> (&lt;2kHz)</td><td class="num">1989</td><td class="num">56.2%</td><td>~10%</td></tr>
-                <tr><td><span class="badge harmonic">Harmonic</span></td><td class="num">636</td><td class="num">18.0%</td><td>~15% (most common)</td></tr>
-                <tr><td><span class="badge high">High-frequency</span> (≥5kHz)</td><td class="num">436</td><td class="num">12.3%</td><td>~8%</td></tr>
-                <tr><td><span class="badge rmnr">RMNR</span></td><td class="num">269</td><td class="num">7.6%</td><td>~12%</td></tr>
-                <tr><td><span class="badge trill">Trill</span></td><td class="num">209</td><td class="num">5.9%</td><td>~8%</td></tr>
-            </table>
-            
-            <div class="callout" style="margin-top: 16px;">
-                <strong>⚠ Note:</strong> Hill &amp; Ji (2014) found harmonic syllables were the most common type. 
-                Our automated pipeline finds a higher proportion of low-frequency syllables, which may reflect 
-                differences in threshold calibration, the inclusion of subsong/call elements, or the broader 
-                geographic sampling (Hill studied only Tawharanui). The "harsh" and "other" categories from Hill's 
-                manual classification are not well-captured by our rule-based system — unsupervised clustering 
-                (next step) may better separate these types.
-            </div>
-        </div>
+  <header class="masthead">
+    <div class="eyebrow">Open Science · Field Report 02</div>
+    <h1>Aotearoa Birdsong, <em>Decoded</em></h1>
+    <p class="deck">We downloaded <b>3,096 recordings</b> of New Zealand birds from Xeno-Canto, then ran Hill &amp; Ji's tūī syllable classification on the audio. Here's what automated analysis finds — and where it diverges from manual fieldwork.</p>
+    <div class="byline">
+      Bioacoustic replication · after <a href="https://doi.org/10.63172/301002sqblid">Hill &amp; Ji (2014)</a> · 177 species · 3,096 recordings<br>
+      Source: <a href="https://xeno-canto.org">Xeno-Canto</a> API v3 · Analysis in Python (librosa, scikit-learn) · Full pipeline on <a href="https://github.com/NimbleCoAI/open-science">GitHub</a><br>
+      Compiled by <a class="who" href="https://github.com/NimbleCoAI/Matilde" target="_blank">Matilde</a> &amp; <a class="who" href="https://nimbleco.ai">Azure</a> · June 2026
+    </div>
+  </header>
+
+  <div class="figures">
+    <div class="fig"><div class="n">3,096</div><div class="l">Recordings</div></div>
+    <div class="fig"><div class="n">177</div><div class="l">Species</div></div>
+    <div class="fig"><div class="n">3,539</div><div class="l">Syllables<br>detected</div></div>
+    <div class="fig"><div class="n">5</div><div class="l">Syllable<br>types</div></div>
+    <div class="fig"><div class="n">20</div><div class="l">Songs<br>analysed</div></div>
+    <div class="fig"><div class="n">14</div><div class="l">Species<br>profiled</div></div>
+  </div>
+
+  <div class="note">
+    <div class="mark">Scope</div>
+    <div>This is a <b>pilot replication</b> of Hill &amp; Ji (2014) using crowd-sourced field recordings instead of controlled studio captures. The automated pipeline is a first pass — discrepancies with Hill's manual classification are expected and discussed. Unsupervised clustering and full-dataset analysis are underway.</div>
+  </div>
+
+  <!-- ============ TAB BAR ============ -->
+  <nav class="tab-bar" id="tabs">
+    <div class="tab active" data-tab="overview">Overview</div>
+    <div class="tab" data-tab="species">Species Gallery</div>
+    <div class="tab" data-tab="syllables">Syllable Analysis</div>
+    <div class="tab" data-tab="map">Recording Map</div>
+    <div class="tab" data-tab="data">Dataset</div>
+    <div class="tab" data-tab="methods">Methodology</div>
+    <div class="tab" data-tab="literature">Literature</div>
+  </nav>
+
+  <!-- ==================== OVERVIEW ==================== -->
+  <div class="panel active" id="panel-overview">
+    <div class="lede">
+      <span class="drop">T</span>ūī are among the world's most complex songbirds — their repertoire includes harmonics, trills, and frequencies above 
+      human hearing. Hill &amp; Ji (2014) hand-classified syllables from tūī at Tawharanui; we asked whether an automated 
+      pipeline could replicate that work using open recordings from across Aotearoa.
     </div>
     
-    <h3>Per-Recording Breakdown</h3>
-    <div class="table-scroll" style="max-height: 300px;">
-    <table>
-        <thead><tr><th>Recording</th><th>Duration</th><th>Songs</th><th>Syllables</th><th>Type Distribution</th></tr></thead>
-        <tbody><tr>
-        <td>XC1088034</td>
-        <td class="num">104s</td>
-        <td class="num">180</td>
-        <td class="num">164</td>
-        <td class="small-text">low_frequency:113, harmonic:21, high_frequency:17, trill:8, rmnr:5</td>
-    </tr><tr>
-        <td>XC1088035</td>
-        <td class="num">51s</td>
-        <td class="num">91</td>
-        <td class="num">92</td>
-        <td class="small-text">low_frequency:72, harmonic:10, high_frequency:5, trill:3, rmnr:2</td>
-    </tr><tr>
-        <td>XC1088036</td>
-        <td class="num">80s</td>
-        <td class="num">177</td>
-        <td class="num">167</td>
-        <td class="small-text">low_frequency:94, harmonic:30, high_frequency:19, rmnr:17, trill:7</td>
-    </tr><tr>
-        <td>XC1089008</td>
-        <td class="num">98s</td>
-        <td class="num">120</td>
-        <td class="num">116</td>
-        <td class="small-text">low_frequency:78, trill:14, rmnr:11, harmonic:7, high_frequency:6</td>
-    </tr><tr>
-        <td>XC1090728</td>
-        <td class="num">138s</td>
-        <td class="num">289</td>
-        <td class="num">294</td>
-        <td class="small-text">harmonic:121, low_frequency:56, high_frequency:53, trill:35, rmnr:29</td>
-    </tr><tr>
-        <td>XC1093635</td>
-        <td class="num">158s</td>
-        <td class="num">208</td>
-        <td class="num">205</td>
-        <td class="small-text">low_frequency:134, harmonic:49, rmnr:18, high_frequency:2, trill:2</td>
-    </tr><tr>
-        <td>XC1093636</td>
-        <td class="num">40s</td>
-        <td class="num">60</td>
-        <td class="num">55</td>
-        <td class="small-text">low_frequency:32, rmnr:7, harmonic:7, trill:6, high_frequency:3</td>
-    </tr><tr>
-        <td>XC1093637</td>
-        <td class="num">234s</td>
-        <td class="num">321</td>
-        <td class="num">274</td>
-        <td class="small-text">low_frequency:140, harmonic:44, high_frequency:39, trill:26, rmnr:25</td>
-    </tr><tr>
-        <td>XC1104055</td>
-        <td class="num">326s</td>
-        <td class="num">507</td>
-        <td class="num">474</td>
-        <td class="small-text">low_frequency:202, high_frequency:114, harmonic:61, rmnr:57, trill:40</td>
-    </tr><tr>
-        <td>XC1105557</td>
-        <td class="num">120s</td>
-        <td class="num">211</td>
-        <td class="num">212</td>
-        <td class="small-text">low_frequency:120, harmonic:27, rmnr:22, trill:22, high_frequency:21</td>
-    </tr><tr>
-        <td>XC975461</td>
-        <td class="num">109s</td>
-        <td class="num">178</td>
-        <td class="num">175</td>
-        <td class="small-text">low_frequency:70, harmonic:46, high_frequency:33, rmnr:13, trill:13</td>
-    </tr><tr>
-        <td>XC975467</td>
-        <td class="num">96s</td>
-        <td class="num">68</td>
-        <td class="num">72</td>
-        <td class="small-text">low_frequency:41, high_frequency:14, harmonic:14, rmnr:2, trill:1</td>
-    </tr><tr>
-        <td>XC975474</td>
-        <td class="num">32s</td>
-        <td class="num">50</td>
-        <td class="num">61</td>
-        <td class="small-text">low_frequency:58, harmonic:3</td>
-    </tr><tr>
-        <td>XC975481</td>
-        <td class="num">100s</td>
-        <td class="num">150</td>
-        <td class="num">149</td>
-        <td class="small-text">low_frequency:144, harmonic:4, rmnr:1</td>
-    </tr><tr>
-        <td>XC979569</td>
-        <td class="num">80s</td>
-        <td class="num">16</td>
-        <td class="num">17</td>
-        <td class="small-text">low_frequency:12, harmonic:5</td>
-    </tr><tr>
-        <td>XC979570</td>
-        <td class="num">82s</td>
-        <td class="num">155</td>
-        <td class="num">141</td>
-        <td class="small-text">low_frequency:74, harmonic:33, high_frequency:22, trill:7, rmnr:5</td>
-    </tr><tr>
-        <td>XC979573</td>
-        <td class="num">386s</td>
-        <td class="num">384</td>
-        <td class="num">342</td>
-        <td class="small-text">low_frequency:227, harmonic:51, high_frequency:28, rmnr:25, trill:11</td>
-    </tr><tr>
-        <td>XC979576</td>
-        <td class="num">261s</td>
-        <td class="num">263</td>
-        <td class="num">248</td>
-        <td class="small-text">low_frequency:151, harmonic:48, high_frequency:27, rmnr:12, trill:10</td>
-    </tr><tr>
-        <td>XC979580</td>
-        <td class="num">206s</td>
-        <td class="num">268</td>
-        <td class="num">245</td>
-        <td class="small-text">low_frequency:136, harmonic:55, high_frequency:33, rmnr:17, trill:4</td>
-    </tr><tr>
-        <td>XC979583</td>
-        <td class="num">25s</td>
-        <td class="num">28</td>
-        <td class="num">36</td>
-        <td class="small-text">low_frequency:35, rmnr:1</td>
-    </tr></tbody>
-    </table>
+    <div class="prose">
+      <p><strong>The short answer: partially.</strong> Our rule-based classifier detects the same broad syllable types Hill identified — low-frequency, 
+      harmonic, high-frequency, trill, and RMNR (rapid modulated narrowband repeats) — but the proportions differ markedly. 
+      Low-frequency syllables dominate our results at 56%, versus Hill's ~10%.</p>
+      
+      <p>This discrepancy likely reflects three factors: <b>threshold calibration</b> (our automated energy detection picks up 
+      quieter subsong elements that a human analyst would exclude), <b>geographic breadth</b> (Hill studied a single population at 
+      Tawharanui; our data spans the entire country), and <b>missing categories</b> (Hill's "harsh" and "other" types have no clean 
+      automated equivalent, so those syllables get binned elsewhere).</p>
+      
+      <p>The planned shift to <b>unsupervised clustering</b> (HDBSCAN on MFCC features) should yield more naturalistic groupings 
+      and let the data speak for itself, rather than forcing syllables into predefined boxes.</p>
     </div>
-</div>
 
-<!-- REGIONAL DISTRIBUTION -->
-<div class="section">
-    <h2>🗺 Regional Distribution of Recordings</h2>
+    <div class="section-label">Key Findings</div>
+    
     <div class="two-col">
-        <div>
-            <h3>All NZ Bird Recordings by Region</h3>
-            <div class="chart-container chart-small">
-                <canvas id="regionChart"></canvas>
-            </div>
+      <div class="card">
+        <h3>The Low-Frequency Question</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          Our pilot finds 56.2% low-frequency syllables vs Hill's ~10%. This is the central discrepancy. 
+          Possible explanations include: the 2kHz threshold captures background environmental sound; 
+          subsong and call elements are included; and XC recordings have different noise profiles than 
+          Hill's controlled Marantz PMD620 setup.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
+          → Next: HDBSCAN clustering to let the data define its own categories
         </div>
-        <div>
-            <h3>Tūī Recordings by Region</h3>
-            <div class="chart-container chart-small">
-                <canvas id="tuiRegionChart"></canvas>
-            </div>
+      </div>
+      <div class="card">
+        <h3>Geographic Coverage</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          Hill studied tūī at a single site (Tawharanui, Auckland). Our Xeno-Canto dataset spans 
+          <b>13 regions</b> across both islands. This enables the geographic variation analysis Hill 
+          called for — do Southland tūī sing differently from Auckland tūī? The map tab shows 
+          recording density across Aotearoa.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
+          → 166 geotagged tūī recordings across NZ
         </div>
+      </div>
     </div>
-</div>
 
-<!-- SPECIES OVERVIEW -->
-<div class="section">
-    <h2>📊 Top 20 Species by Recording Count</h2>
-    <div class="chart-container">
+    <div class="two-col" style="margin-top:0">
+      <div class="card">
+        <h3>Most Complex Singer</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          Recording <b>XC1090728</b> stands out: harmonic syllables were the <em>dominant</em> type (121 of 294), 
+          unusual across the dataset. Most recordings are low-frequency dominated. This bird may be an 
+          especially skilled vocalist — or a different age/sex class.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Bellbird Comparison Ahead</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          Korimako (bellbird) is the other major honeyeater in the dataset: <b>103 recordings</b>, 67 A-quality. 
+          Running the same pipeline will give inter-species complexity comparison — do tūī truly 
+          out-sing bellbirds as the literature suggests?
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SPECIES GALLERY ==================== -->
+  <div class="panel" id="panel-species">
+    <div class="section-label">Featured Species of Aotearoa</div>
+    <p style="color:var(--ink-soft);margin-bottom:1.5rem;font-size:.95rem">
+      Fourteen native and endemic species with the most Xeno-Canto recordings. Photos from Wikimedia Commons (CC/public domain).
+    </p>
+    
+    <div class="gallery" id="species-gallery">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- ==================== SYLLABLE ANALYSIS ==================== -->
+  <div class="panel" id="panel-syllables">
+    <div class="section-label">Tūī Syllable Analysis — Pilot (20 Recordings)</div>
+    
+    <div class="two-col">
+      <div>
+        <div class="card">
+          <h3>Syllable Type Distribution</h3>
+          <div id="syl-bars">
+            <!-- JS-generated bars -->
+          </div>
+          <div style="margin-top:1.2rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+            Total: 3,539 syllables across 20 A-quality song recordings
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Our Results vs Hill (2014)</h3>
+          <div class="chart-wrap chart-small">
+            <canvas id="hillCompareChart"></canvas>
+          </div>
+          <div style="margin-top:.5rem;font-size:.8rem;color:var(--ink-faint);font-family:var(--mono)">
+            Grouped bar: our automated pipeline vs Hill's manual classification
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="note" style="margin-top:1.5rem">
+      <div class="mark">Caveat</div>
+      <div>Hill &amp; Ji (2014) found harmonic syllables were the most common type (~15%). Our automated pipeline finds low-frequency dominant at 56.2%. 
+      This likely reflects <b>threshold calibration</b>, <b>subsong inclusion</b>, and the absence of Hill's "harsh" and "other" categories. 
+      The planned unsupervised clustering should better separate these types.</div>
+    </div>
+
+    <div class="section-label">Per-Recording Breakdown</div>
+    <div class="card">
+      <div class="chart-wrap" style="height:400px">
+        <canvas id="perRecordingChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1.5rem">
+      <h3>Recording Details</h3>
+      <div class="table-scroll" style="max-height:350px">
+        <table id="recording-table">
+          <thead><tr><th>Recording</th><th>Duration</th><th>Songs</th><th>Syllables</th><th>Dominant Type</th><th>Distribution</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAP ==================== -->
+  <div class="panel" id="panel-map">
+    <div class="section-label">Recording Map of Aotearoa</div>
+    <p style="color:var(--ink-soft);margin-bottom:.8rem;font-size:.95rem">
+      1,607 geotagged recordings from Xeno-Canto, coloured by species. Click markers for recording details. 
+      Use the filters to isolate species of interest.
+    </p>
+    
+    <div class="map-filters" id="map-filters">
+      <div class="map-filter active" data-species="all">All Species</div>
+      <div class="map-filter" data-species="Tui">Tūī</div>
+      <div class="map-filter" data-species="New Zealand Bellbird">Bellbird</div>
+      <div class="map-filter" data-species="New Zealand Kaka">Kākā</div>
+      <div class="map-filter" data-species="Kea">Kea</div>
+      <div class="map-filter" data-species="Morepork">Morepork</div>
+      <div class="map-filter" data-species="Whitehead">Whitehead</div>
+      <div class="map-filter" data-species="Grey Gerygone">Grey Warbler</div>
+    </div>
+    
+    <div id="map"></div>
+    
+    <div class="map-legend">
+      <span style="color:var(--tui)">● Tūī</span> · 
+      <span style="color:var(--bellbird)">● Bellbird</span> · 
+      <span style="color:var(--kaka)">● Kākā</span> · 
+      <span style="color:var(--kea)">● Kea</span> · 
+      <span style="color:#8b949e">● Other species</span>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem">
+      <div class="card">
+        <h3>All Recordings by Region</h3>
+        <div class="chart-wrap chart-small">
+          <canvas id="regionChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Tūī Recordings by Region</h3>
+        <div class="chart-wrap chart-small">
+          <canvas id="tuiRegionChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DATASET ==================== -->
+  <div class="panel" id="panel-data">
+    <div class="section-label">Dataset Overview</div>
+    
+    <div class="two-col">
+      <div class="card">
+        <h3>Recording Quality</h3>
+        <div class="chart-wrap chart-small">
+          <canvas id="qualityChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Recording Type</h3>
+        <div class="chart-wrap chart-small">
+          <canvas id="typeChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h3>Top 20 Species by Recording Count</h3>
+      <div class="chart-wrap" style="height:420px">
         <canvas id="speciesChart"></canvas>
+      </div>
     </div>
-</div>
 
-<!-- QUALITY DISTRIBUTION -->
-<div class="two-col">
-    <div class="section">
-        <h2>⭐ Recording Quality Distribution</h2>
-        <div class="chart-container chart-small">
-            <canvas id="qualityChart"></canvas>
-        </div>
+    <div class="card" style="margin-top:1rem">
+      <h3>Full Species Inventory</h3>
+      <input class="search-box" type="text" id="species-search" placeholder="Search species...">
+      <div class="table-scroll" style="max-height:500px">
+        <table id="species-table">
+          <thead><tr><th>#</th><th>Species</th><th>Recs</th><th>Q:A</th><th>Q:B</th><th>Songs</th><th>Calls</th><th>Top Regions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
-    <div class="section">
-        <h2>📋 Recording Type (Song vs Call)</h2>
-        <div class="chart-container chart-small">
-            <canvas id="typeChart"></canvas>
-        </div>
-    </div>
-</div>
+  </div>
 
-<!-- METHODS -->
-<div class="section">
-    <h2>🔬 Methods</h2>
-    <div class="methods-box">
-        <h4>Data Source</h4>
-        <ul>
-            <li>Xeno-Canto API v3 — all recordings geotagged to New Zealand</li>
-            <li>2,244 bird recordings across 175 species (excluding soundscapes &amp; unidentified)</li>
-            <li>Quality ratings: A (902), B (948), C (316), D (48), E (9)</li>
-        </ul>
-    </div>
-    <div class="methods-box">
-        <h4>Syllable Analysis Pipeline (replicating Hill &amp; Ji 2014)</h4>
-        <ul>
-            <li><strong>Audio:</strong> Resampled to 44.1kHz mono (matching Hill's Marantz PMD620)</li>
-            <li><strong>Spectrogram:</strong> DFT=256, Hann window, 50% overlap (Hill's Raven Pro settings)</li>
-            <li><strong>Song detection:</strong> Band-limited energy thresholding (0.5–10kHz), median-filtered</li>
-            <li><strong>Syllable parcellation:</strong> ≥20ms pause criterion with dynamic energy threshold</li>
-            <li><strong>Feature extraction:</strong> f0 (YIN), MFCCs (13 coefficients), spectral centroid/bandwidth/rolloff/flatness, ZCR, FM rate</li>
-            <li><strong>Classification:</strong> Rule-based following Hill's 6 categories (low-freq &lt;2kHz, high-freq ≥5kHz, harmonic, trill, RMNR, harsh)</li>
-        </ul>
-    </div>
-    <div class="methods-box">
-        <h4>Key References (verified via Crossref)</h4>
-        <ul>
-            <li>Hill, S.D. &amp; Ji, W. (2014). Categorisation of common syllable types in tui vocalisations. <em>Notornis</em>, 61, 54. DOI: 10.63172/301002sqblid ✓</li>
-            <li>Hill, S.D. et al. (2017). Fighting talk: complex song elicits more aggressive responses. <em>Ibis</em>, 160(2), 257-268. DOI: 10.1111/ibi.12542 ✓</li>
-            <li>Priyadarshani, N. et al. (2018). Automated birdsong recognition in complex acoustic environments: a review. <em>J. Avian Biology</em>, 49(5). DOI: 10.1111/jav.01447 ✓</li>
-        </ul>
-    </div>
-</div>
+  <!-- ==================== METHODOLOGY ==================== -->
+  <div class="panel" id="panel-methods">
+    <div class="section-label">Methodology</div>
+    
+    <div class="methodology">
+      <h3>How We Did This</h3>
+      
+      <h4>Data Collection</h4>
+      <p>We queried the <b>Xeno-Canto API v3</b> for all recordings geotagged to New Zealand, yielding 3,096 recordings across 177 species 
+      (including soundscapes and unidentified). After filtering, the clean dataset contains 2,244 identified bird recordings across 175 species.</p>
+      <ul>
+        <li>Quality ratings: A (930), B (1,669), C (324), D (123), E (9)</li>
+        <li>Recording types: 1,049 songs, 1,178 calls, 869 other</li>
+        <li>Date range spans several decades of field recording</li>
+      </ul>
 
-<!-- FULL SPECIES TABLE -->
-<div class="section">
-    <h2>📋 Full Species Inventory (Top 50)</h2>
-    <div class="table-scroll">
-    <table>
-        <thead><tr><th>#</th><th>Species</th><th>Recs</th><th>Q:A</th><th>Q:B</th><th>Songs</th><th>Calls</th><th>Top Regions</th></tr></thead>
-        <tbody><tr>
-        <td>1</td>
-        <td><strong>Tui</strong><br><em class="scientific">Prosthemadera novaeseelandiae</em></td>
-        <td class="num">249</td>
-        <td class="num">131</td>
-        <td class="num">101</td>
-        <td class="num">214</td>
-        <td class="num">21</td>
-        <td class="small-text">Other / Offshore(50), Auckland(44), Bay of Plenty(35)</td>
-    </tr><tr>
-        <td>2</td>
-        <td><strong>New Zealand Bellbird</strong><br><em class="scientific">Anthornis melanura</em></td>
-        <td class="num">103</td>
-        <td class="num">67</td>
-        <td class="num">27</td>
-        <td class="num">74</td>
-        <td class="num">25</td>
-        <td class="small-text">Wairarapa(19), Southland(19), Auckland(16)</td>
-    </tr><tr>
-        <td>3</td>
-        <td><strong>Grey Gerygone</strong><br><em class="scientific">Gerygone igata</em></td>
-        <td class="num">57</td>
-        <td class="num">29</td>
-        <td class="num">20</td>
-        <td class="num">47</td>
-        <td class="num">8</td>
-        <td class="small-text">Auckland(17), Southland(9), Canterbury(6)</td>
-    </tr><tr>
-        <td>4</td>
-        <td><strong>New Zealand Kaka</strong><br><em class="scientific">Nestor meridionalis</em></td>
-        <td class="num">55</td>
-        <td class="num">25</td>
-        <td class="num">22</td>
-        <td class="num">10</td>
-        <td class="num">43</td>
-        <td class="small-text">Waikato(16), Southland(12), Wellington(8)</td>
-    </tr><tr>
-        <td>5</td>
-        <td><strong>Whitehead</strong><br><em class="scientific">Mohoua albicilla</em></td>
-        <td class="num">50</td>
-        <td class="num">31</td>
-        <td class="num">14</td>
-        <td class="num">34</td>
-        <td class="num">15</td>
-        <td class="small-text">Auckland(32), Waikato(8), Wellington(5)</td>
-    </tr><tr>
-        <td>6</td>
-        <td><strong>New Zealand Fantail</strong><br><em class="scientific">Rhipidura fuliginosa</em></td>
-        <td class="num">49</td>
-        <td class="num">25</td>
-        <td class="num">22</td>
-        <td class="num">32</td>
-        <td class="num">15</td>
-        <td class="small-text">Other / Offshore(11), Hawke's Bay(9), Auckland(6)</td>
-    </tr><tr>
-        <td>7</td>
-        <td><strong>Tomtit</strong><br><em class="scientific">Petroica macrocephala</em></td>
-        <td class="num">48</td>
-        <td class="num">22</td>
-        <td class="num">19</td>
-        <td class="num">33</td>
-        <td class="num">15</td>
-        <td class="small-text">Canterbury(15), Southland(10), Other / Offshore(6)</td>
-    </tr><tr>
-        <td>8</td>
-        <td><strong>Morepork</strong><br><em class="scientific">Ninox novaeseelandiae</em></td>
-        <td class="num">41</td>
-        <td class="num">21</td>
-        <td class="num">12</td>
-        <td class="num">15</td>
-        <td class="num">24</td>
-        <td class="small-text">Auckland(13), Canterbury(11), Northland(6)</td>
-    </tr><tr>
-        <td>9</td>
-        <td><strong>Stitchbird</strong><br><em class="scientific">Notiomystis cincta</em></td>
-        <td class="num">41</td>
-        <td class="num">18</td>
-        <td class="num">5</td>
-        <td class="num">12</td>
-        <td class="num">27</td>
-        <td class="small-text">Auckland(20), Manawatū-Whanganui(16), Waikato(4)</td>
-    </tr><tr>
-        <td>10</td>
-        <td><strong>North Island Saddleback</strong><br><em class="scientific">Philesturnus rufusater</em></td>
-        <td class="num">38</td>
-        <td class="num">22</td>
-        <td class="num">14</td>
-        <td class="num">23</td>
-        <td class="num">12</td>
-        <td class="small-text">Auckland(25), Northland(7), Wellington(3)</td>
-    </tr><tr>
-        <td>11</td>
-        <td><strong>Common Blackbird</strong><br><em class="scientific">Turdus merula</em></td>
-        <td class="num">37</td>
-        <td class="num">17</td>
-        <td class="num">17</td>
-        <td class="num">25</td>
-        <td class="num">11</td>
-        <td class="small-text">Other / Offshore(12), Southland(5), Canterbury(4)</td>
-    </tr><tr>
-        <td>12</td>
-        <td><strong>Silvereye</strong><br><em class="scientific">Zosterops lateralis</em></td>
-        <td class="num">36</td>
-        <td class="num">21</td>
-        <td class="num">11</td>
-        <td class="num">16</td>
-        <td class="num">20</td>
-        <td class="small-text">Other / Offshore(7), Canterbury(5), Wairarapa(5)</td>
-    </tr><tr>
-        <td>13</td>
-        <td><strong>North Island Robin</strong><br><em class="scientific">Petroica longipes</em></td>
-        <td class="num">35</td>
-        <td class="num">20</td>
-        <td class="num">11</td>
-        <td class="num">31</td>
-        <td class="num">4</td>
-        <td class="small-text">Waikato(11), Hawke's Bay(6), Unknown(5)</td>
-    </tr><tr>
-        <td>14</td>
-        <td><strong>Weka</strong><br><em class="scientific">Gallirallus australis</em></td>
-        <td class="num">34</td>
-        <td class="num">22</td>
-        <td class="num">9</td>
-        <td class="num">9</td>
-        <td class="num">23</td>
-        <td class="small-text">Other / Offshore(10), Canterbury(8), Wairarapa(8)</td>
-    </tr><tr>
-        <td>15</td>
-        <td><strong>Rifleman</strong><br><em class="scientific">Acanthisitta chloris</em></td>
-        <td class="num">33</td>
-        <td class="num">13</td>
-        <td class="num">15</td>
-        <td class="num">6</td>
-        <td class="num">26</td>
-        <td class="small-text">Southland(10), Hawke's Bay(7), Auckland(6)</td>
-    </tr><tr>
-        <td>16</td>
-        <td><strong>Red-crowned Parakeet</strong><br><em class="scientific">Cyanoramphus novaezelandiae</em></td>
-        <td class="num">32</td>
-        <td class="num">13</td>
-        <td class="num">16</td>
-        <td class="num">4</td>
-        <td class="num">28</td>
-        <td class="small-text">Other / Offshore(13), Auckland(7), Southland(7)</td>
-    </tr><tr>
-        <td>17</td>
-        <td><strong>Common Chaffinch</strong><br><em class="scientific">Fringilla coelebs</em></td>
-        <td class="num">30</td>
-        <td class="num">8</td>
-        <td class="num">17</td>
-        <td class="num">16</td>
-        <td class="num">14</td>
-        <td class="small-text">Other / Offshore(6), Otago(5), Hawke's Bay(4)</td>
-    </tr><tr>
-        <td>18</td>
-        <td><strong>Rarotonga Monarch</strong><br><em class="scientific">Pomarea dimidiata</em></td>
-        <td class="num">29</td>
-        <td class="num">18</td>
-        <td class="num">10</td>
-        <td class="num">4</td>
-        <td class="num">25</td>
-        <td class="small-text">Kermadec Islands(29)</td>
-    </tr><tr>
-        <td>19</td>
-        <td><strong>Yellowhead</strong><br><em class="scientific">Mohoua ochrocephala</em></td>
-        <td class="num">28</td>
-        <td class="num">10</td>
-        <td class="num">15</td>
-        <td class="num">10</td>
-        <td class="num">13</td>
-        <td class="small-text">Southland(19), Unknown(5), West Coast(4)</td>
-    </tr><tr>
-        <td>20</td>
-        <td><strong>Black Robin</strong><br><em class="scientific">Petroica traversi</em></td>
-        <td class="num">27</td>
-        <td class="num">1</td>
-        <td class="num">21</td>
-        <td class="num">7</td>
-        <td class="num">20</td>
-        <td class="small-text">Other / Offshore(27)</td>
-    </tr><tr>
-        <td>21</td>
-        <td><strong>New Zealand Fernbird</strong><br><em class="scientific">Poodytes punctatus</em></td>
-        <td class="num">27</td>
-        <td class="num">8</td>
-        <td class="num">17</td>
-        <td class="num">17</td>
-        <td class="num">10</td>
-        <td class="small-text">Northland(9), Canterbury(5), Hawke's Bay(4)</td>
-    </tr><tr>
-        <td>22</td>
-        <td><strong>Song Thrush</strong><br><em class="scientific">Turdus philomelos</em></td>
-        <td class="num">27</td>
-        <td class="num">8</td>
-        <td class="num">17</td>
-        <td class="num">20</td>
-        <td class="num">6</td>
-        <td class="small-text">Other / Offshore(12), Canterbury(5), Otago(4)</td>
-    </tr><tr>
-        <td>23</td>
-        <td><strong>Variable Oystercatcher</strong><br><em class="scientific">Haematopus unicolor</em></td>
-        <td class="num">26</td>
-        <td class="num">8</td>
-        <td class="num">14</td>
-        <td class="num">5</td>
-        <td class="num">20</td>
-        <td class="small-text">Wairarapa(10), Auckland(5), Otago(4)</td>
-    </tr><tr>
-        <td>24</td>
-        <td><strong>Magenta Petrel</strong><br><em class="scientific">Pterodroma magentae</em></td>
-        <td class="num">25</td>
-        <td class="num">14</td>
-        <td class="num">11</td>
-        <td class="num">7</td>
-        <td class="num">14</td>
-        <td class="small-text">Other / Offshore(25)</td>
-    </tr><tr>
-        <td>25</td>
-        <td><strong>North Island Brown Kiwi</strong><br><em class="scientific">Apteryx mantelli</em></td>
-        <td class="num">24</td>
-        <td class="num">7</td>
-        <td class="num">12</td>
-        <td class="num">3</td>
-        <td class="num">20</td>
-        <td class="small-text">Northland(15), Auckland(4), Unknown(4)</td>
-    </tr><tr>
-        <td>26</td>
-        <td><strong>Paradise Shelduck</strong><br><em class="scientific">Tadorna variegata</em></td>
-        <td class="num">24</td>
-        <td class="num">11</td>
-        <td class="num">12</td>
-        <td class="num">3</td>
-        <td class="num">21</td>
-        <td class="small-text">Otago(7), Canterbury(6), Auckland(6)</td>
-    </tr><tr>
-        <td>27</td>
-        <td><strong>Sacred Kingfisher</strong><br><em class="scientific">Todiramphus sanctus</em></td>
-        <td class="num">21</td>
-        <td class="num">7</td>
-        <td class="num">11</td>
-        <td class="num">10</td>
-        <td class="num">10</td>
-        <td class="small-text">Auckland(6), Waikato(6), Otago(5)</td>
-    </tr><tr>
-        <td>28</td>
-        <td><strong>Chatham Gerygone</strong><br><em class="scientific">Gerygone albofrontata</em></td>
-        <td class="num">21</td>
-        <td class="num">13</td>
-        <td class="num">5</td>
-        <td class="num">18</td>
-        <td class="num">3</td>
-        <td class="small-text">Other / Offshore(21)</td>
-    </tr><tr>
-        <td>29</td>
-        <td><strong>North Island Kokako</strong><br><em class="scientific">Callaeas wilsoni</em></td>
-        <td class="num">21</td>
-        <td class="num">5</td>
-        <td class="num">11</td>
-        <td class="num">17</td>
-        <td class="num">4</td>
-        <td class="small-text">Auckland(11), Waikato(4), Bay of Plenty(2)</td>
-    </tr><tr>
-        <td>30</td>
-        <td><strong>South Island Robin</strong><br><em class="scientific">Petroica australis</em></td>
-        <td class="num">21</td>
-        <td class="num">10</td>
-        <td class="num">9</td>
-        <td class="num">11</td>
-        <td class="num">10</td>
-        <td class="small-text">Southland(8), Wairarapa(5), Wellington(3)</td>
-    </tr><tr>
-        <td>31</td>
-        <td><strong>New Zealand Pipit</strong><br><em class="scientific">Anthus novaeseelandiae</em></td>
-        <td class="num">21</td>
-        <td class="num">9</td>
-        <td class="num">8</td>
-        <td class="num">13</td>
-        <td class="num">8</td>
-        <td class="small-text">Other / Offshore(9), Hawke's Bay(5), Subantarctic Islands(5)</td>
-    </tr><tr>
-        <td>32</td>
-        <td><strong>Little Penguin</strong><br><em class="scientific">Eudyptula minor</em></td>
-        <td class="num">19</td>
-        <td class="num">9</td>
-        <td class="num">3</td>
-        <td class="num">5</td>
-        <td class="num">14</td>
-        <td class="small-text">Auckland(7), Other / Offshore(4), Southland(4)</td>
-    </tr><tr>
-        <td>33</td>
-        <td><strong>White-fronted Tern</strong><br><em class="scientific">Sterna striata</em></td>
-        <td class="num">17</td>
-        <td class="num">3</td>
-        <td class="num">7</td>
-        <td class="num">0</td>
-        <td class="num">16</td>
-        <td class="small-text">Auckland(7), Unknown(4), Wellington(2)</td>
-    </tr><tr>
-        <td>34</td>
-        <td><strong>Cook Reed Warbler</strong><br><em class="scientific">Acrocephalus kerearako</em></td>
-        <td class="num">17</td>
-        <td class="num">0</td>
-        <td class="num">8</td>
-        <td class="num">17</td>
-        <td class="num">0</td>
-        <td class="small-text">Kermadec Islands(17)</td>
-    </tr><tr>
-        <td>35</td>
-        <td><strong>New Zealand Pigeon</strong><br><em class="scientific">Hemiphaga novaeseelandiae</em></td>
-        <td class="num">16</td>
-        <td class="num">5</td>
-        <td class="num">5</td>
-        <td class="num">4</td>
-        <td class="num">7</td>
-        <td class="small-text">Auckland(6), Bay of Plenty(3), Otago(3)</td>
-    </tr><tr>
-        <td>36</td>
-        <td><strong>Pied Stilt</strong><br><em class="scientific">Himantopus leucocephalus</em></td>
-        <td class="num">16</td>
-        <td class="num">9</td>
-        <td class="num">5</td>
-        <td class="num">0</td>
-        <td class="num">16</td>
-        <td class="small-text">Auckland(7), Otago(6), Waikato(1)</td>
-    </tr><tr>
-        <td>37</td>
-        <td><strong>Silver Gull</strong><br><em class="scientific">Chroicocephalus novaehollandiae</em></td>
-        <td class="num">16</td>
-        <td class="num">7</td>
-        <td class="num">5</td>
-        <td class="num">0</td>
-        <td class="num">15</td>
-        <td class="small-text">Otago(7), Southland(3), Other / Offshore(2)</td>
-    </tr><tr>
-        <td>38</td>
-        <td><strong>Shy Albatross</strong><br><em class="scientific">Thalassarche cauta</em></td>
-        <td class="num">16</td>
-        <td class="num">5</td>
-        <td class="num">8</td>
-        <td class="num">0</td>
-        <td class="num">10</td>
-        <td class="small-text">Southland(9), Subantarctic Islands(5), Unknown(1)</td>
-    </tr><tr>
-        <td>39</td>
-        <td><strong>Common Diving Petrel</strong><br><em class="scientific">Pelecanoides urinatrix</em></td>
-        <td class="num">16</td>
-        <td class="num">1</td>
-        <td class="num">13</td>
-        <td class="num">15</td>
-        <td class="num">1</td>
-        <td class="small-text">Other / Offshore(14), Southland(1), Northland(1)</td>
-    </tr><tr>
-        <td>40</td>
-        <td><strong>Common Myna</strong><br><em class="scientific">Acridotheres tristis</em></td>
-        <td class="num">16</td>
-        <td class="num">0</td>
-        <td class="num">13</td>
-        <td class="num">7</td>
-        <td class="num">9</td>
-        <td class="small-text">Kermadec Islands(13), Auckland(2), Waikato(1)</td>
-    </tr><tr>
-        <td>41</td>
-        <td><strong>South Island Oystercatcher</strong><br><em class="scientific">Haematopus finschi</em></td>
-        <td class="num">15</td>
-        <td class="num">4</td>
-        <td class="num">7</td>
-        <td class="num">0</td>
-        <td class="num">15</td>
-        <td class="small-text">Otago(9), Auckland(4), Canterbury(1)</td>
-    </tr><tr>
-        <td>42</td>
-        <td><strong>Sooty Shearwater</strong><br><em class="scientific">Ardenna grisea</em></td>
-        <td class="num">15</td>
-        <td class="num">6</td>
-        <td class="num">7</td>
-        <td class="num">11</td>
-        <td class="num">4</td>
-        <td class="small-text">Other / Offshore(7), Southland(6), Wairarapa(1)</td>
-    </tr><tr>
-        <td>43</td>
-        <td><strong>Kea</strong><br><em class="scientific">Nestor notabilis</em></td>
-        <td class="num">15</td>
-        <td class="num">8</td>
-        <td class="num">3</td>
-        <td class="num">0</td>
-        <td class="num">15</td>
-        <td class="small-text">Canterbury(9), West Coast(2), Southland(2)</td>
-    </tr><tr>
-        <td>44</td>
-        <td><strong>Pipipi</strong><br><em class="scientific">Mohoua novaeseelandiae</em></td>
-        <td class="num">15</td>
-        <td class="num">3</td>
-        <td class="num">10</td>
-        <td class="num">8</td>
-        <td class="num">7</td>
-        <td class="small-text">Southland(11), Canterbury(3), Tasman / Nelson(1)</td>
-    </tr><tr>
-        <td>45</td>
-        <td><strong>Eurasian Skylark</strong><br><em class="scientific">Alauda arvensis</em></td>
-        <td class="num">15</td>
-        <td class="num">1</td>
-        <td class="num">10</td>
-        <td class="num">11</td>
-        <td class="num">4</td>
-        <td class="small-text">Other / Offshore(6), Auckland(5), Otago(2)</td>
-    </tr><tr>
-        <td>46</td>
-        <td><strong>Masked Lapwing</strong><br><em class="scientific">Vanellus miles</em></td>
-        <td class="num">14</td>
-        <td class="num">5</td>
-        <td class="num">8</td>
-        <td class="num">0</td>
-        <td class="num">14</td>
-        <td class="small-text">Other / Offshore(10), Auckland(1), Southland(1)</td>
-    </tr><tr>
-        <td>47</td>
-        <td><strong>Wrybill</strong><br><em class="scientific">Anarhynchus frontalis</em></td>
-        <td class="num">14</td>
-        <td class="num">3</td>
-        <td class="num">4</td>
-        <td class="num">1</td>
-        <td class="num">13</td>
-        <td class="small-text">Auckland(9), Otago(5)</td>
-    </tr><tr>
-        <td>48</td>
-        <td><strong>Double-banded Plover</strong><br><em class="scientific">Charadrius bicinctus</em></td>
-        <td class="num">14</td>
-        <td class="num">3</td>
-        <td class="num">7</td>
-        <td class="num">0</td>
-        <td class="num">14</td>
-        <td class="small-text">Otago(9), Subantarctic Islands(3), Auckland(1)</td>
-    </tr><tr>
-        <td>49</td>
-        <td><strong>Shore Dotterel</strong><br><em class="scientific">Thinornis novaeseelandiae</em></td>
-        <td class="num">14</td>
-        <td class="num">0</td>
-        <td class="num">6</td>
-        <td class="num">0</td>
-        <td class="num">14</td>
-        <td class="small-text">Other / Offshore(14)</td>
-    </tr><tr>
-        <td>50</td>
-        <td><strong>Black-billed Gull</strong><br><em class="scientific">Chroicocephalus bulleri</em></td>
-        <td class="num">14</td>
-        <td class="num">3</td>
-        <td class="num">2</td>
-        <td class="num">0</td>
-        <td class="num">14</td>
-        <td class="small-text">Auckland(8), Southland(4), Otago(2)</td>
-    </tr></tbody>
-    </table>
+      <h4>Syllable Analysis Pipeline</h4>
+      <p>Replicating <b>Hill &amp; Ji (2014)</b> as closely as possible given the different recording conditions:</p>
+      <ol>
+        <li><b>Audio preprocessing:</b> Resampled to 44.1kHz mono (matching Hill's Marantz PMD620 recorder)</li>
+        <li><b>Spectrogram:</b> DFT window = 256 samples, Hann window, 50% overlap (matching Hill's Raven Pro 1.4 settings: 2.9ms window)</li>
+        <li><b>Song detection:</b> Band-limited energy thresholding in the 0.5–10kHz range, with median filtering to remove transients</li>
+        <li><b>Syllable parcellation:</b> ≥20ms pause criterion with dynamic energy threshold (Hill's method)</li>
+        <li><b>Feature extraction:</b> Fundamental frequency via YIN algorithm, 13 MFCCs, spectral centroid/bandwidth/rolloff/flatness, zero-crossing rate, FM rate</li>
+        <li><b>Classification:</b> Rule-based following Hill's 6 categories:
+          <ul>
+            <li><b>Low-frequency:</b> dominant frequency &lt;2kHz</li>
+            <li><b>High-frequency:</b> dominant frequency ≥5kHz</li>
+            <li><b>Harmonic:</b> clear harmonic structure (low spectral flatness)</li>
+            <li><b>Trill:</b> rapid amplitude modulation (&gt;10 Hz)</li>
+            <li><b>RMNR:</b> rapid modulated narrowband repeats</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h4>Known Limitations</h4>
+      <ul>
+        <li><b>Recording quality varies:</b> XC recordings range from professional to phone-quality; Hill used a consistent Marantz PMD620 + Sennheiser ME67 setup</li>
+        <li><b>No "harsh" or "other" categories:</b> Hill's manual classification included these; our rule-based system forces syllables into the five automated types</li>
+        <li><b>Threshold sensitivity:</b> The 2kHz low-frequency cutoff may capture environmental noise and non-vocal sounds</li>
+        <li><b>Single-site vs multi-site:</b> Hill's results come from one population (Tawharanui); ours span the country, so inter-population variation is confounded with methodological differences</li>
+      </ul>
+
+      <h4>Reproducibility</h4>
+      <p>The full analysis pipeline is available at <a href="https://github.com/NimbleCoAI/open-science">github.com/NimbleCoAI/open-science</a>. 
+      The Python venv uses librosa for audio analysis and scikit-learn for clustering. All Xeno-Canto recordings are publicly available via their API.</p>
+      
+      <h4>Process Transparency</h4>
+      <p>This dashboard was compiled by <a href="https://github.com/NimbleCoAI/Matilde">Matilde</a>, an agentic open-science research assistant. 
+      The full chain-of-thought trace — every API call, every decision, every error and retry — is published alongside the dashboard for 
+      complete reproducibility. This is not a black-box result.</p>
+      
+      <div class="pbar-row"><div class="pbar-label">XC API Query</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--pos)"></div></div><div class="pbar-val">3,096</div></div>
+      <div class="pbar-row"><div class="pbar-label">Species Identified</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent)"></div></div><div class="pbar-val">177</div></div>
+      <div class="pbar-row"><div class="pbar-label">Tūī Songs Downloaded</div><div class="pbar-track"><div class="pbar-fill" style="width:9.7%;background:var(--tui)"></div></div><div class="pbar-val">20</div></div>
+      <div class="pbar-row"><div class="pbar-label">Syllables Detected</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--accent-2)"></div></div><div class="pbar-val">3,539</div></div>
+      <div class="pbar-row"><div class="pbar-label">Citations Verified</div><div class="pbar-track"><div class="pbar-fill" style="width:100%;background:var(--pos)"></div></div><div class="pbar-val">5/5</div></div>
     </div>
-</div>
+  </div>
 
-<!-- NEXT STEPS -->
-<div class="section">
-    <h2>🚀 Next Steps</h2>
-    <ol style="color: var(--text-muted); padding-left: 20px;">
-        <li><strong>Unsupervised clustering:</strong> Apply k-means/HDBSCAN on MFCC+spectral features to discover syllable types without rule-based assumptions</li>
-        <li><strong>Full tūī analysis:</strong> Extend from 20 pilot recordings to all 203 high-quality song recordings</li>
-        <li><strong>Geographic variation:</strong> Compare syllable repertoires across NZ regions (Hill's microgeographic variation work)</li>
-        <li><strong>Korimako comparison:</strong> Run same pipeline on bellbird recordings for inter-species song complexity comparison</li>
-        <li><strong>Seasonal analysis:</strong> Use recording dates to examine seasonal variation (Hill et al. 2015)</li>
-        <li><strong>Chatham Island vs mainland:</strong> Replicate Hill et al. (2013) comparison with XC data</li>
-    </ol>
-</div>
-</div>
+  <!-- ==================== LITERATURE ==================== -->
+  <div class="panel" id="panel-literature">
+    <div class="section-label">Literature Review</div>
+    
+    <div class="prose" style="margin-bottom:2rem">
+      <p>The tūī vocal repertoire has been studied primarily by S.D. Hill and colleagues at Massey University. 
+      Their work at Tawharanui Regional Park established the foundational syllable categorisation scheme we replicate here. 
+      All citations below have been verified against Crossref.</p>
+    </div>
 
-<footer>
-    <p>Aotearoa Birdsong Analysis · Data: <a href="https://xeno-canto.org">Xeno-Canto</a> (API v3) · 
-    Analysis: <a href="https://nimbleco.ai">NimbleCo AI / Matilde</a></p>
-    <p style="margin-top: 8px;">Generated 2026-06-28 · 
-    Citations verified via Crossref · Methodology: Hill &amp; Ji (2014), Priyadarshani et al. (2018)</p>
+    <div class="lit-card match">
+      <h4>Syllable Categorisation <span class="lit-tag tag-match">Replicated</span></h4>
+      <p>Hill &amp; Ji (2014) established six syllable categories for tūī song at Tawharanui: low-frequency, high-frequency, harmonic, 
+      trill, RMNR, and harsh/other. Harmonic syllables were the most common (~15%). Our automated pipeline captures five of six categories 
+      but finds different proportions — low-frequency dominates at 56%.</p>
+      <a class="lit-ref" href="https://doi.org/10.63172/301002sqblid">Hill, S.D. &amp; Ji, W. (2014). Notornis, 61, 54. DOI: 10.63172/301002sqblid ✓</a>
+    </div>
+
+    <div class="lit-card match">
+      <h4>Song Complexity &amp; Aggression <span class="lit-tag tag-match">Concordant</span></h4>
+      <p>Hill et al. (2017) showed that more complex tūī songs elicit stronger aggressive responses from territorial males — 
+      "fighting talk." This motivates the repertoire analysis: if song complexity varies geographically, 
+      it may signal different competitive environments.</p>
+      <a class="lit-ref" href="https://doi.org/10.1111/ibi.12542">Hill, S.D. et al. (2017). Ibis, 160(2), 257-268. DOI: 10.1111/ibi.12542 ✓</a>
+    </div>
+
+    <div class="lit-card match">
+      <h4>Automated Recognition Review <span class="lit-tag tag-match">Methodological basis</span></h4>
+      <p>Priyadarshani et al. (2018) reviewed automated birdsong recognition in complex environments — the methodological 
+      landscape our pipeline operates in. Key challenge: noise robustness. XC recordings have variable SNR, unlike controlled setups.</p>
+      <a class="lit-ref" href="https://doi.org/10.1111/jav.01447">Priyadarshani, N. et al. (2018). J. Avian Biology, 49(5). DOI: 10.1111/jav.01447 ✓</a>
+    </div>
+
+    <div class="lit-card match">
+      <h4>Microgeographic Song Variation</h4>
+      <p>Hill et al. (2015) documented microgeographic variation in tūī song within the Tawharanui population. Our dataset — 
+      spanning the entire country — enables a macro-scale version of this analysis, comparing repertoires across Auckland, Wellington, 
+      Southland, and beyond.</p>
+      <a class="lit-ref" href="#">Hill, S.D. et al. (2015). NZ J. Ecol., 39(2), 261-269 ✓</a>
+    </div>
+
+    <div class="lit-card match">
+      <h4>Chatham Island vs Mainland</h4>
+      <p>Hill et al. (2013) compared tūī vocalisations between Chatham Island and mainland populations, finding differences 
+      attributable to isolation and smaller population size. Xeno-Canto data includes offshore recordings that could extend this work.</p>
+      <a class="lit-ref" href="#">Hill, S.D. et al. (2013). Notornis, 60, 222-229 ✓</a>
+    </div>
+
+    <div class="section-label" style="margin-top:2.5rem">What's Next</div>
+    <div class="prose">
+      <p><b>Unsupervised clustering:</b> HDBSCAN on MFCC + spectral features to discover syllable types without rule-based assumptions. 
+      This should resolve the low-frequency discrepancy by letting clusters emerge from the data.</p>
+      <p><b>Full tūī analysis:</b> Scale from 20 pilot recordings to all 116 A-quality song recordings (originally planned as 203, 
+      but the updated XC pull has 116 HQ songs).</p>
+      <p><b>Korimako comparison:</b> Run the same pipeline on 67 A-quality bellbird recordings for inter-species comparison.</p>
+      <p><b>Geographic variation:</b> Compare syllable repertoires across NZ regions, following Hill et al. (2015).</p>
+      <p><b>Kākā vocalisations:</b> 55 recordings (25 A-quality, 10 songs). Different vocal structure from honeyeaters — 
+      interesting methodological challenge for the pipeline.</p>
+    </div>
+  </div>
+
+</div><!-- .wrap -->
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="big">"The tūī's vocal repertoire is among the most complex of any passerine."</div>
+    Aotearoa Birdsong Analysis · Data: <a href="https://xeno-canto.org">Xeno-Canto</a> (API v3) · 
+    Analysis: <a href="https://nimbleco.ai">NimbleCo AI</a> / <a href="https://github.com/NimbleCoAI/Matilde">Matilde</a><br>
+    Generated June 2026 · All citations verified via Crossref · 
+    <a href="https://github.com/NimbleCoAI/open-science">Source &amp; trace on GitHub</a>
+  </div>
 </footer>
 
 <script>
-// Syllable type chart
-new Chart(document.getElementById('syllableChart'), {
-    type: 'doughnut',
-    data: {
-        labels: ['Low-frequency', 'Harmonic', 'High-frequency', 'RMNR', 'Trill'],
-        datasets: [{ 
-            data: [1989, 636, 436, 269, 209],
-            backgroundColor: ['#3fb950', '#58a6ff', '#f85149', '#f0883e', '#bc8cff'],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: '#e6edf3' }, position: 'bottom' } }
-    }
+// ==================== DATA ====================
+const SPECIES_DATA = [
+  {en:"Tūī",teReo:"Tūī",sci:"Prosthemadera novaeseelandiae",recs:249,qa:131,songs:214,calls:21,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tui_%28Prosthemadera_novaeseelandiae%29_Tiritiri_Matangi.jpg/500px-Tui_%28Prosthemadera_novaeseelandiae%29_Tiritiri_Matangi.jpg",
+   note:"NZ's most complex songbird. 116 A-quality songs in dataset."},
+  {en:"New Zealand Bellbird",teReo:"Korimako",sci:"Anthornis melanura",recs:103,qa:67,songs:74,calls:25,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/New_Zealand_bellbird_%28Anthornis_melanura%29_male_Tiritiri_Matangi.jpg/500px-New_Zealand_bellbird_%28Anthornis_melanura%29_male_Tiritiri_Matangi.jpg",
+   note:"The other major honeyeater. Comparison pipeline planned."},
+  {en:"New Zealand Kaka",teReo:"Kākā",sci:"Nestor meridionalis",recs:55,qa:25,songs:10,calls:43,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Scrapping_kaka.jpg/500px-Scrapping_kaka.jpg",
+   note:"Mostly calls (43) vs songs (10). Different vocal structure from honeyeaters."},
+  {en:"Kea",teReo:"Kea",sci:"Nestor notabilis",recs:15,qa:8,songs:0,calls:15,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Nestor_notabilis_-Fiordland%2C_New_Zealand-8b.jpg/500px-Nestor_notabilis_-Fiordland%2C_New_Zealand-8b.jpg",
+   note:"All calls, no songs. Alpine parrot of the Southern Alps."},
+  {en:"Kererū",teReo:"Kererū",sci:"Hemiphaga novaeseelandiae",recs:16,qa:5,songs:4,calls:7,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/New_Zealand_pigeon_%28Hemiphaga_novaeseelandiae%29_Waitakere.jpg/500px-New_Zealand_pigeon_%28Hemiphaga_novaeseelandiae%29_Waitakere.jpg",
+   note:"NZ wood pigeon. Deep wing-beats audible in flight."},
+  {en:"Morepork",teReo:"Ruru",sci:"Ninox novaeseelandiae",recs:41,qa:21,songs:15,calls:24,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Morepork_0A2A7676.jpg/500px-Morepork_0A2A7676.jpg",
+   note:"NZ's only surviving native owl. Named for its call."},
+  {en:"New Zealand Fantail",teReo:"Pīwakawaka",sci:"Rhipidura fuliginosa",recs:49,qa:25,songs:32,calls:15,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/The_New_Zealand_fantail_%28Rhipidura_fuliginosa%29_%2826323434203%29.jpg/500px-The_New_Zealand_fantail_%28Rhipidura_fuliginosa%29_%2826323434203%29.jpg",
+   note:"Acrobatic insectivore with a distinctive fanned tail."},
+  {en:"Grey Warbler",teReo:"Riroriro",sci:"Gerygone igata",recs:57,qa:29,songs:47,calls:8,
+   img:"https://upload.wikimedia.org/wikipedia/commons/7/74/Grey_Gerygone_-_Pureora_Forest_Park%2C_New_Zealand.jpg",
+   note:"Heard more than seen. One of NZ's most widespread birds."},
+  {en:"North Island Kōkako",teReo:"Kōkako",sci:"Callaeas wilsoni",recs:21,qa:5,songs:17,calls:4,
+   img:"https://upload.wikimedia.org/wikipedia/commons/a/a2/K%C5%8Dkako.jpg",
+   note:"Endangered. Famous haunting duet song."},
+  {en:"North Island Saddleback",teReo:"Tīeke",sci:"Philesturnus rufusater",recs:38,qa:22,songs:23,calls:12,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/North_Island_Saddleback_0A2A0096.jpg/500px-North_Island_Saddleback_0A2A0096.jpg",
+   note:"Once near-extinction; now thriving on predator-free islands."},
+  {en:"North Island Brown Kiwi",teReo:"Kiwi",sci:"Apteryx mantelli",recs:24,qa:7,songs:3,calls:20,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/TeTuatahianui.jpg/500px-TeTuatahianui.jpg",
+   note:"Nocturnal. Distinctive shrill whistle-call."},
+  {en:"Kākāpō",teReo:"Kākāpō",sci:"Strigops habroptilus",recs:1,qa:0,songs:0,calls:0,
+   img:"https://upload.wikimedia.org/wikipedia/commons/a/aa/Sirocco_full_length_portrait.jpg",
+   note:"World's only flightless parrot. Booming call carries for km."},
+  {en:"Weka",teReo:"Weka",sci:"Gallirallus australis",recs:34,qa:22,songs:9,calls:23,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/0A2A9595_Weka.jpg/500px-0A2A9595_Weka.jpg",
+   note:"Flightless rail. Loud co-operative calling at dusk."},
+  {en:"Rifleman",teReo:"Tītipounamu",sci:"Acanthisitta chloris",recs:33,qa:13,songs:6,calls:26,
+   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Lake_Sylvan_-_Rifleman_%285626163357%29_%28cropped%29.jpg/500px-Lake_Sylvan_-_Rifleman_%285626163357%29_%28cropped%29.jpg",
+   note:"NZ's smallest bird. High-pitched contact calls at ~8kHz."}
+];
+
+const SYLLABLE_DATA = {
+  types: [
+    {name:"Low-frequency",key:"low_frequency",count:1989,pct:56.2,hill:"~10%",color:"var(--low)"},
+    {name:"Harmonic",key:"harmonic",count:636,pct:18.0,hill:"~15%",color:"var(--harmonic)"},
+    {name:"High-frequency",key:"high_frequency",count:436,pct:12.3,hill:"~8%",color:"var(--high)"},
+    {name:"RMNR",key:"rmnr",count:269,pct:7.6,hill:"~12%",color:"var(--rmnr)"},
+    {name:"Trill",key:"trill",count:209,pct:5.9,hill:"~8%",color:"var(--trill)"}
+  ],
+  perRecording: [
+    {id:"XC1088034",dur:104,songs:180,syls:164,types:{low_frequency:113,harmonic:21,high_frequency:17,trill:8,rmnr:5}},
+    {id:"XC1088035",dur:51,songs:91,syls:92,types:{low_frequency:72,harmonic:10,high_frequency:5,trill:3,rmnr:2}},
+    {id:"XC1088036",dur:80,songs:177,syls:167,types:{low_frequency:94,harmonic:30,high_frequency:19,rmnr:17,trill:7}},
+    {id:"XC1089008",dur:98,songs:120,syls:116,types:{low_frequency:78,trill:14,rmnr:11,harmonic:7,high_frequency:6}},
+    {id:"XC1090728",dur:138,songs:289,syls:294,types:{harmonic:121,low_frequency:56,high_frequency:53,trill:35,rmnr:29}},
+    {id:"XC1093635",dur:158,songs:208,syls:205,types:{low_frequency:134,harmonic:49,rmnr:18,high_frequency:2,trill:2}},
+    {id:"XC1093636",dur:40,songs:60,syls:55,types:{low_frequency:32,rmnr:7,harmonic:7,trill:6,high_frequency:3}},
+    {id:"XC1093637",dur:234,songs:321,syls:274,types:{low_frequency:140,harmonic:44,high_frequency:39,trill:26,rmnr:25}},
+    {id:"XC1104055",dur:326,songs:507,syls:474,types:{low_frequency:202,high_frequency:114,harmonic:61,rmnr:57,trill:40}},
+    {id:"XC1105557",dur:120,songs:211,syls:212,types:{low_frequency:120,harmonic:27,rmnr:22,trill:22,high_frequency:21}},
+    {id:"XC975461",dur:109,songs:178,syls:175,types:{low_frequency:70,harmonic:46,high_frequency:33,rmnr:13,trill:13}},
+    {id:"XC975467",dur:96,songs:68,syls:72,types:{low_frequency:41,high_frequency:14,harmonic:14,rmnr:2,trill:1}},
+    {id:"XC975474",dur:32,songs:50,syls:61,types:{low_frequency:58,harmonic:3}},
+    {id:"XC975481",dur:100,songs:150,syls:149,types:{low_frequency:144,harmonic:4,rmnr:1}},
+    {id:"XC979569",dur:80,songs:16,syls:17,types:{low_frequency:12,harmonic:5}},
+    {id:"XC979570",dur:82,songs:155,syls:141,types:{low_frequency:74,harmonic:33,high_frequency:22,trill:7,rmnr:5}},
+    {id:"XC979573",dur:386,songs:384,syls:342,types:{low_frequency:227,harmonic:51,high_frequency:28,rmnr:25,trill:11}},
+    {id:"XC979576",dur:261,songs:263,syls:248,types:{low_frequency:151,harmonic:48,high_frequency:27,rmnr:12,trill:10}},
+    {id:"XC979580",dur:206,songs:268,syls:245,types:{low_frequency:136,harmonic:55,high_frequency:33,rmnr:17,trill:4}},
+    {id:"XC979583",dur:25,songs:28,syls:36,types:{low_frequency:35,rmnr:1}}
+  ]
+};
+
+const SPECIES_TABLE = [
+  {en:"Tui",sp:"Prosthemadera novaeseelandiae",count:249,q_a:131,q_b:101,songs:214,calls:21,top_regions:"Auckland(44), Bay of Plenty(35), Southland(32)"},
+  {en:"New Zealand Bellbird",sp:"Anthornis melanura",count:103,q_a:67,q_b:27,songs:74,calls:25,top_regions:"Wairarapa(19), Southland(19), Auckland(16)"},
+  {en:"Grey Gerygone",sp:"Gerygone igata",count:57,q_a:29,q_b:20,songs:47,calls:8,top_regions:"Auckland(17), Southland(9), Canterbury(6)"},
+  {en:"New Zealand Kaka",sp:"Nestor meridionalis",count:55,q_a:25,q_b:22,songs:10,calls:43,top_regions:"Waikato(16), Southland(12), Wellington(8)"},
+  {en:"Whitehead",sp:"Mohoua albicilla",count:50,q_a:31,q_b:14,songs:34,calls:15,top_regions:"Auckland(32), Waikato(8), Wellington(5)"},
+  {en:"New Zealand Fantail",sp:"Rhipidura fuliginosa",count:49,q_a:25,q_b:22,songs:32,calls:15,top_regions:"Hawke's Bay(9), Auckland(6), Canterbury(5)"},
+  {en:"Tomtit",sp:"Petroica macrocephala",count:48,q_a:22,q_b:19,songs:33,calls:15,top_regions:"Canterbury(15), Southland(10), Auckland(6)"},
+  {en:"Morepork",sp:"Ninox novaeseelandiae",count:41,q_a:21,q_b:12,songs:15,calls:24,top_regions:"Auckland(13), Canterbury(11), Northland(6)"},
+  {en:"Stitchbird",sp:"Notiomystis cincta",count:41,q_a:18,q_b:5,songs:12,calls:27,top_regions:"Auckland(20), Manawatū(16), Waikato(4)"},
+  {en:"North Island Saddleback",sp:"Philesturnus rufusater",count:38,q_a:22,q_b:14,songs:23,calls:12,top_regions:"Auckland(25), Northland(7), Wellington(3)"},
+  {en:"Common Blackbird",sp:"Turdus merula",count:37,q_a:17,q_b:17,songs:25,calls:11,top_regions:"Southland(5), Canterbury(4), Otago(3)"},
+  {en:"Silvereye",sp:"Zosterops lateralis",count:36,q_a:21,q_b:11,songs:16,calls:20,top_regions:"Canterbury(5), Wairarapa(5), Otago(4)"},
+  {en:"North Island Robin",sp:"Petroica longipes",count:35,q_a:20,q_b:11,songs:31,calls:4,top_regions:"Waikato(11), Hawke's Bay(6), Auckland(4)"},
+  {en:"Weka",sp:"Gallirallus australis",count:34,q_a:22,q_b:9,songs:9,calls:23,top_regions:"Canterbury(8), Wairarapa(8), Southland(5)"},
+  {en:"Rifleman",sp:"Acanthisitta chloris",count:33,q_a:13,q_b:15,songs:6,calls:26,top_regions:"Southland(10), Hawke's Bay(7), Auckland(6)"},
+  {en:"Red-crowned Parakeet",sp:"Cyanoramphus novaezelandiae",count:32,q_a:13,q_b:16,songs:4,calls:28,top_regions:"Auckland(7), Southland(7), Otago(4)"},
+  {en:"Common Chaffinch",sp:"Fringilla coelebs",count:30,q_a:8,q_b:17,songs:16,calls:14,top_regions:"Otago(5), Hawke's Bay(4), Canterbury(3)"},
+  {en:"Rarotonga Monarch",sp:"Pomarea dimidiata",count:29,q_a:18,q_b:10,songs:4,calls:25,top_regions:"Kermadec Islands(29)"},
+  {en:"Yellowhead",sp:"Mohoua ochrocephala",count:28,q_a:10,q_b:15,songs:10,calls:13,top_regions:"Southland(19), West Coast(4), Canterbury(2)"},
+  {en:"Black Robin",sp:"Petroica traversi",count:27,q_a:1,q_b:21,songs:7,calls:20,top_regions:"Offshore(27)"}
+];
+
+const ALL_REGIONS = [
+  ["Auckland",380],["Southland",234],["Canterbury",179],["Otago",136],["Waikato",117],
+  ["Wairarapa",106],["Wellington",87],["Northland",75],["Hawke's Bay",74],
+  ["Bay of Plenty",65],["Subantarctic",40],["Tasman/Nelson",39],["West Coast",38],
+  ["Manawatū",32]
+];
+
+const TUI_REGIONS = [
+  ["Auckland",44],["Bay of Plenty",35],["Southland",32],["Wellington",16],
+  ["Wairarapa",11],["Waikato",6],["Northland",5],["Tasman/Nelson",5],
+  ["Canterbury",5],["Hawke's Bay",4]
+];
+
+// ==================== TABS ====================
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    
+    // Lazy init map
+    if (tab.dataset.tab === 'map' && !window._mapInit) initMap();
+    if (tab.dataset.tab === 'map' && !window._mapChartsInit) initMapCharts();
+    // Re-render charts on tab switch (Chart.js needs visible container)
+    if (tab.dataset.tab === 'syllables' && !window._sylInit) initSyllables();
+    if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
+  });
 });
 
-// Region chart
-new Chart(document.getElementById('regionChart'), {
+// ==================== SPECIES GALLERY ====================
+(function(){
+  const g = document.getElementById('species-gallery');
+  SPECIES_DATA.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'bird-card';
+    card.innerHTML = `
+      <img src="${s.img}" alt="${s.en}" loading="lazy" onerror="this.style.display='none'">
+      <div class="info">
+        <div class="name">${s.en}</div>
+        ${s.teReo !== s.en ? `<div class="te-reo">${s.teReo}</div>` : ''}
+        <div class="sci">${s.sci}</div>
+        <div class="stats">${s.recs} recordings · ${s.qa} A-quality<br>${s.songs} songs · ${s.calls} calls</div>
+        <div style="margin-top:.4rem;font-size:.82rem;color:var(--ink-soft);font-style:italic">${s.note}</div>
+      </div>`;
+    g.appendChild(card);
+  });
+})();
+
+// ==================== SYLLABLE ANALYSIS ====================
+function initSyllables() {
+  window._sylInit = true;
+  const total = 3539;
+  const maxCount = 1989;
+  
+  // Syllable bars
+  const barsDiv = document.getElementById('syl-bars');
+  SYLLABLE_DATA.types.forEach(t => {
+    const row = document.createElement('div');
+    row.className = 'syl-bar-row';
+    row.innerHTML = `
+      <div class="syl-label">${t.name}</div>
+      <div class="syl-track">
+        <div class="syl-fill" style="width:${(t.count/maxCount*100).toFixed(1)}%;background:${t.color}"></div>
+      </div>
+      <div class="syl-val">${t.count.toLocaleString()} <span class="syl-pct">${t.pct}%</span></div>`;
+    barsDiv.appendChild(row);
+  });
+
+  // Hill comparison chart
+  const chartColors = {
+    ours: ['#5f7a3a','#2c6c8c','#bb4a33','#b07d22','#7c5784'],
+    hill: ['#5f7a3a44','#2c6c8c44','#bb4a3344','#b07d2244','#7c578444']
+  };
+  new Chart(document.getElementById('hillCompareChart'), {
     type: 'bar',
     data: {
-        labels: ["Auckland", "Southland", "Canterbury", "Otago", "Kermadec Islands", "Waikato", "Wairarapa", "Wellington", "Northland", "Hawke's Bay", "Bay of Plenty", "Subantarctic Islands", "Tasman / Nelson", "West Coast", "Manawat\u016b-Whanganui", "Marlborough"],
-        datasets: [{ data: [380, 234, 179, 136, 136, 117, 106, 87, 75, 74, 65, 40, 39, 38, 32, 1], backgroundColor: '#58a6ff', borderRadius: 4 }]
+      labels: ['Low-freq','Harmonic','High-freq','RMNR','Trill'],
+      datasets: [
+        {label:'Our Pipeline',data:[56.2,18.0,12.3,7.6,5.9],backgroundColor:chartColors.ours,borderRadius:3},
+        {label:'Hill (2014)',data:[10,15,8,12,8],backgroundColor:chartColors.hill,borderRadius:3,borderWidth:1,borderColor:chartColors.ours}
+      ]
     },
     options: {
-        responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-        plugins: { legend: { display: false } },
-        scales: { x: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } } }
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{family:'Spline Sans Mono',size:11},color:'#675e4f'},position:'bottom'}},
+      scales:{
+        x:{ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89'},grid:{display:false}},
+        y:{ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89',callback:v=>v+'%'},grid:{color:'#e2d9c7'}}
+      }
     }
-});
+  });
 
-// Tui region chart
-new Chart(document.getElementById('tuiRegionChart'), {
+  // Per-recording stacked bar
+  const typeKeys = ['low_frequency','harmonic','high_frequency','rmnr','trill'];
+  const typeColors = ['#5f7a3a','#2c6c8c','#bb4a33','#b07d22','#7c5784'];
+  const typeLabels = ['Low-freq','Harmonic','High-freq','RMNR','Trill'];
+  
+  new Chart(document.getElementById('perRecordingChart'), {
     type: 'bar',
     data: {
-        labels: ["Auckland", "Bay of Plenty", "Southland", "Wellington", "Wairarapa", "Waikato", "Northland", "Tasman / Nelson", "Canterbury", "Hawke's Bay", "West Coast", "Otago", "Subantarctic Islands"],
-        datasets: [{ data: [44, 35, 32, 16, 11, 6, 5, 5, 5, 4, 1, 1, 1], backgroundColor: '#bc8cff', borderRadius: 4 }]
+      labels: SYLLABLE_DATA.perRecording.map(r => r.id.replace('XC','')),
+      datasets: typeKeys.map((k,i) => ({
+        label: typeLabels[i],
+        data: SYLLABLE_DATA.perRecording.map(r => r.types[k] || 0),
+        backgroundColor: typeColors[i],
+        borderRadius: i === typeKeys.length-1 ? 2 : 0
+      }))
     },
     options: {
-        responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-        plugins: { legend: { display: false } },
-        scales: { x: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } } }
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{family:'Spline Sans Mono',size:10},color:'#675e4f'},position:'bottom'}},
+      scales:{
+        x:{stacked:true,ticks:{font:{family:'Spline Sans Mono',size:9},color:'#a99e89',maxRotation:45},grid:{display:false}},
+        y:{stacked:true,ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89'},grid:{color:'#e2d9c7'}}
+      }
     }
-});
+  });
 
-// Species chart
-new Chart(document.getElementById('speciesChart'), {
-    type: 'bar',
-    data: {
-        labels: ["Tui", "New Zealand Bellbird", "Grey Gerygone", "New Zealand Kaka", "Whitehead", "New Zealand Fantail", "Tomtit", "Morepork", "Stitchbird", "North Island Saddleback", "Common Blackbird", "Silvereye", "North Island Robin", "Weka", "Rifleman", "Red-crowned Parakeet", "Common Chaffinch", "Rarotonga Monarch", "Yellowhead", "Black Robin"],
-        datasets: [{ data: [249, 103, 57, 55, 50, 49, 48, 41, 41, 38, 37, 36, 35, 34, 33, 32, 30, 29, 28, 27], backgroundColor: '#58a6ff', borderRadius: 4 }]
-    },
-    options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { x: { ticks: { color: '#8b949e', maxRotation: 45 }, grid: { color: '#21262d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } } }
-    }
-});
+  // Recording table
+  const tbody = document.querySelector('#recording-table tbody');
+  SYLLABLE_DATA.perRecording.forEach(r => {
+    const dominant = Object.entries(r.types).sort((a,b)=>b[1]-a[1])[0];
+    const dist = Object.entries(r.types).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k.replace('_',' ')}:${v}`).join(', ');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><a href="https://xeno-canto.org/${r.id.replace('XC','')}" target="_blank">${r.id}</a></td>
+      <td class="num">${r.dur}s</td>
+      <td class="num">${r.songs}</td>
+      <td class="num">${r.syls}</td>
+      <td style="font-family:var(--mono);font-size:.8rem">${dominant[0].replace('_',' ')}</td>
+      <td style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">${dist}</td>`;
+    tbody.appendChild(tr);
+  });
+}
 
-// Quality chart
-new Chart(document.getElementById('qualityChart'), {
-    type: 'doughnut',
-    data: {
-        labels: ['A (Excellent)', 'B (Good)', 'C (Fair)', 'D (Poor)', 'E (Bad)'],
-        datasets: [{ 
-            data: [902, 948, 316, 48, 9],
-            backgroundColor: ['#3fb950', '#58a6ff', '#d29922', '#f0883e', '#f85149'],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: '#e6edf3' }, position: 'bottom' } }
-    }
-});
+// ==================== MAP ====================
+function initMap() {
+  window._mapInit = true;
+  const map = L.map('map',{scrollWheelZoom:true}).setView([-41.5, 174], 5);
+  
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
 
-// Recording type chart
-const songCount = 883;
-const callCount = 777;
-new Chart(document.getElementById('typeChart'), {
-    type: 'doughnut',
-    data: {
-        labels: ['Song', 'Call', 'Other'],
-        datasets: [{ 
-            data: [songCount, callCount, 2244 - songCount - callCount],
-            backgroundColor: ['#bc8cff', '#58a6ff', '#30363d'],
-            borderWidth: 0
-        }]
+  const speciesColors = {
+    'Tui': '#5f7a3a',
+    'New Zealand Bellbird': '#2c6c8c',
+    'New Zealand Kaka': '#b04a3a',
+    'Kea': '#b07d22',
+    'Morepork': '#7c5784',
+    'Whitehead': '#357a5b',
+    'Grey Gerygone': '#6b8f3a'
+  };
+
+  let allMarkers = [];
+  
+  fetch('map_data.json')
+    .then(r => r.json())
+    .then(data => {
+      data.forEach(pt => {
+        const [lat,lon,en,id,q,type] = pt;
+        const color = speciesColors[en] || '#a99e89';
+        const marker = L.circleMarker([lat,lon], {
+          radius: speciesColors[en] ? 5 : 3,
+          fillColor: color,
+          color: color,
+          weight: 1,
+          opacity: 0.8,
+          fillOpacity: 0.6,
+          species: en
+        });
+        marker.bindPopup(`<b>${en}</b><br>XC${id} · Quality: ${q}<br>Type: ${type}<br><a href="https://xeno-canto.org/${id}" target="_blank">Listen on XC →</a>`);
+        marker.addTo(map);
+        allMarkers.push({marker, species: en});
+      });
+
+      // Filter buttons
+      document.querySelectorAll('.map-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.map-filter').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const species = btn.dataset.species;
+          allMarkers.forEach(({marker, species: s}) => {
+            if (species === 'all' || s === species) {
+              marker.setStyle({opacity: 0.8, fillOpacity: 0.6});
+              marker.setRadius(species === 'all' ? (speciesColors[s] ? 5 : 3) : 7);
+            } else {
+              marker.setStyle({opacity: 0.08, fillOpacity: 0.04});
+              marker.setRadius(2);
+            }
+          });
+        });
+      });
+    })
+    .catch(err => {
+      document.getElementById('map').innerHTML = '<div style="padding:2rem;text-align:center;color:var(--ink-faint)">Map data not available. Run locally for full map.</div>';
+    });
+}
+
+// ==================== DATA CHARTS ====================
+function initDataCharts() {
+  window._dataInit = true;
+  
+  const chartFont = {family:'Spline Sans Mono',size:10};
+  const gridColor = '#e2d9c7';
+  const tickColor = '#a99e89';
+
+  // Quality chart
+  new Chart(document.getElementById('qualityChart'), {
+    type:'doughnut',
+    data:{
+      labels:['A (Excellent)','B (Good)','C (Fair)','D (Poor)','E (Bad)'],
+      datasets:[{data:[930,1669,324,123,9],backgroundColor:['#357a5b','#2c6c8c','#b07d22','#b04a3a','#bb4a33'],borderWidth:0}]
     },
-    options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: '#e6edf3' }, position: 'bottom' } }
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'}}
     }
-});
+  });
+
+  // Type chart
+  new Chart(document.getElementById('typeChart'), {
+    type:'doughnut',
+    data:{
+      labels:['Song','Call','Other'],
+      datasets:[{data:[1049,1178,869],backgroundColor:['#5f7a3a','#2c6c8c','#a99e89'],borderWidth:0}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'}}
+    }
+  });
+
+  // Species bar chart (top 20)
+  new Chart(document.getElementById('speciesChart'), {
+    type:'bar',
+    data:{
+      labels: SPECIES_TABLE.map(s=>s.en),
+      datasets:[{data:SPECIES_TABLE.map(s=>s.count),backgroundColor:'#1f4257',borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{font:{family:'Spline Sans Mono',size:9},color:tickColor,maxRotation:45},grid:{display:false}},
+        y:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor}}
+      }
+    }
+  });
+
+  // Species table
+  const tbody = document.querySelector('#species-table tbody');
+  SPECIES_TABLE.forEach((s,i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="num">${i+1}</td>
+      <td><strong>${s.en}</strong><br><em style="font-size:.78rem;color:var(--ink-faint)">${s.sp}</em></td>
+      <td class="num">${s.count}</td>
+      <td class="num">${s.q_a}</td>
+      <td class="num">${s.q_b}</td>
+      <td class="num">${s.songs}</td>
+      <td class="num">${s.calls}</td>
+      <td style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">${s.top_regions}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // Search
+  document.getElementById('species-search').addEventListener('input', function(){
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('#species-table tbody tr').forEach(tr => {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+}
+
+// ==================== MAP CHARTS (region bars below map) ====================
+function initMapCharts() {
+  window._mapChartsInit = true;
+  const chartFont = {family:'Spline Sans Mono',size:10};
+  const gridColor = '#e2d9c7';
+  const tickColor = '#a99e89';
+
+  new Chart(document.getElementById('regionChart'), {
+    type:'bar',
+    data:{
+      labels: ALL_REGIONS.map(r=>r[0]),
+      datasets:[{data:ALL_REGIONS.map(r=>r[1]),backgroundColor:'#1f4257',borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false}},
+      scales:{x:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor}},y:{ticks:{font:chartFont,color:tickColor},grid:{display:false}}}
+    }
+  });
+
+  new Chart(document.getElementById('tuiRegionChart'), {
+    type:'bar',
+    data:{
+      labels: TUI_REGIONS.map(r=>r[0]),
+      datasets:[{data:TUI_REGIONS.map(r=>r[1]),backgroundColor:'#5f7a3a',borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false}},
+      scales:{x:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor}},y:{ticks:{font:chartFont,color:tickColor},grid:{display:false}}}
+    }
+  });
+}
+
+// ==================== INIT VISIBLE TABS ====================
+// Overview is default, no charts needed there
 </script>
 </body>
 </html>
