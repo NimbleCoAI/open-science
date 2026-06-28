@@ -1,0 +1,522 @@
+{
+  "Prosthemadera novaeseelandiae": {
+    "common": "T\u016b\u012b",
+    "scientific": "Prosthemadera novaeseelandiae",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 229,
+    "bg": 182,
+    "total": 411,
+    "duration": "7:17:27."
+  },
+  "Anthornis melanura": {
+    "common": "New Zealand Bellbird",
+    "scientific": "Anthornis melanura",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 94,
+    "bg": 132,
+    "total": 226,
+    "duration": "2:18:44."
+  },
+  "Gerygone igata": {
+    "common": "Grey Warbler",
+    "scientific": "Gerygone igata",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Rhipidura fuliginosa": {
+    "common": "New Zealand Fantail",
+    "scientific": "Rhipidura fuliginosa",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Petroica macrocephala": {
+    "common": "Tomtit",
+    "scientific": "Petroica macrocephala",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 32,
+    "bg": 22,
+    "total": 54,
+    "duration": "17:37."
+  },
+  "Petroica longipes": {
+    "common": "North Island Robin",
+    "scientific": "Petroica longipes",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 21,
+    "bg": 24,
+    "total": 45,
+    "duration": "24:51."
+  },
+  "Petroica australis": {
+    "common": "South Island Robin",
+    "scientific": "Petroica australis",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 21,
+    "bg": 4,
+    "total": 25,
+    "duration": "20:45."
+  },
+  "Mohoua albicilla": {
+    "common": "Whitehead",
+    "scientific": "Mohoua albicilla",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 50,
+    "bg": 91,
+    "total": 141,
+    "duration": "50:36."
+  },
+  "Mohoua ochrocephala": {
+    "common": "Yellowhead",
+    "scientific": "Mohoua ochrocephala",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 28,
+    "bg": 3,
+    "total": 31,
+    "duration": "26:40."
+  },
+  "Mohoua novaeseelandiae": {
+    "common": "Brown Creeper",
+    "scientific": "Mohoua novaeseelandiae",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 15,
+    "bg": 2,
+    "total": 17,
+    "duration": "9:31."
+  },
+  "Acanthisitta chloris": {
+    "common": "Rifleman",
+    "scientific": "Acanthisitta chloris",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 33,
+    "bg": 15,
+    "total": 48,
+    "duration": "22:58."
+  },
+  "Xenicus gilviventris": {
+    "common": "Rock Wren",
+    "scientific": "Xenicus gilviventris",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 158,
+    "bg": 67,
+    "total": 225,
+    "duration": null
+  },
+  "Callaeas wilsoni": {
+    "common": "North Island K\u014dkako",
+    "scientific": "Callaeas wilsoni",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 21,
+    "bg": 4,
+    "total": 25,
+    "duration": null
+  },
+  "Notiomystis cincta": {
+    "common": "Stitchbird",
+    "scientific": "Notiomystis cincta",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 34,
+    "bg": 9,
+    "total": 43,
+    "duration": null
+  },
+  "Poodytes punctatus": {
+    "common": "Fernbird",
+    "scientific": "Poodytes punctatus",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 25,
+    "bg": 0,
+    "total": 25,
+    "duration": "16:28."
+  },
+  "Anthus novaeseelandiae": {
+    "common": "New Zealand Pipit",
+    "scientific": "Anthus novaeseelandiae",
+    "type": "passerine",
+    "status": "native",
+    "fg": 21,
+    "bg": 4,
+    "total": 25,
+    "duration": "18:38."
+  },
+  "Philesturnus carunculatus": {
+    "common": "Saddleback",
+    "scientific": "Philesturnus carunculatus",
+    "type": "passerine",
+    "status": "endemic",
+    "fg": 7,
+    "bg": 0,
+    "total": 7,
+    "duration": "5:22."
+  },
+  "Apteryx mantelli": {
+    "common": "North Island Brown Kiwi",
+    "scientific": "Apteryx mantelli",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 24,
+    "bg": 4,
+    "total": 28,
+    "duration": "10:21."
+  },
+  "Apteryx haastii": {
+    "common": "Great Spotted Kiwi",
+    "scientific": "Apteryx haastii",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 7,
+    "bg": 0,
+    "total": 7,
+    "duration": "3:46."
+  },
+  "Apteryx owenii": {
+    "common": "Little Spotted Kiwi",
+    "scientific": "Apteryx owenii",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Apteryx australis": {
+    "common": "Southern Brown Kiwi",
+    "scientific": "Apteryx australis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Apteryx rowi": {
+    "common": "Okarito Kiwi",
+    "scientific": "Apteryx rowi",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 5,
+    "bg": 0,
+    "total": 5,
+    "duration": null
+  },
+  "Nestor notabilis": {
+    "common": "Kea",
+    "scientific": "Nestor notabilis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 15,
+    "bg": 0,
+    "total": 15,
+    "duration": null
+  },
+  "Nestor meridionalis": {
+    "common": "K\u0101k\u0101",
+    "scientific": "Nestor meridionalis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Strigops habroptilus": {
+    "common": "K\u0101k\u0101p\u014d",
+    "scientific": "Strigops habroptilus",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Ninox novaeseelandiae": {
+    "common": "Morepork",
+    "scientific": "Ninox novaeseelandiae",
+    "type": "non-passerine",
+    "status": "native",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Falco novaeseelandiae": {
+    "common": "New Zealand Falcon",
+    "scientific": "Falco novaeseelandiae",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Hemiphaga novaeseelandiae": {
+    "common": "Kerer\u016b",
+    "scientific": "Hemiphaga novaeseelandiae",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Gallirallus australis": {
+    "common": "Weka",
+    "scientific": "Gallirallus australis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Porphyrio melanotus": {
+    "common": "P\u016bkeko",
+    "scientific": "Porphyrio melanotus",
+    "type": "non-passerine",
+    "status": "native",
+    "fg": 61,
+    "bg": 24,
+    "total": 85,
+    "duration": null
+  },
+  "Porphyrio hochstetteri": {
+    "common": "Takah\u0113",
+    "scientific": "Porphyrio hochstetteri",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Hymenolaimus malacorhynchos": {
+    "common": "Blue Duck",
+    "scientific": "Hymenolaimus malacorhynchos",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Tadorna variegata": {
+    "common": "Paradise Shelduck",
+    "scientific": "Tadorna variegata",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 24,
+    "bg": 11,
+    "total": 35,
+    "duration": "17:24."
+  },
+  "Aythya novaeseelandiae": {
+    "common": "New Zealand Scaup",
+    "scientific": "Aythya novaeseelandiae",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 1,
+    "bg": 0,
+    "total": 1,
+    "duration": "0:12."
+  },
+  "Anas chlorotis": {
+    "common": "Brown Teal",
+    "scientific": "Anas chlorotis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Anas superciliosa": {
+    "common": "Grey Duck",
+    "scientific": "Anas superciliosa",
+    "type": "non-passerine",
+    "status": "native",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Urodynamis taitensis": {
+    "common": "Long-tailed Cuckoo",
+    "scientific": "Urodynamis taitensis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Chrysococcyx lucidus": {
+    "common": "Shining Cuckoo",
+    "scientific": "Chrysococcyx lucidus",
+    "type": "non-passerine",
+    "status": "native",
+    "fg": 58,
+    "bg": 48,
+    "total": 106,
+    "duration": "35:23."
+  },
+  "Todiramphus sanctus": {
+    "common": "Sacred Kingfisher",
+    "scientific": "Todiramphus sanctus",
+    "type": "non-passerine",
+    "status": "native",
+    "fg": 84,
+    "bg": 103,
+    "total": 187,
+    "duration": "44:45."
+  },
+  "Cyanoramphus novaezelandiae": {
+    "common": "Red-crowned Parakeet",
+    "scientific": "Cyanoramphus novaezelandiae",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Cyanoramphus auriceps": {
+    "common": "Yellow-crowned Parakeet",
+    "scientific": "Cyanoramphus auriceps",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 12,
+    "bg": 7,
+    "total": 19,
+    "duration": null
+  },
+  "Charadrius obscurus": {
+    "common": "New Zealand Dotterel",
+    "scientific": "Charadrius obscurus",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Anarhynchus frontalis": {
+    "common": "Wrybill",
+    "scientific": "Anarhynchus frontalis",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 10,
+    "bg": 0,
+    "total": 10,
+    "duration": "3:10."
+  },
+  "Haematopus unicolor": {
+    "common": "Variable Oystercatcher",
+    "scientific": "Haematopus unicolor",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 26,
+    "bg": 4,
+    "total": 30,
+    "duration": "18:43."
+  },
+  "Himantopus novaezelandiae": {
+    "common": "Black Stilt",
+    "scientific": "Himantopus novaezelandiae",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 7,
+    "bg": 0,
+    "total": 7,
+    "duration": "4:49."
+  },
+  "Poliocephalus rufopectus": {
+    "common": "New Zealand Grebe",
+    "scientific": "Poliocephalus rufopectus",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Phalacrocorax punctatus": {
+    "common": "Spotted Shag",
+    "scientific": "Phalacrocorax punctatus",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Larus bulleri": {
+    "common": "Black-billed Gull",
+    "scientific": "Larus bulleri",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Chlidonias albostriatus": {
+    "common": "Black-fronted Tern",
+    "scientific": "Chlidonias albostriatus",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Eudyptes pachyrhynchus": {
+    "common": "Fiordland Penguin",
+    "scientific": "Eudyptes pachyrhynchus",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": 2,
+    "bg": 0,
+    "total": 2,
+    "duration": null
+  },
+  "Megadyptes antipodes": {
+    "common": "Yellow-eyed Penguin",
+    "scientific": "Megadyptes antipodes",
+    "type": "non-passerine",
+    "status": "endemic",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  },
+  "Eudyptula minor": {
+    "common": "Little Penguin",
+    "scientific": "Eudyptula minor",
+    "type": "non-passerine",
+    "status": "native",
+    "fg": null,
+    "bg": null,
+    "total": null,
+    "duration": null
+  }
+}

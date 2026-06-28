@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NZ Birdsong Analysis - Xeno-Canto Dataset Overview</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root {
+    --bg: #0d1117; --surface: #161b22; --border: #30363d;
+    --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+    --green: #3fb950; --yellow: #d29922; --red: #f85149;
+    --tui-purple: #9b59b6; --bellbird-green: #2ecc71;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header { text-align: center; padding: 40px 20px; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+header h1 { font-size: 2.2em; margin-bottom: 10px; }
+header h1 span { color: var(--accent); }
+header .subtitle { color: var(--text-muted); font-size: 1.1em; }
+.koru { display: inline-block; margin-right: 8px; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 30px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+.stat-card .number { font-size: 2.5em; font-weight: bold; color: var(--accent); }
+.stat-card .label { color: var(--text-muted); font-size: 0.9em; margin-top: 4px; }
+
+.section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.section h2 { font-size: 1.4em; margin-bottom: 16px; color: var(--accent); }
+.section h3 { font-size: 1.1em; margin: 16px 0 8px; color: var(--text-muted); }
+
+.chart-container { position: relative; height: 500px; margin: 20px 0; }
+.chart-small { height: 300px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--accent); font-weight: 600; background: rgba(88,166,255,0.05); position: sticky; top: 0; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.scientific { color: var(--text-muted); font-size: 0.85em; }
+.finding { font-size: 0.85em; color: var(--text-muted); }
+.missing-row { opacity: 0.6; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }
+.badge.endemic { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.badge.native { background: rgba(34,197,94,0.15); color: #4ade80; }
+.badge.passerine { background: rgba(155,89,182,0.15); color: #c084fc; }
+.badge.non-passerine { background: rgba(234,179,8,0.15); color: #facc15; }
+.badge.verified { background: rgba(63,185,80,0.15); color: var(--green); }
+.badge.unverifiable { background: rgba(210,153,34,0.15); color: var(--yellow); }
+
+.methods-box { background: rgba(88,166,255,0.05); border-left: 3px solid var(--accent); padding: 16px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+.methods-box h4 { color: var(--accent); margin-bottom: 8px; }
+.methods-box ul { padding-left: 20px; color: var(--text-muted); }
+.methods-box li { margin-bottom: 4px; }
+
+.disclaimer { background: rgba(210,153,34,0.1); border: 1px solid rgba(210,153,34,0.3); border-radius: 8px; padding: 16px; margin: 20px 0; font-size: 0.9em; color: var(--yellow); }
+.disclaimer strong { color: var(--yellow); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .chart-container { height: 400px; } }
+
+footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.85em; border-top: 1px solid var(--border); margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <h1>🪶 <span>Aotearoa Birdsong</span> Dataset Overview</h1>
+    <p class="subtitle">Xeno-Canto recordings of NZ endemic &amp; native birds — a first pass for song complexity analysis</p>
+    <p style="color: var(--text-muted); margin-top: 8px; font-size: 0.9em;">
+        Prepared for the Hill (2014) tūī song replication project · 29 species · 1,885 recordings identified
+    </p>
+</header>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">29</div>
+        <div class="label">Species with recordings</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">1,885</div>
+        <div class="label">Total recordings</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">1,125</div>
+        <div class="label">Foreground recordings</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">15</div>
+        <div class="label">Songbird species (passerines)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">411</div>
+        <div class="label">Tūī recordings (target species)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">226</div>
+        <div class="label">Korimako recordings</div>
+    </div>
+</div>
+
+<div class="disclaimer">
+    <strong>⚠ Data Completeness Note:</strong> These counts were obtained from search engine snippets of Xeno-Canto species pages (cached at various dates). 
+    Xeno-Canto's website has aggressive bot protection (Anubis) and the API v3 requires a free API key. 
+    23 species could not be queried. Full metadata with quality ratings, recording types, 
+    and geographic coordinates will require XC API access. The true dataset is likely larger than shown here.
+</div>
+
+<div class="section">
+    <h2>📊 Recordings by Species</h2>
+    <div class="chart-container">
+        <canvas id="speciesChart"></canvas>
+    </div>
+</div>
+
+<div class="two-col">
+    <div class="section">
+        <h2>🎵 Songbirds vs Non-Songbirds</h2>
+        <div class="chart-container chart-small">
+            <canvas id="typeChart"></canvas>
+        </div>
+    </div>
+    <div class="section">
+        <h2>🔊 Foreground vs Background</h2>
+        <div class="chart-container chart-small">
+            <canvas id="fgBgChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🎯 Target Species: Tūī &amp; Korimako</h2>
+    <div class="two-col">
+        <div>
+            <h3>Tūī (Prosthemadera novaeseelandiae)</h3>
+            <p><strong>229</strong> foreground + <strong>182</strong> background = <strong>411</strong> total recordings</p>
+            <p>Duration: ~7 hours 17 minutes</p>
+            <p style="margin-top: 10px; color: var(--text-muted);">
+                Hill &amp; Ji (2014) analysed 50 songs from 10 individuals. The XC archive offers 
+                a substantially larger dataset (~4.5x more foreground recordings) for replication 
+                and extension of their syllable categorisation work.
+            </p>
+        </div>
+        <div>
+            <h3>Korimako / Bellbird (Anthornis melanura)</h3>
+            <p><strong>94</strong> foreground + <strong>132</strong> background = <strong>226</strong> total recordings</p>
+            <p>Duration: ~2 hours 19 minutes</p>
+            <p style="margin-top: 10px; color: var(--text-muted);">
+                As a close ecological associate of tūī (both Meliphagidae), bellbird song 
+                complexity comparison would be a valuable extension of Hill's work.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🔬 Hill's Methods &amp; Proposed Pipeline</h2>
+    <div class="methods-box">
+        <h4>Hill &amp; Ji (2014) — Original Analysis</h4>
+        <ul>
+            <li>Equipment: Sennheiser ME67 shotgun mic + Marantz PMD620 recorder (44.1 kHz)</li>
+            <li>Software: Raven Pro 1.4 Beta (Cornell Lab)</li>
+            <li>Settings: DFT=256, Hann window, 2.9ms, 50% frame overlap, bandwidth=3dB</li>
+            <li>Manual syllable categorisation by visual/aural inspection of spectrograms</li>
+            <li>6 syllable types: harmonic, RMNR, harsh, trill, high-freq (≥5kHz), low-freq (&lt;2kHz)</li>
+        </ul>
+    </div>
+    <div class="methods-box">
+        <h4>Priyadarshani et al. (2018) — Review of Automated Methods</h4>
+        <ul>
+            <li>4-stage pipeline: preprocessing → detection → feature extraction → classification</li>
+            <li>Noise reduction: bandpass filtering, spectral subtraction, wavelet denoising</li>
+            <li>Detection: energy thresholding, spectrogram cross-correlation, HMMs</li>
+            <li>Features: MFCCs (most common), mel spectrograms, spectral features</li>
+            <li>Classification: Random Forest (up to 96%), SVMs, neural networks</li>
+            <li>AviaNZ: open-source tool by same group, designed for NZ birds</li>
+        </ul>
+    </div>
+    <div class="methods-box">
+        <h4>Proposed Automated Pipeline for This Project</h4>
+        <ul>
+            <li><strong>Step 1:</strong> Download high-quality (A/B rated) foreground recordings from XC via API</li>
+            <li><strong>Step 2:</strong> Noise reduction using wavelet denoising (Priyadarshani et al. 2016)</li>
+            <li><strong>Step 3:</strong> Song detection via energy thresholding on band-limited spectrograms</li>
+            <li><strong>Step 4:</strong> Syllable segmentation using ≥20ms pause criterion + spectral clustering</li>
+            <li><strong>Step 5:</strong> Feature extraction (MFCCs, spectral features) per syllable</li>
+            <li><strong>Step 6:</strong> Unsupervised syllable clustering to replicate Hill's 6-type categorisation</li>
+            <li><strong>Step 7:</strong> Validate against Hill's published proportions</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>📚 Verified Citations (Hill's Tūī Research)</h2>
+    <div style="overflow-x: auto;">
+    <table>
+        <thead><tr>
+            <th>Title</th><th>Year</th><th>Venue</th><th>DOI</th><th>Status</th><th>Key Finding</th>
+        </tr></thead>
+        <tbody><tr>
+        <td><strong>Categorisation of common syllable types in tui vocalisations</strong></td>
+        <td>2014</td>
+        <td>Notornis</td>
+        <td><a href="https://doi.org/10.63172/301002sqblid" target="_blank">10.63172/301002sqblid</a></td>
+        <td><span class="badge verified">Verified</span></td>
+        <td class="finding">6 main syllable types identified: harmonic (most common), RMNR, harsh, trill, high-freq, low-freq. Males avg 23 syllables/song, females avg 8.</td>
+    </tr><tr>
+        <td><strong>Fighting talk: complex song elicits more aggressive responses</strong></td>
+        <td>2017</td>
+        <td>Ibis</td>
+        <td><a href="https://doi.org/10.1111/ibi.12542" target="_blank">10.1111/ibi.12542</a></td>
+        <td><span class="badge verified">Verified</span></td>
+        <td class="finding">Complex songs evoked stronger territorial responses. Males approached playback more closely and responded with higher complexity songs.</td>
+    </tr><tr>
+        <td><strong>A comparison of vocalisations between mainland and Chatham Island tui</strong></td>
+        <td>2013</td>
+        <td>NZ J Ecology</td>
+        <td>—</td>
+        <td><span class="badge unverifiable">Unverifiable</span></td>
+        <td class="finding">Geographic variation in tui vocalisations between mainland and island populations.</td>
+    </tr><tr>
+        <td><strong>Seasonal variation in the song structure of tui</strong></td>
+        <td>2015</td>
+        <td>NZ J Ecology</td>
+        <td>—</td>
+        <td><span class="badge unverifiable">Unverifiable</span></td>
+        <td class="finding">Song complexity varies with breeding season.</td>
+    </tr><tr>
+        <td><strong>Reduced song complexity in founder populations</strong></td>
+        <td>2018</td>
+        <td>Ibis</td>
+        <td><a href="https://doi.org/10.1111/ibi.12692" target="_blank">10.1111/ibi.12692</a></td>
+        <td><span class="badge verified">Verified</span></td>
+        <td class="finding">Vocal founder effects in both island and mainland populations of Common Myna.</td>
+    </tr></tbody>
+    </table>
+    </div>
+</div>
+
+<div class="section">
+    <h2>📋 Full Species Inventory</h2>
+    <div style="overflow-x: auto;">
+    <table>
+        <thead><tr>
+            <th>#</th><th>Species</th><th>Status / Type</th><th>FG</th><th>BG</th><th>Total</th><th>Duration</th>
+        </tr></thead>
+        <tbody><tr>
+        <td>1</td>
+        <td><strong>🎵 Tūī</strong><br><em class="scientific">Prosthemadera novaeseelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">229</td>
+        <td class="num">182</td>
+        <td class="num"><strong>411</strong></td>
+        <td>7:17:27.</td>
+    </tr><tr>
+        <td>2</td>
+        <td><strong>🎵 New Zealand Bellbird</strong><br><em class="scientific">Anthornis melanura</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">94</td>
+        <td class="num">132</td>
+        <td class="num"><strong>226</strong></td>
+        <td>2:18:44.</td>
+    </tr><tr>
+        <td>3</td>
+        <td><strong>🎵 Rock Wren</strong><br><em class="scientific">Xenicus gilviventris</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">158</td>
+        <td class="num">67</td>
+        <td class="num"><strong>225</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>4</td>
+        <td><strong>🐦 Sacred Kingfisher</strong><br><em class="scientific">Todiramphus sanctus</em></td>
+        <td><span class="badge native">Native</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">84</td>
+        <td class="num">103</td>
+        <td class="num"><strong>187</strong></td>
+        <td>44:45.</td>
+    </tr><tr>
+        <td>5</td>
+        <td><strong>🎵 Whitehead</strong><br><em class="scientific">Mohoua albicilla</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">50</td>
+        <td class="num">91</td>
+        <td class="num"><strong>141</strong></td>
+        <td>50:36.</td>
+    </tr><tr>
+        <td>6</td>
+        <td><strong>🐦 Shining Cuckoo</strong><br><em class="scientific">Chrysococcyx lucidus</em></td>
+        <td><span class="badge native">Native</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">58</td>
+        <td class="num">48</td>
+        <td class="num"><strong>106</strong></td>
+        <td>35:23.</td>
+    </tr><tr>
+        <td>7</td>
+        <td><strong>🐦 Pūkeko</strong><br><em class="scientific">Porphyrio melanotus</em></td>
+        <td><span class="badge native">Native</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">61</td>
+        <td class="num">24</td>
+        <td class="num"><strong>85</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>8</td>
+        <td><strong>🎵 Tomtit</strong><br><em class="scientific">Petroica macrocephala</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">32</td>
+        <td class="num">22</td>
+        <td class="num"><strong>54</strong></td>
+        <td>17:37.</td>
+    </tr><tr>
+        <td>9</td>
+        <td><strong>🎵 Rifleman</strong><br><em class="scientific">Acanthisitta chloris</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">33</td>
+        <td class="num">15</td>
+        <td class="num"><strong>48</strong></td>
+        <td>22:58.</td>
+    </tr><tr>
+        <td>10</td>
+        <td><strong>🎵 North Island Robin</strong><br><em class="scientific">Petroica longipes</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">21</td>
+        <td class="num">24</td>
+        <td class="num"><strong>45</strong></td>
+        <td>24:51.</td>
+    </tr><tr>
+        <td>11</td>
+        <td><strong>🎵 Stitchbird</strong><br><em class="scientific">Notiomystis cincta</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">34</td>
+        <td class="num">9</td>
+        <td class="num"><strong>43</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>12</td>
+        <td><strong>🐦 Paradise Shelduck</strong><br><em class="scientific">Tadorna variegata</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">24</td>
+        <td class="num">11</td>
+        <td class="num"><strong>35</strong></td>
+        <td>17:24.</td>
+    </tr><tr>
+        <td>13</td>
+        <td><strong>🎵 Yellowhead</strong><br><em class="scientific">Mohoua ochrocephala</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">28</td>
+        <td class="num">3</td>
+        <td class="num"><strong>31</strong></td>
+        <td>26:40.</td>
+    </tr><tr>
+        <td>14</td>
+        <td><strong>🐦 Variable Oystercatcher</strong><br><em class="scientific">Haematopus unicolor</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">26</td>
+        <td class="num">4</td>
+        <td class="num"><strong>30</strong></td>
+        <td>18:43.</td>
+    </tr><tr>
+        <td>15</td>
+        <td><strong>🐦 North Island Brown Kiwi</strong><br><em class="scientific">Apteryx mantelli</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">24</td>
+        <td class="num">4</td>
+        <td class="num"><strong>28</strong></td>
+        <td>10:21.</td>
+    </tr><tr>
+        <td>16</td>
+        <td><strong>🎵 South Island Robin</strong><br><em class="scientific">Petroica australis</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">21</td>
+        <td class="num">4</td>
+        <td class="num"><strong>25</strong></td>
+        <td>20:45.</td>
+    </tr><tr>
+        <td>17</td>
+        <td><strong>🎵 North Island Kōkako</strong><br><em class="scientific">Callaeas wilsoni</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">21</td>
+        <td class="num">4</td>
+        <td class="num"><strong>25</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>18</td>
+        <td><strong>🎵 Fernbird</strong><br><em class="scientific">Poodytes punctatus</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">25</td>
+        <td class="num">0</td>
+        <td class="num"><strong>25</strong></td>
+        <td>16:28.</td>
+    </tr><tr>
+        <td>19</td>
+        <td><strong>🎵 New Zealand Pipit</strong><br><em class="scientific">Anthus novaeseelandiae</em></td>
+        <td><span class="badge native">Native</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">21</td>
+        <td class="num">4</td>
+        <td class="num"><strong>25</strong></td>
+        <td>18:38.</td>
+    </tr><tr>
+        <td>20</td>
+        <td><strong>🐦 Yellow-crowned Parakeet</strong><br><em class="scientific">Cyanoramphus auriceps</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">12</td>
+        <td class="num">7</td>
+        <td class="num"><strong>19</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>21</td>
+        <td><strong>🎵 Brown Creeper</strong><br><em class="scientific">Mohoua novaeseelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">15</td>
+        <td class="num">2</td>
+        <td class="num"><strong>17</strong></td>
+        <td>9:31.</td>
+    </tr><tr>
+        <td>22</td>
+        <td><strong>🐦 Kea</strong><br><em class="scientific">Nestor notabilis</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">15</td>
+        <td class="num">0</td>
+        <td class="num"><strong>15</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>23</td>
+        <td><strong>🐦 Wrybill</strong><br><em class="scientific">Anarhynchus frontalis</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">10</td>
+        <td class="num">0</td>
+        <td class="num"><strong>10</strong></td>
+        <td>3:10.</td>
+    </tr><tr>
+        <td>24</td>
+        <td><strong>🎵 Saddleback</strong><br><em class="scientific">Philesturnus carunculatus</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge passerine">Passerine</span></td>
+        <td class="num">7</td>
+        <td class="num">0</td>
+        <td class="num"><strong>7</strong></td>
+        <td>5:22.</td>
+    </tr><tr>
+        <td>25</td>
+        <td><strong>🐦 Great Spotted Kiwi</strong><br><em class="scientific">Apteryx haastii</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">7</td>
+        <td class="num">0</td>
+        <td class="num"><strong>7</strong></td>
+        <td>3:46.</td>
+    </tr><tr>
+        <td>26</td>
+        <td><strong>🐦 Black Stilt</strong><br><em class="scientific">Himantopus novaezelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">7</td>
+        <td class="num">0</td>
+        <td class="num"><strong>7</strong></td>
+        <td>4:49.</td>
+    </tr><tr>
+        <td>27</td>
+        <td><strong>🐦 Okarito Kiwi</strong><br><em class="scientific">Apteryx rowi</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">5</td>
+        <td class="num">0</td>
+        <td class="num"><strong>5</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>28</td>
+        <td><strong>🐦 Fiordland Penguin</strong><br><em class="scientific">Eudyptes pachyrhynchus</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">2</td>
+        <td class="num">0</td>
+        <td class="num"><strong>2</strong></td>
+        <td>—</td>
+    </tr><tr>
+        <td>29</td>
+        <td><strong>🐦 New Zealand Scaup</strong><br><em class="scientific">Aythya novaeseelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span> <span class="badge non-passerine">Non-passerine</span></td>
+        <td class="num">1</td>
+        <td class="num">0</td>
+        <td class="num"><strong>1</strong></td>
+        <td>0:12.</td>
+    </tr></tbody>
+    </table>
+    </div>
+    
+    <h3 style="margin-top: 24px;">Species Awaiting XC API Query (23)</h3>
+    <table>
+        <thead><tr><th>Common Name</th><th>Scientific Name</th><th>Status</th></tr></thead>
+        <tbody><tr class="missing-row">
+        <td>🎵 <strong>Grey Warbler</strong></td>
+        <td><em class="scientific">Gerygone igata</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🎵 <strong>New Zealand Fantail</strong></td>
+        <td><em class="scientific">Rhipidura fuliginosa</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Little Spotted Kiwi</strong></td>
+        <td><em class="scientific">Apteryx owenii</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Southern Brown Kiwi</strong></td>
+        <td><em class="scientific">Apteryx australis</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Kākā</strong></td>
+        <td><em class="scientific">Nestor meridionalis</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Kākāpō</strong></td>
+        <td><em class="scientific">Strigops habroptilus</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Morepork</strong></td>
+        <td><em class="scientific">Ninox novaeseelandiae</em></td>
+        <td><span class="badge native">Native</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>New Zealand Falcon</strong></td>
+        <td><em class="scientific">Falco novaeseelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Kererū</strong></td>
+        <td><em class="scientific">Hemiphaga novaeseelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Weka</strong></td>
+        <td><em class="scientific">Gallirallus australis</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Takahē</strong></td>
+        <td><em class="scientific">Porphyrio hochstetteri</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Blue Duck</strong></td>
+        <td><em class="scientific">Hymenolaimus malacorhynchos</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Brown Teal</strong></td>
+        <td><em class="scientific">Anas chlorotis</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Grey Duck</strong></td>
+        <td><em class="scientific">Anas superciliosa</em></td>
+        <td><span class="badge native">Native</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Long-tailed Cuckoo</strong></td>
+        <td><em class="scientific">Urodynamis taitensis</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Red-crowned Parakeet</strong></td>
+        <td><em class="scientific">Cyanoramphus novaezelandiae</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>New Zealand Dotterel</strong></td>
+        <td><em class="scientific">Charadrius obscurus</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>New Zealand Grebe</strong></td>
+        <td><em class="scientific">Poliocephalus rufopectus</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Spotted Shag</strong></td>
+        <td><em class="scientific">Phalacrocorax punctatus</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Black-billed Gull</strong></td>
+        <td><em class="scientific">Larus bulleri</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Black-fronted Tern</strong></td>
+        <td><em class="scientific">Chlidonias albostriatus</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Yellow-eyed Penguin</strong></td>
+        <td><em class="scientific">Megadyptes antipodes</em></td>
+        <td><span class="badge endemic">Endemic</span></td>
+    </tr><tr class="missing-row">
+        <td>🐦 <strong>Little Penguin</strong></td>
+        <td><em class="scientific">Eudyptula minor</em></td>
+        <td><span class="badge native">Native</span></td>
+    </tr></tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>🗺 Next Steps: Regional Analysis</h2>
+    <p style="color: var(--text-muted);">
+        Once we have XC API access, each recording comes with latitude/longitude coordinates.
+        We will map recordings to NZ regions (Northland, Auckland, Waikato, Bay of Plenty, 
+        Taranaki, Manawatū-Whanganui, Wellington, Tasman/Nelson, Marlborough, West Coast, 
+        Canterbury, Otago, Southland, Chatham Islands) to enable the geographic song variation 
+        analysis that is central to Hill's research questions.
+    </p>
+    <p style="color: var(--text-muted); margin-top: 10px;">
+        <strong>Priority actions:</strong>
+    </p>
+    <ol style="color: var(--text-muted); padding-left: 20px; margin-top: 8px;">
+        <li>Register for a free XC API key at <a href="https://xeno-canto.org/account">xeno-canto.org/account</a></li>
+        <li>Query full metadata for all 52+ NZ endemic/native species</li>
+        <li>Filter by quality rating (A/B) and recording type (song vs call)</li>
+        <li>Map geographic distribution of recordings across NZ regions</li>
+        <li>Download tūī foreground recordings for syllable analysis pilot</li>
+    </ol>
+</div>
+
+</div>
+
+<footer>
+    <p>NZ Birdsong Analysis Project · Data from <a href="https://xeno-canto.org">Xeno-Canto</a> · 
+    Analysis by <a href="https://nimbleco.ai">NimbleCo AI / Matilde</a></p>
+    <p style="margin-top: 8px;">Generated 2026-06-28 · 
+    Citation data verified via Crossref/OpenAlex</p>
+</footer>
+
+<script>
+const labels = ["T\u016b\u012b", "New Zealand Bellbird", "Rock Wren", "Sacred Kingfisher", "Whitehead", "Shining Cuckoo", "P\u016bkeko", "Tomtit", "Rifleman", "North Island Robin", "Stitchbird", "Paradise Shelduck", "Yellowhead", "Variable Oystercatcher", "North Island Brown Kiwi", "South Island Robin", "North Island K\u014dkako", "Fernbird", "New Zealand Pipit", "Yellow-crowned Parakeet", "Brown Creeper", "Kea", "Wrybill", "Saddleback", "Great Spotted Kiwi", "Black Stilt", "Okarito Kiwi", "Fiordland Penguin", "New Zealand Scaup"];
+const fgData = [229, 94, 158, 84, 50, 58, 61, 32, 33, 21, 34, 24, 28, 26, 24, 21, 21, 25, 21, 12, 15, 15, 10, 7, 7, 7, 5, 2, 1];
+const bgData = [182, 132, 67, 103, 91, 48, 24, 22, 15, 24, 9, 11, 3, 4, 4, 4, 4, 0, 4, 7, 2, 0, 0, 0, 0, 0, 0, 0, 0];
+const types = ["passerine", "passerine", "passerine", "non-passerine", "passerine", "non-passerine", "non-passerine", "passerine", "passerine", "passerine", "passerine", "non-passerine", "passerine", "non-passerine", "non-passerine", "passerine", "passerine", "passerine", "passerine", "non-passerine", "passerine", "non-passerine", "non-passerine", "passerine", "non-passerine", "non-passerine", "non-passerine", "non-passerine", "non-passerine"];
+
+// Main bar chart
+new Chart(document.getElementById('speciesChart'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [
+            { label: 'Foreground', data: fgData, backgroundColor: '#58a6ff', borderRadius: 4 },
+            { label: 'Background', data: bgData, backgroundColor: '#30363d', borderRadius: 4 }
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { color: '#e6edf3' } } },
+        scales: {
+            x: { stacked: true, ticks: { color: '#8b949e', maxRotation: 45 }, grid: { color: '#21262d' } },
+            y: { stacked: true, ticks: { color: '#8b949e' }, grid: { color: '#21262d' }, title: { display: true, text: 'Number of Recordings', color: '#8b949e' } }
+        }
+    }
+});
+
+// Type pie chart
+const passerineTotal = fgData.reduce((s, v, i) => types[i] === 'passerine' ? s + v + bgData[i] : s, 0);
+const nonPasserineTotal = fgData.reduce((s, v, i) => types[i] !== 'passerine' ? s + v + bgData[i] : s, 0);
+new Chart(document.getElementById('typeChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Songbirds (Passerines)', 'Non-Passerines'],
+        datasets: [{ data: [passerineTotal, nonPasserineTotal], backgroundColor: ['#9b59b6', '#f39c12'], borderWidth: 0 }]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { color: '#e6edf3' }, position: 'bottom' } }
+    }
+});
+
+// FG/BG pie chart
+new Chart(document.getElementById('fgBgChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Foreground', 'Background'],
+        datasets: [{ data: [1125, 760], backgroundColor: ['#58a6ff', '#30363d'], borderWidth: 0 }]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { color: '#e6edf3' }, position: 'bottom' } }
+    }
+});
+</script>
+</body>
+</html>
