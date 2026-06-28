@@ -299,10 +299,10 @@ tr:hover td{background:var(--surface-2)}
   <div class="figures">
     <div class="fig"><div class="n">3,096</div><div class="l">Recordings</div></div>
     <div class="fig"><div class="n">177</div><div class="l">Species</div></div>
-    <div class="fig"><div class="n">17,554</div><div class="l">Syllables<br>detected</div></div>
+    <div class="fig"><div class="n">24,185</div><div class="l">Syllables<br>detected</div></div>
     <div class="fig"><div class="n">5</div><div class="l">Syllable<br>types</div></div>
     <div class="fig"><div class="n">116</div><div class="l">Tūī songs<br>analysed</div></div>
-    <div class="fig"><div class="n">42</div><div class="l">Bellbird songs<br>analysed</div></div>
+    <div class="fig"><div class="n">47</div><div class="l">Bellbird songs<br>analysed</div></div>
     <div class="fig"><div class="n">25</div><div class="l">Kākā calls<br>analysed</div></div>
   </div>
 
@@ -316,11 +316,11 @@ tr:hover td{background:var(--surface-2)}
     <div class="tab active" data-tab="overview">Overview</div>
     <div class="tab" data-tab="species">Species Gallery</div>
     <div class="tab" data-tab="syllables">Syllable Analysis</div>
+    <div class="tab" data-tab="samples">Syllable Samples</div>
     <div class="tab" data-tab="map">Recording Map</div>
     <div class="tab" data-tab="data">Dataset</div>
     <div class="tab" data-tab="methods">Methodology</div>
     <div class="tab" data-tab="literature">Literature</div>
-    <div class="tab" data-tab="samples">Syllable Samples</div>
   </nav>
 
   <!-- ==================== OVERVIEW ==================== -->
@@ -336,8 +336,8 @@ tr:hover td{background:var(--surface-2)}
       Hill identified — but the proportions differ. Low-frequency syllables dominate at 54.7%, versus Hill's ~10%. Harmonic syllables account for 18.8%, 
       high-frequency 11.1%, RMNR 9.2%, and trill 6.2%.</p>
       
-      <p><b>The bellbird comparison is striking:</b> korimako show <b>74.6% low-frequency syllables</b> vs tūī's 54.7%, with far fewer harmonics (18.8% vs 18.8%) 
-      and dramatically fewer high-frequency elements (0.9% vs 11.1%). Tūī average 151 syllables per recording vs bellbird's 118 — 
+      <p><b>The bellbird comparison is striking:</b> korimako show <b>73.4% low-frequency syllables</b> vs tūī's 54.7%, with similar harmonics (19.1% vs 18.8%) 
+      but dramatically fewer high-frequency elements (1.7% vs 11.1%). Tūī average 151 syllables per recording vs bellbird's 112 — 
       consistent with the literature on honeyeater song complexity.</p>
       
       <p><b>Geographic variation across 10 regions:</b> Auckland tūī show notably more harmonic syllables (22.6%) and fewer low-frequency (41.3%) than 
@@ -352,7 +352,7 @@ tr:hover td{background:var(--surface-2)}
         <h3>Three Species Compared</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
           Tūī average <b>151 syllables per recording</b>, bellbird 112, kākā just 55. 
-          Tūī use high-frequency syllables 12× more than bellbird (11.1% vs 1.7%) and 22× more than kākā (4.3%). 
+          Tūī use high-frequency syllables 6.5× more than bellbird (11.1% vs 1.7%) and 2.6× more than kākā (4.3%). 
           Kākā vocalisations are dominated by low-frequency (69%) with 18.5% harmonic — a simpler repertoire 
           consistent with their call-heavy vocal style (43 calls vs 10 songs in our dataset).
         </p>
@@ -378,7 +378,7 @@ tr:hover td{background:var(--surface-2)}
       <div class="card">
         <h3>The Low-Frequency Question</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Low-frequency syllables still dominate (51.3% vs Hill's ~10%), but <b>dropped from 56.2% in the pilot</b> 
+          Low-frequency syllables still dominate (54.7% vs Hill's ~10%), but <b>dropped from 56.2% in the pilot</b> 
           as more recordings were added. This suggests the bias partially reflects small-sample effects, 
           though threshold calibration and subsong inclusion remain factors.
         </p>
@@ -441,8 +441,8 @@ tr:hover td{background:var(--surface-2)}
     <div class="note" style="margin-top:1.5rem">
       <div class="mark">Caveat</div>
       <div>Hill &amp; Ji (2014) found harmonic syllables were the most common type (~15%). Our full pipeline (116 recordings, 17,554 syllables) finds low-frequency dominant at 54.7%.
-      Harmonic is 18.8%, close to Hill's 15%. The <b>bellbird comparison</b> shows even stronger low-frequency dominance (74.6%), 
-      confirming the pattern is partly real and partly methodological. The high-frequency gap (11.1% tūī vs 0.9% bellbird) is 
+      Harmonic is 18.8%, close to Hill's 15%. The <b>bellbird comparison</b> shows even stronger low-frequency dominance (73.4%), 
+      confirming the pattern is partly real and partly methodological. The high-frequency gap (11.1% tūī vs 1.7% bellbird) is 
       the clearest species difference. HDBSCAN clustering on MFCC features should further clarify category boundaries.</div>
     </div>
 
@@ -461,6 +461,20 @@ tr:hover td{background:var(--surface-2)}
           <tbody></tbody>
         </table>
       </div>
+    </div>
+  </div>
+
+  <!-- ==================== SYLLABLE SAMPLES ==================== -->
+  <div class="panel" id="panel-samples">
+    <div class="section-label">Syllable Type Explorer</div>
+    <p style="color:var(--ink-soft);margin-bottom:1.5rem;font-size:.95rem">
+      Representative examples of each syllable type, selected at median duration from the tūī dataset. 
+      Each shows a spectrogram (0–12kHz, magma colormap matching Hill's Raven Pro visualisations) with a playable audio clip.
+      Three examples per type show the variation within each category.
+    </p>
+
+    <div id="sample-types">
+      <!-- Populated by JS -->
     </div>
   </div>
 
@@ -657,32 +671,18 @@ tr:hover td{background:var(--surface-2)}
       <a class="lit-ref" href="#">Hill, S.D. et al. (2013). Notornis, 60, 222-229 ✓</a>
     </div>
 
-    <div class="section-label" style="margin-top:2.5rem">What's Next</div>
+    <div class="section-label" style="margin-top:2.5rem">What We've Done &amp; What's Next</div>
     <div class="prose">
-      <p><b>Unsupervised clustering:</b> HDBSCAN on MFCC + spectral features to discover syllable types without rule-based assumptions. 
+      <p><b>✓ Full tūī analysis:</b> All 116 A-quality song recordings analysed — 17,554 syllables across 5 types.</p>
+      <p><b>✓ Bellbird comparison:</b> 47 A-quality recordings, 5,251 syllables. Confirmed tūī's dramatically richer high-frequency repertoire.</p>
+      <p><b>✓ Kākā comparison:</b> 25 A-quality recordings, 1,380 syllables. Simpler call-dominated repertoire vs honeyeater song.</p>
+      <p><b>✓ Geographic variation:</b> 10 regions compared. Auckland tūī most diverse, Southland simplest, Otago the harmonic outlier.</p>
+      <p><b>Next — unsupervised clustering:</b> HDBSCAN on MFCC + spectral features to discover syllable types without rule-based assumptions. 
       This should resolve the low-frequency discrepancy by letting clusters emerge from the data.</p>
-      <p><b>Full tūī analysis:</b> Scale from 20 pilot recordings to all 116 A-quality song recordings (originally planned as 203, 
-      but the updated XC pull has 116 HQ songs).</p>
-      <p><b>Korimako comparison:</b> Run the same pipeline on 67 A-quality bellbird recordings for inter-species comparison.</p>
-      <p><b>Geographic variation:</b> Compare syllable repertoires across NZ regions, following Hill et al. (2015).</p>
-      <p><b>Kākā vocalisations:</b> 55 recordings (25 A-quality, 10 songs). Different vocal structure from honeyeaters — 
-      interesting methodological challenge for the pipeline.</p>
+      <p><b>Next — temporal analysis:</b> How has the XC archive's tūī song changed over decades? Do more recent recordings capture different repertoires?</p>
     </div>
   </div>
 
-  <!-- ==================== SYLLABLE SAMPLES ==================== -->
-  <div class="panel" id="panel-samples">
-    <div class="section-label">Syllable Type Explorer</div>
-    <p style="color:var(--ink-soft);margin-bottom:1.5rem;font-size:.95rem">
-      Representative examples of each syllable type, selected at median duration from the tūī dataset. 
-      Each shows a spectrogram (0–12kHz, magma colormap matching Hill's Raven Pro visualisations) with a playable audio clip.
-      Three examples per type show the variation within each category.
-    </p>
-
-    <div id="sample-types">
-      <!-- Populated by JS -->
-    </div>
-  </div>
 
 </div><!-- .wrap -->
 
@@ -762,6 +762,33 @@ const SYLLABLE_DATA = {
     {id:"XC1093637",dur:234,songs:321,syls:274,types:{low_frequency:140,harmonic:44,high_frequency:39,trill:26,rmnr:25}},
     {id:"XC1104055",dur:326,songs:507,syls:474,types:{low_frequency:202,high_frequency:114,harmonic:61,rmnr:57,trill:40}},
     {id:"XC1105557",dur:120,songs:211,syls:212,types:{low_frequency:120,harmonic:27,rmnr:22,trill:22,high_frequency:21}},
+    {id:"XC956615",dur:121,songs:149,syls:156,types:{high_frequency:68,low_frequency:40,trill:18,harmonic:18,rmnr:12}},
+    {id:"XC956959",dur:117,songs:224,syls:237,types:{high_frequency:91,harmonic:72,rmnr:28,low_frequency:26,trill:20}},
+    {id:"XC956965",dur:112,songs:215,syls:200,types:{low_frequency:56,rmnr:43,harmonic:42,high_frequency:34,trill:25}},
+    {id:"XC957403",dur:55,songs:147,syls:149,types:{harmonic:40,low_frequency:36,trill:28,rmnr:28,high_frequency:17}},
+    {id:"XC957405",dur:86,songs:151,syls:157,types:{harmonic:56,low_frequency:41,high_frequency:25,trill:21,rmnr:14}},
+    {id:"XC958028",dur:86,songs:151,syls:157,types:{harmonic:56,low_frequency:41,high_frequency:25,trill:21,rmnr:14}},
+    {id:"XC958039",dur:97,songs:79,syls:79,types:{low_frequency:52,harmonic:22,rmnr:3,trill:2}},
+    {id:"XC958846",dur:95,songs:139,syls:142,types:{low_frequency:115,harmonic:13,high_frequency:10,trill:2,rmnr:2}},
+    {id:"XC958849",dur:120,songs:199,syls:194,types:{low_frequency:89,harmonic:74,high_frequency:16,rmnr:13,trill:2}},
+    {id:"XC958850",dur:157,songs:149,syls:166,types:{low_frequency:98,harmonic:40,high_frequency:13,rmnr:11,trill:4}},
+    {id:"XC958857",dur:90,songs:175,syls:171,types:{low_frequency:147,harmonic:17,rmnr:6,trill:1}},
+    {id:"XC958859",dur:56,songs:71,syls:71,types:{low_frequency:29,harmonic:28,high_frequency:8,trill:4,rmnr:2}},
+    {id:"XC958860",dur:89,songs:226,syls:229,types:{harmonic:80,low_frequency:73,rmnr:37,trill:29,high_frequency:10}},
+    {id:"XC958861",dur:80,songs:202,syls:208,types:{harmonic:79,low_frequency:56,rmnr:44,trill:20,high_frequency:9}},
+    {id:"XC959027",dur:138,songs:196,syls:185,types:{low_frequency:122,harmonic:23,rmnr:18,trill:12,high_frequency:10}},
+    {id:"XC959355",dur:253,songs:252,syls:217,types:{low_frequency:202,harmonic:13,rmnr:2}},
+    {id:"XC959356",dur:136,songs:175,syls:160,types:{low_frequency:118,harmonic:25,rmnr:10,trill:7}},
+    {id:"XC961546",dur:74,songs:82,syls:77,types:{low_frequency:29,harmonic:14,high_frequency:14,rmnr:11,trill:9}},
+    {id:"XC975412",dur:60,songs:36,syls:36,types:{low_frequency:32,harmonic:4}},
+    {id:"XC975414",dur:100,songs:212,syls:206,types:{low_frequency:190,harmonic:12,rmnr:3,high_frequency:1}},
+    {id:"XC975421",dur:185,songs:164,syls:159,types:{low_frequency:79,harmonic:33,high_frequency:23,rmnr:15,trill:9}},
+    {id:"XC975424",dur:17,songs:30,syls:34,types:{low_frequency:33,harmonic:1}},
+    {id:"XC975431",dur:171,songs:320,syls:300,types:{low_frequency:128,harmonic:76,high_frequency:35,rmnr:34,trill:27}},
+    {id:"XC975435",dur:113,songs:192,syls:183,types:{low_frequency:93,harmonic:47,high_frequency:19,trill:12,rmnr:12}},
+    {id:"XC975439",dur:219,songs:330,syls:327,types:{low_frequency:135,harmonic:81,high_frequency:55,rmnr:40,trill:16}},
+    {id:"XC975449",dur:272,songs:407,syls:408,types:{low_frequency:152,high_frequency:71,harmonic:64,rmnr:61,trill:60}},
+    {id:"XC975454",dur:147,songs:262,syls:253,types:{low_frequency:107,harmonic:70,rmnr:30,high_frequency:27,trill:19}},
     {id:"XC975461",dur:109,songs:178,syls:175,types:{low_frequency:70,harmonic:46,high_frequency:33,rmnr:13,trill:13}},
     {id:"XC975467",dur:96,songs:68,syls:72,types:{low_frequency:41,high_frequency:14,harmonic:14,rmnr:2,trill:1}},
     {id:"XC975474",dur:32,songs:50,syls:61,types:{low_frequency:58,harmonic:3}},
@@ -771,7 +798,76 @@ const SYLLABLE_DATA = {
     {id:"XC979573",dur:386,songs:384,syls:342,types:{low_frequency:227,harmonic:51,high_frequency:28,rmnr:25,trill:11}},
     {id:"XC979576",dur:261,songs:263,syls:248,types:{low_frequency:151,harmonic:48,high_frequency:27,rmnr:12,trill:10}},
     {id:"XC979580",dur:206,songs:268,syls:245,types:{low_frequency:136,harmonic:55,high_frequency:33,rmnr:17,trill:4}},
-    {id:"XC979583",dur:25,songs:28,syls:36,types:{low_frequency:35,rmnr:1}}
+    {id:"XC979583",dur:25,songs:28,syls:36,types:{low_frequency:35,rmnr:1}},
+    {id:"XC198851",dur:60,songs:45,syls:47,types:{low_frequency:25,harmonic:17,rmnr:5}},
+    {id:"XC198859",dur:85,songs:54,syls:50,types:{low_frequency:40,harmonic:7,trill:2,rmnr:1}},
+    {id:"XC206472",dur:46,songs:81,syls:78,types:{low_frequency:40,harmonic:21,rmnr:7,trill:6,high_frequency:4}},
+    {id:"XC207006",dur:18,songs:44,syls:45,types:{low_frequency:22,rmnr:8,harmonic:8,trill:4,high_frequency:3}},
+    {id:"XC214591",dur:26,songs:21,syls:17,types:{low_frequency:15,rmnr:2}},
+    {id:"XC293355",dur:107,songs:198,syls:188,types:{low_frequency:68,high_frequency:54,trill:28,harmonic:24,rmnr:14}},
+    {id:"XC321682",dur:24,songs:39,syls:38,types:{low_frequency:16,high_frequency:15,trill:4,rmnr:2,harmonic:1}},
+    {id:"XC33763",dur:51,songs:59,syls:62,types:{low_frequency:55,trill:4,harmonic:3}},
+    {id:"XC347358",dur:166,songs:80,syls:78,types:{low_frequency:38,harmonic:32,rmnr:6,high_frequency:2}},
+    {id:"XC348752",dur:153,songs:71,syls:82,types:{low_frequency:47,harmonic:24,rmnr:5,high_frequency:5,trill:1}},
+    {id:"XC348767",dur:91,songs:143,syls:135,types:{low_frequency:63,trill:24,harmonic:17,rmnr:17,high_frequency:14}},
+    {id:"XC349523",dur:126,songs:74,syls:65,types:{low_frequency:32,harmonic:26,rmnr:4,high_frequency:2,trill:1}},
+    {id:"XC378275",dur:154,songs:163,syls:159,types:{low_frequency:130,harmonic:13,rmnr:11,trill:4,high_frequency:1}},
+    {id:"XC378278",dur:117,songs:75,syls:68,types:{low_frequency:37,high_frequency:19,rmnr:5,harmonic:5,trill:2}},
+    {id:"XC378279",dur:117,songs:75,syls:68,types:{low_frequency:37,high_frequency:19,rmnr:5,harmonic:5,trill:2}},
+    {id:"XC378281",dur:158,songs:194,syls:175,types:{low_frequency:129,harmonic:16,high_frequency:15,rmnr:13,trill:2}},
+    {id:"XC40495",dur:10,songs:14,syls:16,types:{low_frequency:7,harmonic:6,rmnr:1,high_frequency:1,trill:1}},
+    {id:"XC465230",dur:50,songs:77,syls:69,types:{low_frequency:30,high_frequency:18,harmonic:11,rmnr:8,trill:2}},
+    {id:"XC481387",dur:5,songs:6,syls:6,types:{low_frequency:5,harmonic:1}},
+    {id:"XC500846",dur:161,songs:210,syls:167,types:{low_frequency:84,high_frequency:36,harmonic:20,rmnr:17,trill:10}},
+    {id:"XC500848",dur:28,songs:16,syls:13,types:{low_frequency:13}},
+    {id:"XC500852",dur:94,songs:150,syls:149,types:{low_frequency:101,harmonic:20,rmnr:11,high_frequency:9,trill:8}},
+    {id:"XC500853",dur:136,songs:185,syls:196,types:{low_frequency:117,harmonic:44,rmnr:17,trill:13,high_frequency:5}},
+    {id:"XC500854",dur:80,songs:133,syls:126,types:{low_frequency:82,harmonic:22,rmnr:13,trill:8,high_frequency:1}},
+    {id:"XC500855",dur:86,songs:107,syls:98,types:{low_frequency:74,harmonic:10,rmnr:7,trill:5,high_frequency:2}},
+    {id:"XC562526",dur:226,songs:320,syls:326,types:{low_frequency:121,harmonic:81,rmnr:50,trill:45,high_frequency:29}},
+    {id:"XC684497",dur:185,songs:113,syls:109,types:{low_frequency:66,harmonic:18,high_frequency:14,rmnr:10,trill:1}},
+    {id:"XC70960",dur:26,songs:65,syls:64,types:{low_frequency:26,harmonic:13,rmnr:12,trill:7,high_frequency:6}},
+    {id:"XC842514",dur:60,songs:60,syls:64,types:{harmonic:34,low_frequency:28,rmnr:1,trill:1}},
+    {id:"XC842647",dur:96,songs:136,syls:133,types:{low_frequency:61,harmonic:34,rmnr:16,trill:13,high_frequency:9}},
+    {id:"XC842651",dur:50,songs:59,syls:57,types:{low_frequency:48,harmonic:5,rmnr:2,trill:1,high_frequency:1}},
+    {id:"XC842652",dur:36,songs:45,syls:44,types:{low_frequency:40,high_frequency:2,harmonic:2}},
+    {id:"XC842656",dur:9,songs:15,syls:19,types:{low_frequency:12,harmonic:6,high_frequency:1}},
+    {id:"XC842660",dur:39,songs:43,syls:47,types:{low_frequency:30,harmonic:13,rmnr:2,high_frequency:2}},
+    {id:"XC842663",dur:15,songs:6,syls:9,types:{low_frequency:9}},
+    {id:"XC842718",dur:76,songs:127,syls:114,types:{low_frequency:52,high_frequency:34,harmonic:17,rmnr:7,trill:4}},
+    {id:"XC842746",dur:35,songs:63,syls:63,types:{low_frequency:36,rmnr:10,high_frequency:9,harmonic:5,trill:3}},
+    {id:"XC842766",dur:90,songs:166,syls:145,types:{low_frequency:98,rmnr:16,harmonic:15,trill:12,high_frequency:4}},
+    {id:"XC842782",dur:211,songs:268,syls:255,types:{low_frequency:132,harmonic:69,rmnr:31,trill:16,high_frequency:7}},
+    {id:"XC842783",dur:129,songs:246,syls:246,types:{low_frequency:114,trill:47,harmonic:43,rmnr:25,high_frequency:17}},
+    {id:"XC843914",dur:46,songs:73,syls:68,types:{low_frequency:58,high_frequency:4,harmonic:3,trill:2,rmnr:1}},
+    {id:"XC856418",dur:282,songs:549,syls:517,types:{low_frequency:313,rmnr:81,harmonic:80,high_frequency:23,trill:20}},
+    {id:"XC857787",dur:231,songs:317,syls:299,types:{low_frequency:203,harmonic:46,rmnr:35,high_frequency:10,trill:5}},
+    {id:"XC857958",dur:184,songs:341,syls:323,types:{low_frequency:282,harmonic:13,rmnr:13,high_frequency:9,trill:6}},
+    {id:"XC892546",dur:56,songs:112,syls:100,types:{high_frequency:42,low_frequency:28,trill:12,harmonic:10,rmnr:8}},
+    {id:"XC915121",dur:60,songs:65,syls:61,types:{low_frequency:41,harmonic:9,high_frequency:6,rmnr:3,trill:2}},
+    {id:"XC925479",dur:212,songs:295,syls:297,types:{low_frequency:135,high_frequency:61,harmonic:58,trill:28,rmnr:15}},
+    {id:"XC925480",dur:102,songs:145,syls:141,types:{low_frequency:81,harmonic:26,high_frequency:17,rmnr:10,trill:7}},
+    {id:"XC925493",dur:564,songs:762,syls:708,types:{low_frequency:366,harmonic:103,high_frequency:102,rmnr:97,trill:40}},
+    {id:"XC925495",dur:142,songs:220,syls:199,types:{low_frequency:108,high_frequency:49,trill:17,rmnr:14,harmonic:11}},
+    {id:"XC926286",dur:43,songs:20,syls:25,types:{low_frequency:17,harmonic:7,rmnr:1}},
+    {id:"XC926288",dur:136,songs:88,syls:107,types:{low_frequency:83,harmonic:10,high_frequency:10,rmnr:4}},
+    {id:"XC926289",dur:83,songs:146,syls:130,types:{harmonic:51,low_frequency:45,rmnr:29,high_frequency:3,trill:2}},
+    {id:"XC926290",dur:517,songs:746,syls:768,types:{low_frequency:357,harmonic:167,high_frequency:130,rmnr:72,trill:42}},
+    {id:"XC927430",dur:13,songs:34,syls:37,types:{low_frequency:35,harmonic:2}},
+    {id:"XC927433",dur:15,songs:29,syls:33,types:{low_frequency:25,harmonic:5,rmnr:3}},
+    {id:"XC927436",dur:76,songs:112,syls:120,types:{low_frequency:79,harmonic:26,rmnr:9,trill:6}},
+    {id:"XC927457",dur:238,songs:304,syls:308,types:{low_frequency:184,harmonic:73,rmnr:28,high_frequency:12,trill:11}},
+    {id:"XC927459",dur:111,songs:168,syls:160,types:{low_frequency:149,harmonic:7,rmnr:3,high_frequency:1}},
+    {id:"XC927460",dur:207,songs:72,syls:74,types:{low_frequency:44,harmonic:21,high_frequency:7,rmnr:2}},
+    {id:"XC927463",dur:168,songs:160,syls:149,types:{low_frequency:71,harmonic:51,rmnr:19,high_frequency:5,trill:3}},
+    {id:"XC956095",dur:15,songs:26,syls:25,types:{low_frequency:23,harmonic:2}},
+    {id:"XC956097",dur:22,songs:26,syls:28,types:{low_frequency:28}},
+    {id:"XC956098",dur:51,songs:84,syls:78,types:{low_frequency:75,harmonic:3}},
+    {id:"XC956101",dur:11,songs:16,syls:17,types:{low_frequency:12,harmonic:3,rmnr:2}},
+    {id:"XC956103",dur:79,songs:98,syls:90,types:{low_frequency:48,harmonic:20,high_frequency:11,trill:7,rmnr:4}},
+    {id:"XC956104",dur:316,songs:247,syls:218,types:{low_frequency:111,harmonic:43,high_frequency:35,rmnr:21,trill:8}},
+    {id:"XC956332",dur:60,songs:37,syls:35,types:{low_frequency:31,harmonic:4}},
+    {id:"XC956611",dur:132,songs:164,syls:149,types:{low_frequency:87,high_frequency:32,trill:17,rmnr:10,harmonic:3}}
   ]
 };
 
@@ -909,8 +1005,8 @@ function togglePlay(btn, xcId) {
 // ==================== SYLLABLE ANALYSIS ====================
 function initSyllables() {
   window._sylInit = true;
-  const total = 3539;
-  const maxCount = 1989;
+  const total = 17554;
+  const maxCount = 9607;
   
   // Syllable bars
   const barsDiv = document.getElementById('syl-bars');
@@ -1175,10 +1271,10 @@ const SAMPLE_TYPES = [
   {key:'harmonic', name:'Harmonic', color:'var(--harmonic)', count:3301, pct:'18.8%',
    desc:'Clear harmonic structure with integer multiples of the fundamental frequency. Hill found these most common (~15%). The spectrogram shows distinct parallel bands — the acoustic signature of a resonant vocal tract.'},
   {key:'high_frequency', name:'High-frequency (≥5kHz)', color:'var(--high)', count:1946, pct:'11.1%',
-   desc:'Syllables with dominant frequency at or above 5kHz — near the upper limit of human hearing. Tūī produce these 12× more often than bellbird (11.1% vs 0.9%), making it the clearest inter-species difference.'},
+   desc:'Syllables with dominant frequency at or above 5kHz — near the upper limit of human hearing. Tūī produce these 6.5× more often than bellbird (11.1% vs 1.7%), making it the clearest inter-species difference.'},
   {key:'trill', name:'Trill', color:'var(--trill)', count:1093, pct:'6.2%',
    desc:'Rapid frequency modulation (>10 Hz) — the characteristic "warbling" sound. The spectrogram shows rapid up-and-down sweeps in frequency over short time spans.'},
-  {key:'rmnr', name:'RMNR (Rapid Modulated Narrowband Repeat)', color:'var(--rmnr)', count:762, pct:'9.2%',
+  {key:'rmnr', name:'RMNR (Rapid Modulated Narrowband Repeat)', color:'var(--rmnr)', count:1607, pct:'9.2%',
    desc:'Short, rapidly repeated notes within a narrow frequency band. Hill described these as machine-gun-like bursts. Distinguished from trills by the narrower frequency range.'}
 ];
 

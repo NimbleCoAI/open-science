@@ -1,14 +1,14 @@
 {
-  "n_recordings": 20,
-  "total_songs": 3724,
-  "total_syllables": 3539,
-  "mean_syllables_per_recording": 176.95,
+  "n_recordings": 116,
+  "total_songs": 18161,
+  "total_syllables": 17554,
+  "mean_syllables_per_recording": 151.3,
   "type_distribution": {
-    "low_frequency": 1989,
-    "trill": 209,
-    "harmonic": 636,
-    "high_frequency": 436,
-    "rmnr": 269
+    "low_frequency": 9607,
+    "trill": 1093,
+    "harmonic": 3301,
+    "high_frequency": 1946,
+    "rmnr": 1607
   },
   "per_recording": [
     {
@@ -142,6 +142,345 @@
       }
     },
     {
+      "id": "XC956615",
+      "duration_s": 120.96934240362812,
+      "n_songs": 149,
+      "n_syllables": 156,
+      "types": {
+        "trill": 18,
+        "harmonic": 18,
+        "high_frequency": 68,
+        "low_frequency": 40,
+        "rmnr": 12
+      }
+    },
+    {
+      "id": "XC956959",
+      "duration_s": 116.66487528344672,
+      "n_songs": 224,
+      "n_syllables": 237,
+      "types": {
+        "high_frequency": 91,
+        "harmonic": 72,
+        "rmnr": 28,
+        "low_frequency": 26,
+        "trill": 20
+      }
+    },
+    {
+      "id": "XC956965",
+      "duration_s": 111.68809523809524,
+      "n_songs": 215,
+      "n_syllables": 200,
+      "types": {
+        "low_frequency": 56,
+        "rmnr": 43,
+        "trill": 25,
+        "harmonic": 42,
+        "high_frequency": 34
+      }
+    },
+    {
+      "id": "XC957403",
+      "duration_s": 54.80192743764172,
+      "n_songs": 147,
+      "n_syllables": 149,
+      "types": {
+        "high_frequency": 17,
+        "trill": 28,
+        "rmnr": 28,
+        "harmonic": 40,
+        "low_frequency": 36
+      }
+    },
+    {
+      "id": "XC957405",
+      "duration_s": 86.18414965986395,
+      "n_songs": 151,
+      "n_syllables": 157,
+      "types": {
+        "low_frequency": 41,
+        "harmonic": 56,
+        "trill": 21,
+        "high_frequency": 25,
+        "rmnr": 14
+      }
+    },
+    {
+      "id": "XC958028",
+      "duration_s": 86.18414965986395,
+      "n_songs": 151,
+      "n_syllables": 157,
+      "types": {
+        "low_frequency": 41,
+        "harmonic": 56,
+        "trill": 21,
+        "high_frequency": 25,
+        "rmnr": 14
+      }
+    },
+    {
+      "id": "XC958039",
+      "duration_s": 96.5604761904762,
+      "n_songs": 79,
+      "n_syllables": 79,
+      "types": {
+        "low_frequency": 52,
+        "trill": 2,
+        "harmonic": 22,
+        "rmnr": 3
+      }
+    },
+    {
+      "id": "XC958846",
+      "duration_s": 95.17036281179138,
+      "n_songs": 139,
+      "n_syllables": 142,
+      "types": {
+        "low_frequency": 115,
+        "trill": 2,
+        "high_frequency": 10,
+        "harmonic": 13,
+        "rmnr": 2
+      }
+    },
+    {
+      "id": "XC958849",
+      "duration_s": 120.28662131519275,
+      "n_songs": 199,
+      "n_syllables": 194,
+      "types": {
+        "harmonic": 74,
+        "low_frequency": 89,
+        "high_frequency": 16,
+        "rmnr": 13,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC958850",
+      "duration_s": 156.82557823129252,
+      "n_songs": 149,
+      "n_syllables": 166,
+      "types": {
+        "low_frequency": 98,
+        "harmonic": 40,
+        "high_frequency": 13,
+        "rmnr": 11,
+        "trill": 4
+      }
+    },
+    {
+      "id": "XC958857",
+      "duration_s": 89.90981859410431,
+      "n_songs": 175,
+      "n_syllables": 171,
+      "types": {
+        "harmonic": 17,
+        "low_frequency": 147,
+        "rmnr": 6,
+        "trill": 1
+      }
+    },
+    {
+      "id": "XC958859",
+      "duration_s": 55.661043083900225,
+      "n_songs": 71,
+      "n_syllables": 71,
+      "types": {
+        "harmonic": 28,
+        "rmnr": 2,
+        "low_frequency": 29,
+        "trill": 4,
+        "high_frequency": 8
+      }
+    },
+    {
+      "id": "XC958860",
+      "duration_s": 89.44696145124716,
+      "n_songs": 226,
+      "n_syllables": 229,
+      "types": {
+        "harmonic": 80,
+        "trill": 29,
+        "low_frequency": 73,
+        "rmnr": 37,
+        "high_frequency": 10
+      }
+    },
+    {
+      "id": "XC958861",
+      "duration_s": 79.5546485260771,
+      "n_songs": 202,
+      "n_syllables": 208,
+      "types": {
+        "low_frequency": 56,
+        "trill": 20,
+        "rmnr": 44,
+        "high_frequency": 9,
+        "harmonic": 79
+      }
+    },
+    {
+      "id": "XC959027",
+      "duration_s": 138.3787755102041,
+      "n_songs": 196,
+      "n_syllables": 185,
+      "types": {
+        "low_frequency": 122,
+        "rmnr": 18,
+        "harmonic": 23,
+        "trill": 12,
+        "high_frequency": 10
+      }
+    },
+    {
+      "id": "XC959355",
+      "duration_s": 253.1516553287982,
+      "n_songs": 252,
+      "n_syllables": 217,
+      "types": {
+        "harmonic": 13,
+        "low_frequency": 202,
+        "rmnr": 2
+      }
+    },
+    {
+      "id": "XC959356",
+      "duration_s": 135.8475283446712,
+      "n_songs": 175,
+      "n_syllables": 160,
+      "types": {
+        "low_frequency": 118,
+        "trill": 7,
+        "harmonic": 25,
+        "rmnr": 10
+      }
+    },
+    {
+      "id": "XC961546",
+      "duration_s": 74.1774149659864,
+      "n_songs": 82,
+      "n_syllables": 77,
+      "types": {
+        "low_frequency": 29,
+        "trill": 9,
+        "rmnr": 11,
+        "harmonic": 14,
+        "high_frequency": 14
+      }
+    },
+    {
+      "id": "XC975412",
+      "duration_s": 60.12630385487528,
+      "n_songs": 36,
+      "n_syllables": 36,
+      "types": {
+        "low_frequency": 32,
+        "harmonic": 4
+      }
+    },
+    {
+      "id": "XC975414",
+      "duration_s": 100.02380952380952,
+      "n_songs": 212,
+      "n_syllables": 206,
+      "types": {
+        "low_frequency": 190,
+        "harmonic": 12,
+        "high_frequency": 1,
+        "rmnr": 3
+      }
+    },
+    {
+      "id": "XC975421",
+      "duration_s": 185.18319727891156,
+      "n_songs": 164,
+      "n_syllables": 159,
+      "types": {
+        "harmonic": 33,
+        "low_frequency": 79,
+        "trill": 9,
+        "rmnr": 15,
+        "high_frequency": 23
+      }
+    },
+    {
+      "id": "XC975424",
+      "duration_s": 17.397301587301587,
+      "n_songs": 30,
+      "n_syllables": 34,
+      "types": {
+        "low_frequency": 33,
+        "harmonic": 1
+      }
+    },
+    {
+      "id": "XC975431",
+      "duration_s": 170.95920634920634,
+      "n_songs": 320,
+      "n_syllables": 300,
+      "types": {
+        "rmnr": 34,
+        "high_frequency": 35,
+        "low_frequency": 128,
+        "harmonic": 76,
+        "trill": 27
+      }
+    },
+    {
+      "id": "XC975435",
+      "duration_s": 112.73963718820862,
+      "n_songs": 192,
+      "n_syllables": 183,
+      "types": {
+        "trill": 12,
+        "rmnr": 12,
+        "low_frequency": 93,
+        "high_frequency": 19,
+        "harmonic": 47
+      }
+    },
+    {
+      "id": "XC975439",
+      "duration_s": 218.88551020408164,
+      "n_songs": 330,
+      "n_syllables": 327,
+      "types": {
+        "rmnr": 40,
+        "harmonic": 81,
+        "high_frequency": 55,
+        "low_frequency": 135,
+        "trill": 16
+      }
+    },
+    {
+      "id": "XC975449",
+      "duration_s": 271.9145804988662,
+      "n_songs": 407,
+      "n_syllables": 408,
+      "types": {
+        "rmnr": 61,
+        "trill": 60,
+        "low_frequency": 152,
+        "high_frequency": 71,
+        "harmonic": 64
+      }
+    },
+    {
+      "id": "XC975454",
+      "duration_s": 146.90160997732426,
+      "n_songs": 262,
+      "n_syllables": 253,
+      "types": {
+        "low_frequency": 107,
+        "rmnr": 30,
+        "trill": 19,
+        "high_frequency": 27,
+        "harmonic": 70
+      }
+    },
+    {
       "id": "XC975461",
       "duration_s": 109.0738775510204,
       "n_songs": 178,
@@ -258,6 +597,851 @@
       "types": {
         "low_frequency": 35,
         "rmnr": 1
+      }
+    },
+    {
+      "id": "XC198851",
+      "duration_s": 60.2,
+      "n_songs": 45,
+      "n_syllables": 47,
+      "types": {
+        "harmonic": 17,
+        "low_frequency": 25,
+        "rmnr": 5
+      }
+    },
+    {
+      "id": "XC198859",
+      "duration_s": 84.7,
+      "n_songs": 54,
+      "n_syllables": 50,
+      "types": {
+        "trill": 2,
+        "low_frequency": 40,
+        "harmonic": 7,
+        "rmnr": 1
+      }
+    },
+    {
+      "id": "XC206472",
+      "duration_s": 46.3,
+      "n_songs": 81,
+      "n_syllables": 78,
+      "types": {
+        "low_frequency": 40,
+        "harmonic": 21,
+        "rmnr": 7,
+        "trill": 6,
+        "high_frequency": 4
+      }
+    },
+    {
+      "id": "XC207006",
+      "duration_s": 17.6,
+      "n_songs": 44,
+      "n_syllables": 45,
+      "types": {
+        "high_frequency": 3,
+        "low_frequency": 22,
+        "rmnr": 8,
+        "harmonic": 8,
+        "trill": 4
+      }
+    },
+    {
+      "id": "XC214591",
+      "duration_s": 26.0,
+      "n_songs": 21,
+      "n_syllables": 17,
+      "types": {
+        "low_frequency": 15,
+        "rmnr": 2
+      }
+    },
+    {
+      "id": "XC293355",
+      "duration_s": 106.9,
+      "n_songs": 198,
+      "n_syllables": 188,
+      "types": {
+        "trill": 28,
+        "low_frequency": 68,
+        "high_frequency": 54,
+        "rmnr": 14,
+        "harmonic": 24
+      }
+    },
+    {
+      "id": "XC321682",
+      "duration_s": 24.5,
+      "n_songs": 39,
+      "n_syllables": 38,
+      "types": {
+        "high_frequency": 15,
+        "trill": 4,
+        "low_frequency": 16,
+        "rmnr": 2,
+        "harmonic": 1
+      }
+    },
+    {
+      "id": "XC33763",
+      "duration_s": 50.6,
+      "n_songs": 59,
+      "n_syllables": 62,
+      "types": {
+        "low_frequency": 55,
+        "harmonic": 3,
+        "trill": 4
+      }
+    },
+    {
+      "id": "XC347358",
+      "duration_s": 165.5,
+      "n_songs": 80,
+      "n_syllables": 78,
+      "types": {
+        "low_frequency": 38,
+        "harmonic": 32,
+        "rmnr": 6,
+        "high_frequency": 2
+      }
+    },
+    {
+      "id": "XC348752",
+      "duration_s": 153.4,
+      "n_songs": 71,
+      "n_syllables": 82,
+      "types": {
+        "low_frequency": 47,
+        "harmonic": 24,
+        "rmnr": 5,
+        "high_frequency": 5,
+        "trill": 1
+      }
+    },
+    {
+      "id": "XC348767",
+      "duration_s": 90.8,
+      "n_songs": 143,
+      "n_syllables": 135,
+      "types": {
+        "harmonic": 17,
+        "low_frequency": 63,
+        "rmnr": 17,
+        "trill": 24,
+        "high_frequency": 14
+      }
+    },
+    {
+      "id": "XC349523",
+      "duration_s": 125.7,
+      "n_songs": 74,
+      "n_syllables": 65,
+      "types": {
+        "low_frequency": 32,
+        "harmonic": 26,
+        "rmnr": 4,
+        "high_frequency": 2,
+        "trill": 1
+      }
+    },
+    {
+      "id": "XC378275",
+      "duration_s": 154.5,
+      "n_songs": 163,
+      "n_syllables": 159,
+      "types": {
+        "low_frequency": 130,
+        "trill": 4,
+        "rmnr": 11,
+        "high_frequency": 1,
+        "harmonic": 13
+      }
+    },
+    {
+      "id": "XC378278",
+      "duration_s": 117.1,
+      "n_songs": 75,
+      "n_syllables": 68,
+      "types": {
+        "high_frequency": 19,
+        "rmnr": 5,
+        "harmonic": 5,
+        "low_frequency": 37,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC378279",
+      "duration_s": 117.1,
+      "n_songs": 75,
+      "n_syllables": 68,
+      "types": {
+        "high_frequency": 19,
+        "rmnr": 5,
+        "harmonic": 5,
+        "low_frequency": 37,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC378281",
+      "duration_s": 158.0,
+      "n_songs": 194,
+      "n_syllables": 175,
+      "types": {
+        "low_frequency": 129,
+        "high_frequency": 15,
+        "rmnr": 13,
+        "harmonic": 16,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC40495",
+      "duration_s": 9.8,
+      "n_songs": 14,
+      "n_syllables": 16,
+      "types": {
+        "low_frequency": 7,
+        "harmonic": 6,
+        "rmnr": 1,
+        "high_frequency": 1,
+        "trill": 1
+      }
+    },
+    {
+      "id": "XC465230",
+      "duration_s": 50.3,
+      "n_songs": 77,
+      "n_syllables": 69,
+      "types": {
+        "low_frequency": 30,
+        "harmonic": 11,
+        "high_frequency": 18,
+        "rmnr": 8,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC481387",
+      "duration_s": 4.6,
+      "n_songs": 6,
+      "n_syllables": 6,
+      "types": {
+        "low_frequency": 5,
+        "harmonic": 1
+      }
+    },
+    {
+      "id": "XC500846",
+      "duration_s": 161.0,
+      "n_songs": 210,
+      "n_syllables": 167,
+      "types": {
+        "low_frequency": 84,
+        "rmnr": 17,
+        "high_frequency": 36,
+        "harmonic": 20,
+        "trill": 10
+      }
+    },
+    {
+      "id": "XC500848",
+      "duration_s": 28.1,
+      "n_songs": 16,
+      "n_syllables": 13,
+      "types": {
+        "low_frequency": 13
+      }
+    },
+    {
+      "id": "XC500852",
+      "duration_s": 94.3,
+      "n_songs": 150,
+      "n_syllables": 149,
+      "types": {
+        "low_frequency": 101,
+        "high_frequency": 9,
+        "trill": 8,
+        "rmnr": 11,
+        "harmonic": 20
+      }
+    },
+    {
+      "id": "XC500853",
+      "duration_s": 136.4,
+      "n_songs": 185,
+      "n_syllables": 196,
+      "types": {
+        "low_frequency": 117,
+        "rmnr": 17,
+        "harmonic": 44,
+        "trill": 13,
+        "high_frequency": 5
+      }
+    },
+    {
+      "id": "XC500854",
+      "duration_s": 79.9,
+      "n_songs": 133,
+      "n_syllables": 126,
+      "types": {
+        "low_frequency": 82,
+        "rmnr": 13,
+        "trill": 8,
+        "harmonic": 22,
+        "high_frequency": 1
+      }
+    },
+    {
+      "id": "XC500855",
+      "duration_s": 85.6,
+      "n_songs": 107,
+      "n_syllables": 98,
+      "types": {
+        "low_frequency": 74,
+        "rmnr": 7,
+        "high_frequency": 2,
+        "harmonic": 10,
+        "trill": 5
+      }
+    },
+    {
+      "id": "XC562526",
+      "duration_s": 226.3,
+      "n_songs": 320,
+      "n_syllables": 326,
+      "types": {
+        "high_frequency": 29,
+        "trill": 45,
+        "harmonic": 81,
+        "low_frequency": 121,
+        "rmnr": 50
+      }
+    },
+    {
+      "id": "XC684497",
+      "duration_s": 185.0,
+      "n_songs": 113,
+      "n_syllables": 109,
+      "types": {
+        "low_frequency": 66,
+        "high_frequency": 14,
+        "rmnr": 10,
+        "harmonic": 18,
+        "trill": 1
+      }
+    },
+    {
+      "id": "XC70960",
+      "duration_s": 25.6,
+      "n_songs": 65,
+      "n_syllables": 64,
+      "types": {
+        "low_frequency": 26,
+        "harmonic": 13,
+        "rmnr": 12,
+        "high_frequency": 6,
+        "trill": 7
+      }
+    },
+    {
+      "id": "XC842514",
+      "duration_s": 60.3,
+      "n_songs": 60,
+      "n_syllables": 64,
+      "types": {
+        "harmonic": 34,
+        "low_frequency": 28,
+        "rmnr": 1,
+        "trill": 1
+      }
+    },
+    {
+      "id": "XC842647",
+      "duration_s": 96.5,
+      "n_songs": 136,
+      "n_syllables": 133,
+      "types": {
+        "high_frequency": 9,
+        "trill": 13,
+        "low_frequency": 61,
+        "rmnr": 16,
+        "harmonic": 34
+      }
+    },
+    {
+      "id": "XC842651",
+      "duration_s": 50.3,
+      "n_songs": 59,
+      "n_syllables": 57,
+      "types": {
+        "low_frequency": 48,
+        "rmnr": 2,
+        "harmonic": 5,
+        "trill": 1,
+        "high_frequency": 1
+      }
+    },
+    {
+      "id": "XC842652",
+      "duration_s": 36.0,
+      "n_songs": 45,
+      "n_syllables": 44,
+      "types": {
+        "low_frequency": 40,
+        "high_frequency": 2,
+        "harmonic": 2
+      }
+    },
+    {
+      "id": "XC842656",
+      "duration_s": 8.8,
+      "n_songs": 15,
+      "n_syllables": 19,
+      "types": {
+        "low_frequency": 12,
+        "high_frequency": 1,
+        "harmonic": 6
+      }
+    },
+    {
+      "id": "XC842660",
+      "duration_s": 38.8,
+      "n_songs": 43,
+      "n_syllables": 47,
+      "types": {
+        "harmonic": 13,
+        "low_frequency": 30,
+        "rmnr": 2,
+        "high_frequency": 2
+      }
+    },
+    {
+      "id": "XC842663",
+      "duration_s": 15.4,
+      "n_songs": 6,
+      "n_syllables": 9,
+      "types": {
+        "low_frequency": 9
+      }
+    },
+    {
+      "id": "XC842718",
+      "duration_s": 75.8,
+      "n_songs": 127,
+      "n_syllables": 114,
+      "types": {
+        "low_frequency": 52,
+        "high_frequency": 34,
+        "harmonic": 17,
+        "rmnr": 7,
+        "trill": 4
+      }
+    },
+    {
+      "id": "XC842746",
+      "duration_s": 35.1,
+      "n_songs": 63,
+      "n_syllables": 63,
+      "types": {
+        "low_frequency": 36,
+        "high_frequency": 9,
+        "harmonic": 5,
+        "trill": 3,
+        "rmnr": 10
+      }
+    },
+    {
+      "id": "XC842766",
+      "duration_s": 90.1,
+      "n_songs": 166,
+      "n_syllables": 145,
+      "types": {
+        "low_frequency": 98,
+        "trill": 12,
+        "rmnr": 16,
+        "high_frequency": 4,
+        "harmonic": 15
+      }
+    },
+    {
+      "id": "XC842782",
+      "duration_s": 211.0,
+      "n_songs": 268,
+      "n_syllables": 255,
+      "types": {
+        "low_frequency": 132,
+        "rmnr": 31,
+        "high_frequency": 7,
+        "trill": 16,
+        "harmonic": 69
+      }
+    },
+    {
+      "id": "XC842783",
+      "duration_s": 129.4,
+      "n_songs": 246,
+      "n_syllables": 246,
+      "types": {
+        "low_frequency": 114,
+        "trill": 47,
+        "harmonic": 43,
+        "rmnr": 25,
+        "high_frequency": 17
+      }
+    },
+    {
+      "id": "XC843914",
+      "duration_s": 45.6,
+      "n_songs": 73,
+      "n_syllables": 68,
+      "types": {
+        "high_frequency": 4,
+        "low_frequency": 58,
+        "rmnr": 1,
+        "trill": 2,
+        "harmonic": 3
+      }
+    },
+    {
+      "id": "XC856418",
+      "duration_s": 282.3,
+      "n_songs": 549,
+      "n_syllables": 517,
+      "types": {
+        "rmnr": 81,
+        "harmonic": 80,
+        "low_frequency": 313,
+        "trill": 20,
+        "high_frequency": 23
+      }
+    },
+    {
+      "id": "XC857787",
+      "duration_s": 231.1,
+      "n_songs": 317,
+      "n_syllables": 299,
+      "types": {
+        "low_frequency": 203,
+        "high_frequency": 10,
+        "harmonic": 46,
+        "rmnr": 35,
+        "trill": 5
+      }
+    },
+    {
+      "id": "XC857958",
+      "duration_s": 184.0,
+      "n_songs": 341,
+      "n_syllables": 323,
+      "types": {
+        "low_frequency": 282,
+        "high_frequency": 9,
+        "harmonic": 13,
+        "rmnr": 13,
+        "trill": 6
+      }
+    },
+    {
+      "id": "XC892546",
+      "duration_s": 56.0,
+      "n_songs": 112,
+      "n_syllables": 100,
+      "types": {
+        "low_frequency": 28,
+        "harmonic": 10,
+        "high_frequency": 42,
+        "trill": 12,
+        "rmnr": 8
+      }
+    },
+    {
+      "id": "XC915121",
+      "duration_s": 59.8,
+      "n_songs": 65,
+      "n_syllables": 61,
+      "types": {
+        "low_frequency": 41,
+        "harmonic": 9,
+        "high_frequency": 6,
+        "rmnr": 3,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC925479",
+      "duration_s": 212.3,
+      "n_songs": 295,
+      "n_syllables": 297,
+      "types": {
+        "low_frequency": 135,
+        "harmonic": 58,
+        "high_frequency": 61,
+        "trill": 28,
+        "rmnr": 15
+      }
+    },
+    {
+      "id": "XC925480",
+      "duration_s": 102.5,
+      "n_songs": 145,
+      "n_syllables": 141,
+      "types": {
+        "low_frequency": 81,
+        "harmonic": 26,
+        "high_frequency": 17,
+        "trill": 7,
+        "rmnr": 10
+      }
+    },
+    {
+      "id": "XC925493",
+      "duration_s": 564.2,
+      "n_songs": 762,
+      "n_syllables": 708,
+      "types": {
+        "low_frequency": 366,
+        "high_frequency": 102,
+        "rmnr": 97,
+        "harmonic": 103,
+        "trill": 40
+      }
+    },
+    {
+      "id": "XC925495",
+      "duration_s": 142.5,
+      "n_songs": 220,
+      "n_syllables": 199,
+      "types": {
+        "high_frequency": 49,
+        "rmnr": 14,
+        "low_frequency": 108,
+        "harmonic": 11,
+        "trill": 17
+      }
+    },
+    {
+      "id": "XC926286",
+      "duration_s": 43.0,
+      "n_songs": 20,
+      "n_syllables": 25,
+      "types": {
+        "low_frequency": 17,
+        "harmonic": 7,
+        "rmnr": 1
+      }
+    },
+    {
+      "id": "XC926288",
+      "duration_s": 135.9,
+      "n_songs": 88,
+      "n_syllables": 107,
+      "types": {
+        "low_frequency": 83,
+        "harmonic": 10,
+        "high_frequency": 10,
+        "rmnr": 4
+      }
+    },
+    {
+      "id": "XC926289",
+      "duration_s": 83.4,
+      "n_songs": 146,
+      "n_syllables": 130,
+      "types": {
+        "high_frequency": 3,
+        "rmnr": 29,
+        "harmonic": 51,
+        "low_frequency": 45,
+        "trill": 2
+      }
+    },
+    {
+      "id": "XC926290",
+      "duration_s": 517.0,
+      "n_songs": 746,
+      "n_syllables": 768,
+      "types": {
+        "harmonic": 167,
+        "low_frequency": 357,
+        "high_frequency": 130,
+        "rmnr": 72,
+        "trill": 42
+      }
+    },
+    {
+      "id": "XC927430",
+      "duration_s": 13.0,
+      "n_songs": 34,
+      "n_syllables": 37,
+      "types": {
+        "low_frequency": 35,
+        "harmonic": 2
+      }
+    },
+    {
+      "id": "XC927433",
+      "duration_s": 15.0,
+      "n_songs": 29,
+      "n_syllables": 33,
+      "types": {
+        "low_frequency": 25,
+        "harmonic": 5,
+        "rmnr": 3
+      }
+    },
+    {
+      "id": "XC927436",
+      "duration_s": 75.9,
+      "n_songs": 112,
+      "n_syllables": 120,
+      "types": {
+        "harmonic": 26,
+        "low_frequency": 79,
+        "rmnr": 9,
+        "trill": 6
+      }
+    },
+    {
+      "id": "XC927457",
+      "duration_s": 237.8,
+      "n_songs": 304,
+      "n_syllables": 308,
+      "types": {
+        "low_frequency": 184,
+        "high_frequency": 12,
+        "harmonic": 73,
+        "rmnr": 28,
+        "trill": 11
+      }
+    },
+    {
+      "id": "XC927459",
+      "duration_s": 111.0,
+      "n_songs": 168,
+      "n_syllables": 160,
+      "types": {
+        "low_frequency": 149,
+        "harmonic": 7,
+        "rmnr": 3,
+        "high_frequency": 1
+      }
+    },
+    {
+      "id": "XC927460",
+      "duration_s": 207.0,
+      "n_songs": 72,
+      "n_syllables": 74,
+      "types": {
+        "low_frequency": 44,
+        "harmonic": 21,
+        "high_frequency": 7,
+        "rmnr": 2
+      }
+    },
+    {
+      "id": "XC927463",
+      "duration_s": 167.8,
+      "n_songs": 160,
+      "n_syllables": 149,
+      "types": {
+        "low_frequency": 71,
+        "high_frequency": 5,
+        "trill": 3,
+        "harmonic": 51,
+        "rmnr": 19
+      }
+    },
+    {
+      "id": "XC956095",
+      "duration_s": 14.9,
+      "n_songs": 26,
+      "n_syllables": 25,
+      "types": {
+        "low_frequency": 23,
+        "harmonic": 2
+      }
+    },
+    {
+      "id": "XC956097",
+      "duration_s": 21.9,
+      "n_songs": 26,
+      "n_syllables": 28,
+      "types": {
+        "low_frequency": 28
+      }
+    },
+    {
+      "id": "XC956098",
+      "duration_s": 51.4,
+      "n_songs": 84,
+      "n_syllables": 78,
+      "types": {
+        "low_frequency": 75,
+        "harmonic": 3
+      }
+    },
+    {
+      "id": "XC956101",
+      "duration_s": 11.0,
+      "n_songs": 16,
+      "n_syllables": 17,
+      "types": {
+        "low_frequency": 12,
+        "harmonic": 3,
+        "rmnr": 2
+      }
+    },
+    {
+      "id": "XC956103",
+      "duration_s": 78.6,
+      "n_songs": 98,
+      "n_syllables": 90,
+      "types": {
+        "low_frequency": 48,
+        "trill": 7,
+        "high_frequency": 11,
+        "rmnr": 4,
+        "harmonic": 20
+      }
+    },
+    {
+      "id": "XC956104",
+      "duration_s": 316.0,
+      "n_songs": 247,
+      "n_syllables": 218,
+      "types": {
+        "low_frequency": 111,
+        "high_frequency": 35,
+        "rmnr": 21,
+        "trill": 8,
+        "harmonic": 43
+      }
+    },
+    {
+      "id": "XC956332",
+      "duration_s": 60.2,
+      "n_songs": 37,
+      "n_syllables": 35,
+      "types": {
+        "low_frequency": 31,
+        "harmonic": 4
+      }
+    },
+    {
+      "id": "XC956611",
+      "duration_s": 131.5,
+      "n_songs": 164,
+      "n_syllables": 149,
+      "types": {
+        "low_frequency": 87,
+        "trill": 17,
+        "high_frequency": 32,
+        "rmnr": 10,
+        "harmonic": 3
       }
     }
   ]
