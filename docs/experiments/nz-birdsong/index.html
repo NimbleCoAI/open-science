@@ -1154,13 +1154,52 @@ document.querySelectorAll('.tab').forEach(tab => {
 });
 
 // ==================== SPECIES GALLERY ====================
-// Audio player state
+// Audio player — plays hosted 15-second clips
 let currentAudio = null;
 let currentBtn = null;
 
-// Audio player — open XC page directly (download URLs are CORS-restricted)
 function togglePlay(btn, xcId) {
-  window.open(`https://xeno-canto.org/${xcId}`, '_blank');
+  const playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  const stopIcon = '<svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>';
+  
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+    if (currentBtn) {
+      currentBtn.classList.remove('playing');
+      currentBtn.innerHTML = playIcon + ' Listen';
+    }
+    if (currentBtn === btn) { currentBtn = null; return; }
+  }
+  
+  btn.classList.add('playing');
+  btn.innerHTML = stopIcon + ' Playing…';
+  currentBtn = btn;
+  
+  const audio = new Audio(`audio/${xcId}.mp3`);
+  currentAudio = audio;
+  
+  audio.addEventListener('ended', () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = playIcon + ' Listen';
+    currentAudio = null;
+    currentBtn = null;
+  });
+  
+  audio.addEventListener('error', () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = playIcon + ' Listen';
+    window.open(`https://xeno-canto.org/${xcId}`, '_blank');
+    currentAudio = null;
+    currentBtn = null;
+  });
+  
+  audio.play().catch(() => {
+    btn.classList.remove('playing');
+    btn.innerHTML = playIcon + ' Listen';
+    currentAudio = null;
+    currentBtn = null;
+  });
 }
 
 (function(){
@@ -1177,7 +1216,7 @@ function togglePlay(btn, xcId) {
         <div class="stats">${s.recs} recordings · ${s.qa} A-quality<br>${s.songs} songs · ${s.calls} calls</div>
         <div style="margin-top:.4rem;font-size:.82rem;color:var(--ink-soft);font-style:italic">${s.note}</div>
         <div class="play-btn" onclick="togglePlay(this, ${s.xcId})">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Listen on XC
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Listen
         </div>
         <a class="xc-link" href="https://xeno-canto.org/${s.xcId}" target="_blank">XC${s.xcId} on Xeno-Canto →</a>
       </div>`;
