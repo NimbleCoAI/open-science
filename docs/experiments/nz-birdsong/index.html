@@ -467,6 +467,99 @@ tr:hover td{background:var(--surface-2)}
         </table>
       </div>
     </div>
+
+    <!-- VOCAL GRAMMAR -->
+    <div class="section-label" style="margin-top:2rem">Vocal Grammar — Do the Calls Have Structure?</div>
+    <div class="lede" style="font-size:1.15rem;margin-bottom:1rem">
+      We extracted the ordered sequence of syllable types from every recording and analysed transition probabilities, 
+      self-repetition rates, and sequence entropy. All three species show non-random sequential structure — 
+      but tūī grammar is dramatically more complex than bellbird or kākā.
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Complexity Gradient</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
+          <b>Tūī</b> have the lowest predictability (23.8%) and highest clustering ratio (1.52×) — 
+          they repeat syllable types in runs but their transitions between types are highly variable. 
+          <b>Bellbird</b> (45.7%) and <b>kākā</b> (47.2%) are much more predictable: 
+          once you know the current syllable type, you can often guess the next one.
+        </p>
+        <div class="chart-wrap chart-small">
+          <canvas id="grammarCompareChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Sequence Entropy</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
+          Bigram entropy measures how many bits of information each syllable transition carries. 
+          Higher entropy = more varied sequences. Tūī (3.54 bits) are close to their random baseline (3.70), 
+          meaning transitions are nearly unpredictable. Bellbird and kākā are further below random — 
+          their sequences follow more rigid patterns.
+        </p>
+        <div class="chart-wrap chart-small">
+          <canvas id="entropyChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h3>Tūī Transition Matrix</h3>
+      <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.5;margin-bottom:1rem">
+        Each cell shows the probability of transitioning from one syllable type (row) to another (column). 
+        Diagonal = self-repetition. <span style="color:var(--accent-2);font-weight:600">Orange cells</span> are over-represented vs chance; 
+        <span style="color:var(--accent);font-weight:600">blue cells</span> are avoided.
+      </p>
+      <div class="table-scroll">
+        <table id="transition-table" style="text-align:center">
+          <thead>
+            <tr><th style="text-align:left">From ↓ To →</th><th>Low-freq</th><th>Harmonic</th><th>High-freq</th><th>Trill</th><th>RMNR</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="text-align:left;font-weight:600">Low-freq</td><td class="num" style="background:#5f7a3a22;font-weight:700">73.3%</td><td class="num">11.7%</td><td class="num" style="color:var(--accent)">5.1%↓</td><td class="num">4.1%</td><td class="num">5.8%</td></tr>
+            <tr><td style="text-align:left;font-weight:600">Harmonic</td><td class="num">34.2%</td><td class="num" style="background:#2c6c8c22;font-weight:700">38.3%↑</td><td class="num">9.5%</td><td class="num">6.5%</td><td class="num">11.4%</td></tr>
+            <tr><td style="text-align:left;font-weight:600">High-freq</td><td class="num" style="color:var(--accent)">26.5%↓</td><td class="num">16.7%</td><td class="num" style="background:#bb4a3322;font-weight:700">37.6%↑</td><td class="num">8.6%</td><td class="num">10.5%</td></tr>
+            <tr><td style="text-align:left;font-weight:600">Trill</td><td class="num">34.7%</td><td class="num">20.0%</td><td class="num">15.7%</td><td class="num" style="background:#7c578422;font-weight:700">16.5%↑</td><td class="num">13.1%</td></tr>
+            <tr><td style="text-align:left;font-weight:600">RMNR</td><td class="num">30.6%</td><td class="num">26.0%</td><td class="num">13.0%</td><td class="num">10.1%</td><td class="num" style="background:#b07d2222;font-weight:700">20.4%↑</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:.8rem">
+        n=13,071 transitions · ↑ = over-represented (>1.5× expected) · ↓ = avoided (<0.5× expected)
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1rem">
+      <div class="card">
+        <h3>Syntactic Rules</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          <b>Preferred transitions:</b> H→H (2.0×), HF→HF (3.5×), T→T (2.6×), R→R (2.2×) — 
+          all syllable types cluster in runs, but trill runs are the most surprising (trills rarely self-repeat in kākā).<br><br>
+          <b>Avoided transitions:</b> LF→HF and HF→LF (both 0.5×) — birds avoid jumping between 
+          frequency extremes. This is the strongest "syntactic rule" in the data: adjacent syllables 
+          tend to be in nearby frequency ranges.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Song Framing</h3>
+        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
+          Songs typically <b>open with low-frequency</b> (tūī 71%, bellbird 68%, kākā 76%) and 
+          <b>close with low-frequency</b> (tūī 58%, bellbird 72%, kākā 68%). 
+          The complex, high-frequency elements occur mid-song — framed by a low-frequency "introduction" 
+          and "conclusion." This is consistent with Hill's observation that tūī songs have a recognisable 
+          architecture beyond individual syllable types.
+        </p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1rem">
+      <div class="mark">Note</div>
+      <div>These are <b>first-order Markov statistics</b> — they capture what follows what, but not longer-range 
+      dependencies. Tūī song may have higher-order structure (e.g. ABAB patterns, call-and-response) that 
+      bigram analysis misses. The low predictability of tūī transitions (23.8%) may itself be a feature — 
+      Hill et al. (2017) showed that more complex songs elicit stronger aggressive responses, suggesting 
+      unpredictability is the point.</div>
+    </div>
   </div>
 
   <!-- ==================== SYLLABLE SAMPLES ==================== -->
@@ -1219,6 +1312,45 @@ function initSyllables() {
       <td style="font-family:var(--mono);font-size:.8rem">${dominant[0].replace('_',' ')}</td>
       <td style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">${dist}</td>`;
     tbody.appendChild(tr);
+  });
+
+  // Grammar comparison charts
+  new Chart(document.getElementById('grammarCompareChart'), {
+    type:'bar',
+    data:{
+      labels:['Tūī','Bellbird','Kākā'],
+      datasets:[
+        {label:'Predictability',data:[23.8,45.7,47.2],backgroundColor:['#5f7a3a','#2c6c8c','#b04a3a'],borderRadius:3},
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y+'% predictable'}}},
+      scales:{
+        x:{ticks:{font:{family:'Spline Sans Mono',size:11},color:'#675e4f'},grid:{display:false}},
+        y:{max:60,ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89',callback:v=>v+'%'},grid:{color:'#e2d9c7'},title:{display:true,text:'Predictability (%)',font:{family:'Spline Sans Mono',size:10},color:'#a99e89'}}
+      }
+    }
+  });
+
+  new Chart(document.getElementById('entropyChart'), {
+    type:'bar',
+    data:{
+      labels:['Tūī','Bellbird','Kākā'],
+      datasets:[
+        {label:'Observed',data:[3.54,2.52,2.45],backgroundColor:['#5f7a3a','#2c6c8c','#b04a3a'],borderRadius:3},
+        {label:'Random baseline',data:[3.70,2.69,2.66],backgroundColor:['#5f7a3a44','#2c6c8c44','#b04a3a44'],borderRadius:3,borderWidth:1,borderColor:['#5f7a3a','#2c6c8c','#b04a3a']}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{family:'Spline Sans Mono',size:10},color:'#675e4f'},position:'bottom'},
+               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+' bits'}}},
+      scales:{
+        x:{ticks:{font:{family:'Spline Sans Mono',size:11},color:'#675e4f'},grid:{display:false}},
+        y:{min:0,max:5,ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89',callback:v=>v+' bits'},grid:{color:'#e2d9c7'}}
+      }
+    }
   });
 }
 
