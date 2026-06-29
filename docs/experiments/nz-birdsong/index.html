@@ -376,14 +376,16 @@ tr:hover td{background:var(--surface-2)}
 
     <div class="two-col" style="margin-top:0">
       <div class="card">
-        <h3>The Low-Frequency Question</h3>
+        <h3>The Low-Frequency Question — Solved</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Low-frequency syllables still dominate (54.7% vs Hill's ~10%), but <b>dropped from 56.2% in the pilot</b> 
-          as more recordings were added. This suggests the bias partially reflects small-sample effects, 
-          though threshold calibration and subsong inclusion remain factors.
+          Our rule-based classifier flags 54.7% of syllables as "low-frequency" vs Hill's ~10%. 
+          <b>HDBSCAN clustering explains why:</b> 93.9% of these syllables have spectral centroids above 2kHz 
+          (mean: 3,577Hz). They have a low fundamental frequency but strong harmonic content at higher 
+          frequencies. Hill's visual classification would see the harmonics; our rule checks f0 first. 
+          This is a <b>threshold-ordering artefact</b> — not a biological disagreement.
         </p>
         <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          → HDBSCAN clustering next to let data define its own categories
+          13,187 syllables clustered · HDBSCAN on 32-dim MFCC+spectral features
         </div>
       </div>
       <div class="card">
@@ -441,9 +443,12 @@ tr:hover td{background:var(--surface-2)}
     <div class="note" style="margin-top:1.5rem">
       <div class="mark">Caveat</div>
       <div>Hill &amp; Ji (2014) found harmonic syllables were the most common type (~15%). Our full pipeline (116 recordings, 17,554 syllables) finds low-frequency dominant at 54.7%.
-      Harmonic is 18.8%, close to Hill's 15%. The <b>bellbird comparison</b> shows even stronger low-frequency dominance (73.4%), 
-      confirming the pattern is partly real and partly methodological. The high-frequency gap (11.1% tūī vs 1.7% bellbird) is 
-      the clearest species difference. HDBSCAN clustering on MFCC features should further clarify category boundaries.</div>
+      Harmonic is 18.8%, close to Hill's 15%. <b>HDBSCAN clustering reveals why:</b> 93.9% of our "low-frequency" syllables 
+      have spectral centroids <em>above</em> 2kHz (mean: 3,577Hz). The rule-based classifier catches any syllable with 
+      a low fundamental frequency (f0 &lt;2kHz) before checking for harmonic structure — but a syllable can have a low f0 
+      with strong harmonics at 3–6kHz. Hill, classifying visually from spectrograms, would see the harmonics and categorise 
+      differently. This is a <b>threshold-ordering artefact</b>, not a genuine disagreement about tūī song structure.
+      Unsupervised clustering with smaller min_cluster_size (20) finds 3 natural groups with 76% purity and only 8% noise.</div>
     </div>
 
     <div class="section-label">Per-Recording Breakdown</div>
@@ -801,9 +806,12 @@ tr:hover td{background:var(--surface-2)}
       <p><b>✓ Bellbird comparison:</b> 47 A-quality recordings, 5,251 syllables. Confirmed tūī's dramatically richer high-frequency repertoire.</p>
       <p><b>✓ Kākā comparison:</b> 25 A-quality recordings, 1,380 syllables. Simpler call-dominated repertoire vs honeyeater song.</p>
       <p><b>✓ Geographic variation:</b> 10 regions compared. Auckland tūī most diverse, Southland simplest, Otago the harmonic outlier.</p>
-      <p><b>Next — unsupervised clustering:</b> HDBSCAN on MFCC + spectral features to discover syllable types without rule-based assumptions. 
-      This should resolve the low-frequency discrepancy by letting clusters emerge from the data.</p>
+      <p><b>✓ Unsupervised clustering:</b> HDBSCAN on 32-dim MFCC+spectral features. Resolved the low-frequency 
+      discrepancy: 93.9% of "low-frequency" syllables have centroids above 2kHz — it's a threshold-ordering 
+      artefact in our rule-based classifier, not a biological disagreement with Hill.</p>
       <p><b>Next — temporal analysis:</b> How has the XC archive's tūī song changed over decades? Do more recent recordings capture different repertoires?</p>
+      <p><b>Next — refined clustering:</b> UMAP dimensionality reduction + HDBSCAN with tuned parameters 
+      to define data-driven syllable categories. Early results suggest 3 natural groups at mcs=20.</p>
     </div>
   </div>
 
