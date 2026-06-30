@@ -2305,6 +2305,7 @@ const GameEngine = {
     }
 
     // Highlight correct/wrong options
+    this.state.lastCorrect = correct;
     document.querySelectorAll('#game-options .game-option').forEach(o => {
       o.classList.add('disabled');
       if (q.type === 'identify' || q.type === 'species') {
@@ -2322,11 +2323,20 @@ const GameEngine = {
     fb.innerHTML = feedbackText;
     fb.className = 'game-feedback ' + (correct ? 'correct' : 'wrong');
     fb.style.display = 'block';
-    submitBtn.textContent = this.state.qIndex < this.state.questions.length - 1 ? 'Next →' : 'See Results';
+    if (correct) {
+      submitBtn.textContent = this.state.qIndex < this.state.questions.length - 1 ? 'Next →' : 'See Results';
+    } else {
+      submitBtn.textContent = 'Try Again';
+    }
     submitBtn.disabled = false;
   },
 
   next() {
+    // If they got it wrong, retry the same question
+    if (this.state.answered && !this.state.lastCorrect) {
+      this.showQuestion();
+      return;
+    }
     this.state.qIndex++;
     if (this.state.qIndex >= this.state.questions.length) {
       this.showResult();
@@ -2372,7 +2382,7 @@ const GameEngine = {
     }
 
     const stars = this.calculateStars(displayScore, displayTotal);
-    const passed = stars > 0;
+    const passed = true; // everyone can pass — retry until correct
 
     // Save progress
     if (!this.progress.levels[this.state.level] || this.progress.levels[this.state.level].stars < stars) {
