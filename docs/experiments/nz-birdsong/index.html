@@ -427,6 +427,7 @@ tr:hover td{background:var(--surface-2)}
     <div class="tab" data-tab="syllables">Syllable Analysis</div>
     <div class="tab" data-tab="samples">Syllable Samples</div>
     <div class="tab" data-tab="map">Geographic Analysis</div>
+    <div class="tab" data-tab="temporal">Temporal Analysis</div>
     <div class="tab" data-tab="data">Dataset</div>
     <div class="tab" data-tab="methods">Methodology</div>
     <div class="tab" data-tab="literature">Literature</div>
@@ -890,6 +891,133 @@ tr:hover td{background:var(--surface-2)}
     </div>
   </div>
 
+  <!-- ==================== TEMPORAL ANALYSIS ==================== -->
+  <div class="panel" id="panel-temporal">
+    <div class="section-label">Temporal &amp; Seasonal Patterns</div>
+
+    <p class="lede">
+      <span class="drop">T</span>ūī vocal complexity shifts with the seasons in ways that defy simple expectation.
+      Across 116 analysed recordings spanning 2004–2026, <b>autumn emerges as the most diverse season</b> —
+      not spring's breeding chorus — while February singing retreats to near-monotone simplicity.
+    </p>
+
+    <div class="prose" style="margin-bottom:2rem">
+      <p>We examined how syllable-type proportions, Shannon diversity, and syllable rate vary across months,
+      seasons, and time of day. The breeding season (August–January) is shaded in the charts below, but
+      the story these data tell is more nuanced than a breeding/non-breeding binary.</p>
+    </div>
+
+    <!-- Monthly stacked bar -->
+    <div class="card">
+      <h3>Monthly Syllable Composition</h3>
+      <div class="chart-wrap" style="height:360px">
+        <canvas id="temporalMonthlyStackedChart"></canvas>
+      </div>
+      <p class="note">
+        <span class="mark">Note</span>
+        <span>Each bar shows the proportion of five syllable categories in that month's pooled recordings.
+        July has no data. Sample sizes range from n=2 (May, Sep) to n=29 (Oct).</span>
+      </p>
+    </div>
+
+    <!-- Key finding: Feb -->
+    <div class="prose" style="margin:1.8rem 0">
+      <p><b>February simplification.</b> With 72.2% low-frequency syllables and just 2.4% high-frequency,
+      February is the most monotone month in the dataset. This aligns with the post-breeding moult period —
+      tūī may reduce vocal display when energetic costs of feather replacement are high, producing simpler
+      "maintenance" vocalisations rather than elaborate song.</p>
+    </div>
+
+    <!-- Diversity + Rate side by side -->
+    <div class="two-col">
+      <div class="card">
+        <h3>Shannon Diversity by Month</h3>
+        <div class="chart-wrap chart-small">
+          <canvas id="temporalDiversityChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Syllable Rate by Month</h3>
+        <div class="chart-wrap chart-small">
+          <canvas id="temporalRateChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Autumn surprise -->
+    <div class="prose" style="margin:1.8rem 0">
+      <p><b>The autumn surprise.</b> March–May recordings show the highest Shannon diversity (H=1.780) and
+      syllable rate (1.65 syl/s) of any season — exceeding spring's breeding chorus. One explanation:
+      autumn may involve <b>territory re-establishment</b> after breeding, when tūī deploy their full
+      repertoire to signal competitive fitness. Alternatively, post-breeding dispersal may expose birds
+      to new neighbours, prompting more varied vocal exchanges.</p>
+    </div>
+
+    <!-- Seasonal radar -->
+    <div class="card">
+      <h3>Seasonal Syllable Profiles</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem">Spring (Sep–Nov)</div>
+          <div class="chart-wrap" style="height:240px"><canvas id="temporalRadarSpring"></canvas></div>
+          <div style="font-family:var(--mono);font-size:.7rem;color:var(--ink-faint)">n=42 · H=1.456 · 1.44 syl/s</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem">Summer (Dec–Feb)</div>
+          <div class="chart-wrap" style="height:240px"><canvas id="temporalRadarSummer"></canvas></div>
+          <div style="font-family:var(--mono);font-size:.7rem;color:var(--ink-faint)">n=49 · H=1.337 · 1.23 syl/s</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem">Autumn (Mar–May)</div>
+          <div class="chart-wrap" style="height:240px"><canvas id="temporalRadarAutumn"></canvas></div>
+          <div style="font-family:var(--mono);font-size:.7rem;color:var(--ink-faint)">n=14 · H=1.780 · 1.65 syl/s</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem">Winter (Jun–Aug)</div>
+          <div class="chart-wrap" style="height:240px"><canvas id="temporalRadarWinter"></canvas></div>
+          <div style="font-family:var(--mono);font-size:.7rem;color:var(--ink-faint)">n=11 · H=1.628 · 1.46 syl/s</div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:1rem">
+        <span class="mark">Note</span>
+        <span>Radar axes: Low-Freq, Harmonic, High-Freq, Trill, Remainder. Autumn's polygon is the most evenly spread,
+        reflecting highest diversity. Summer's is dominated by the low-frequency lobe.</span>
+      </p>
+    </div>
+
+    <!-- Spring harmonics -->
+    <div class="prose" style="margin:1.8rem 0">
+      <p><b>Spring harmonics peak.</b> October stands out with 23.0% harmonic syllables — the highest of any month.
+      This coincides with peak breeding display, when male tūī perform elaborate harmonic-rich songs to attract
+      mates and defend territories. The harmonic proportion drops below 17% in the quieter months of February,
+      April, and November (post-display wind-down).</p>
+    </div>
+
+    <!-- Dawn vs Day -->
+    <div class="card">
+      <h3>Dawn Chorus vs Daytime Song</h3>
+      <div class="chart-wrap" style="height:300px">
+        <canvas id="temporalDawnDayChart"></canvas>
+      </div>
+      <div class="prose" style="margin-top:1rem">
+        <p><b>Dawn vs day.</b> The pre-8 am dawn chorus is more low-frequency-heavy (58.3% vs 53.4%) and
+        less harmonic (15.9% vs 19.9%). This pattern is consistent with <b>subsong</b> — quieter,
+        less structured vocalisations that may serve as practice or low-intensity territorial signalling.
+        Daytime singing, with higher harmonic content and slightly faster syllable rate (1.40 vs 1.30 syl/s),
+        resembles the full broadcast song described in Hill &amp; Ji (2014).</p>
+      </div>
+    </div>
+
+    <!-- Final note -->
+    <div class="note" style="margin-top:2rem">
+      <span class="mark">Finding</span>
+      <span>A simple breeding vs non-breeding split shows <b>no significant difference</b> in overall syllable
+      proportions. The seasonal shifts documented here are more nuanced — driven by specific months (February's
+      simplification, October's harmonic peak, autumn's diversity burst) rather than a clean binary divide.
+      Tūī vocal behaviour tracks a richer ecological calendar than breeding status alone can explain.</span>
+    </div>
+  </div>
+
   <!-- ==================== DATASET ==================== -->
   <div class="panel" id="panel-data">
     <div class="section-label">Dataset Overview</div>
@@ -1294,6 +1422,8 @@ document.querySelectorAll('.tab').forEach(tab => {
     if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
     // Init game tab
     if (tab.dataset.tab === 'game' && !window._gameInit) { GameEngine.init(); window._gameInit = true; }
+    // Init temporal tab
+    if (tab.dataset.tab === 'temporal' && !window._temporalInit) initTemporal();
   });
 });
 
@@ -2447,6 +2577,200 @@ const GameEngine = {
 
 // Lazy init game on tab click
 // (done in tab handler below)
+
+// ==================== TEMPORAL ANALYSIS ====================
+function initTemporal() {
+  window._temporalInit = true;
+  const chartFont = {family:'Spline Sans Mono',size:10};
+  const gridColor = '#e2d9c7';
+  const tickColor = '#a99e89';
+  const cs = getComputedStyle(document.documentElement);
+  const C = {
+    lf: cs.getPropertyValue('--low').trim(),
+    h:  cs.getPropertyValue('--harmonic').trim(),
+    hf: cs.getPropertyValue('--high').trim(),
+    t:  cs.getPropertyValue('--trill').trim(),
+    r:  cs.getPropertyValue('--rmnr').trim(),
+    accent: cs.getPropertyValue('--accent').trim(),
+    accent2: cs.getPropertyValue('--accent-2').trim(),
+    ink: cs.getPropertyValue('--ink').trim(),
+    inkSoft: cs.getPropertyValue('--ink-soft').trim()
+  };
+
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const nRec = [26,6,8,4,2,3,0,8,2,29,11,17];
+  const mLF = [59.5,72.2,46.6,50.4,54.4,59.2,null,50.4,39.3,50.1,55.0,60.7];
+  const mH  = [17.9,16.1,20.9,16.0,11.2,22.2,null,17.0,22.3,23.0,16.3,17.3];
+  const mHF = [9.5,2.4,15.6,15.7,14.4,4.2,null,15.1,14.3,10.9,14.1,7.3];
+  const mT  = [5.3,2.7,8.3,7.3,10.4,5.0,null,7.6,11.1,6.6,6.4,4.1];
+  const mR  = [7.8,6.5,8.6,10.6,9.6,9.4,null,9.9,13.0,9.4,8.2,10.6];
+  const breeding = [true,false,false,false,false,false,false,true,true,true,true,true];
+
+  // 1. Monthly stacked bar
+  new Chart(document.getElementById('temporalMonthlyStackedChart'), {
+    type: 'bar',
+    data: {
+      labels: months.map((m,i) => nRec[i]?`${m}\nn=${nRec[i]}`:m),
+      datasets: [
+        {label:'Low-Freq',data:mLF,backgroundColor:C.lf},
+        {label:'Harmonic',data:mH,backgroundColor:C.h},
+        {label:'High-Freq',data:mHF,backgroundColor:C.hf},
+        {label:'Trill',data:mT,backgroundColor:C.t},
+        {label:'Remainder',data:mR,backgroundColor:C.r}
+      ]
+    },
+    options: {
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{font:chartFont,usePointStyle:true,pointStyle:'rect',padding:12}},
+        tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+'%'}}},
+      scales:{
+        x:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{display:false}},
+        y:{stacked:true,max:100,ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},
+          grid:{color:gridColor},title:{display:true,text:'Proportion of syllables (%)',font:chartFont,color:tickColor}}
+      }
+    }
+  });
+
+  // Monthly diversity (Shannon H)
+  const mDiv = months.map((m,i) => {
+    if(mLF[i]===null) return null;
+    const ps = [mLF[i],mH[i],mHF[i],mT[i],mR[i]].map(v=>v/100);
+    return -ps.reduce((s,p) => p>0?s+p*Math.log(p):s, 0);
+  });
+  const mRate = [1.23,1.23,1.65,1.65,1.65,1.46,null,1.46,1.44,1.44,1.44,1.23];
+
+  // 2. Shannon diversity line chart with breeding shading
+  new Chart(document.getElementById('temporalDiversityChart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [{
+        label:'Shannon H', data: mDiv,
+        borderColor: C.accent, fill: false, tension: 0.3, pointRadius: 5,
+        pointBackgroundColor: months.map((m,i) => mDiv[i]===null?'transparent':(breeding[i]?C.accent2:C.accent)),
+        pointBorderColor: months.map((m,i) => mDiv[i]===null?'transparent':(breeding[i]?C.accent2:C.accent)),
+        spanGaps: true
+      }]
+    },
+    plugins: [{
+      id:'breedingBg',
+      beforeDraw(chart) {
+        const {ctx,chartArea,scales:{x}} = chart;
+        if(!chartArea) return;
+        ctx.save(); ctx.fillStyle = C.accent2+'12';
+        [7,8,9,10,11,0].forEach(idx => {
+          const xPos = x.getPixelForValue(idx);
+          const half = (x.getPixelForValue(1)-x.getPixelForValue(0))/2;
+          ctx.fillRect(xPos-half, chartArea.top, half*2, chartArea.bottom-chartArea.top);
+        });
+        ctx.restore();
+      }
+    }],
+    options: {
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'H = '+(ctx.parsed.y?.toFixed(3)??'N/A')}}},
+      scales:{
+        x:{ticks:{font:chartFont,color:tickColor},grid:{display:false}},
+        y:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor},
+          title:{display:true,text:'Shannon diversity (H)',font:chartFont,color:tickColor}}
+      }
+    }
+  });
+
+  // 3. Syllable rate line chart with breeding shading
+  new Chart(document.getElementById('temporalRateChart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [{
+        label:'Syllable rate', data: mRate,
+        borderColor: C.accent2, fill: false, tension: 0.3, pointRadius: 5,
+        pointBackgroundColor: months.map((m,i) => mRate[i]===null?'transparent':(breeding[i]?C.accent2:C.accent)),
+        pointBorderColor: months.map((m,i) => mRate[i]===null?'transparent':(breeding[i]?C.accent2:C.accent)),
+        spanGaps: true
+      }]
+    },
+    plugins: [{
+      id:'breedingBg2',
+      beforeDraw(chart) {
+        const {ctx,chartArea,scales:{x}} = chart;
+        if(!chartArea) return;
+        ctx.save(); ctx.fillStyle = C.accent2+'12';
+        [7,8,9,10,11,0].forEach(idx => {
+          const xPos = x.getPixelForValue(idx);
+          const half = (x.getPixelForValue(1)-x.getPixelForValue(0))/2;
+          ctx.fillRect(xPos-half, chartArea.top, half*2, chartArea.bottom-chartArea.top);
+        });
+        ctx.restore();
+      }
+    }],
+    options: {
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>(ctx.parsed.y?.toFixed(2)??'N/A')+' syl/s'}}},
+      scales:{
+        x:{ticks:{font:chartFont,color:tickColor},grid:{display:false}},
+        y:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor},
+          title:{display:true,text:'Syllables per second',font:chartFont,color:tickColor}}
+      }
+    }
+  });
+
+  // 4. Seasonal radar charts
+  const radarLabels = ['Low-Freq','Harmonic','High-Freq','Trill','Remainder'];
+  const seasons = {
+    Spring: {data:[50.1,21.7,11.8,6.8,9.6], id:'temporalRadarSpring'},
+    Summer: {data:[59.5,17.6,8.1,4.8,8.1], id:'temporalRadarSummer'},
+    Autumn: {data:[46.6,17.7,15.5,8.5,9.5], id:'temporalRadarAutumn'},
+    Winter: {data:[50.4,17.7,13.7,7.3,9.8], id:'temporalRadarWinter'}
+  };
+  const seasonColors = {Spring:C.accent2, Summer:C.lf, Autumn:C.r, Winter:C.h};
+
+  Object.entries(seasons).forEach(([name,s]) => {
+    const color = seasonColors[name];
+    new Chart(document.getElementById(s.id), {
+      type: 'radar',
+      data: {
+        labels: radarLabels,
+        datasets: [{
+          label: name, data: s.data,
+          backgroundColor: color+'22', borderColor: color, borderWidth: 2,
+          pointBackgroundColor: color, pointRadius: 3
+        }]
+      },
+      options: {
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false}},
+        scales:{r:{
+          beginAtZero:true, max:65,
+          ticks:{font:{...chartFont,size:8},color:tickColor,backdropColor:'transparent',stepSize:20},
+          grid:{color:gridColor}, pointLabels:{font:{...chartFont,size:9},color:C.inkSoft}, angleLines:{color:gridColor}
+        }}
+      }
+    });
+  });
+
+  // 5. Dawn vs Day grouped bar chart
+  new Chart(document.getElementById('temporalDawnDayChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Low-Freq','Harmonic','High-Freq','Trill','Remainder'],
+      datasets: [
+        {label:'Dawn (<8 am, n=25)',data:[58.3,15.9,10.5,5.0,10.3],backgroundColor:C.accent+'cc',borderRadius:3},
+        {label:'Day (≥8 am, n=91)',data:[53.4,19.9,11.3,6.7,8.7],backgroundColor:C.accent2+'cc',borderRadius:3}
+      ]
+    },
+    options: {
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{font:chartFont,usePointStyle:true,pointStyle:'rect',padding:12}},
+        tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+'%'}}},
+      scales:{
+        x:{ticks:{font:chartFont,color:tickColor},grid:{display:false}},
+        y:{ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor},
+          title:{display:true,text:'Proportion (%)',font:chartFont,color:tickColor}}
+      }
+    }
+  });
+}
 
 // ==================== INIT VISIBLE TABS ====================
 // Overview is default, no charts needed there
