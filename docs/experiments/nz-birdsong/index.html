@@ -1904,9 +1904,13 @@ const GAME_DATA = {
     low_frequency: [0,1,2], harmonic: [0,1,2], high_frequency: [0,1,2], trill: [0,1,2], rmnr: [0,1,2]
   },
   species_clips: {
-    tui: ['956962','919688','750582','741085'],
-    bellbird: ['903832','718282','702040'],
-    kaka: ['983810','959275','894748']
+    tui: ['975474','956962'],
+    bellbird: ['152939'],
+    kaka: ['326938'],
+    kea: ['405529'],
+    morepork: ['33770'],
+    fantail: ['984431'],
+    warbler: ['153000']
   },
   transition_probs: {
     tui: {LF:{LF:.733,H:.117,HF:.051,T:.041,R:.058},H:{LF:.342,H:.383,HF:.095,T:.065,R:.114},HF:{LF:.265,H:.167,HF:.376,T:.086,R:.106},T:{LF:.335,H:.170,HF:.106,T:.244,R:.146},R:{LF:.312,H:.155,HF:.107,T:.083,R:.343}}
@@ -1927,7 +1931,7 @@ const GAME_DATA = {
   },
   level_config: [
     {name:'Ngā Oro',    mi:'The Sounds',        total:15, pass:12, desc:'Identify the five syllable types by ear'},
-    {name:'Ko Wai?',    mi:'Who Is This?',       total:10, pass:7,  desc:'Recognise the tūī among NZ birds'},
+    {name:'Ko Wai?',    mi:'Who Is This?',       total:8,  pass:6,  desc:'Recognise the tūī among NZ birds'},
     {name:'E Whai Ake', mi:'What Comes Next?',   total:15, pass:8,  desc:'Predict tūī song transitions'},
     {name:'Waiata',     mi:'Compose the Song',   total:6,  pass:3,  desc:'Build a plausible tūī phrase'},
     {name:'Te Rohe',    mi:'Regional Dialects',  total:8,  pass:5,  desc:'Read tūī dialect geography'}
@@ -2025,7 +2029,7 @@ const GameEngine = {
         for (const id of clips) allClips.push({ species: sp, audio: `audio/${id}.mp3` });
       }
       this.shuffle(allClips);
-      for (let i = 0; i < Math.min(10, allClips.length); i++) questions.push({ type: 'species', ...allClips[i] });
+      for (let i = 0; i < allClips.length; i++) questions.push({ type: 'species', ...allClips[i] });
     } else if (level === 3) {
       // Level 3: What comes next — given a syllable, predict most likely successor
       const types = GAME_DATA.syllable_types;
@@ -2110,11 +2114,18 @@ const GameEngine = {
     document.getElementById('q-text').textContent = 'Which bird is singing?';
     document.getElementById('q-context').textContent = 'Listen carefully — each species has a distinct vocal signature.';
     document.getElementById('q-audio').innerHTML = `<button class="game-play-btn" onclick="GameEngine.playAudio('${q.audio}',this)"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Play</button>`;
-    this.renderOptions([
-      { value: 'tui', label: 'Tūī — Most complex, unpredictable sequences' },
-      { value: 'bellbird', label: 'Bellbird (Korimako) — Melodic, repetitive patterns' },
-      { value: 'kaka', label: 'Kākā — Harsh calls, simple structure' }
-    ]);
+    const speciesNames = {
+      tui: 'Tūī', bellbird: 'Bellbird (Korimako)', kaka: 'Kākā',
+      kea: 'Kea', morepork: 'Morepork (Ruru)', fantail: 'Fantail (Pīwakawaka)', warbler: 'Grey Warbler (Riroriro)'
+    };
+    // Always show 4 options including the correct one
+    const allSpecies = Object.keys(speciesNames);
+    let options = [q.species];
+    const others = allSpecies.filter(s => s !== q.species);
+    this.shuffle(others);
+    options = options.concat(others.slice(0, 3));
+    this.shuffle(options);
+    this.renderOptions(options.map(s => ({ value: s, label: speciesNames[s] })));
   },
 
   renderTransition(q) {
@@ -2250,7 +2261,7 @@ const GameEngine = {
       feedbackText += `<div style="margin-top:.8rem"><img src="${q.spectrogram}" alt="Spectrogram" style="max-width:100%;border-radius:4px;border:1px solid var(--rule)"></div>`;
     } else if (q.type === 'species') {
       correct = this.state.selected === q.species;
-      const names = { tui: 'Tūī', bellbird: 'Bellbird (Korimako)', kaka: 'Kākā' };
+      const names = { tui: 'Tūī', bellbird: 'Bellbird (Korimako)', kaka: 'Kākā', kea: 'Kea', morepork: 'Morepork (Ruru)', fantail: 'Fantail (Pīwakawaka)', warbler: 'Grey Warbler (Riroriro)' };
       feedbackText = correct
         ? `Correct! That was a ${names[q.species]}.`
         : `That was a ${names[q.species]}, not a ${names[this.state.selected]}.`;
