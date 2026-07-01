@@ -424,10 +424,7 @@ tr:hover td{background:var(--surface-2)}
     <div class="tab active" data-tab="overview">Overview</div>
     <div class="tab" data-tab="game">Te Reo Manu</div>
     <div class="tab" data-tab="species">Species Gallery</div>
-    <div class="tab" data-tab="tui-analysis">Tūī Syllables</div>
-    <div class="tab" data-tab="bellbird-analysis">Bellbird Syllables</div>
-    <div class="tab" data-tab="kaka-analysis">Kākā Calls</div>
-    <div class="tab" data-tab="samples">Vocalization Samples</div>
+    <div class="tab" data-tab="vocalisation">Vocalisation Analysis</div>
     <div class="tab" data-tab="map">Geographic Analysis</div>
     <div class="tab" data-tab="data">Dataset</div>
     <div class="tab" data-tab="methods">Methodology</div>
@@ -563,178 +560,175 @@ tr:hover td{background:var(--surface-2)}
       <!-- Populated by JS -->
     </div>
   </div>
+  <!-- ==================== VOCALISATION ANALYSIS (combined) ==================== -->
+  <div class="panel" id="panel-vocalisation">
+    <div class="section-label">Vocalisation Analysis — Species-Specific Classification</div>
 
-  <!-- ==================== TŪĪ ANALYSIS ==================== -->
-  <div class="panel" id="panel-tui-analysis">
-    <div class="section-label">Tūī Syllable Analysis — Hill &amp; Ji (2014) Categories</div>
-    <div class="prose" style="margin-bottom:1.5rem">
-      <p>Classification follows <b>Hill &amp; Ji (2014)</b> — 6 syllable categories identified from visual spectrographic 
-      inspection of tūī at Tawharanui Regional Park. Syllable boundaries defined by ≥20ms silence gaps. 
-      44.1 kHz sampling rate, frequency range 500–10,000 Hz.</p>
+    <!-- Species sub-tabs -->
+    <div style="display:flex;gap:.3rem;margin-bottom:2rem;flex-wrap:wrap" id="voc-species-tabs">
+      <button class="tab active" onclick="showVocSpecies('tui',this)" style="cursor:pointer">Tūī</button>
+      <button class="tab" onclick="showVocSpecies('bellbird',this)" style="cursor:pointer">Bellbird</button>
+      <button class="tab" onclick="showVocSpecies('kaka',this)" style="cursor:pointer">Kākā</button>
     </div>
-    
-    <div class="card">
-      <h3>Syllable Type Distribution</h3>
-      <div id="tui-syl-bars"></div>
-      <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
-        17,716 syllables · 116 recordings · Classifier: Hill &amp; Ji (2014), DOI: 10.63172/301002sqblid
+
+    <!-- TŪĪ sub-panel -->
+    <div class="voc-species-panel" id="voc-tui">
+      <div class="prose" style="margin-bottom:1.5rem">
+        <p>Classification follows <b>Hill &amp; Ji (2014)</b> — 6 syllable categories identified from visual spectrographic
+        inspection of tūī at Tawharanui Regional Park. Syllable boundaries defined by ≥20ms silence gaps.
+        44.1 kHz sampling rate, frequency range 500–10,000 Hz.</p>
       </div>
-    </div>
 
-    <div class="note" style="margin-top:1.5rem">
-      <div class="mark">v2 Improvement</div>
-      <div>The v1 classifier over-assigned "low-frequency" (55%) due to checking f₀ before harmonicity — 
-      syllables with low fundamental but strong upper harmonics were misclassified. The v2 classifier 
-      checks tonal quality first, then frequency, bringing low-frequency down to 0.6% — consistent with 
-      Hill's finding that these are relatively rare. RMNR (64.9%) is now the dominant category, followed by 
-      trill (17.1%) and harmonic (13.8%). No harsh syllables were detected — these are quiet, close-range 
-      vocalisations that field recorders may not capture.</div>
-    </div>
-
-    <div class="section-label">Category Definitions</div>
-    <div class="card">
-      <table style="width:100%;font-size:.88rem">
-        <thead><tr><th style="text-align:left">Category</th><th>Count</th><th>%</th><th style="text-align:left">Definition (Hill &amp; Ji 2014)</th></tr></thead>
-        <tbody>
-          <tr><td><b style="color:#b07d22">RMNR</b></td><td class="num">11,494</td><td class="num">64.9%</td><td>Rapid multiple note repetition — rapid series of short amplitude pulses</td></tr>
-          <tr><td><b style="color:#7c5784">Trill</b></td><td class="num">3,036</td><td class="num">17.1%</td><td>Rapid frequency modulation — oscillatory f₀ pattern</td></tr>
-          <tr><td><b style="color:#2c6c8c">Harmonic</b></td><td class="num">2,452</td><td class="num">13.8%</td><td>Integer multiples of fundamental frequency — clear harmonic structure</td></tr>
-          <tr><td><b style="color:#bb4a33">High-frequency</b></td><td class="num">630</td><td class="num">3.6%</td><td>Fundamental frequency ≥ 5 kHz</td></tr>
-          <tr><td><b style="color:#5f7a3a">Low-frequency</b></td><td class="num">104</td><td class="num">0.6%</td><td>Dominant energy below 2 kHz</td></tr>
-          <tr><td><b style="color:#a99e89">Harsh</b></td><td class="num">0</td><td class="num">0.0%</td><td>Throaty syllables — noisy broadband spectrum (not detected)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="section-label">Per-Recording Breakdown</div>
-    <div class="card">
-      <div class="chart-wrap" style="height:400px">
-        <canvas id="tuiPerRecChart"></canvas>
+      <div class="card">
+        <h3>Syllable Type Distribution</h3>
+        <div id="tui-syl-bars"></div>
+        <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+          17,716 syllables · 116 recordings · Classifier: Hill &amp; Ji (2014), DOI: 10.63172/301002sqblid
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ==================== BELLBIRD ANALYSIS ==================== -->
-  <div class="panel" id="panel-bellbird-analysis">
-    <div class="section-label">Bellbird Syllable Analysis — Webb/Roper Syllable Families</div>
-    <div class="prose" style="margin-bottom:1.5rem">
-      <p>Classification follows the <b>Webb et al. (2021)</b> and <b>Roper et al. (2018)</b> framework. 
-      Unlike many songbirds where "song type" is the functional unit, bellbird researchers found that 
-      <b>syllable types are the functional units of vocal culture</b> — bellbirds flexibly recombine syllables 
-      into variable songs. Syllable boundaries defined by &lt;15ms silence (Roper 2018). Webb et al. identified 
-      702 syllable types across 6 sites, grouped into 20 syllable families.</p>
-    </div>
-    
-    <div class="card">
-      <h3>Syllable Family Distribution</h3>
-      <div id="bellbird-syl-bars"></div>
-      <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
-        6,388 syllables · 46 recordings · Classifier: Webb et al. (2021), DOI: 10.3389/fevo.2021.755633
+      <div class="note" style="margin-top:1.5rem">
+        <div class="mark">v2 Improvement</div>
+        <div>The v1 classifier over-assigned "low-frequency" (55%) due to checking f₀ before harmonicity —
+        syllables with low fundamental but strong upper harmonics were misclassified. The v2 classifier
+        checks tonal quality first, then frequency, bringing low-frequency down to 0.6% — consistent with
+        Hill's finding that these are relatively rare. RMNR (64.9%) is now the dominant category, followed by
+        trill (17.1%) and harmonic (13.8%). No harsh syllables were detected — these are quiet, close-range
+        vocalisations that field recorders may not capture.</div>
       </div>
-    </div>
 
-    <div class="section-label">Category Definitions</div>
-    <div class="card">
-      <table style="width:100%;font-size:.88rem">
-        <thead><tr><th style="text-align:left">Family</th><th>Count</th><th>%</th><th style="text-align:left">Definition</th></tr></thead>
-        <tbody>
-          <tr><td><b style="color:#b07d22">Stutter</b></td><td class="num">4,013</td><td class="num">62.8%</td><td>Rapid repeated short elements — high amplitude peak rate</td></tr>
-          <tr><td><b style="color:#5f7a3a">Click</b></td><td class="num">1,237</td><td class="num">19.4%</td><td>Very short impulse sounds (&lt;40ms)</td></tr>
-          <tr><td><b style="color:#bb4a33">Trill</b></td><td class="num">748</td><td class="num">11.7%</td><td>Rapid oscillatory frequency modulation</td></tr>
-          <tr><td><b style="color:#a99e89">Complex</b></td><td class="num">233</td><td class="num">3.6%</td><td>Multi-element syllables not fitting other families</td></tr>
-          <tr><td><b style="color:#7c5784">Warble</b></td><td class="num">152</td><td class="num">2.4%</td><td>Frequency-modulated, tonal but complex structure</td></tr>
-          <tr><td><b style="color:#2c6c8c">Pipe</b></td><td class="num">5</td><td class="num">0.1%</td><td>Pure tone whistles — narrow bandwidth, shared between sites (Webb et al.)</td></tr>
-          <tr><td><b style="color:#8c4a2c">Harsh/Buzz</b></td><td class="num">0</td><td class="num">0.0%</td><td>Broadband noisy syllables (not detected)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="note" style="margin-top:1.5rem">
-      <div class="mark">Methodology Note</div>
-      <div>The 15ms syllable boundary follows <b>Roper et al. (2018)</b> — this is shorter than the 20ms used for tūī (Hill 2014), 
-      reflecting bellbird-specific vocal structure. Webb et al. validated their classification using 74 independent judges 
-      (89.6% average match) and machine learning (96.6% accuracy via t-SNE + supervised algorithms). Our spectral 
-      rule-based classifier is a simplification of their approach. The Koe bioacoustics software 
-      (<a href="https://doi.org/10.1111/2041-210X.13336">Fukuzawa et al. 2020</a>) was developed specifically for this classification task.</div>
-    </div>
-
-    <div class="section-label">Per-Recording Breakdown</div>
-    <div class="card">
-      <div class="chart-wrap" style="height:400px">
-        <canvas id="bellbirdPerRecChart"></canvas>
+      <div class="section-label">Category Definitions</div>
+      <div class="card">
+        <table style="width:100%;font-size:.88rem">
+          <thead><tr><th style="text-align:left">Category</th><th>Count</th><th>%</th><th style="text-align:left">Definition (Hill &amp; Ji 2014)</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:#b07d22">RMNR</b></td><td class="num">11,494</td><td class="num">64.9%</td><td>Rapid multiple note repetition — rapid series of short amplitude pulses</td></tr>
+            <tr><td><b style="color:#7c5784">Trill</b></td><td class="num">3,036</td><td class="num">17.1%</td><td>Rapid frequency modulation — oscillatory f₀ pattern</td></tr>
+            <tr><td><b style="color:#2c6c8c">Harmonic</b></td><td class="num">2,452</td><td class="num">13.8%</td><td>Integer multiples of fundamental frequency — clear harmonic structure</td></tr>
+            <tr><td><b style="color:#bb4a33">High-frequency</b></td><td class="num">630</td><td class="num">3.6%</td><td>Fundamental frequency ≥ 5 kHz</td></tr>
+            <tr><td><b style="color:#5f7a3a">Low-frequency</b></td><td class="num">104</td><td class="num">0.6%</td><td>Dominant energy below 2 kHz</td></tr>
+            <tr><td><b style="color:#a99e89">Harsh</b></td><td class="num">0</td><td class="num">0.0%</td><td>Throaty syllables — noisy broadband spectrum (not detected)</td></tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </div>
 
-  <!-- ==================== KĀKĀ ANALYSIS ==================== -->
-  <div class="panel" id="panel-kaka-analysis">
-    <div class="section-label">Kākā Call Type Analysis — Van Horik et al. (2007)</div>
-    <div class="prose" style="margin-bottom:1.5rem">
-      <p>Kākā are <b>parrots (Psittaciformes)</b>, not songbirds. They produce <b>calls</b>, not songs. 
-      The term "syllable" is inappropriate for their vocalisations. Classification follows 
-      <b>Van Horik, Bell &amp; Burns (2007)</b>, who identified 5 call types through 500 hours of field 
-      observation and spectrographic analysis. Call boundaries defined by ≥200ms silence gaps — 
-      much longer than songbird syllable boundaries, reflecting the different temporal structure of parrot calls.</p>
-    </div>
-    
-    <div class="card">
-      <h3>Call Type Distribution</h3>
-      <div id="kaka-call-bars"></div>
-      <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
-        1,099 calls · 25 recordings · Classifier: Van Horik, Bell &amp; Burns (2007), DOI: 10.1080/03014220709510093
+      <div class="section-label">Per-Recording Breakdown</div>
+      <div class="card">
+        <div class="chart-wrap" style="height:400px">
+          <canvas id="tuiPerRecChart"></canvas>
+        </div>
       </div>
+
+      <div class="section-label">Representative Samples</div>
+      <div id="voc-samples-tui"><!-- Populated by JS --></div>
     </div>
 
-    <div class="section-label">Category Definitions</div>
-    <div class="card">
-      <table style="width:100%;font-size:.88rem">
-        <thead><tr><th style="text-align:left">Call Type</th><th>Count</th><th>%</th><th style="text-align:left">Definition (Van Horik et al. 2007)</th></tr></thead>
-        <tbody>
-          <tr><td><b style="color:#7c5784">Snicker</b></td><td class="num">889</td><td class="num">80.9%</td><td>Rapid chattering series of short elements</td></tr>
-          <tr><td><b style="color:#8c4a2c">Bark</b></td><td class="num">177</td><td class="num">16.1%</td><td>Short sharp percussive call — brief broadband energy burst</td></tr>
-          <tr><td><b style="color:#2c6c8c">Gurgle</b></td><td class="num">33</td><td class="num">3.0%</td><td>Complex low-frequency call with gurgling quality</td></tr>
-          <tr><td><b style="color:#bb4a33">Shraak</b></td><td class="num">0</td><td class="num">0.0%</td><td>Loud harsh broadband contact call (not detected)</td></tr>
-          <tr><td><b style="color:#b07d22">Shraak-woo</b></td><td class="num">0</td><td class="num">0.0%</td><td>Shraak with descending tonal component (not detected)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="note" style="margin-top:1.5rem">
-      <div class="mark">Why No Shraak?</div>
-      <div>Shraak and shraak-woo are <b>loud long-distance contact calls</b> — they function for communication 
-      across large distances in forest canopy. The Xeno-Canto recordings in our dataset appear to capture 
-      primarily closer-range vocalisations (snicker, bark, gurgle). Van Horik et al. observed shraak calls 
-      "used for communication under different spatial and social circumstances" — the recording context 
-      (microphone distance, habitat) likely biases toward closer-range call types. For comparison, the closely 
-      related kea (<i>Nestor notabilis</i>) has 7 call types including the famous "warble" play call 
-      (<a href="https://doi.org/10.1093/czoolo/58.5.727">Schwing et al. 2012</a>).</div>
-    </div>
-
-    <div class="section-label">Per-Recording Breakdown</div>
-    <div class="card">
-      <div class="chart-wrap" style="height:400px">
-        <canvas id="kakaPerRecChart"></canvas>
+    <!-- BELLBIRD sub-panel -->
+    <div class="voc-species-panel" id="voc-bellbird" style="display:none">
+      <div class="prose" style="margin-bottom:1.5rem">
+        <p>Classification follows the <b>Webb et al. (2021)</b> and <b>Roper et al. (2018)</b> framework.
+        Unlike many songbirds where "song type" is the functional unit, bellbird researchers found that
+        <b>syllable types are the functional units of vocal culture</b> — bellbirds flexibly recombine syllables
+        into variable songs. Syllable boundaries defined by &lt;15ms silence (Roper 2018). Webb et al. identified
+        702 syllable types across 6 sites, grouped into 20 syllable families.</p>
       </div>
+
+      <div class="card">
+        <h3>Syllable Family Distribution</h3>
+        <div id="bellbird-syl-bars"></div>
+        <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+          6,388 syllables · 46 recordings · Classifier: Webb et al. (2021), DOI: 10.3389/fevo.2021.755633
+        </div>
+      </div>
+
+      <div class="section-label">Category Definitions</div>
+      <div class="card">
+        <table style="width:100%;font-size:.88rem">
+          <thead><tr><th style="text-align:left">Family</th><th>Count</th><th>%</th><th style="text-align:left">Definition</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:#b07d22">Stutter</b></td><td class="num">4,013</td><td class="num">62.8%</td><td>Rapid repeated short elements — high amplitude peak rate</td></tr>
+            <tr><td><b style="color:#5f7a3a">Click</b></td><td class="num">1,237</td><td class="num">19.4%</td><td>Very short impulse sounds (&lt;40ms)</td></tr>
+            <tr><td><b style="color:#bb4a33">Trill</b></td><td class="num">748</td><td class="num">11.7%</td><td>Rapid oscillatory frequency modulation</td></tr>
+            <tr><td><b style="color:#a99e89">Complex</b></td><td class="num">233</td><td class="num">3.6%</td><td>Multi-element syllables not fitting other families</td></tr>
+            <tr><td><b style="color:#7c5784">Warble</b></td><td class="num">152</td><td class="num">2.4%</td><td>Frequency-modulated, tonal but complex structure</td></tr>
+            <tr><td><b style="color:#2c6c8c">Pipe</b></td><td class="num">5</td><td class="num">0.1%</td><td>Pure tone whistles — narrow bandwidth, shared between sites (Webb et al.)</td></tr>
+            <tr><td><b style="color:#8c4a2c">Harsh/Buzz</b></td><td class="num">0</td><td class="num">0.0%</td><td>Broadband noisy syllables (not detected)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note" style="margin-top:1.5rem">
+        <div class="mark">Methodology Note</div>
+        <div>The 15ms syllable boundary follows <b>Roper et al. (2018)</b> — this is shorter than the 20ms used for tūī (Hill 2014),
+        reflecting bellbird-specific vocal structure. Webb et al. validated their classification using 74 independent judges
+        (89.6% average match) and machine learning (96.6% accuracy via t-SNE + supervised algorithms). Our spectral
+        rule-based classifier is a simplification of their approach. The Koe bioacoustics software
+        (<a href="https://doi.org/10.1111/2041-210X.13336">Fukuzawa et al. 2020</a>) was developed specifically for this classification task.</div>
+      </div>
+
+      <div class="section-label">Per-Recording Breakdown</div>
+      <div class="card">
+        <div class="chart-wrap" style="height:400px">
+          <canvas id="bellbirdPerRecChart"></canvas>
+        </div>
+      </div>
+
+      <div class="section-label">Representative Samples</div>
+      <div id="voc-samples-bellbird"><!-- Populated by JS --></div>
     </div>
-  </div>
 
-  <!-- ==================== VOCALIZATION SAMPLES ==================== -->
-  <div class="panel" id="panel-samples">
-    <div class="section-label">Vocalization Sample Explorer</div>
-    <p style="color:var(--ink-soft);margin-bottom:1.5rem;font-size:.95rem">
-      Representative examples of each vocalization category, with species-specific terminology. 
-      Each shows a spectrogram with a playable audio clip. Five samples per category show the variation 
-      within each classification. <b>Select a species to explore its repertoire:</b>
-    </p>
+    <!-- KĀKĀ sub-panel -->
+    <div class="voc-species-panel" id="voc-kaka" style="display:none">
+      <div class="prose" style="margin-bottom:1.5rem">
+        <p>Kākā are <b>parrots (Psittaciformes)</b>, not songbirds. They produce <b>calls</b>, not songs.
+        The term "syllable" is inappropriate for their vocalisations. Classification follows
+        <b>Van Horik, Bell &amp; Burns (2007)</b>, who identified 5 call types through 500 hours of field
+        observation and spectrographic analysis. Call boundaries defined by ≥200ms silence gaps —
+        much longer than songbird syllable boundaries, reflecting the different temporal structure of parrot calls.</p>
+      </div>
 
-    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap">
-      <button class="tab active" onclick="showSampleSpecies('tui',this)" style="cursor:pointer">Tūī Syllables</button>
-      <button class="tab" onclick="showSampleSpecies('bellbird',this)" style="cursor:pointer">Bellbird Syllables</button>
-      <button class="tab" onclick="showSampleSpecies('kaka',this)" style="cursor:pointer">Kākā Calls</button>
-    </div>
+      <div class="card">
+        <h3>Call Type Distribution</h3>
+        <div id="kaka-call-bars"></div>
+        <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+          1,099 calls · 25 recordings · Classifier: Van Horik, Bell &amp; Burns (2007), DOI: 10.1080/03014220709510093
+        </div>
+      </div>
 
-    <div id="sample-types">
-      <!-- Populated by JS -->
+      <div class="section-label">Category Definitions</div>
+      <div class="card">
+        <table style="width:100%;font-size:.88rem">
+          <thead><tr><th style="text-align:left">Call Type</th><th>Count</th><th>%</th><th style="text-align:left">Definition (Van Horik et al. 2007)</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:#7c5784">Snicker</b></td><td class="num">889</td><td class="num">80.9%</td><td>Rapid chattering series of short elements</td></tr>
+            <tr><td><b style="color:#8c4a2c">Bark</b></td><td class="num">177</td><td class="num">16.1%</td><td>Short sharp percussive call — brief broadband energy burst</td></tr>
+            <tr><td><b style="color:#2c6c8c">Gurgle</b></td><td class="num">33</td><td class="num">3.0%</td><td>Complex low-frequency call with gurgling quality</td></tr>
+            <tr><td><b style="color:#bb4a33">Shraak</b></td><td class="num">0</td><td class="num">0.0%</td><td>Loud harsh broadband contact call (not detected)</td></tr>
+            <tr><td><b style="color:#b07d22">Shraak-woo</b></td><td class="num">0</td><td class="num">0.0%</td><td>Shraak with descending tonal component (not detected)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note" style="margin-top:1.5rem">
+        <div class="mark">Why No Shraak?</div>
+        <div>Shraak and shraak-woo are <b>loud long-distance contact calls</b> — they function for communication
+        across large distances in forest canopy. The Xeno-Canto recordings in our dataset appear to capture
+        primarily closer-range vocalisations (snicker, bark, gurgle). Van Horik et al. observed shraak calls
+        "used for communication under different spatial and social circumstances" — the recording context
+        (microphone distance, habitat) likely biases toward closer-range call types. For comparison, the closely
+        related kea (<i>Nestor notabilis</i>) has 7 call types including the famous "warble" play call
+        (<a href="https://doi.org/10.1093/czoolo/58.5.727">Schwing et al. 2012</a>).</div>
+      </div>
+
+      <div class="section-label">Per-Recording Breakdown</div>
+      <div class="card">
+        <div class="chart-wrap" style="height:400px">
+          <canvas id="kakaPerRecChart"></canvas>
+        </div>
+      </div>
+
+      <div class="section-label">Representative Samples</div>
+      <div id="voc-samples-kaka"><!-- Populated by JS --></div>
     </div>
   </div>
 
@@ -872,19 +866,6 @@ tr:hover td{background:var(--surface-2)}
         46 geotagged bellbird recordings across 12 regions
       </div>
     </div>
-
-    <div class="card" style="margin-top:1rem">
-      <h3>Cross-Species Comparison: Auckland vs Southland</h3>
-      <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
-        Note: Tūī and bellbird use different classification schemes (v2 species-specific classifiers), 
-        so direct category-by-category comparison is not valid. The chart below shows each species' own 
-        category proportions ranked by dominance, for Auckland vs Southland. Both species show their 
-        dominant category (RMNR for tūī, stutter for bellbird) increasing in Southland — suggesting 
-        less vocal diversity in southern populations.
-      </p>
-      <div class="chart-wrap chart-small">
-        <canvas id="crossSpeciesRegionChart"></canvas>
-      </div>
     </div>
 
     <div class="two-col" style="margin-top:1.5rem">
@@ -1083,7 +1064,7 @@ tr:hover td{background:var(--surface-2)}
 <script>
 // ==================== DATA ====================
 const SPECIES_DATA = [
-  {en:"Tūī",teReo:"Tūī",sci:"Prosthemadera novaeseelandiae",recs:249,qa:131,songs:214,calls:21,xcId:975474,
+  {en:"Tūī",teReo:"Tūī",sci:"Prosthemadera novaeseelandiae",recs:249,qa:131,songs:214,calls:21,xcId:1104055,
    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tui_%28Prosthemadera_novaeseelandiae%29_Tiritiri_Matangi.jpg/500px-Tui_%28Prosthemadera_novaeseelandiae%29_Tiritiri_Matangi.jpg",
    note:"NZ's most complex songbird. 116 A-quality songs in dataset."},
   {en:"New Zealand Bellbird",teReo:"Korimako",sci:"Anthornis melanura",recs:103,qa:67,songs:74,calls:25,xcId:152939,
@@ -1178,10 +1159,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     if (tab.dataset.tab === 'map' && !window._geoChartsInit) initGeoCharts();
     // Re-render charts on tab switch (Chart.js needs visible container)
     // 'syllables' tab removed in v2 — now separate per-species tabs
-    if (tab.dataset.tab === 'tui-analysis' && !window._sylInit) initSyllables();
-    if (tab.dataset.tab === 'bellbird-analysis' && !window._sylInit) initSyllables();
-    if (tab.dataset.tab === 'kaka-analysis' && !window._sylInit) initSyllables();
-    if (tab.dataset.tab === 'samples' && !window._sylInit) initSyllables();
+    if (tab.dataset.tab === 'vocalisation' && !window._sylInit) initSyllables();
     if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
     // Init game tab
     if (tab.dataset.tab === 'game' && !window._gameInit) { GameEngine.init(); window._gameInit = true; }
@@ -1325,13 +1303,22 @@ function initSyllables() {
     });
   }
 
-  // === SAMPLE EXPLORER ===
-  window.showSampleSpecies = function(species, btn) {
-    document.querySelectorAll('#panel-samples .tab').forEach(b => b.classList.remove('active'));
+  // === SPECIES SUB-TAB SWITCHING ===
+  window.showVocSpecies = function(species, btn) {
+    document.querySelectorAll('#voc-species-tabs .tab').forEach(b => b.classList.remove('active'));
     if(btn) btn.classList.add('active');
-    const container = document.getElementById('sample-types');
-    container.innerHTML = '';
-    
+    document.querySelectorAll('.voc-species-panel').forEach(p => p.style.display = 'none');
+    const panel = document.getElementById('voc-' + species);
+    if(panel) panel.style.display = 'block';
+    // Render samples on first visit
+    if(!window['_vocSamples_' + species]) {
+      window['_vocSamples_' + species] = true;
+      renderVocSamples(species);
+    }
+  };
+
+  // === SAMPLE RENDERER ===
+  function renderVocSamples(species) {
     const configs = {
       tui: {
         unit: 'syllable',
@@ -1357,16 +1344,18 @@ function initSyllables() {
     };
     const cfg = configs[species];
     if(!cfg) return;
+    const container = document.getElementById('voc-samples-' + species);
+    if(!container) return;
     
     cfg.categories.forEach(cat => {
       const section = document.createElement('div');
       section.style.cssText = 'margin-bottom:2rem;';
       section.innerHTML = `<h3 style="color:${cfg.colors[cat]};margin-bottom:.3rem">${cfg.labels[cat]}</h3>
         <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem">${cfg.descs[cat]}</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem" id="samples-${species}-${cat}"></div>`;
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem" id="vsamples-${species}-${cat}"></div>`;
       container.appendChild(section);
       
-      const grid = section.querySelector(`#samples-${species}-${cat}`);
+      const grid = section.querySelector(`#vsamples-${species}-${cat}`);
       for(let i = 0; i < 5; i++) {
         const png = `samples_v2/${species}/${cat}_${i}.png`;
         const wav = `samples_v2/${species}/${cat}_${i}.wav`;
@@ -1378,10 +1367,11 @@ function initSyllables() {
         grid.appendChild(card);
       }
     });
-  };
+  }
   
-  // Init with tui
-  showSampleSpecies('tui', document.querySelector('#panel-samples .tab'));
+  // Init tūī samples (default species shown)
+  renderVocSamples('tui');
+  window._vocSamples_tui = true;
 
 
   // === PER-RECORDING STACKED BAR CHARTS ===
@@ -1811,36 +1801,8 @@ function initGeoCharts() {
       }
     }
   });
-
-  // Cross-species regional comparison (v2 data — note: categories differ between species)
-  // This compares tūī RMNR% vs bellbird Stutter% across Auckland/Southland as the dominant category
-  const tuiAkl = TUI_GEO.find(r=>r.region==='Auckland') || {};
-  const tuiSth = TUI_GEO.find(r=>r.region==='Southland') || {};
-  const bbAkl = BELLBIRD_GEO.find(r=>r.region==='Auckland') || {};
-  const bbSth = BELLBIRD_GEO.find(r=>r.region==='Southland') || {};
-  
-  new Chart(document.getElementById('crossSpeciesRegionChart'), {
-    type:'bar',
-    data:{
-      labels: ['Dominant','2nd','3rd','4th','5th'],
-      datasets:[
-        {label:'Tūī Auckland',data:[tuiAkl.rmnr||0,tuiAkl.trill||0,tuiAkl.harmonic||0,tuiAkl.high_frequency||0,tuiAkl.low_frequency||0],backgroundColor:'#5f7a3a',borderRadius:3},
-        {label:'Tūī Southland',data:[tuiSth.rmnr||0,tuiSth.trill||0,tuiSth.harmonic||0,tuiSth.high_frequency||0,tuiSth.low_frequency||0],backgroundColor:'#5f7a3a44',borderRadius:3,borderWidth:1,borderColor:'#5f7a3a'},
-        {label:'Bellbird Auckland',data:[bbAkl.stutter||0,bbAkl.click||0,bbAkl.trill||0,bbAkl.complex||0,bbAkl.warble||0],backgroundColor:'#2c6c8c',borderRadius:3},
-        {label:'Bellbird Southland',data:[bbSth.stutter||0,bbSth.click||0,bbSth.trill||0,bbSth.complex||0,bbSth.warble||0],backgroundColor:'#2c6c8c44',borderRadius:3,borderWidth:1,borderColor:'#2c6c8c'}
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{labels:{font:chartFont,color:'#675e4f'},position:'bottom'},
-               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+'%'}}},
-      scales:{
-        x:{ticks:{font:chartFont,color:tickColor},grid:{display:false}},
-        y:{ticks:{font:chartFont,color:tickColor,callback:v=>v+'%'},grid:{color:gridColor}}
-      }
-    }
-  });
 }
+
 
 // ==================== TE REO MANU GAME ====================
 const GAME_DATA = {
@@ -1858,7 +1820,7 @@ const GAME_DATA = {
     low_frequency: [0,1,2], harmonic: [0,1,2], high_frequency: [0,1,2], trill: [0,1,2], rmnr: [0,1,2]
   },
   species_clips: {
-    tui: ['975474','956962'],
+    tui: ['1104055','956962'],
     bellbird: ['152939'],
     kaka: ['326938'],
     kea: ['405529'],
