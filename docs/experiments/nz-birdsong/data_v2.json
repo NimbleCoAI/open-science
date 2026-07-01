@@ -1,0 +1,3050 @@
+{
+  "version": "v2",
+  "total_species": 175,
+  "total_recordings": 2244,
+  "species_table": [
+    {
+      "en": "Tui",
+      "sp": "Prosthemadera novaeseelandiae",
+      "count": 249,
+      "q_a": 131,
+      "q_b": 101,
+      "songs": 214,
+      "calls": 21,
+      "top_regions": "Other / Offshore(50), Auckland(44), Bay of Plenty(35)"
+    },
+    {
+      "en": "New Zealand Bellbird",
+      "sp": "Anthornis melanura",
+      "count": 103,
+      "q_a": 67,
+      "q_b": 27,
+      "songs": 74,
+      "calls": 25,
+      "top_regions": "Wairarapa(19), Southland(19), Auckland(16)"
+    },
+    {
+      "en": "Grey Gerygone",
+      "sp": "Gerygone igata",
+      "count": 57,
+      "q_a": 29,
+      "q_b": 20,
+      "songs": 47,
+      "calls": 8,
+      "top_regions": "Auckland(17), Southland(9), Canterbury(6)"
+    },
+    {
+      "en": "New Zealand Kaka",
+      "sp": "Nestor meridionalis",
+      "count": 55,
+      "q_a": 25,
+      "q_b": 22,
+      "songs": 10,
+      "calls": 43,
+      "top_regions": "Waikato(16), Southland(12), Wellington(8)"
+    },
+    {
+      "en": "Whitehead",
+      "sp": "Mohoua albicilla",
+      "count": 50,
+      "q_a": 31,
+      "q_b": 14,
+      "songs": 34,
+      "calls": 15,
+      "top_regions": "Auckland(32), Waikato(8), Wellington(5)"
+    },
+    {
+      "en": "New Zealand Fantail",
+      "sp": "Rhipidura fuliginosa",
+      "count": 49,
+      "q_a": 25,
+      "q_b": 22,
+      "songs": 32,
+      "calls": 15,
+      "top_regions": "Other / Offshore(11), Hawke's Bay(9), Auckland(6)"
+    },
+    {
+      "en": "Tomtit",
+      "sp": "Petroica macrocephala",
+      "count": 48,
+      "q_a": 22,
+      "q_b": 19,
+      "songs": 33,
+      "calls": 15,
+      "top_regions": "Canterbury(15), Southland(10), Other / Offshore(6)"
+    },
+    {
+      "en": "Morepork",
+      "sp": "Ninox novaeseelandiae",
+      "count": 41,
+      "q_a": 21,
+      "q_b": 12,
+      "songs": 15,
+      "calls": 24,
+      "top_regions": "Auckland(13), Canterbury(11), Northland(6)"
+    },
+    {
+      "en": "Stitchbird",
+      "sp": "Notiomystis cincta",
+      "count": 41,
+      "q_a": 18,
+      "q_b": 5,
+      "songs": 12,
+      "calls": 27,
+      "top_regions": "Auckland(20), Manawat\u016b-Whanganui(16), Waikato(4)"
+    },
+    {
+      "en": "North Island Saddleback",
+      "sp": "Philesturnus rufusater",
+      "count": 38,
+      "q_a": 22,
+      "q_b": 14,
+      "songs": 23,
+      "calls": 12,
+      "top_regions": "Auckland(25), Northland(7), Wellington(3)"
+    },
+    {
+      "en": "Common Blackbird",
+      "sp": "Turdus merula",
+      "count": 37,
+      "q_a": 17,
+      "q_b": 17,
+      "songs": 25,
+      "calls": 11,
+      "top_regions": "Other / Offshore(12), Southland(5), Canterbury(4)"
+    },
+    {
+      "en": "Silvereye",
+      "sp": "Zosterops lateralis",
+      "count": 36,
+      "q_a": 21,
+      "q_b": 11,
+      "songs": 16,
+      "calls": 20,
+      "top_regions": "Other / Offshore(7), Canterbury(5), Wairarapa(5)"
+    },
+    {
+      "en": "North Island Robin",
+      "sp": "Petroica longipes",
+      "count": 35,
+      "q_a": 20,
+      "q_b": 11,
+      "songs": 31,
+      "calls": 4,
+      "top_regions": "Waikato(11), Hawke's Bay(6), Unknown(5)"
+    },
+    {
+      "en": "Weka",
+      "sp": "Gallirallus australis",
+      "count": 34,
+      "q_a": 22,
+      "q_b": 9,
+      "songs": 9,
+      "calls": 23,
+      "top_regions": "Other / Offshore(10), Canterbury(8), Wairarapa(8)"
+    },
+    {
+      "en": "Rifleman",
+      "sp": "Acanthisitta chloris",
+      "count": 33,
+      "q_a": 13,
+      "q_b": 15,
+      "songs": 6,
+      "calls": 26,
+      "top_regions": "Southland(10), Hawke's Bay(7), Auckland(6)"
+    },
+    {
+      "en": "Red-crowned Parakeet",
+      "sp": "Cyanoramphus novaezelandiae",
+      "count": 32,
+      "q_a": 13,
+      "q_b": 16,
+      "songs": 4,
+      "calls": 28,
+      "top_regions": "Other / Offshore(13), Auckland(7), Southland(7)"
+    },
+    {
+      "en": "Common Chaffinch",
+      "sp": "Fringilla coelebs",
+      "count": 30,
+      "q_a": 8,
+      "q_b": 17,
+      "songs": 16,
+      "calls": 14,
+      "top_regions": "Other / Offshore(6), Otago(5), Hawke's Bay(4)"
+    },
+    {
+      "en": "Rarotonga Monarch",
+      "sp": "Pomarea dimidiata",
+      "count": 29,
+      "q_a": 18,
+      "q_b": 10,
+      "songs": 4,
+      "calls": 25,
+      "top_regions": "Kermadec Islands(29)"
+    },
+    {
+      "en": "Yellowhead",
+      "sp": "Mohoua ochrocephala",
+      "count": 28,
+      "q_a": 10,
+      "q_b": 15,
+      "songs": 10,
+      "calls": 13,
+      "top_regions": "Southland(19), Unknown(5), West Coast(4)"
+    },
+    {
+      "en": "Black Robin",
+      "sp": "Petroica traversi",
+      "count": 27,
+      "q_a": 1,
+      "q_b": 21,
+      "songs": 7,
+      "calls": 20,
+      "top_regions": "Other / Offshore(27)"
+    },
+    {
+      "en": "New Zealand Fernbird",
+      "sp": "Poodytes punctatus",
+      "count": 27,
+      "q_a": 8,
+      "q_b": 17,
+      "songs": 17,
+      "calls": 10,
+      "top_regions": "Northland(9), Canterbury(5), Hawke's Bay(4)"
+    },
+    {
+      "en": "Song Thrush",
+      "sp": "Turdus philomelos",
+      "count": 27,
+      "q_a": 8,
+      "q_b": 17,
+      "songs": 20,
+      "calls": 6,
+      "top_regions": "Other / Offshore(12), Canterbury(5), Otago(4)"
+    },
+    {
+      "en": "Variable Oystercatcher",
+      "sp": "Haematopus unicolor",
+      "count": 26,
+      "q_a": 8,
+      "q_b": 14,
+      "songs": 5,
+      "calls": 20,
+      "top_regions": "Wairarapa(10), Auckland(5), Otago(4)"
+    },
+    {
+      "en": "Magenta Petrel",
+      "sp": "Pterodroma magentae",
+      "count": 25,
+      "q_a": 14,
+      "q_b": 11,
+      "songs": 7,
+      "calls": 14,
+      "top_regions": "Other / Offshore(25)"
+    },
+    {
+      "en": "North Island Brown Kiwi",
+      "sp": "Apteryx mantelli",
+      "count": 24,
+      "q_a": 7,
+      "q_b": 12,
+      "songs": 3,
+      "calls": 20,
+      "top_regions": "Northland(15), Auckland(4), Unknown(4)"
+    },
+    {
+      "en": "Paradise Shelduck",
+      "sp": "Tadorna variegata",
+      "count": 24,
+      "q_a": 11,
+      "q_b": 12,
+      "songs": 3,
+      "calls": 21,
+      "top_regions": "Otago(7), Canterbury(6), Auckland(6)"
+    },
+    {
+      "en": "Sacred Kingfisher",
+      "sp": "Todiramphus sanctus",
+      "count": 21,
+      "q_a": 7,
+      "q_b": 11,
+      "songs": 10,
+      "calls": 10,
+      "top_regions": "Auckland(6), Waikato(6), Otago(5)"
+    },
+    {
+      "en": "Chatham Gerygone",
+      "sp": "Gerygone albofrontata",
+      "count": 21,
+      "q_a": 13,
+      "q_b": 5,
+      "songs": 18,
+      "calls": 3,
+      "top_regions": "Other / Offshore(21)"
+    },
+    {
+      "en": "North Island Kokako",
+      "sp": "Callaeas wilsoni",
+      "count": 21,
+      "q_a": 5,
+      "q_b": 11,
+      "songs": 17,
+      "calls": 4,
+      "top_regions": "Auckland(11), Waikato(4), Bay of Plenty(2)"
+    },
+    {
+      "en": "South Island Robin",
+      "sp": "Petroica australis",
+      "count": 21,
+      "q_a": 10,
+      "q_b": 9,
+      "songs": 11,
+      "calls": 10,
+      "top_regions": "Southland(8), Wairarapa(5), Wellington(3)"
+    },
+    {
+      "en": "New Zealand Pipit",
+      "sp": "Anthus novaeseelandiae",
+      "count": 21,
+      "q_a": 9,
+      "q_b": 8,
+      "songs": 13,
+      "calls": 8,
+      "top_regions": "Other / Offshore(9), Hawke's Bay(5), Subantarctic Islands(5)"
+    },
+    {
+      "en": "Little Penguin",
+      "sp": "Eudyptula minor",
+      "count": 19,
+      "q_a": 9,
+      "q_b": 3,
+      "songs": 5,
+      "calls": 14,
+      "top_regions": "Auckland(7), Other / Offshore(4), Southland(4)"
+    },
+    {
+      "en": "White-fronted Tern",
+      "sp": "Sterna striata",
+      "count": 17,
+      "q_a": 3,
+      "q_b": 7,
+      "songs": 0,
+      "calls": 16,
+      "top_regions": "Auckland(7), Unknown(4), Wellington(2)"
+    },
+    {
+      "en": "Cook Reed Warbler",
+      "sp": "Acrocephalus kerearako",
+      "count": 17,
+      "q_a": 0,
+      "q_b": 8,
+      "songs": 17,
+      "calls": 0,
+      "top_regions": "Kermadec Islands(17)"
+    },
+    {
+      "en": "New Zealand Pigeon",
+      "sp": "Hemiphaga novaeseelandiae",
+      "count": 16,
+      "q_a": 5,
+      "q_b": 5,
+      "songs": 4,
+      "calls": 7,
+      "top_regions": "Auckland(6), Bay of Plenty(3), Otago(3)"
+    },
+    {
+      "en": "Pied Stilt",
+      "sp": "Himantopus leucocephalus",
+      "count": 16,
+      "q_a": 9,
+      "q_b": 5,
+      "songs": 0,
+      "calls": 16,
+      "top_regions": "Auckland(7), Otago(6), Waikato(1)"
+    },
+    {
+      "en": "Silver Gull",
+      "sp": "Chroicocephalus novaehollandiae",
+      "count": 16,
+      "q_a": 7,
+      "q_b": 5,
+      "songs": 0,
+      "calls": 15,
+      "top_regions": "Otago(7), Southland(3), Other / Offshore(2)"
+    },
+    {
+      "en": "Shy Albatross",
+      "sp": "Thalassarche cauta",
+      "count": 16,
+      "q_a": 5,
+      "q_b": 8,
+      "songs": 0,
+      "calls": 10,
+      "top_regions": "Southland(9), Subantarctic Islands(5), Unknown(1)"
+    },
+    {
+      "en": "Common Diving Petrel",
+      "sp": "Pelecanoides urinatrix",
+      "count": 16,
+      "q_a": 1,
+      "q_b": 13,
+      "songs": 15,
+      "calls": 1,
+      "top_regions": "Other / Offshore(14), Southland(1), Northland(1)"
+    },
+    {
+      "en": "Common Myna",
+      "sp": "Acridotheres tristis",
+      "count": 16,
+      "q_a": 0,
+      "q_b": 13,
+      "songs": 7,
+      "calls": 9,
+      "top_regions": "Kermadec Islands(13), Auckland(2), Waikato(1)"
+    },
+    {
+      "en": "South Island Oystercatcher",
+      "sp": "Haematopus finschi",
+      "count": 15,
+      "q_a": 4,
+      "q_b": 7,
+      "songs": 0,
+      "calls": 15,
+      "top_regions": "Otago(9), Auckland(4), Canterbury(1)"
+    },
+    {
+      "en": "Sooty Shearwater",
+      "sp": "Ardenna grisea",
+      "count": 15,
+      "q_a": 6,
+      "q_b": 7,
+      "songs": 11,
+      "calls": 4,
+      "top_regions": "Other / Offshore(7), Southland(6), Wairarapa(1)"
+    },
+    {
+      "en": "Kea",
+      "sp": "Nestor notabilis",
+      "count": 15,
+      "q_a": 8,
+      "q_b": 3,
+      "songs": 0,
+      "calls": 15,
+      "top_regions": "Canterbury(9), West Coast(2), Southland(2)"
+    },
+    {
+      "en": "Pipipi",
+      "sp": "Mohoua novaeseelandiae",
+      "count": 15,
+      "q_a": 3,
+      "q_b": 10,
+      "songs": 8,
+      "calls": 7,
+      "top_regions": "Southland(11), Canterbury(3), Tasman / Nelson(1)"
+    },
+    {
+      "en": "Eurasian Skylark",
+      "sp": "Alauda arvensis",
+      "count": 15,
+      "q_a": 1,
+      "q_b": 10,
+      "songs": 11,
+      "calls": 4,
+      "top_regions": "Other / Offshore(6), Auckland(5), Otago(2)"
+    },
+    {
+      "en": "Masked Lapwing",
+      "sp": "Vanellus miles",
+      "count": 14,
+      "q_a": 5,
+      "q_b": 8,
+      "songs": 0,
+      "calls": 14,
+      "top_regions": "Other / Offshore(10), Auckland(1), Southland(1)"
+    },
+    {
+      "en": "Wrybill",
+      "sp": "Anarhynchus frontalis",
+      "count": 14,
+      "q_a": 3,
+      "q_b": 4,
+      "songs": 1,
+      "calls": 13,
+      "top_regions": "Auckland(9), Otago(5)"
+    },
+    {
+      "en": "Double-banded Plover",
+      "sp": "Charadrius bicinctus",
+      "count": 14,
+      "q_a": 3,
+      "q_b": 7,
+      "songs": 0,
+      "calls": 14,
+      "top_regions": "Otago(9), Subantarctic Islands(3), Auckland(1)"
+    },
+    {
+      "en": "Shore Dotterel",
+      "sp": "Thinornis novaeseelandiae",
+      "count": 14,
+      "q_a": 0,
+      "q_b": 6,
+      "songs": 0,
+      "calls": 14,
+      "top_regions": "Other / Offshore(14)"
+    },
+    {
+      "en": "Black-billed Gull",
+      "sp": "Chroicocephalus bulleri",
+      "count": 14,
+      "q_a": 3,
+      "q_b": 2,
+      "songs": 0,
+      "calls": 14,
+      "top_regions": "Auckland(8), Southland(4), Otago(2)"
+    },
+    {
+      "en": "Australasian Swamphen",
+      "sp": "Porphyrio melanotus",
+      "count": 13,
+      "q_a": 5,
+      "q_b": 8,
+      "songs": 2,
+      "calls": 11,
+      "top_regions": "Auckland(10), Tasman / Nelson(1), Otago(1)"
+    },
+    {
+      "en": "Chatham Snipe",
+      "sp": "Coenocorypha pusilla",
+      "count": 13,
+      "q_a": 0,
+      "q_b": 13,
+      "songs": 12,
+      "calls": 1,
+      "top_regions": "Other / Offshore(13)"
+    },
+    {
+      "en": "Pacific Long-tailed Cuckoo",
+      "sp": "Urodynamis taitensis",
+      "count": 12,
+      "q_a": 7,
+      "q_b": 5,
+      "songs": 5,
+      "calls": 6,
+      "top_regions": "West Coast(6), Waikato(4), Canterbury(1)"
+    },
+    {
+      "en": "Shining Bronze Cuckoo",
+      "sp": "Chrysococcyx lucidus",
+      "count": 12,
+      "q_a": 1,
+      "q_b": 8,
+      "songs": 7,
+      "calls": 4,
+      "top_regions": "Other / Offshore(3), Waikato(3), Auckland(2)"
+    },
+    {
+      "en": "Chatham Petrel",
+      "sp": "Pterodroma axillaris",
+      "count": 12,
+      "q_a": 11,
+      "q_b": 1,
+      "songs": 10,
+      "calls": 2,
+      "top_regions": "Other / Offshore(12)"
+    },
+    {
+      "en": "Yellow-crowned Parakeet",
+      "sp": "Cyanoramphus auriceps",
+      "count": 12,
+      "q_a": 2,
+      "q_b": 7,
+      "songs": 3,
+      "calls": 9,
+      "top_regions": "Waikato(4), Wairarapa(2), West Coast(2)"
+    },
+    {
+      "en": "Australian Magpie",
+      "sp": "Gymnorhina tibicen",
+      "count": 12,
+      "q_a": 1,
+      "q_b": 9,
+      "songs": 10,
+      "calls": 2,
+      "top_regions": "Hawke's Bay(3), Waikato(3), Bay of Plenty(2)"
+    },
+    {
+      "en": "Dunnock",
+      "sp": "Prunella modularis",
+      "count": 12,
+      "q_a": 3,
+      "q_b": 8,
+      "songs": 8,
+      "calls": 4,
+      "top_regions": "Other / Offshore(5), Otago(4), Auckland(2)"
+    },
+    {
+      "en": "Chatham Oystercatcher",
+      "sp": "Haematopus chathamensis",
+      "count": 11,
+      "q_a": 1,
+      "q_b": 9,
+      "songs": 1,
+      "calls": 10,
+      "top_regions": "Other / Offshore(11)"
+    },
+    {
+      "en": "Kelp Gull",
+      "sp": "Larus dominicanus",
+      "count": 11,
+      "q_a": 4,
+      "q_b": 4,
+      "songs": 0,
+      "calls": 11,
+      "top_regions": "Auckland(6), Otago(4), Canterbury(1)"
+    }
+  ],
+  "analysis": {
+    "tui": {
+      "common_name": "T\u016b\u012b",
+      "scientific": "Prosthemadera novaeseelandiae",
+      "order": "Passeriformes",
+      "suborder": "Oscines (songbird)",
+      "unit": "syllable",
+      "boundary_ms": 20,
+      "classifier": "Hill & Ji (2014)",
+      "classifier_doi": "10.63172/301002sqblid",
+      "n_recordings": 116,
+      "total": 17716,
+      "mean_per_rec": 152.7,
+      "distribution": {
+        "rmnr": 11494,
+        "harmonic": 2452,
+        "trill": 3036,
+        "high_frequency": 630,
+        "low_frequency": 104
+      },
+      "categories": {
+        "harmonic": {
+          "desc": "Integer multiples of fundamental frequency",
+          "color": "#2c6c8c"
+        },
+        "rmnr": {
+          "desc": "Rapid Multiple Note Repetition",
+          "color": "#b07d22"
+        },
+        "harsh": {
+          "desc": "Throaty syllables, noisy spectrum",
+          "color": "#8c4a2c"
+        },
+        "trill": {
+          "desc": "Rapid frequency modulation",
+          "color": "#7c5784"
+        },
+        "high_frequency": {
+          "desc": "f\u2080 \u2265 5 kHz",
+          "color": "#bb4a33"
+        },
+        "low_frequency": {
+          "desc": "Dominant energy below 2 kHz",
+          "color": "#5f7a3a"
+        }
+      },
+      "per_recording": [
+        {
+          "id": "XC1088034",
+          "duration_s": 104.0,
+          "n_segments": 168,
+          "n_syllables": 167,
+          "types": {
+            "rmnr": 121,
+            "harmonic": 27,
+            "trill": 11,
+            "high_frequency": 6,
+            "low_frequency": 2
+          }
+        },
+        {
+          "id": "XC1088035",
+          "duration_s": 51.0,
+          "n_segments": 85,
+          "n_syllables": 87,
+          "types": {
+            "rmnr": 58,
+            "harmonic": 19,
+            "trill": 8,
+            "low_frequency": 1,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC1088036",
+          "duration_s": 80.3,
+          "n_segments": 172,
+          "n_syllables": 171,
+          "types": {
+            "rmnr": 104,
+            "harmonic": 31,
+            "trill": 28,
+            "high_frequency": 8
+          }
+        },
+        {
+          "id": "XC1089008",
+          "duration_s": 97.9,
+          "n_segments": 117,
+          "n_syllables": 112,
+          "types": {
+            "rmnr": 70,
+            "trill": 26,
+            "high_frequency": 10,
+            "harmonic": 6
+          }
+        },
+        {
+          "id": "XC1090728",
+          "duration_s": 138.4,
+          "n_segments": 271,
+          "n_syllables": 287,
+          "types": {
+            "rmnr": 214,
+            "trill": 46,
+            "harmonic": 18,
+            "high_frequency": 9
+          }
+        },
+        {
+          "id": "XC1093635",
+          "duration_s": 158.4,
+          "n_segments": 196,
+          "n_syllables": 204,
+          "types": {
+            "harmonic": 24,
+            "trill": 30,
+            "rmnr": 148,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC1093636",
+          "duration_s": 40.0,
+          "n_segments": 62,
+          "n_syllables": 59,
+          "types": {
+            "rmnr": 36,
+            "high_frequency": 3,
+            "trill": 10,
+            "harmonic": 9,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC1093637",
+          "duration_s": 233.6,
+          "n_segments": 332,
+          "n_syllables": 314,
+          "types": {
+            "harmonic": 77,
+            "rmnr": 127,
+            "high_frequency": 28,
+            "trill": 81,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC1104055",
+          "duration_s": 326.2,
+          "n_segments": 483,
+          "n_syllables": 492,
+          "types": {
+            "rmnr": 264,
+            "trill": 137,
+            "harmonic": 45,
+            "high_frequency": 46
+          }
+        },
+        {
+          "id": "XC1105557",
+          "duration_s": 120.0,
+          "n_segments": 203,
+          "n_syllables": 204,
+          "types": {
+            "harmonic": 27,
+            "trill": 51,
+            "rmnr": 113,
+            "high_frequency": 13
+          }
+        },
+        {
+          "id": "XC198851",
+          "duration_s": 60.2,
+          "n_segments": 41,
+          "n_syllables": 44,
+          "types": {
+            "rmnr": 36,
+            "harmonic": 5,
+            "trill": 3
+          }
+        },
+        {
+          "id": "XC198859",
+          "duration_s": 84.7,
+          "n_segments": 51,
+          "n_syllables": 52,
+          "types": {
+            "rmnr": 44,
+            "harmonic": 7,
+            "trill": 1
+          }
+        },
+        {
+          "id": "XC206472",
+          "duration_s": 46.3,
+          "n_segments": 75,
+          "n_syllables": 75,
+          "types": {
+            "rmnr": 38,
+            "harmonic": 9,
+            "trill": 27,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC207006",
+          "duration_s": 17.6,
+          "n_segments": 40,
+          "n_syllables": 44,
+          "types": {
+            "high_frequency": 3,
+            "harmonic": 5,
+            "trill": 14,
+            "rmnr": 22
+          }
+        },
+        {
+          "id": "XC214591",
+          "duration_s": 26.0,
+          "n_segments": 16,
+          "n_syllables": 17,
+          "types": {
+            "harmonic": 4,
+            "rmnr": 10,
+            "trill": 3
+          }
+        },
+        {
+          "id": "XC293355",
+          "duration_s": 106.9,
+          "n_segments": 202,
+          "n_syllables": 201,
+          "types": {
+            "trill": 51,
+            "rmnr": 121,
+            "harmonic": 12,
+            "high_frequency": 17
+          }
+        },
+        {
+          "id": "XC321682",
+          "duration_s": 24.5,
+          "n_segments": 35,
+          "n_syllables": 38,
+          "types": {
+            "rmnr": 28,
+            "trill": 8,
+            "harmonic": 1,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC33763",
+          "duration_s": 50.6,
+          "n_segments": 51,
+          "n_syllables": 62,
+          "types": {
+            "rmnr": 52,
+            "high_frequency": 1,
+            "trill": 4,
+            "harmonic": 5
+          }
+        },
+        {
+          "id": "XC347358",
+          "duration_s": 165.5,
+          "n_segments": 80,
+          "n_syllables": 80,
+          "types": {
+            "rmnr": 68,
+            "harmonic": 7,
+            "high_frequency": 1,
+            "trill": 4
+          }
+        },
+        {
+          "id": "XC348752",
+          "duration_s": 153.4,
+          "n_segments": 69,
+          "n_syllables": 80,
+          "types": {
+            "rmnr": 60,
+            "harmonic": 5,
+            "trill": 13,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC348767",
+          "duration_s": 90.8,
+          "n_segments": 140,
+          "n_syllables": 137,
+          "types": {
+            "rmnr": 81,
+            "trill": 37,
+            "high_frequency": 4,
+            "harmonic": 15
+          }
+        },
+        {
+          "id": "XC349523",
+          "duration_s": 125.7,
+          "n_segments": 65,
+          "n_syllables": 63,
+          "types": {
+            "rmnr": 49,
+            "harmonic": 9,
+            "high_frequency": 2,
+            "trill": 3
+          }
+        },
+        {
+          "id": "XC378275",
+          "duration_s": 154.5,
+          "n_segments": 149,
+          "n_syllables": 160,
+          "types": {
+            "rmnr": 119,
+            "trill": 20,
+            "harmonic": 19,
+            "low_frequency": 1,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC378278",
+          "duration_s": 117.1,
+          "n_segments": 90,
+          "n_syllables": 83,
+          "types": {
+            "trill": 16,
+            "rmnr": 48,
+            "high_frequency": 10,
+            "harmonic": 8,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC378279",
+          "duration_s": 117.1,
+          "n_segments": 90,
+          "n_syllables": 83,
+          "types": {
+            "trill": 16,
+            "rmnr": 48,
+            "high_frequency": 10,
+            "harmonic": 8,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC378281",
+          "duration_s": 158.0,
+          "n_segments": 193,
+          "n_syllables": 182,
+          "types": {
+            "rmnr": 133,
+            "trill": 13,
+            "high_frequency": 12,
+            "harmonic": 24
+          }
+        },
+        {
+          "id": "XC40495",
+          "duration_s": 9.8,
+          "n_segments": 13,
+          "n_syllables": 16,
+          "types": {
+            "rmnr": 12,
+            "harmonic": 3,
+            "trill": 1
+          }
+        },
+        {
+          "id": "XC465230",
+          "duration_s": 50.3,
+          "n_segments": 75,
+          "n_syllables": 70,
+          "types": {
+            "rmnr": 43,
+            "trill": 16,
+            "high_frequency": 5,
+            "harmonic": 6
+          }
+        },
+        {
+          "id": "XC481387",
+          "duration_s": 4.6,
+          "n_segments": 6,
+          "n_syllables": 6,
+          "types": {
+            "rmnr": 5,
+            "harmonic": 1
+          }
+        },
+        {
+          "id": "XC500846",
+          "duration_s": 161.0,
+          "n_segments": 204,
+          "n_syllables": 168,
+          "types": {
+            "harmonic": 17,
+            "rmnr": 115,
+            "trill": 26,
+            "high_frequency": 10
+          }
+        },
+        {
+          "id": "XC500848",
+          "duration_s": 28.1,
+          "n_segments": 13,
+          "n_syllables": 13,
+          "types": {
+            "rmnr": 13
+          }
+        },
+        {
+          "id": "XC500852",
+          "duration_s": 94.3,
+          "n_segments": 135,
+          "n_syllables": 142,
+          "types": {
+            "rmnr": 107,
+            "harmonic": 16,
+            "trill": 15,
+            "high_frequency": 4
+          }
+        },
+        {
+          "id": "XC500853",
+          "duration_s": 136.4,
+          "n_segments": 168,
+          "n_syllables": 194,
+          "types": {
+            "rmnr": 146,
+            "harmonic": 16,
+            "trill": 31,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC500854",
+          "duration_s": 79.9,
+          "n_segments": 132,
+          "n_syllables": 127,
+          "types": {
+            "rmnr": 97,
+            "trill": 13,
+            "harmonic": 13,
+            "high_frequency": 4
+          }
+        },
+        {
+          "id": "XC500855",
+          "duration_s": 85.6,
+          "n_segments": 107,
+          "n_syllables": 109,
+          "types": {
+            "rmnr": 85,
+            "harmonic": 13,
+            "trill": 9,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC562526",
+          "duration_s": 226.3,
+          "n_segments": 302,
+          "n_syllables": 326,
+          "types": {
+            "trill": 72,
+            "rmnr": 193,
+            "harmonic": 53,
+            "high_frequency": 7,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC684497",
+          "duration_s": 185.0,
+          "n_segments": 119,
+          "n_syllables": 124,
+          "types": {
+            "rmnr": 86,
+            "trill": 14,
+            "high_frequency": 12,
+            "harmonic": 12
+          }
+        },
+        {
+          "id": "XC70960",
+          "duration_s": 25.6,
+          "n_segments": 66,
+          "n_syllables": 65,
+          "types": {
+            "harmonic": 5,
+            "rmnr": 32,
+            "high_frequency": 6,
+            "trill": 22
+          }
+        },
+        {
+          "id": "XC842514",
+          "duration_s": 60.3,
+          "n_segments": 58,
+          "n_syllables": 65,
+          "types": {
+            "rmnr": 57,
+            "harmonic": 4,
+            "trill": 4
+          }
+        },
+        {
+          "id": "XC842647",
+          "duration_s": 96.5,
+          "n_segments": 130,
+          "n_syllables": 122,
+          "types": {
+            "rmnr": 73,
+            "trill": 31,
+            "harmonic": 17,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC842651",
+          "duration_s": 50.3,
+          "n_segments": 62,
+          "n_syllables": 62,
+          "types": {
+            "rmnr": 44,
+            "trill": 8,
+            "harmonic": 9,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC842652",
+          "duration_s": 36.0,
+          "n_segments": 44,
+          "n_syllables": 42,
+          "types": {
+            "rmnr": 30,
+            "harmonic": 8,
+            "high_frequency": 1,
+            "trill": 3
+          }
+        },
+        {
+          "id": "XC842656",
+          "duration_s": 8.8,
+          "n_segments": 15,
+          "n_syllables": 19,
+          "types": {
+            "harmonic": 2,
+            "rmnr": 16,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC842660",
+          "duration_s": 38.8,
+          "n_segments": 38,
+          "n_syllables": 47,
+          "types": {
+            "rmnr": 40,
+            "harmonic": 2,
+            "trill": 3,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC842663",
+          "duration_s": 15.4,
+          "n_segments": 5,
+          "n_syllables": 8,
+          "types": {
+            "rmnr": 7,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC842718",
+          "duration_s": 75.8,
+          "n_segments": 122,
+          "n_syllables": 120,
+          "types": {
+            "rmnr": 67,
+            "harmonic": 17,
+            "trill": 34,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC842746",
+          "duration_s": 35.1,
+          "n_segments": 59,
+          "n_syllables": 61,
+          "types": {
+            "rmnr": 40,
+            "trill": 13,
+            "high_frequency": 3,
+            "harmonic": 5
+          }
+        },
+        {
+          "id": "XC842766",
+          "duration_s": 90.1,
+          "n_segments": 155,
+          "n_syllables": 150,
+          "types": {
+            "rmnr": 88,
+            "trill": 34,
+            "high_frequency": 4,
+            "harmonic": 24
+          }
+        },
+        {
+          "id": "XC842782",
+          "duration_s": 211.0,
+          "n_segments": 287,
+          "n_syllables": 271,
+          "types": {
+            "trill": 22,
+            "rmnr": 173,
+            "harmonic": 51,
+            "low_frequency": 22,
+            "high_frequency": 3
+          }
+        },
+        {
+          "id": "XC842783",
+          "duration_s": 129.4,
+          "n_segments": 248,
+          "n_syllables": 258,
+          "types": {
+            "rmnr": 149,
+            "trill": 35,
+            "low_frequency": 43,
+            "harmonic": 26,
+            "high_frequency": 5
+          }
+        },
+        {
+          "id": "XC843914",
+          "duration_s": 45.6,
+          "n_segments": 67,
+          "n_syllables": 65,
+          "types": {
+            "rmnr": 55,
+            "trill": 5,
+            "harmonic": 5
+          }
+        },
+        {
+          "id": "XC856418",
+          "duration_s": 282.3,
+          "n_segments": 511,
+          "n_syllables": 522,
+          "types": {
+            "rmnr": 352,
+            "harmonic": 82,
+            "trill": 80,
+            "high_frequency": 8
+          }
+        },
+        {
+          "id": "XC857787",
+          "duration_s": 231.1,
+          "n_segments": 309,
+          "n_syllables": 299,
+          "types": {
+            "rmnr": 211,
+            "trill": 14,
+            "harmonic": 70,
+            "high_frequency": 1,
+            "low_frequency": 3
+          }
+        },
+        {
+          "id": "XC857958",
+          "duration_s": 184.0,
+          "n_segments": 326,
+          "n_syllables": 320,
+          "types": {
+            "harmonic": 52,
+            "rmnr": 242,
+            "trill": 23,
+            "high_frequency": 3
+          }
+        },
+        {
+          "id": "XC892546",
+          "duration_s": 56.0,
+          "n_segments": 109,
+          "n_syllables": 98,
+          "types": {
+            "harmonic": 8,
+            "trill": 21,
+            "rmnr": 57,
+            "high_frequency": 12
+          }
+        },
+        {
+          "id": "XC915121",
+          "duration_s": 59.8,
+          "n_segments": 65,
+          "n_syllables": 63,
+          "types": {
+            "rmnr": 36,
+            "trill": 13,
+            "high_frequency": 5,
+            "harmonic": 6,
+            "low_frequency": 3
+          }
+        },
+        {
+          "id": "XC925479",
+          "duration_s": 212.3,
+          "n_segments": 285,
+          "n_syllables": 299,
+          "types": {
+            "rmnr": 180,
+            "trill": 85,
+            "harmonic": 30,
+            "high_frequency": 4
+          }
+        },
+        {
+          "id": "XC925480",
+          "duration_s": 102.5,
+          "n_segments": 135,
+          "n_syllables": 141,
+          "types": {
+            "rmnr": 94,
+            "harmonic": 13,
+            "trill": 32,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC925493",
+          "duration_s": 564.2,
+          "n_segments": 790,
+          "n_syllables": 734,
+          "types": {
+            "trill": 146,
+            "rmnr": 471,
+            "harmonic": 87,
+            "high_frequency": 30
+          }
+        },
+        {
+          "id": "XC925495",
+          "duration_s": 142.5,
+          "n_segments": 198,
+          "n_syllables": 198,
+          "types": {
+            "rmnr": 114,
+            "harmonic": 28,
+            "trill": 47,
+            "high_frequency": 9
+          }
+        },
+        {
+          "id": "XC926286",
+          "duration_s": 43.0,
+          "n_segments": 19,
+          "n_syllables": 25,
+          "types": {
+            "rmnr": 19,
+            "harmonic": 4,
+            "trill": 2
+          }
+        },
+        {
+          "id": "XC926288",
+          "duration_s": 135.9,
+          "n_segments": 82,
+          "n_syllables": 111,
+          "types": {
+            "rmnr": 80,
+            "harmonic": 21,
+            "high_frequency": 4,
+            "trill": 6
+          }
+        },
+        {
+          "id": "XC926289",
+          "duration_s": 83.4,
+          "n_segments": 146,
+          "n_syllables": 134,
+          "types": {
+            "rmnr": 75,
+            "harmonic": 30,
+            "high_frequency": 8,
+            "trill": 21
+          }
+        },
+        {
+          "id": "XC926290",
+          "duration_s": 517.0,
+          "n_segments": 689,
+          "n_syllables": 753,
+          "types": {
+            "harmonic": 86,
+            "rmnr": 451,
+            "high_frequency": 25,
+            "trill": 191
+          }
+        },
+        {
+          "id": "XC927430",
+          "duration_s": 13.0,
+          "n_segments": 30,
+          "n_syllables": 37,
+          "types": {
+            "rmnr": 30,
+            "harmonic": 4,
+            "trill": 3
+          }
+        },
+        {
+          "id": "XC927433",
+          "duration_s": 15.0,
+          "n_segments": 27,
+          "n_syllables": 31,
+          "types": {
+            "rmnr": 23,
+            "harmonic": 2,
+            "trill": 6
+          }
+        },
+        {
+          "id": "XC927436",
+          "duration_s": 75.9,
+          "n_segments": 112,
+          "n_syllables": 118,
+          "types": {
+            "rmnr": 75,
+            "harmonic": 26,
+            "trill": 15,
+            "low_frequency": 1,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC927457",
+          "duration_s": 237.8,
+          "n_segments": 271,
+          "n_syllables": 296,
+          "types": {
+            "rmnr": 222,
+            "trill": 36,
+            "harmonic": 31,
+            "high_frequency": 7
+          }
+        },
+        {
+          "id": "XC927459",
+          "duration_s": 111.0,
+          "n_segments": 151,
+          "n_syllables": 157,
+          "types": {
+            "rmnr": 111,
+            "trill": 22,
+            "harmonic": 23,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC927460",
+          "duration_s": 207.0,
+          "n_segments": 73,
+          "n_syllables": 78,
+          "types": {
+            "rmnr": 59,
+            "harmonic": 12,
+            "high_frequency": 6,
+            "trill": 1
+          }
+        },
+        {
+          "id": "XC927463",
+          "duration_s": 167.8,
+          "n_segments": 152,
+          "n_syllables": 144,
+          "types": {
+            "rmnr": 104,
+            "harmonic": 26,
+            "low_frequency": 2,
+            "trill": 12
+          }
+        },
+        {
+          "id": "XC956095",
+          "duration_s": 14.9,
+          "n_segments": 20,
+          "n_syllables": 22,
+          "types": {
+            "rmnr": 16,
+            "trill": 4,
+            "harmonic": 2
+          }
+        },
+        {
+          "id": "XC956097",
+          "duration_s": 21.9,
+          "n_segments": 24,
+          "n_syllables": 26,
+          "types": {
+            "harmonic": 5,
+            "rmnr": 19,
+            "trill": 2
+          }
+        },
+        {
+          "id": "XC956098",
+          "duration_s": 51.4,
+          "n_segments": 73,
+          "n_syllables": 74,
+          "types": {
+            "trill": 4,
+            "rmnr": 57,
+            "harmonic": 12,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC956101",
+          "duration_s": 11.0,
+          "n_segments": 15,
+          "n_syllables": 16,
+          "types": {
+            "rmnr": 12,
+            "trill": 3,
+            "harmonic": 1
+          }
+        },
+        {
+          "id": "XC956103",
+          "duration_s": 78.6,
+          "n_segments": 79,
+          "n_syllables": 86,
+          "types": {
+            "rmnr": 45,
+            "harmonic": 24,
+            "high_frequency": 5,
+            "trill": 12
+          }
+        },
+        {
+          "id": "XC956104",
+          "duration_s": 316.0,
+          "n_segments": 253,
+          "n_syllables": 242,
+          "types": {
+            "trill": 39,
+            "rmnr": 130,
+            "high_frequency": 26,
+            "harmonic": 47
+          }
+        },
+        {
+          "id": "XC956332",
+          "duration_s": 60.2,
+          "n_segments": 35,
+          "n_syllables": 36,
+          "types": {
+            "harmonic": 8,
+            "rmnr": 24,
+            "trill": 3,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC956611",
+          "duration_s": 131.5,
+          "n_segments": 154,
+          "n_syllables": 153,
+          "types": {
+            "rmnr": 91,
+            "trill": 43,
+            "high_frequency": 6,
+            "harmonic": 13
+          }
+        },
+        {
+          "id": "XC956615",
+          "duration_s": 121.0,
+          "n_segments": 148,
+          "n_syllables": 159,
+          "types": {
+            "trill": 45,
+            "rmnr": 99,
+            "high_frequency": 8,
+            "harmonic": 7
+          }
+        },
+        {
+          "id": "XC956959",
+          "duration_s": 116.7,
+          "n_segments": 187,
+          "n_syllables": 212,
+          "types": {
+            "rmnr": 151,
+            "high_frequency": 5,
+            "trill": 26,
+            "harmonic": 30
+          }
+        },
+        {
+          "id": "XC956965",
+          "duration_s": 111.7,
+          "n_segments": 167,
+          "n_syllables": 177,
+          "types": {
+            "trill": 48,
+            "rmnr": 91,
+            "harmonic": 30,
+            "high_frequency": 8
+          }
+        },
+        {
+          "id": "XC957403",
+          "duration_s": 54.8,
+          "n_segments": 135,
+          "n_syllables": 143,
+          "types": {
+            "rmnr": 84,
+            "trill": 44,
+            "harmonic": 14,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC957405",
+          "duration_s": 86.2,
+          "n_segments": 142,
+          "n_syllables": 157,
+          "types": {
+            "harmonic": 17,
+            "rmnr": 95,
+            "trill": 44,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC958028",
+          "duration_s": 86.2,
+          "n_segments": 142,
+          "n_syllables": 157,
+          "types": {
+            "harmonic": 17,
+            "rmnr": 95,
+            "trill": 44,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC958039",
+          "duration_s": 96.6,
+          "n_segments": 61,
+          "n_syllables": 76,
+          "types": {
+            "trill": 1,
+            "rmnr": 63,
+            "harmonic": 11,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC958846",
+          "duration_s": 95.2,
+          "n_segments": 120,
+          "n_syllables": 134,
+          "types": {
+            "rmnr": 104,
+            "harmonic": 17,
+            "trill": 11,
+            "low_frequency": 2
+          }
+        },
+        {
+          "id": "XC958849",
+          "duration_s": 120.3,
+          "n_segments": 170,
+          "n_syllables": 194,
+          "types": {
+            "rmnr": 158,
+            "trill": 11,
+            "harmonic": 23,
+            "low_frequency": 1,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC958850",
+          "duration_s": 156.8,
+          "n_segments": 144,
+          "n_syllables": 162,
+          "types": {
+            "harmonic": 17,
+            "rmnr": 119,
+            "trill": 17,
+            "high_frequency": 8,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC958857",
+          "duration_s": 89.9,
+          "n_segments": 162,
+          "n_syllables": 172,
+          "types": {
+            "harmonic": 27,
+            "rmnr": 133,
+            "trill": 10,
+            "low_frequency": 2
+          }
+        },
+        {
+          "id": "XC958859",
+          "duration_s": 55.7,
+          "n_segments": 60,
+          "n_syllables": 69,
+          "types": {
+            "rmnr": 57,
+            "trill": 6,
+            "harmonic": 5,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC958860",
+          "duration_s": 89.4,
+          "n_segments": 212,
+          "n_syllables": 226,
+          "types": {
+            "rmnr": 156,
+            "trill": 43,
+            "harmonic": 23,
+            "high_frequency": 4
+          }
+        },
+        {
+          "id": "XC958861",
+          "duration_s": 79.6,
+          "n_segments": 182,
+          "n_syllables": 199,
+          "types": {
+            "rmnr": 141,
+            "trill": 38,
+            "high_frequency": 4,
+            "harmonic": 16
+          }
+        },
+        {
+          "id": "XC959027",
+          "duration_s": 138.4,
+          "n_segments": 188,
+          "n_syllables": 193,
+          "types": {
+            "rmnr": 128,
+            "harmonic": 34,
+            "trill": 29,
+            "high_frequency": 2
+          }
+        },
+        {
+          "id": "XC959355",
+          "duration_s": 253.2,
+          "n_segments": 297,
+          "n_syllables": 272,
+          "types": {
+            "rmnr": 183,
+            "trill": 8,
+            "harmonic": 80,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC959356",
+          "duration_s": 135.8,
+          "n_segments": 155,
+          "n_syllables": 157,
+          "types": {
+            "rmnr": 128,
+            "low_frequency": 2,
+            "harmonic": 14,
+            "trill": 13
+          }
+        },
+        {
+          "id": "XC961546",
+          "duration_s": 74.2,
+          "n_segments": 82,
+          "n_syllables": 83,
+          "types": {
+            "rmnr": 47,
+            "trill": 25,
+            "harmonic": 4,
+            "high_frequency": 5,
+            "low_frequency": 2
+          }
+        },
+        {
+          "id": "XC975412",
+          "duration_s": 60.1,
+          "n_segments": 37,
+          "n_syllables": 36,
+          "types": {
+            "harmonic": 8,
+            "rmnr": 22,
+            "trill": 5,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC975414",
+          "duration_s": 100.0,
+          "n_segments": 197,
+          "n_syllables": 210,
+          "types": {
+            "harmonic": 45,
+            "rmnr": 126,
+            "trill": 38,
+            "high_frequency": 1
+          }
+        },
+        {
+          "id": "XC975421",
+          "duration_s": 185.2,
+          "n_segments": 149,
+          "n_syllables": 154,
+          "types": {
+            "rmnr": 94,
+            "harmonic": 21,
+            "high_frequency": 10,
+            "trill": 29
+          }
+        },
+        {
+          "id": "XC975424",
+          "duration_s": 17.4,
+          "n_segments": 26,
+          "n_syllables": 29,
+          "types": {
+            "harmonic": 2,
+            "rmnr": 22,
+            "trill": 5
+          }
+        },
+        {
+          "id": "XC975431",
+          "duration_s": 171.0,
+          "n_segments": 302,
+          "n_syllables": 292,
+          "types": {
+            "harmonic": 42,
+            "rmnr": 178,
+            "high_frequency": 10,
+            "trill": 62
+          }
+        },
+        {
+          "id": "XC975435",
+          "duration_s": 112.7,
+          "n_segments": 180,
+          "n_syllables": 189,
+          "types": {
+            "harmonic": 39,
+            "trill": 35,
+            "rmnr": 107,
+            "high_frequency": 8
+          }
+        },
+        {
+          "id": "XC975439",
+          "duration_s": 218.9,
+          "n_segments": 302,
+          "n_syllables": 316,
+          "types": {
+            "rmnr": 198,
+            "high_frequency": 12,
+            "harmonic": 46,
+            "trill": 60
+          }
+        },
+        {
+          "id": "XC975449",
+          "duration_s": 271.9,
+          "n_segments": 399,
+          "n_syllables": 409,
+          "types": {
+            "high_frequency": 46,
+            "rmnr": 257,
+            "harmonic": 37,
+            "trill": 69
+          }
+        },
+        {
+          "id": "XC975454",
+          "duration_s": 146.9,
+          "n_segments": 255,
+          "n_syllables": 260,
+          "types": {
+            "rmnr": 137,
+            "harmonic": 41,
+            "trill": 69,
+            "high_frequency": 13
+          }
+        },
+        {
+          "id": "XC975461",
+          "duration_s": 109.1,
+          "n_segments": 164,
+          "n_syllables": 171,
+          "types": {
+            "harmonic": 20,
+            "rmnr": 99,
+            "trill": 41,
+            "high_frequency": 11
+          }
+        },
+        {
+          "id": "XC975467",
+          "duration_s": 96.4,
+          "n_segments": 59,
+          "n_syllables": 68,
+          "types": {
+            "rmnr": 44,
+            "high_frequency": 3,
+            "trill": 7,
+            "harmonic": 14
+          }
+        },
+        {
+          "id": "XC975474",
+          "duration_s": 31.7,
+          "n_segments": 48,
+          "n_syllables": 59,
+          "types": {
+            "rmnr": 42,
+            "trill": 10,
+            "harmonic": 7
+          }
+        },
+        {
+          "id": "XC975481",
+          "duration_s": 99.9,
+          "n_segments": 139,
+          "n_syllables": 148,
+          "types": {
+            "harmonic": 38,
+            "rmnr": 97,
+            "trill": 13
+          }
+        },
+        {
+          "id": "XC979569",
+          "duration_s": 79.9,
+          "n_segments": 14,
+          "n_syllables": 17,
+          "types": {
+            "rmnr": 11,
+            "harmonic": 5,
+            "low_frequency": 1
+          }
+        },
+        {
+          "id": "XC979570",
+          "duration_s": 82.0,
+          "n_segments": 155,
+          "n_syllables": 150,
+          "types": {
+            "trill": 33,
+            "rmnr": 90,
+            "high_frequency": 7,
+            "harmonic": 20
+          }
+        },
+        {
+          "id": "XC979573",
+          "duration_s": 385.8,
+          "n_segments": 385,
+          "n_syllables": 358,
+          "types": {
+            "rmnr": 218,
+            "harmonic": 68,
+            "high_frequency": 18,
+            "trill": 54
+          }
+        },
+        {
+          "id": "XC979576",
+          "duration_s": 260.9,
+          "n_segments": 251,
+          "n_syllables": 247,
+          "types": {
+            "rmnr": 145,
+            "harmonic": 48,
+            "trill": 41,
+            "high_frequency": 11,
+            "low_frequency": 2
+          }
+        },
+        {
+          "id": "XC979580",
+          "duration_s": 205.8,
+          "n_segments": 274,
+          "n_syllables": 265,
+          "types": {
+            "harmonic": 53,
+            "rmnr": 166,
+            "trill": 41,
+            "high_frequency": 5
+          }
+        },
+        {
+          "id": "XC979583",
+          "duration_s": 24.8,
+          "n_segments": 27,
+          "n_syllables": 35,
+          "types": {
+            "harmonic": 8,
+            "rmnr": 24,
+            "trill": 3
+          }
+        }
+      ],
+      "samples": [
+        "harmonic",
+        "rmnr",
+        "trill",
+        "high_frequency",
+        "low_frequency"
+      ]
+    },
+    "bellbird": {
+      "common_name": "Bellbird",
+      "scientific": "Anthornis melanura",
+      "order": "Passeriformes",
+      "suborder": "Oscines (songbird)",
+      "unit": "syllable",
+      "boundary_ms": 15,
+      "classifier": "Webb et al. (2021) / Roper et al. (2018)",
+      "classifier_doi": "10.3389/fevo.2021.755633",
+      "n_recordings": 46,
+      "total": 6388,
+      "mean_per_rec": 138.9,
+      "distribution": {
+        "click": 1237,
+        "stutter": 4013,
+        "pipe": 5,
+        "complex": 233,
+        "trill": 748,
+        "warble": 152
+      },
+      "categories": {
+        "pipe": {
+          "desc": "Pure tone whistles, narrow bandwidth",
+          "color": "#2c6c8c"
+        },
+        "stutter": {
+          "desc": "Rapid repeated short elements",
+          "color": "#b07d22"
+        },
+        "warble": {
+          "desc": "Frequency-modulated, tonal but complex",
+          "color": "#7c5784"
+        },
+        "harsh_buzz": {
+          "desc": "Broadband noisy syllables",
+          "color": "#8c4a2c"
+        },
+        "trill": {
+          "desc": "Rapid oscillatory frequency modulation",
+          "color": "#bb4a33"
+        },
+        "click": {
+          "desc": "Very short impulse sounds (<40ms)",
+          "color": "#5f7a3a"
+        },
+        "complex": {
+          "desc": "Multi-element, uncategorized",
+          "color": "#a99e89"
+        }
+      },
+      "per_recording": [
+        {
+          "recording_id": "XC1059091",
+          "species": "bellbird",
+          "duration_s": 23.6,
+          "n_segments": 15,
+          "n_syllables": 18,
+          "types": {
+            "click": 4,
+            "stutter": 14
+          }
+        },
+        {
+          "recording_id": "XC1059099",
+          "species": "bellbird",
+          "duration_s": 10.1,
+          "n_segments": 16,
+          "n_syllables": 17,
+          "types": {
+            "stutter": 10,
+            "pipe": 1,
+            "click": 3,
+            "complex": 3
+          }
+        },
+        {
+          "recording_id": "XC1089006",
+          "species": "bellbird",
+          "duration_s": 136.3,
+          "n_segments": 142,
+          "n_syllables": 159,
+          "types": {
+            "trill": 53,
+            "stutter": 83,
+            "complex": 2,
+            "click": 19,
+            "warble": 1,
+            "pipe": 1
+          }
+        },
+        {
+          "recording_id": "XC1089007",
+          "species": "bellbird",
+          "duration_s": 92.5,
+          "n_segments": 119,
+          "n_syllables": 128,
+          "types": {
+            "trill": 47,
+            "complex": 10,
+            "stutter": 56,
+            "click": 14,
+            "warble": 1
+          }
+        },
+        {
+          "recording_id": "XC1089266",
+          "species": "bellbird",
+          "duration_s": 134.5,
+          "n_segments": 138,
+          "n_syllables": 156,
+          "types": {
+            "trill": 50,
+            "warble": 6,
+            "stutter": 77,
+            "click": 23
+          }
+        },
+        {
+          "recording_id": "XC1089268",
+          "species": "bellbird",
+          "duration_s": 22.9,
+          "n_segments": 29,
+          "n_syllables": 36,
+          "types": {
+            "stutter": 19,
+            "trill": 9,
+            "warble": 1,
+            "click": 6,
+            "complex": 1
+          }
+        },
+        {
+          "recording_id": "XC1089270",
+          "species": "bellbird",
+          "duration_s": 191.5,
+          "n_segments": 218,
+          "n_syllables": 250,
+          "types": {
+            "stutter": 133,
+            "trill": 79,
+            "click": 31,
+            "complex": 3,
+            "warble": 4
+          }
+        },
+        {
+          "recording_id": "XC1092059",
+          "species": "bellbird",
+          "duration_s": 73.9,
+          "n_segments": 43,
+          "n_syllables": 45,
+          "types": {
+            "stutter": 28,
+            "click": 5,
+            "trill": 9,
+            "warble": 2,
+            "complex": 1
+          }
+        },
+        {
+          "recording_id": "XC1093633",
+          "species": "bellbird",
+          "duration_s": 9.4,
+          "n_segments": 13,
+          "n_syllables": 12,
+          "types": {
+            "stutter": 6,
+            "trill": 2,
+            "click": 4
+          }
+        },
+        {
+          "recording_id": "XC112821",
+          "species": "bellbird",
+          "duration_s": 75.0,
+          "n_segments": 171,
+          "n_syllables": 182,
+          "types": {
+            "trill": 16,
+            "stutter": 115,
+            "click": 32,
+            "warble": 11,
+            "complex": 8
+          }
+        },
+        {
+          "recording_id": "XC152939",
+          "species": "bellbird",
+          "duration_s": 34.8,
+          "n_segments": 64,
+          "n_syllables": 73,
+          "types": {
+            "trill": 9,
+            "click": 12,
+            "stutter": 40,
+            "warble": 8,
+            "complex": 4
+          }
+        },
+        {
+          "recording_id": "XC213409",
+          "species": "bellbird",
+          "duration_s": 298.3,
+          "n_segments": 712,
+          "n_syllables": 764,
+          "types": {
+            "click": 151,
+            "stutter": 551,
+            "warble": 22,
+            "complex": 31,
+            "trill": 9
+          }
+        },
+        {
+          "recording_id": "XC293305",
+          "species": "bellbird",
+          "duration_s": 67.1,
+          "n_segments": 10,
+          "n_syllables": 12,
+          "types": {
+            "complex": 2,
+            "stutter": 9,
+            "click": 1
+          }
+        },
+        {
+          "recording_id": "XC293344",
+          "species": "bellbird",
+          "duration_s": 93.2,
+          "n_segments": 134,
+          "n_syllables": 151,
+          "types": {
+            "stutter": 110,
+            "warble": 4,
+            "click": 20,
+            "complex": 4,
+            "trill": 13
+          }
+        },
+        {
+          "recording_id": "XC33750",
+          "species": "bellbird",
+          "duration_s": 118.9,
+          "n_segments": 175,
+          "n_syllables": 202,
+          "types": {
+            "warble": 9,
+            "stutter": 139,
+            "trill": 18,
+            "complex": 16,
+            "click": 20
+          }
+        },
+        {
+          "recording_id": "XC344384",
+          "species": "bellbird",
+          "duration_s": 63.3,
+          "n_segments": 25,
+          "n_syllables": 25,
+          "types": {
+            "complex": 1,
+            "stutter": 18,
+            "click": 6
+          }
+        },
+        {
+          "recording_id": "XC345382",
+          "species": "bellbird",
+          "duration_s": 11.2,
+          "n_segments": 2,
+          "n_syllables": 3,
+          "types": {
+            "stutter": 3
+          }
+        },
+        {
+          "recording_id": "XC348753",
+          "species": "bellbird",
+          "duration_s": 65.7,
+          "n_segments": 31,
+          "n_syllables": 44,
+          "types": {
+            "stutter": 28,
+            "warble": 6,
+            "click": 6,
+            "trill": 2,
+            "complex": 2
+          }
+        },
+        {
+          "recording_id": "XC348762",
+          "species": "bellbird",
+          "duration_s": 138.6,
+          "n_segments": 342,
+          "n_syllables": 326,
+          "types": {
+            "click": 110,
+            "trill": 70,
+            "warble": 15,
+            "stutter": 119,
+            "complex": 11,
+            "pipe": 1
+          }
+        },
+        {
+          "recording_id": "XC348789",
+          "species": "bellbird",
+          "duration_s": 81.2,
+          "n_segments": 46,
+          "n_syllables": 85,
+          "types": {
+            "click": 11,
+            "stutter": 67,
+            "trill": 7
+          }
+        },
+        {
+          "recording_id": "XC360586",
+          "species": "bellbird",
+          "duration_s": 43.0,
+          "n_segments": 19,
+          "n_syllables": 18,
+          "types": {
+            "stutter": 17,
+            "click": 1
+          }
+        },
+        {
+          "recording_id": "XC40098",
+          "species": "bellbird",
+          "duration_s": 16.7,
+          "n_segments": 6,
+          "n_syllables": 11,
+          "types": {
+            "stutter": 6,
+            "click": 5
+          }
+        },
+        {
+          "recording_id": "XC428804",
+          "species": "bellbird",
+          "duration_s": 23.1,
+          "n_segments": 35,
+          "n_syllables": 44,
+          "types": {
+            "stutter": 24,
+            "click": 17,
+            "trill": 3
+          }
+        },
+        {
+          "recording_id": "XC46600",
+          "species": "bellbird",
+          "duration_s": 88.0,
+          "n_segments": 66,
+          "n_syllables": 68,
+          "types": {
+            "trill": 11,
+            "stutter": 38,
+            "click": 14,
+            "warble": 1,
+            "complex": 4
+          }
+        },
+        {
+          "recording_id": "XC46601",
+          "species": "bellbird",
+          "duration_s": 57.5,
+          "n_segments": 63,
+          "n_syllables": 68,
+          "types": {
+            "stutter": 51,
+            "click": 13,
+            "complex": 1,
+            "warble": 1,
+            "trill": 2
+          }
+        },
+        {
+          "recording_id": "XC474021",
+          "species": "bellbird",
+          "duration_s": 148.6,
+          "n_segments": 133,
+          "n_syllables": 164,
+          "types": {
+            "stutter": 107,
+            "click": 33,
+            "trill": 21,
+            "complex": 1,
+            "warble": 2
+          }
+        },
+        {
+          "recording_id": "XC475984",
+          "species": "bellbird",
+          "duration_s": 101.1,
+          "n_segments": 58,
+          "n_syllables": 80,
+          "types": {
+            "stutter": 63,
+            "warble": 3,
+            "click": 13,
+            "complex": 1
+          }
+        },
+        {
+          "recording_id": "XC506507",
+          "species": "bellbird",
+          "duration_s": 22.2,
+          "n_segments": 39,
+          "n_syllables": 43,
+          "types": {
+            "stutter": 19,
+            "trill": 10,
+            "click": 11,
+            "complex": 3
+          }
+        },
+        {
+          "recording_id": "XC509572",
+          "species": "bellbird",
+          "duration_s": 91.4,
+          "n_segments": 91,
+          "n_syllables": 89,
+          "types": {
+            "stutter": 58,
+            "click": 20,
+            "complex": 3,
+            "warble": 4,
+            "pipe": 1,
+            "trill": 3
+          }
+        },
+        {
+          "recording_id": "XC663169",
+          "species": "bellbird",
+          "duration_s": 186.7,
+          "n_segments": 134,
+          "n_syllables": 139,
+          "types": {
+            "click": 56,
+            "stutter": 68,
+            "trill": 12,
+            "warble": 3
+          }
+        },
+        {
+          "recording_id": "XC842722",
+          "species": "bellbird",
+          "duration_s": 55.5,
+          "n_segments": 102,
+          "n_syllables": 114,
+          "types": {
+            "stutter": 75,
+            "click": 23,
+            "trill": 12,
+            "warble": 1,
+            "complex": 3
+          }
+        },
+        {
+          "recording_id": "XC842925",
+          "species": "bellbird",
+          "duration_s": 95.3,
+          "n_segments": 111,
+          "n_syllables": 121,
+          "types": {
+            "stutter": 76,
+            "click": 12,
+            "complex": 7,
+            "trill": 17,
+            "warble": 9
+          }
+        },
+        {
+          "recording_id": "XC843994",
+          "species": "bellbird",
+          "duration_s": 100.9,
+          "n_segments": 82,
+          "n_syllables": 100,
+          "types": {
+            "stutter": 66,
+            "click": 26,
+            "trill": 4,
+            "warble": 2,
+            "complex": 2
+          }
+        },
+        {
+          "recording_id": "XC843997",
+          "species": "bellbird",
+          "duration_s": 188.1,
+          "n_segments": 393,
+          "n_syllables": 453,
+          "types": {
+            "stutter": 298,
+            "click": 94,
+            "complex": 18,
+            "trill": 38,
+            "warble": 5
+          }
+        },
+        {
+          "recording_id": "XC856449",
+          "species": "bellbird",
+          "duration_s": 54.6,
+          "n_segments": 130,
+          "n_syllables": 141,
+          "types": {
+            "click": 38,
+            "trill": 19,
+            "stutter": 79,
+            "complex": 3,
+            "warble": 2
+          }
+        },
+        {
+          "recording_id": "XC925259",
+          "species": "bellbird",
+          "duration_s": 77.9,
+          "n_segments": 172,
+          "n_syllables": 175,
+          "types": {
+            "stutter": 158,
+            "complex": 2,
+            "click": 4,
+            "trill": 11
+          }
+        },
+        {
+          "recording_id": "XC925261",
+          "species": "bellbird",
+          "duration_s": 24.9,
+          "n_segments": 22,
+          "n_syllables": 25,
+          "types": {
+            "click": 5,
+            "warble": 3,
+            "stutter": 13,
+            "complex": 2,
+            "trill": 2
+          }
+        },
+        {
+          "recording_id": "XC925262",
+          "species": "bellbird",
+          "duration_s": 37.7,
+          "n_segments": 89,
+          "n_syllables": 89,
+          "types": {
+            "trill": 43,
+            "stutter": 40,
+            "click": 5,
+            "warble": 1
+          }
+        },
+        {
+          "recording_id": "XC925263",
+          "species": "bellbird",
+          "duration_s": 42.0,
+          "n_segments": 81,
+          "n_syllables": 83,
+          "types": {
+            "click": 3,
+            "stutter": 58,
+            "trill": 19,
+            "complex": 3
+          }
+        },
+        {
+          "recording_id": "XC925265",
+          "species": "bellbird",
+          "duration_s": 664.2,
+          "n_segments": 811,
+          "n_syllables": 950,
+          "types": {
+            "click": 212,
+            "trill": 57,
+            "stutter": 617,
+            "complex": 49,
+            "warble": 15
+          }
+        },
+        {
+          "recording_id": "XC956637",
+          "species": "bellbird",
+          "duration_s": 54.2,
+          "n_segments": 66,
+          "n_syllables": 84,
+          "types": {
+            "trill": 17,
+            "click": 14,
+            "stutter": 50,
+            "complex": 2,
+            "warble": 1
+          }
+        },
+        {
+          "recording_id": "XC956708",
+          "species": "bellbird",
+          "duration_s": 80.6,
+          "n_segments": 60,
+          "n_syllables": 69,
+          "types": {
+            "click": 11,
+            "stutter": 51,
+            "warble": 1,
+            "trill": 4,
+            "complex": 2
+          }
+        },
+        {
+          "recording_id": "XC956713",
+          "species": "bellbird",
+          "duration_s": 106.1,
+          "n_segments": 94,
+          "n_syllables": 165,
+          "types": {
+            "stutter": 97,
+            "click": 34,
+            "complex": 8,
+            "trill": 24,
+            "warble": 2
+          }
+        },
+        {
+          "recording_id": "XC956723",
+          "species": "bellbird",
+          "duration_s": 136.8,
+          "n_segments": 123,
+          "n_syllables": 168,
+          "types": {
+            "stutter": 115,
+            "complex": 5,
+            "trill": 10,
+            "warble": 4,
+            "click": 34
+          }
+        },
+        {
+          "recording_id": "XC959319",
+          "species": "bellbird",
+          "duration_s": 111.0,
+          "n_segments": 107,
+          "n_syllables": 125,
+          "types": {
+            "pipe": 1,
+            "click": 47,
+            "stutter": 62,
+            "complex": 7,
+            "trill": 8
+          }
+        },
+        {
+          "recording_id": "XC96768",
+          "species": "bellbird",
+          "duration_s": 114.5,
+          "n_segments": 75,
+          "n_syllables": 114,
+          "types": {
+            "stutter": 82,
+            "click": 14,
+            "warble": 2,
+            "complex": 8,
+            "trill": 8
+          }
+        }
+      ],
+      "samples": [
+        "pipe",
+        "stutter",
+        "warble",
+        "trill",
+        "click",
+        "complex"
+      ]
+    },
+    "kaka": {
+      "common_name": "K\u0101k\u0101",
+      "scientific": "Nestor meridionalis",
+      "order": "Psittaciformes",
+      "suborder": "Parrot (NOT a songbird)",
+      "unit": "call",
+      "boundary_ms": 200,
+      "classifier": "Van Horik, Bell & Burns (2007)",
+      "classifier_doi": "10.1080/03014220709510093",
+      "n_recordings": 25,
+      "total": 1099,
+      "mean_per_rec": 44.0,
+      "distribution": {
+        "snicker": 889,
+        "bark": 177,
+        "gurgle": 33
+      },
+      "categories": {
+        "shraak": {
+          "desc": "Loud harsh broadband contact call",
+          "color": "#bb4a33"
+        },
+        "shraak_woo": {
+          "desc": "Shraak with descending tonal tail",
+          "color": "#b07d22"
+        },
+        "gurgle": {
+          "desc": "Complex low-frequency call",
+          "color": "#2c6c8c"
+        },
+        "bark": {
+          "desc": "Short sharp percussive call",
+          "color": "#8c4a2c"
+        },
+        "snicker": {
+          "desc": "Rapid chattering series",
+          "color": "#7c5784"
+        }
+      },
+      "per_recording": [
+        {
+          "recording_id": "XC152946",
+          "species": "kaka",
+          "duration_s": 44.8,
+          "n_segments": 41,
+          "n_calls": 41,
+          "types": {
+            "snicker": 37,
+            "bark": 4
+          }
+        },
+        {
+          "recording_id": "XC207311",
+          "species": "kaka",
+          "duration_s": 142.9,
+          "n_segments": 58,
+          "n_calls": 58,
+          "types": {
+            "bark": 20,
+            "snicker": 23,
+            "gurgle": 15
+          }
+        },
+        {
+          "recording_id": "XC207335",
+          "species": "kaka",
+          "duration_s": 212.0,
+          "n_segments": 93,
+          "n_calls": 93,
+          "types": {
+            "snicker": 50,
+            "bark": 41,
+            "gurgle": 2
+          }
+        },
+        {
+          "recording_id": "XC293110",
+          "species": "kaka",
+          "duration_s": 11.7,
+          "n_segments": 5,
+          "n_calls": 5,
+          "types": {
+            "snicker": 5
+          }
+        },
+        {
+          "recording_id": "XC326938",
+          "species": "kaka",
+          "duration_s": 33.4,
+          "n_segments": 23,
+          "n_calls": 23,
+          "types": {
+            "snicker": 19,
+            "bark": 3,
+            "gurgle": 1
+          }
+        },
+        {
+          "recording_id": "XC378282",
+          "species": "kaka",
+          "duration_s": 30.0,
+          "n_segments": 28,
+          "n_calls": 28,
+          "types": {
+            "snicker": 18,
+            "bark": 7,
+            "gurgle": 3
+          }
+        },
+        {
+          "recording_id": "XC378283",
+          "species": "kaka",
+          "duration_s": 133.7,
+          "n_segments": 142,
+          "n_calls": 142,
+          "types": {
+            "snicker": 77,
+            "gurgle": 8,
+            "bark": 57
+          }
+        },
+        {
+          "recording_id": "XC378284",
+          "species": "kaka",
+          "duration_s": 37.7,
+          "n_segments": 16,
+          "n_calls": 16,
+          "types": {
+            "snicker": 15,
+            "bark": 1
+          }
+        },
+        {
+          "recording_id": "XC378285",
+          "species": "kaka",
+          "duration_s": 23.1,
+          "n_segments": 30,
+          "n_calls": 30,
+          "types": {
+            "bark": 1,
+            "snicker": 29
+          }
+        },
+        {
+          "recording_id": "XC428663",
+          "species": "kaka",
+          "duration_s": 18.7,
+          "n_segments": 14,
+          "n_calls": 14,
+          "types": {
+            "snicker": 12,
+            "bark": 2
+          }
+        },
+        {
+          "recording_id": "XC526605",
+          "species": "kaka",
+          "duration_s": 43.4,
+          "n_segments": 24,
+          "n_calls": 24,
+          "types": {
+            "snicker": 22,
+            "gurgle": 1,
+            "bark": 1
+          }
+        },
+        {
+          "recording_id": "XC526606",
+          "species": "kaka",
+          "duration_s": 13.8,
+          "n_segments": 7,
+          "n_calls": 7,
+          "types": {
+            "snicker": 7
+          }
+        },
+        {
+          "recording_id": "XC776552",
+          "species": "kaka",
+          "duration_s": 41.2,
+          "n_segments": 25,
+          "n_calls": 25,
+          "types": {
+            "snicker": 24,
+            "bark": 1
+          }
+        },
+        {
+          "recording_id": "XC853668",
+          "species": "kaka",
+          "duration_s": 113.3,
+          "n_segments": 50,
+          "n_calls": 50,
+          "types": {
+            "snicker": 48,
+            "bark": 2
+          }
+        },
+        {
+          "recording_id": "XC88155",
+          "species": "kaka",
+          "duration_s": 36.6,
+          "n_segments": 41,
+          "n_calls": 41,
+          "types": {
+            "snicker": 40,
+            "bark": 1
+          }
+        },
+        {
+          "recording_id": "XC959270",
+          "species": "kaka",
+          "duration_s": 251.1,
+          "n_segments": 145,
+          "n_calls": 145,
+          "types": {
+            "snicker": 132,
+            "bark": 10,
+            "gurgle": 3
+          }
+        },
+        {
+          "recording_id": "XC959271",
+          "species": "kaka",
+          "duration_s": 45.8,
+          "n_segments": 15,
+          "n_calls": 15,
+          "types": {
+            "snicker": 15
+          }
+        },
+        {
+          "recording_id": "XC959275",
+          "species": "kaka",
+          "duration_s": 78.6,
+          "n_segments": 51,
+          "n_calls": 51,
+          "types": {
+            "snicker": 49,
+            "bark": 2
+          }
+        },
+        {
+          "recording_id": "XC959278",
+          "species": "kaka",
+          "duration_s": 23.1,
+          "n_segments": 7,
+          "n_calls": 7,
+          "types": {
+            "snicker": 7
+          }
+        },
+        {
+          "recording_id": "XC959281",
+          "species": "kaka",
+          "duration_s": 106.7,
+          "n_segments": 62,
+          "n_calls": 62,
+          "types": {
+            "snicker": 61,
+            "bark": 1
+          }
+        },
+        {
+          "recording_id": "XC959284",
+          "species": "kaka",
+          "duration_s": 46.0,
+          "n_segments": 75,
+          "n_calls": 75,
+          "types": {
+            "bark": 8,
+            "snicker": 67
+          }
+        },
+        {
+          "recording_id": "XC959427",
+          "species": "kaka",
+          "duration_s": 14.7,
+          "n_segments": 19,
+          "n_calls": 19,
+          "types": {
+            "snicker": 17,
+            "bark": 2
+          }
+        },
+        {
+          "recording_id": "XC963595",
+          "species": "kaka",
+          "duration_s": 66.4,
+          "n_segments": 48,
+          "n_calls": 48,
+          "types": {
+            "snicker": 43,
+            "bark": 5
+          }
+        },
+        {
+          "recording_id": "XC963596",
+          "species": "kaka",
+          "duration_s": 71.3,
+          "n_segments": 63,
+          "n_calls": 63,
+          "types": {
+            "snicker": 56,
+            "bark": 7
+          }
+        },
+        {
+          "recording_id": "XC963598",
+          "species": "kaka",
+          "duration_s": 35.0,
+          "n_segments": 17,
+          "n_calls": 17,
+          "types": {
+            "snicker": 16,
+            "bark": 1
+          }
+        }
+      ],
+      "samples": [
+        "snicker",
+        "bark",
+        "gurgle"
+      ]
+    }
+  }
+}

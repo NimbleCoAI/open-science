@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aotearoa Birdsong, Decoded — NimbleCo AI</title>
-<meta name="description" content="An open-science analysis of New Zealand birdsong from Xeno-Canto, replicating Hill & Ji (2014) tūī syllable categorisation. 3,096 recordings, 177 species.">
+<meta name="description" content="Species-specific analysis of NZ birdsong from Xeno-Canto: tūī syllables (Hill 2014), bellbird syllables (Webb 2021), kākā calls (Van Horik 2007). 3,096 recordings, 177 species.">
 <meta property="og:title" content="Aotearoa Birdsong, Decoded">
-<meta property="og:description" content="3,096 recordings, 177 species, 24,185 syllables — replicating Hill & Ji's tūī song classification with automated analysis across all of Aotearoa.">
+<meta property="og:description" content="Species-specific analysis of NZ birdsong: tūī syllables (Hill 2014), bellbird syllables (Webb 2021), kākā calls (Van Horik 2007). Categories never shared across species.">
 <meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -396,7 +396,7 @@ tr:hover td{background:var(--surface-2)}
   <header class="masthead">
     <div class="eyebrow">Open Science · Field Report 02</div>
     <h1>Aotearoa Birdsong, <em>Decoded</em></h1>
-    <p class="deck">We downloaded <b>3,096 recordings</b> of New Zealand birds from Xeno-Canto, then ran Hill &amp; Ji's tūī syllable classification on the audio. Here's what automated analysis finds — and where it diverges from manual fieldwork.</p>
+    <p class="deck">We downloaded <b>3,096 recordings</b> of New Zealand birds from Xeno-Canto, then classified vocalisations for three species using published literature frameworks: tūī syllables (Hill &amp; Ji 2014), bellbird syllables (Webb 2021), and kākā calls (Van Horik 2007). Here's what automated analysis finds — and where it diverges from manual fieldwork.</p>
     <div class="byline">
       Bioacoustic replication · after <a href="https://doi.org/10.63172/301002sqblid">Hill &amp; Ji (2014)</a> · 177 species · 3,096 recordings<br>
       Source: <a href="https://xeno-canto.org">Xeno-Canto</a> API v3 · Analysis in Python (librosa, scikit-learn) · Full pipeline on <a href="https://github.com/NimbleCoAI/open-science">GitHub</a><br>
@@ -424,10 +424,11 @@ tr:hover td{background:var(--surface-2)}
     <div class="tab active" data-tab="overview">Overview</div>
     <div class="tab" data-tab="game">Te Reo Manu</div>
     <div class="tab" data-tab="species">Species Gallery</div>
-    <div class="tab" data-tab="syllables">Syllable Analysis</div>
-    <div class="tab" data-tab="samples">Syllable Samples</div>
+    <div class="tab" data-tab="tui-analysis">Tūī Syllables</div>
+    <div class="tab" data-tab="bellbird-analysis">Bellbird Syllables</div>
+    <div class="tab" data-tab="kaka-analysis">Kākā Calls</div>
+    <div class="tab" data-tab="samples">Vocalization Samples</div>
     <div class="tab" data-tab="map">Geographic Analysis</div>
-    <div class="tab" data-tab="temporal">Temporal Analysis</div>
     <div class="tab" data-tab="data">Dataset</div>
     <div class="tab" data-tab="methods">Methodology</div>
     <div class="tab" data-tab="literature">Literature</div>
@@ -436,74 +437,80 @@ tr:hover td{background:var(--surface-2)}
   <!-- ==================== OVERVIEW ==================== -->
   <div class="panel active" id="panel-overview">
     <div class="lede">
-      <span class="drop">T</span>ūī are among the world's most complex songbirds — their repertoire includes harmonics, trills, and frequencies above 
-      human hearing. Hill &amp; Ji (2014) hand-classified syllables from tūī at Tawharanui; we asked whether an automated 
-      pipeline could replicate that work using open recordings from across Aotearoa — and then extended it to bellbird for comparison.
+      <span class="drop">E</span>ach species sings its own language. This analysis uses <b>species-specific classification schemes</b> drawn from the published literature — 
+      tūī syllables follow Hill &amp; Ji (2014), bellbird syllables follow Webb et al. (2021) and Roper et al. (2018), and kākā <em>calls</em> 
+      follow Van Horik, Bell &amp; Burns (2007). Categories are never shared across species.
     </div>
     
     <div class="prose">
-      <p><strong>The short answer: partially.</strong> Across all 116 tūī A-quality songs (17,554 syllables), our rule-based classifier finds the same broad types 
-      Hill identified — but the proportions differ. Low-frequency syllables dominate at 54.7%, versus Hill's ~10%. Harmonic syllables account for 18.8%, 
-      high-frequency 11.1%, RMNR 9.2%, and trill 6.2%.</p>
+      <p><strong>Why separate species?</strong> Tūī and bellbird are both oscine passerines (songbirds) that produce complex learned songs — 
+      but their vocal repertoires are categorised differently in the literature. Tūī research uses 6 syllable categories based on 
+      spectral features. Bellbird researchers found that <b>syllable types</b> (not song types) are the functional units of vocal culture, 
+      because bellbirds flexibly recombine syllables. Kākā are parrots, not songbirds — they produce calls, not songs, and the term 
+      "syllable" is inappropriate for their vocalisations.</p>
       
-      <p><b>The bellbird comparison is striking:</b> korimako show <b>73.4% low-frequency syllables</b> vs tūī's 54.7%, with similar harmonics (19.1% vs 18.8%) 
-      but dramatically fewer high-frequency elements (1.7% vs 11.1%). Tūī average 151 syllables per recording vs bellbird's 112 — 
-      consistent with the literature on honeyeater song complexity.</p>
-      
-      <p><b>Geographic variation across 10 regions:</b> Auckland tūī show notably more harmonic syllables (22.6%) and fewer low-frequency (41.3%) than 
-      Southland birds (14.6% harmonic, 67.0% low-frequency). Otago tūī are the outlier — 44.4% harmonic, nearly matching low-frequency at 47.3%. 
-      These patterns hint at regional dialects — exactly what Hill et al. (2015) predicted but couldn't test at scale.</p>
+      <p><b>v2 classifier improvements:</b> The v1 analysis over-assigned "low-frequency" syllables (55%) due to a threshold-ordering 
+      artefact — syllables with low f₀ but strong upper harmonics were caught by the frequency check before reaching the harmonicity check. 
+      The restructured classifier checks tonal quality first, then frequency, reducing low-frequency to 0.6% of tūī syllables — 
+      consistent with Hill's finding that these are relatively rare.</p>
     </div>
 
-    <div class="section-label">Key Findings</div>
+    <div class="section-label">Species-Specific Results</div>
     
+    <div class="three-col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin:1.5rem 0 2rem">
+      <div class="card" style="border-left:3px solid var(--tui)">
+        <h3 style="color:var(--tui)">Tūī — 6 Syllable Categories</h3>
+        <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.55">
+          <b>RMNR dominates at 64.9%</b> — rapid multiple note repetition is the most common syllable type. 
+          Trill accounts for 17.1%, harmonic 13.8%, high-frequency 3.6%, and low-frequency just 0.6%. 
+          No harsh syllables were detected, which may reflect recorder bias (harsh syllables are quiet and close-range).
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">
+          116 recordings · 17,716 syllables · Hill &amp; Ji (2014)
+        </div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--bellbird)">
+        <h3 style="color:var(--bellbird)">Bellbird — 7 Syllable Families</h3>
+        <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.55">
+          <b>Stutter syllables dominate at 62.8%</b> — rapid repeated elements are the most common family. 
+          Click (19.4%), trill (11.7%), complex (3.6%), warble (2.4%), and pipe (0.1%) follow. 
+          The 15ms syllable boundary (Roper 2018) captures finer segmentation than the 20ms tūī threshold.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">
+          46 recordings · 6,388 syllables · Webb et al. (2021)
+        </div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--kaka)">
+        <h3 style="color:var(--kaka)">Kākā — 5 Call Types</h3>
+        <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.55">
+          <b>Snicker calls dominate at 80.9%</b> — rapid chattering series are by far the most common call type. 
+          Bark (16.1%) and gurgle (3.0%) follow. Shraak and shraak-woo (loud long-distance contact calls) 
+          were not detected — likely because field recordings capture closer-range vocalisations.
+        </p>
+        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">
+          25 recordings · 1,099 calls · Van Horik et al. (2007)
+        </div>
+      </div>
+    </div>
+
     <div class="two-col">
       <div class="card">
-        <h3>Three Species Compared</h3>
+        <h3>Why Species Must Not Be Lumped</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Tūī average <b>151 syllables per recording</b>, bellbird 112, kākā just 55. 
-          Tūī use high-frequency syllables 6.5× more than bellbird (11.1% vs 1.7%) and 2.6× more than kākā (4.3%). 
-          Kākā vocalisations are dominated by low-frequency (69%) with 18.5% harmonic — a simpler repertoire 
-          consistent with their call-heavy vocal style (43 calls vs 10 songs in our dataset).
+          Tūī and bellbird are both honeyeaters (Meliphagidae) and songbirds, so comparing syllable entropy 
+          between them is defensible — with caveats about different classification granularity. But kākā are 
+          parrots (Psittaciformes) with fundamentally different vocal learning mechanisms, repertoire size (5 call types 
+          vs hundreds of syllable types), and vocal structure. Cross-species comparison between songbirds and parrots 
+          is, as Socrates would say, not carving nature at its joints.
         </p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          116 tūī · 47 bellbird · 25 kākā · 24,185 total syllables
-        </div>
       </div>
       <div class="card">
-        <h3>Auckland vs Southland Tūī</h3>
+        <h3>Phase 2 Preview: Unsupervised Clustering</h3>
         <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Auckland tūī show the most diverse syllable mix: 22.6% harmonic, 15.8% high-frequency, 
-          11.1% RMNR. Southland tūī are more monotone: 67% low-frequency dominant, only 14.6% harmonic.
-          Otago is the outlier — 44.4% harmonic, nearly matching low-frequency. Could reflect 
-          population density, habitat acoustics, or genuine dialect variation.
-        </p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          10 regions · 113 geotagged recordings
-        </div>
-      </div>
-    </div>
-
-    <div class="two-col" style="margin-top:0">
-      <div class="card">
-        <h3>The Low-Frequency Question — Solved</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Our rule-based classifier flags 54.7% of syllables as "low-frequency" vs Hill's ~10%. 
-          <b>HDBSCAN clustering explains why:</b> 93.9% of these syllables have spectral centroids above 2kHz 
-          (mean: 3,577Hz). They have a low fundamental frequency but strong harmonic content at higher 
-          frequencies. Hill's visual classification would see the harmonics; our rule checks f0 first. 
-          This is a <b>threshold-ordering artefact</b> — not a biological disagreement.
-        </p>
-        <div style="margin-top:.8rem;font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)">
-          13,187 syllables clustered · HDBSCAN on 32-dim MFCC+spectral features
-        </div>
-      </div>
-      <div class="card">
-        <h3>Most Complex Singer</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Recording <b>XC1090728</b> stands out: harmonic syllables were the <em>dominant</em> type (121 of 294), 
-          unusual across the dataset. Most recordings are low-frequency dominated. This bird may be an 
-          especially skilled vocalist — or a different age/sex class.
+          This analysis uses literature-derived categories. The next phase will apply unsupervised clustering 
+          (HDBSCAN, t-SNE) to discover natural groupings from the acoustic features themselves — potentially 
+          revealing sub-types (e.g., "trill-short" vs "trill-long") or categories the published schemes miss. 
+          This data-driven approach complements the theory-driven classification presented here.
         </p>
       </div>
     </div>
@@ -557,165 +564,174 @@ tr:hover td{background:var(--surface-2)}
     </div>
   </div>
 
-  <!-- ==================== SYLLABLE ANALYSIS ==================== -->
-  <div class="panel" id="panel-syllables">
-    <div class="section-label">Tūī Syllable Analysis — All 116 A-quality Recordings</div>
-    
-    <div class="two-col">
-      <div>
-        <div class="card">
-          <h3>Syllable Type Distribution</h3>
-          <div id="syl-bars">
-            <!-- JS-generated bars -->
-          </div>
-          <div style="margin-top:1.2rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
-            Total: 17,554 syllables across 116 A-quality song recordings
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="card">
-          <h3>Our Results vs Hill (2014)</h3>
-          <div class="chart-wrap chart-small">
-            <canvas id="hillCompareChart"></canvas>
-          </div>
-          <div style="margin-top:.5rem;font-size:.8rem;color:var(--ink-faint);font-family:var(--mono)">
-            Grouped bar: our automated pipeline vs Hill's manual classification
-          </div>
-        </div>
-      </div>
+  <!-- ==================== TŪĪ ANALYSIS ==================== -->
+  <div class="panel" id="panel-tui-analysis">
+    <div class="section-label">Tūī Syllable Analysis — Hill &amp; Ji (2014) Categories</div>
+    <div class="prose" style="margin-bottom:1.5rem">
+      <p>Classification follows <b>Hill &amp; Ji (2014)</b> — 6 syllable categories identified from visual spectrographic 
+      inspection of tūī at Tawharanui Regional Park. Syllable boundaries defined by ≥20ms silence gaps. 
+      44.1 kHz sampling rate, frequency range 500–10,000 Hz.</p>
     </div>
     
+    <div class="card">
+      <h3>Syllable Type Distribution</h3>
+      <div id="tui-syl-bars"></div>
+      <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+        17,716 syllables · 116 recordings · Classifier: Hill &amp; Ji (2014), DOI: 10.63172/301002sqblid
+      </div>
+    </div>
+
     <div class="note" style="margin-top:1.5rem">
-      <div class="mark">Caveat</div>
-      <div>Hill &amp; Ji (2014) found harmonic syllables were the most common type (~15%). Our full pipeline (116 recordings, 17,554 syllables) finds low-frequency dominant at 54.7%.
-      Harmonic is 18.8%, close to Hill's 15%. <b>HDBSCAN clustering reveals why:</b> 93.9% of our "low-frequency" syllables 
-      have spectral centroids <em>above</em> 2kHz (mean: 3,577Hz). The rule-based classifier catches any syllable with 
-      a low fundamental frequency (f0 &lt;2kHz) before checking for harmonic structure — but a syllable can have a low f0 
-      with strong harmonics at 3–6kHz. Hill, classifying visually from spectrograms, would see the harmonics and categorise 
-      differently. This is a <b>threshold-ordering artefact</b>, not a genuine disagreement about tūī song structure.
-      Unsupervised clustering with smaller min_cluster_size (20) finds 3 natural groups with 76% purity and only 8% noise.</div>
+      <div class="mark">v2 Improvement</div>
+      <div>The v1 classifier over-assigned "low-frequency" (55%) due to checking f₀ before harmonicity — 
+      syllables with low fundamental but strong upper harmonics were misclassified. The v2 classifier 
+      checks tonal quality first, then frequency, bringing low-frequency down to 0.6% — consistent with 
+      Hill's finding that these are relatively rare. RMNR (64.9%) is now the dominant category, followed by 
+      trill (17.1%) and harmonic (13.8%). No harsh syllables were detected — these are quiet, close-range 
+      vocalisations that field recorders may not capture.</div>
+    </div>
+
+    <div class="section-label">Category Definitions</div>
+    <div class="card">
+      <table style="width:100%;font-size:.88rem">
+        <thead><tr><th style="text-align:left">Category</th><th>Count</th><th>%</th><th style="text-align:left">Definition (Hill &amp; Ji 2014)</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#b07d22">RMNR</b></td><td class="num">11,494</td><td class="num">64.9%</td><td>Rapid multiple note repetition — rapid series of short amplitude pulses</td></tr>
+          <tr><td><b style="color:#7c5784">Trill</b></td><td class="num">3,036</td><td class="num">17.1%</td><td>Rapid frequency modulation — oscillatory f₀ pattern</td></tr>
+          <tr><td><b style="color:#2c6c8c">Harmonic</b></td><td class="num">2,452</td><td class="num">13.8%</td><td>Integer multiples of fundamental frequency — clear harmonic structure</td></tr>
+          <tr><td><b style="color:#bb4a33">High-frequency</b></td><td class="num">630</td><td class="num">3.6%</td><td>Fundamental frequency ≥ 5 kHz</td></tr>
+          <tr><td><b style="color:#5f7a3a">Low-frequency</b></td><td class="num">104</td><td class="num">0.6%</td><td>Dominant energy below 2 kHz</td></tr>
+          <tr><td><b style="color:#a99e89">Harsh</b></td><td class="num">0</td><td class="num">0.0%</td><td>Throaty syllables — noisy broadband spectrum (not detected)</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="section-label">Per-Recording Breakdown</div>
     <div class="card">
       <div class="chart-wrap" style="height:400px">
-        <canvas id="perRecordingChart"></canvas>
+        <canvas id="tuiPerRecChart"></canvas>
       </div>
-    </div>
-
-    <div class="card" style="margin-top:1.5rem">
-      <h3>Recording Details</h3>
-      <div class="table-scroll" style="max-height:350px">
-        <table id="recording-table">
-          <thead><tr><th>Recording</th><th>Duration</th><th>Songs</th><th>Syllables</th><th>Dominant Type</th><th>Distribution</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- VOCAL GRAMMAR -->
-    <div class="section-label" style="margin-top:2rem">Vocal Grammar — Do the Calls Have Structure?</div>
-    <div class="lede" style="font-size:1.15rem;margin-bottom:1rem">
-      We extracted the ordered sequence of syllable types from every recording and analysed transition probabilities, 
-      self-repetition rates, and sequence entropy. All three species show non-random sequential structure — 
-      but tūī grammar is dramatically more complex than bellbird or kākā.
-    </div>
-
-    <div class="two-col">
-      <div class="card">
-        <h3>Complexity Gradient</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
-          <b>Tūī</b> have the lowest predictability (23.8%) and highest clustering ratio (1.52×) — 
-          they repeat syllable types in runs but their transitions between types are highly variable. 
-          <b>Bellbird</b> (45.7%) and <b>kākā</b> (47.2%) are much more predictable: 
-          once you know the current syllable type, you can often guess the next one.
-        </p>
-        <div class="chart-wrap chart-small">
-          <canvas id="grammarCompareChart"></canvas>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Sequence Entropy</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin-bottom:1rem">
-          Bigram entropy measures how many bits of information each syllable transition carries. 
-          Higher entropy = more varied sequences. Tūī (3.54 bits) are close to their random baseline (3.70), 
-          meaning transitions are nearly unpredictable. Bellbird and kākā are further below random — 
-          their sequences follow more rigid patterns.
-        </p>
-        <div class="chart-wrap chart-small">
-          <canvas id="entropyChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:1rem">
-      <h3>Tūī Transition Matrix</h3>
-      <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.5;margin-bottom:1rem">
-        Each cell shows the probability of transitioning from one syllable type (row) to another (column). 
-        Diagonal = self-repetition. <span style="color:var(--accent-2);font-weight:600">Orange cells</span> are over-represented vs chance; 
-        <span style="color:var(--accent);font-weight:600">blue cells</span> are avoided.
-      </p>
-      <div class="table-scroll">
-        <table id="transition-table" style="text-align:center">
-          <thead>
-            <tr><th style="text-align:left">From ↓ To →</th><th>Low-freq</th><th>Harmonic</th><th>High-freq</th><th>Trill</th><th>RMNR</th></tr>
-          </thead>
-          <tbody>
-            <tr><td style="text-align:left;font-weight:600">Low-freq</td><td class="num" style="background:#5f7a3a22;font-weight:700">73.3%</td><td class="num">11.7%</td><td class="num" style="color:var(--accent)">5.1%↓</td><td class="num">4.1%</td><td class="num">5.8%</td></tr>
-            <tr><td style="text-align:left;font-weight:600">Harmonic</td><td class="num">34.2%</td><td class="num" style="background:#2c6c8c22;font-weight:700">38.3%↑</td><td class="num">9.5%</td><td class="num">6.5%</td><td class="num">11.4%</td></tr>
-            <tr><td style="text-align:left;font-weight:600">High-freq</td><td class="num" style="color:var(--accent)">26.5%↓</td><td class="num">16.7%</td><td class="num" style="background:#bb4a3322;font-weight:700">37.6%↑</td><td class="num">8.6%</td><td class="num">10.5%</td></tr>
-            <tr><td style="text-align:left;font-weight:600">Trill</td><td class="num">34.7%</td><td class="num">20.0%</td><td class="num">15.7%</td><td class="num" style="background:#7c578422;font-weight:700">16.5%↑</td><td class="num">13.1%</td></tr>
-            <tr><td style="text-align:left;font-weight:600">RMNR</td><td class="num">30.6%</td><td class="num">26.0%</td><td class="num">13.0%</td><td class="num">10.1%</td><td class="num" style="background:#b07d2222;font-weight:700">20.4%↑</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:.8rem">
-        n=13,071 transitions · ↑ = over-represented (>1.5× expected) · ↓ = avoided (<0.5× expected)
-      </div>
-    </div>
-
-    <div class="two-col" style="margin-top:1rem">
-      <div class="card">
-        <h3>Syntactic Rules</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          <b>Preferred transitions:</b> H→H (2.0×), HF→HF (3.5×), T→T (2.6×), R→R (2.2×) — 
-          all syllable types cluster in runs, but trill runs are the most surprising (trills rarely self-repeat in kākā).<br><br>
-          <b>Avoided transitions:</b> LF→HF and HF→LF (both 0.5×) — birds avoid jumping between 
-          frequency extremes. This is the strongest "syntactic rule" in the data: adjacent syllables 
-          tend to be in nearby frequency ranges.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Song Framing</h3>
-        <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.55">
-          Songs typically <b>open with low-frequency</b> (tūī 71%, bellbird 68%, kākā 76%) and 
-          <b>close with low-frequency</b> (tūī 58%, bellbird 72%, kākā 68%). 
-          The complex, high-frequency elements occur mid-song — framed by a low-frequency "introduction" 
-          and "conclusion." This is consistent with Hill's observation that tūī songs have a recognisable 
-          architecture beyond individual syllable types.
-        </p>
-      </div>
-    </div>
-
-    <div class="note" style="margin-top:1rem">
-      <div class="mark">Note</div>
-      <div>These are <b>first-order Markov statistics</b> — they capture what follows what, but not longer-range 
-      dependencies. Tūī song may have higher-order structure (e.g. ABAB patterns, call-and-response) that 
-      bigram analysis misses. The low predictability of tūī transitions (23.8%) may itself be a feature — 
-      Hill et al. (2017) showed that more complex songs elicit stronger aggressive responses, suggesting 
-      unpredictability is the point.</div>
     </div>
   </div>
 
-  <!-- ==================== SYLLABLE SAMPLES ==================== -->
+  <!-- ==================== BELLBIRD ANALYSIS ==================== -->
+  <div class="panel" id="panel-bellbird-analysis">
+    <div class="section-label">Bellbird Syllable Analysis — Webb/Roper Syllable Families</div>
+    <div class="prose" style="margin-bottom:1.5rem">
+      <p>Classification follows the <b>Webb et al. (2021)</b> and <b>Roper et al. (2018)</b> framework. 
+      Unlike many songbirds where "song type" is the functional unit, bellbird researchers found that 
+      <b>syllable types are the functional units of vocal culture</b> — bellbirds flexibly recombine syllables 
+      into variable songs. Syllable boundaries defined by &lt;15ms silence (Roper 2018). Webb et al. identified 
+      702 syllable types across 6 sites, grouped into 20 syllable families.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Syllable Family Distribution</h3>
+      <div id="bellbird-syl-bars"></div>
+      <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+        6,388 syllables · 46 recordings · Classifier: Webb et al. (2021), DOI: 10.3389/fevo.2021.755633
+      </div>
+    </div>
+
+    <div class="section-label">Category Definitions</div>
+    <div class="card">
+      <table style="width:100%;font-size:.88rem">
+        <thead><tr><th style="text-align:left">Family</th><th>Count</th><th>%</th><th style="text-align:left">Definition</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#b07d22">Stutter</b></td><td class="num">4,013</td><td class="num">62.8%</td><td>Rapid repeated short elements — high amplitude peak rate</td></tr>
+          <tr><td><b style="color:#5f7a3a">Click</b></td><td class="num">1,237</td><td class="num">19.4%</td><td>Very short impulse sounds (&lt;40ms)</td></tr>
+          <tr><td><b style="color:#bb4a33">Trill</b></td><td class="num">748</td><td class="num">11.7%</td><td>Rapid oscillatory frequency modulation</td></tr>
+          <tr><td><b style="color:#a99e89">Complex</b></td><td class="num">233</td><td class="num">3.6%</td><td>Multi-element syllables not fitting other families</td></tr>
+          <tr><td><b style="color:#7c5784">Warble</b></td><td class="num">152</td><td class="num">2.4%</td><td>Frequency-modulated, tonal but complex structure</td></tr>
+          <tr><td><b style="color:#2c6c8c">Pipe</b></td><td class="num">5</td><td class="num">0.1%</td><td>Pure tone whistles — narrow bandwidth, shared between sites (Webb et al.)</td></tr>
+          <tr><td><b style="color:#8c4a2c">Harsh/Buzz</b></td><td class="num">0</td><td class="num">0.0%</td><td>Broadband noisy syllables (not detected)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:1.5rem">
+      <div class="mark">Methodology Note</div>
+      <div>The 15ms syllable boundary follows <b>Roper et al. (2018)</b> — this is shorter than the 20ms used for tūī (Hill 2014), 
+      reflecting bellbird-specific vocal structure. Webb et al. validated their classification using 74 independent judges 
+      (89.6% average match) and machine learning (96.6% accuracy via t-SNE + supervised algorithms). Our spectral 
+      rule-based classifier is a simplification of their approach. The Koe bioacoustics software 
+      (<a href="https://doi.org/10.1111/2041-210X.13336">Fukuzawa et al. 2020</a>) was developed specifically for this classification task.</div>
+    </div>
+
+    <div class="section-label">Per-Recording Breakdown</div>
+    <div class="card">
+      <div class="chart-wrap" style="height:400px">
+        <canvas id="bellbirdPerRecChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== KĀKĀ ANALYSIS ==================== -->
+  <div class="panel" id="panel-kaka-analysis">
+    <div class="section-label">Kākā Call Type Analysis — Van Horik et al. (2007)</div>
+    <div class="prose" style="margin-bottom:1.5rem">
+      <p>Kākā are <b>parrots (Psittaciformes)</b>, not songbirds. They produce <b>calls</b>, not songs. 
+      The term "syllable" is inappropriate for their vocalisations. Classification follows 
+      <b>Van Horik, Bell &amp; Burns (2007)</b>, who identified 5 call types through 500 hours of field 
+      observation and spectrographic analysis. Call boundaries defined by ≥200ms silence gaps — 
+      much longer than songbird syllable boundaries, reflecting the different temporal structure of parrot calls.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Call Type Distribution</h3>
+      <div id="kaka-call-bars"></div>
+      <div style="margin-top:1rem;font-size:.82rem;color:var(--ink-faint);font-family:var(--mono)">
+        1,099 calls · 25 recordings · Classifier: Van Horik, Bell &amp; Burns (2007), DOI: 10.1080/03014220709510093
+      </div>
+    </div>
+
+    <div class="section-label">Category Definitions</div>
+    <div class="card">
+      <table style="width:100%;font-size:.88rem">
+        <thead><tr><th style="text-align:left">Call Type</th><th>Count</th><th>%</th><th style="text-align:left">Definition (Van Horik et al. 2007)</th></tr></thead>
+        <tbody>
+          <tr><td><b style="color:#7c5784">Snicker</b></td><td class="num">889</td><td class="num">80.9%</td><td>Rapid chattering series of short elements</td></tr>
+          <tr><td><b style="color:#8c4a2c">Bark</b></td><td class="num">177</td><td class="num">16.1%</td><td>Short sharp percussive call — brief broadband energy burst</td></tr>
+          <tr><td><b style="color:#2c6c8c">Gurgle</b></td><td class="num">33</td><td class="num">3.0%</td><td>Complex low-frequency call with gurgling quality</td></tr>
+          <tr><td><b style="color:#bb4a33">Shraak</b></td><td class="num">0</td><td class="num">0.0%</td><td>Loud harsh broadband contact call (not detected)</td></tr>
+          <tr><td><b style="color:#b07d22">Shraak-woo</b></td><td class="num">0</td><td class="num">0.0%</td><td>Shraak with descending tonal component (not detected)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:1.5rem">
+      <div class="mark">Why No Shraak?</div>
+      <div>Shraak and shraak-woo are <b>loud long-distance contact calls</b> — they function for communication 
+      across large distances in forest canopy. The Xeno-Canto recordings in our dataset appear to capture 
+      primarily closer-range vocalisations (snicker, bark, gurgle). Van Horik et al. observed shraak calls 
+      "used for communication under different spatial and social circumstances" — the recording context 
+      (microphone distance, habitat) likely biases toward closer-range call types. For comparison, the closely 
+      related kea (<i>Nestor notabilis</i>) has 7 call types including the famous "warble" play call 
+      (<a href="https://doi.org/10.1093/czoolo/58.5.727">Schwing et al. 2012</a>).</div>
+    </div>
+
+    <div class="section-label">Per-Recording Breakdown</div>
+    <div class="card">
+      <div class="chart-wrap" style="height:400px">
+        <canvas id="kakaPerRecChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VOCALIZATION SAMPLES ==================== -->
   <div class="panel" id="panel-samples">
-    <div class="section-label">Syllable Type Explorer</div>
+    <div class="section-label">Vocalization Sample Explorer</div>
     <p style="color:var(--ink-soft);margin-bottom:1.5rem;font-size:.95rem">
-      Representative examples of each syllable type, selected at median duration from the tūī dataset. 
-      Each shows a spectrogram (0–12kHz, magma colormap matching Hill's Raven Pro visualisations) with a playable audio clip.
-      Three examples per type show the variation within each category.
+      Representative examples of each vocalization category, with species-specific terminology. 
+      Each shows a spectrogram with a playable audio clip. Five samples per category show the variation 
+      within each classification. <b>Select a species to explore its repertoire:</b>
     </p>
+
+    <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap">
+      <button class="tab active" onclick="showSampleSpecies('tui',this)" style="cursor:pointer">Tūī Syllables</button>
+      <button class="tab" onclick="showSampleSpecies('bellbird',this)" style="cursor:pointer">Bellbird Syllables</button>
+      <button class="tab" onclick="showSampleSpecies('kaka',this)" style="cursor:pointer">Kākā Calls</button>
+    </div>
 
     <div id="sample-types">
       <!-- Populated by JS -->
@@ -725,6 +741,12 @@ tr:hover td{background:var(--surface-2)}
   <!-- ==================== GEOGRAPHIC ANALYSIS ==================== -->
   <div class="panel" id="panel-map">
     <div class="section-label">Geographic Analysis — Regional Vocal Variation</div>
+    <div class="note" style="margin-bottom:1.5rem">
+      <div class="mark">v1 Data</div>
+      <div>The geographic analysis below uses <b>v1 classifier categories</b> (low-frequency / harmonic / high-frequency / RMNR / trill 
+      applied uniformly to all species). The species-specific classifiers in the analysis tabs above are more accurate. 
+      Geographic analysis will be rebuilt with species-specific categories in a future update.</div>
+    </div>
     <div class="lede" style="font-size:1.25rem;margin-bottom:1.5rem">
       <span class="drop">D</span>o birds from different regions sing differently? We mapped syllable repertoires across 
       Aotearoa for all three species. The results suggest genuine regional variation — Auckland tūī 
@@ -891,8 +913,8 @@ tr:hover td{background:var(--surface-2)}
     </div>
   </div>
 
-  <!-- ==================== TEMPORAL ANALYSIS ==================== -->
-  <div class="panel" id="panel-temporal">
+  <!-- TEMPORAL ANALYSIS: Removed in v2 — old v1 data, needs species-specific rebuild -->
+  <div class="panel" id="panel-temporal" style="display:none!important">
     <div class="section-label">Temporal &amp; Seasonal Patterns</div>
 
     <p class="lede">
@@ -1241,133 +1263,6 @@ const SPECIES_DATA = [
    note:"NZ's smallest bird. High-pitched contact calls at ~8kHz."}
 ];
 
-const SYLLABLE_DATA = {
-  types: [
-    {name:"Low-frequency",key:"low_frequency",count:9607,pct:54.7,hill:"~10%",color:"var(--low)"},
-    {name:"Harmonic",key:"harmonic",count:3301,pct:18.8,hill:"~15%",color:"var(--harmonic)"},
-    {name:"High-frequency",key:"high_frequency",count:1946,pct:11.1,hill:"~8%",color:"var(--high)"},
-    {name:"RMNR",key:"rmnr",count:1607,pct:9.2,hill:"~12%",color:"var(--rmnr)"},
-    {name:"Trill",key:"trill",count:1093,pct:6.2,hill:"~8%",color:"var(--trill)"}
-  ],
-  perRecording: [
-    {id:"XC1088034",dur:104,songs:180,syls:164,types:{low_frequency:113,harmonic:21,high_frequency:17,trill:8,rmnr:5}},
-    {id:"XC1088035",dur:51,songs:91,syls:92,types:{low_frequency:72,harmonic:10,high_frequency:5,trill:3,rmnr:2}},
-    {id:"XC1088036",dur:80,songs:177,syls:167,types:{low_frequency:94,harmonic:30,high_frequency:19,rmnr:17,trill:7}},
-    {id:"XC1089008",dur:98,songs:120,syls:116,types:{low_frequency:78,trill:14,rmnr:11,harmonic:7,high_frequency:6}},
-    {id:"XC1090728",dur:138,songs:289,syls:294,types:{harmonic:121,low_frequency:56,high_frequency:53,trill:35,rmnr:29}},
-    {id:"XC1093635",dur:158,songs:208,syls:205,types:{low_frequency:134,harmonic:49,rmnr:18,high_frequency:2,trill:2}},
-    {id:"XC1093636",dur:40,songs:60,syls:55,types:{low_frequency:32,rmnr:7,harmonic:7,trill:6,high_frequency:3}},
-    {id:"XC1093637",dur:234,songs:321,syls:274,types:{low_frequency:140,harmonic:44,high_frequency:39,trill:26,rmnr:25}},
-    {id:"XC1104055",dur:326,songs:507,syls:474,types:{low_frequency:202,high_frequency:114,harmonic:61,rmnr:57,trill:40}},
-    {id:"XC1105557",dur:120,songs:211,syls:212,types:{low_frequency:120,harmonic:27,rmnr:22,trill:22,high_frequency:21}},
-    {id:"XC956615",dur:121,songs:149,syls:156,types:{high_frequency:68,low_frequency:40,trill:18,harmonic:18,rmnr:12}},
-    {id:"XC956959",dur:117,songs:224,syls:237,types:{high_frequency:91,harmonic:72,rmnr:28,low_frequency:26,trill:20}},
-    {id:"XC956965",dur:112,songs:215,syls:200,types:{low_frequency:56,rmnr:43,harmonic:42,high_frequency:34,trill:25}},
-    {id:"XC957403",dur:55,songs:147,syls:149,types:{harmonic:40,low_frequency:36,trill:28,rmnr:28,high_frequency:17}},
-    {id:"XC957405",dur:86,songs:151,syls:157,types:{harmonic:56,low_frequency:41,high_frequency:25,trill:21,rmnr:14}},
-    {id:"XC958028",dur:86,songs:151,syls:157,types:{harmonic:56,low_frequency:41,high_frequency:25,trill:21,rmnr:14}},
-    {id:"XC958039",dur:97,songs:79,syls:79,types:{low_frequency:52,harmonic:22,rmnr:3,trill:2}},
-    {id:"XC958846",dur:95,songs:139,syls:142,types:{low_frequency:115,harmonic:13,high_frequency:10,trill:2,rmnr:2}},
-    {id:"XC958849",dur:120,songs:199,syls:194,types:{low_frequency:89,harmonic:74,high_frequency:16,rmnr:13,trill:2}},
-    {id:"XC958850",dur:157,songs:149,syls:166,types:{low_frequency:98,harmonic:40,high_frequency:13,rmnr:11,trill:4}},
-    {id:"XC958857",dur:90,songs:175,syls:171,types:{low_frequency:147,harmonic:17,rmnr:6,trill:1}},
-    {id:"XC958859",dur:56,songs:71,syls:71,types:{low_frequency:29,harmonic:28,high_frequency:8,trill:4,rmnr:2}},
-    {id:"XC958860",dur:89,songs:226,syls:229,types:{harmonic:80,low_frequency:73,rmnr:37,trill:29,high_frequency:10}},
-    {id:"XC958861",dur:80,songs:202,syls:208,types:{harmonic:79,low_frequency:56,rmnr:44,trill:20,high_frequency:9}},
-    {id:"XC959027",dur:138,songs:196,syls:185,types:{low_frequency:122,harmonic:23,rmnr:18,trill:12,high_frequency:10}},
-    {id:"XC959355",dur:253,songs:252,syls:217,types:{low_frequency:202,harmonic:13,rmnr:2}},
-    {id:"XC959356",dur:136,songs:175,syls:160,types:{low_frequency:118,harmonic:25,rmnr:10,trill:7}},
-    {id:"XC961546",dur:74,songs:82,syls:77,types:{low_frequency:29,harmonic:14,high_frequency:14,rmnr:11,trill:9}},
-    {id:"XC975412",dur:60,songs:36,syls:36,types:{low_frequency:32,harmonic:4}},
-    {id:"XC975414",dur:100,songs:212,syls:206,types:{low_frequency:190,harmonic:12,rmnr:3,high_frequency:1}},
-    {id:"XC975421",dur:185,songs:164,syls:159,types:{low_frequency:79,harmonic:33,high_frequency:23,rmnr:15,trill:9}},
-    {id:"XC975424",dur:17,songs:30,syls:34,types:{low_frequency:33,harmonic:1}},
-    {id:"XC975431",dur:171,songs:320,syls:300,types:{low_frequency:128,harmonic:76,high_frequency:35,rmnr:34,trill:27}},
-    {id:"XC975435",dur:113,songs:192,syls:183,types:{low_frequency:93,harmonic:47,high_frequency:19,trill:12,rmnr:12}},
-    {id:"XC975439",dur:219,songs:330,syls:327,types:{low_frequency:135,harmonic:81,high_frequency:55,rmnr:40,trill:16}},
-    {id:"XC975449",dur:272,songs:407,syls:408,types:{low_frequency:152,high_frequency:71,harmonic:64,rmnr:61,trill:60}},
-    {id:"XC975454",dur:147,songs:262,syls:253,types:{low_frequency:107,harmonic:70,rmnr:30,high_frequency:27,trill:19}},
-    {id:"XC975461",dur:109,songs:178,syls:175,types:{low_frequency:70,harmonic:46,high_frequency:33,rmnr:13,trill:13}},
-    {id:"XC975467",dur:96,songs:68,syls:72,types:{low_frequency:41,high_frequency:14,harmonic:14,rmnr:2,trill:1}},
-    {id:"XC975474",dur:32,songs:50,syls:61,types:{low_frequency:58,harmonic:3}},
-    {id:"XC975481",dur:100,songs:150,syls:149,types:{low_frequency:144,harmonic:4,rmnr:1}},
-    {id:"XC979569",dur:80,songs:16,syls:17,types:{low_frequency:12,harmonic:5}},
-    {id:"XC979570",dur:82,songs:155,syls:141,types:{low_frequency:74,harmonic:33,high_frequency:22,trill:7,rmnr:5}},
-    {id:"XC979573",dur:386,songs:384,syls:342,types:{low_frequency:227,harmonic:51,high_frequency:28,rmnr:25,trill:11}},
-    {id:"XC979576",dur:261,songs:263,syls:248,types:{low_frequency:151,harmonic:48,high_frequency:27,rmnr:12,trill:10}},
-    {id:"XC979580",dur:206,songs:268,syls:245,types:{low_frequency:136,harmonic:55,high_frequency:33,rmnr:17,trill:4}},
-    {id:"XC979583",dur:25,songs:28,syls:36,types:{low_frequency:35,rmnr:1}},
-    {id:"XC198851",dur:60,songs:45,syls:47,types:{low_frequency:25,harmonic:17,rmnr:5}},
-    {id:"XC198859",dur:85,songs:54,syls:50,types:{low_frequency:40,harmonic:7,trill:2,rmnr:1}},
-    {id:"XC206472",dur:46,songs:81,syls:78,types:{low_frequency:40,harmonic:21,rmnr:7,trill:6,high_frequency:4}},
-    {id:"XC207006",dur:18,songs:44,syls:45,types:{low_frequency:22,rmnr:8,harmonic:8,trill:4,high_frequency:3}},
-    {id:"XC214591",dur:26,songs:21,syls:17,types:{low_frequency:15,rmnr:2}},
-    {id:"XC293355",dur:107,songs:198,syls:188,types:{low_frequency:68,high_frequency:54,trill:28,harmonic:24,rmnr:14}},
-    {id:"XC321682",dur:24,songs:39,syls:38,types:{low_frequency:16,high_frequency:15,trill:4,rmnr:2,harmonic:1}},
-    {id:"XC33763",dur:51,songs:59,syls:62,types:{low_frequency:55,trill:4,harmonic:3}},
-    {id:"XC347358",dur:166,songs:80,syls:78,types:{low_frequency:38,harmonic:32,rmnr:6,high_frequency:2}},
-    {id:"XC348752",dur:153,songs:71,syls:82,types:{low_frequency:47,harmonic:24,rmnr:5,high_frequency:5,trill:1}},
-    {id:"XC348767",dur:91,songs:143,syls:135,types:{low_frequency:63,trill:24,harmonic:17,rmnr:17,high_frequency:14}},
-    {id:"XC349523",dur:126,songs:74,syls:65,types:{low_frequency:32,harmonic:26,rmnr:4,high_frequency:2,trill:1}},
-    {id:"XC378275",dur:154,songs:163,syls:159,types:{low_frequency:130,harmonic:13,rmnr:11,trill:4,high_frequency:1}},
-    {id:"XC378278",dur:117,songs:75,syls:68,types:{low_frequency:37,high_frequency:19,rmnr:5,harmonic:5,trill:2}},
-    {id:"XC378279",dur:117,songs:75,syls:68,types:{low_frequency:37,high_frequency:19,rmnr:5,harmonic:5,trill:2}},
-    {id:"XC378281",dur:158,songs:194,syls:175,types:{low_frequency:129,harmonic:16,high_frequency:15,rmnr:13,trill:2}},
-    {id:"XC40495",dur:10,songs:14,syls:16,types:{low_frequency:7,harmonic:6,rmnr:1,high_frequency:1,trill:1}},
-    {id:"XC465230",dur:50,songs:77,syls:69,types:{low_frequency:30,high_frequency:18,harmonic:11,rmnr:8,trill:2}},
-    {id:"XC481387",dur:5,songs:6,syls:6,types:{low_frequency:5,harmonic:1}},
-    {id:"XC500846",dur:161,songs:210,syls:167,types:{low_frequency:84,high_frequency:36,harmonic:20,rmnr:17,trill:10}},
-    {id:"XC500848",dur:28,songs:16,syls:13,types:{low_frequency:13}},
-    {id:"XC500852",dur:94,songs:150,syls:149,types:{low_frequency:101,harmonic:20,rmnr:11,high_frequency:9,trill:8}},
-    {id:"XC500853",dur:136,songs:185,syls:196,types:{low_frequency:117,harmonic:44,rmnr:17,trill:13,high_frequency:5}},
-    {id:"XC500854",dur:80,songs:133,syls:126,types:{low_frequency:82,harmonic:22,rmnr:13,trill:8,high_frequency:1}},
-    {id:"XC500855",dur:86,songs:107,syls:98,types:{low_frequency:74,harmonic:10,rmnr:7,trill:5,high_frequency:2}},
-    {id:"XC562526",dur:226,songs:320,syls:326,types:{low_frequency:121,harmonic:81,rmnr:50,trill:45,high_frequency:29}},
-    {id:"XC684497",dur:185,songs:113,syls:109,types:{low_frequency:66,harmonic:18,high_frequency:14,rmnr:10,trill:1}},
-    {id:"XC70960",dur:26,songs:65,syls:64,types:{low_frequency:26,harmonic:13,rmnr:12,trill:7,high_frequency:6}},
-    {id:"XC842514",dur:60,songs:60,syls:64,types:{harmonic:34,low_frequency:28,rmnr:1,trill:1}},
-    {id:"XC842647",dur:96,songs:136,syls:133,types:{low_frequency:61,harmonic:34,rmnr:16,trill:13,high_frequency:9}},
-    {id:"XC842651",dur:50,songs:59,syls:57,types:{low_frequency:48,harmonic:5,rmnr:2,trill:1,high_frequency:1}},
-    {id:"XC842652",dur:36,songs:45,syls:44,types:{low_frequency:40,high_frequency:2,harmonic:2}},
-    {id:"XC842656",dur:9,songs:15,syls:19,types:{low_frequency:12,harmonic:6,high_frequency:1}},
-    {id:"XC842660",dur:39,songs:43,syls:47,types:{low_frequency:30,harmonic:13,rmnr:2,high_frequency:2}},
-    {id:"XC842663",dur:15,songs:6,syls:9,types:{low_frequency:9}},
-    {id:"XC842718",dur:76,songs:127,syls:114,types:{low_frequency:52,high_frequency:34,harmonic:17,rmnr:7,trill:4}},
-    {id:"XC842746",dur:35,songs:63,syls:63,types:{low_frequency:36,rmnr:10,high_frequency:9,harmonic:5,trill:3}},
-    {id:"XC842766",dur:90,songs:166,syls:145,types:{low_frequency:98,rmnr:16,harmonic:15,trill:12,high_frequency:4}},
-    {id:"XC842782",dur:211,songs:268,syls:255,types:{low_frequency:132,harmonic:69,rmnr:31,trill:16,high_frequency:7}},
-    {id:"XC842783",dur:129,songs:246,syls:246,types:{low_frequency:114,trill:47,harmonic:43,rmnr:25,high_frequency:17}},
-    {id:"XC843914",dur:46,songs:73,syls:68,types:{low_frequency:58,high_frequency:4,harmonic:3,trill:2,rmnr:1}},
-    {id:"XC856418",dur:282,songs:549,syls:517,types:{low_frequency:313,rmnr:81,harmonic:80,high_frequency:23,trill:20}},
-    {id:"XC857787",dur:231,songs:317,syls:299,types:{low_frequency:203,harmonic:46,rmnr:35,high_frequency:10,trill:5}},
-    {id:"XC857958",dur:184,songs:341,syls:323,types:{low_frequency:282,harmonic:13,rmnr:13,high_frequency:9,trill:6}},
-    {id:"XC892546",dur:56,songs:112,syls:100,types:{high_frequency:42,low_frequency:28,trill:12,harmonic:10,rmnr:8}},
-    {id:"XC915121",dur:60,songs:65,syls:61,types:{low_frequency:41,harmonic:9,high_frequency:6,rmnr:3,trill:2}},
-    {id:"XC925479",dur:212,songs:295,syls:297,types:{low_frequency:135,high_frequency:61,harmonic:58,trill:28,rmnr:15}},
-    {id:"XC925480",dur:102,songs:145,syls:141,types:{low_frequency:81,harmonic:26,high_frequency:17,rmnr:10,trill:7}},
-    {id:"XC925493",dur:564,songs:762,syls:708,types:{low_frequency:366,harmonic:103,high_frequency:102,rmnr:97,trill:40}},
-    {id:"XC925495",dur:142,songs:220,syls:199,types:{low_frequency:108,high_frequency:49,trill:17,rmnr:14,harmonic:11}},
-    {id:"XC926286",dur:43,songs:20,syls:25,types:{low_frequency:17,harmonic:7,rmnr:1}},
-    {id:"XC926288",dur:136,songs:88,syls:107,types:{low_frequency:83,harmonic:10,high_frequency:10,rmnr:4}},
-    {id:"XC926289",dur:83,songs:146,syls:130,types:{harmonic:51,low_frequency:45,rmnr:29,high_frequency:3,trill:2}},
-    {id:"XC926290",dur:517,songs:746,syls:768,types:{low_frequency:357,harmonic:167,high_frequency:130,rmnr:72,trill:42}},
-    {id:"XC927430",dur:13,songs:34,syls:37,types:{low_frequency:35,harmonic:2}},
-    {id:"XC927433",dur:15,songs:29,syls:33,types:{low_frequency:25,harmonic:5,rmnr:3}},
-    {id:"XC927436",dur:76,songs:112,syls:120,types:{low_frequency:79,harmonic:26,rmnr:9,trill:6}},
-    {id:"XC927457",dur:238,songs:304,syls:308,types:{low_frequency:184,harmonic:73,rmnr:28,high_frequency:12,trill:11}},
-    {id:"XC927459",dur:111,songs:168,syls:160,types:{low_frequency:149,harmonic:7,rmnr:3,high_frequency:1}},
-    {id:"XC927460",dur:207,songs:72,syls:74,types:{low_frequency:44,harmonic:21,high_frequency:7,rmnr:2}},
-    {id:"XC927463",dur:168,songs:160,syls:149,types:{low_frequency:71,harmonic:51,rmnr:19,high_frequency:5,trill:3}},
-    {id:"XC956095",dur:15,songs:26,syls:25,types:{low_frequency:23,harmonic:2}},
-    {id:"XC956097",dur:22,songs:26,syls:28,types:{low_frequency:28}},
-    {id:"XC956098",dur:51,songs:84,syls:78,types:{low_frequency:75,harmonic:3}},
-    {id:"XC956101",dur:11,songs:16,syls:17,types:{low_frequency:12,harmonic:3,rmnr:2}},
-    {id:"XC956103",dur:79,songs:98,syls:90,types:{low_frequency:48,harmonic:20,high_frequency:11,trill:7,rmnr:4}},
-    {id:"XC956104",dur:316,songs:247,syls:218,types:{low_frequency:111,harmonic:43,high_frequency:35,rmnr:21,trill:8}},
-    {id:"XC956332",dur:60,songs:37,syls:35,types:{low_frequency:31,harmonic:4}},
-    {id:"XC956611",dur:132,songs:164,syls:149,types:{low_frequency:87,high_frequency:32,trill:17,rmnr:10,harmonic:3}}
-  ]
-};
 
 const SPECIES_TABLE = [
   {en:"Tui",sp:"Prosthemadera novaeseelandiae",count:249,q_a:131,q_b:101,songs:214,calls:21,top_regions:"Auckland(44), Bay of Plenty(35), Southland(32)"},
@@ -1418,12 +1313,16 @@ document.querySelectorAll('.tab').forEach(tab => {
     if (tab.dataset.tab === 'map' && !window._mapChartsInit) initMapCharts();
     if (tab.dataset.tab === 'map' && !window._geoChartsInit) initGeoCharts();
     // Re-render charts on tab switch (Chart.js needs visible container)
-    if (tab.dataset.tab === 'syllables' && !window._sylInit) initSyllables();
+    // 'syllables' tab removed in v2 — now separate per-species tabs
+    if (tab.dataset.tab === 'tui-analysis' && !window._sylInit) initSyllables();
+    if (tab.dataset.tab === 'bellbird-analysis' && !window._sylInit) initSyllables();
+    if (tab.dataset.tab === 'kaka-analysis' && !window._sylInit) initSyllables();
+    if (tab.dataset.tab === 'samples' && !window._sylInit) initSyllables();
     if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
     // Init game tab
     if (tab.dataset.tab === 'game' && !window._gameInit) { GameEngine.init(); window._gameInit = true; }
     // Init temporal tab
-    if (tab.dataset.tab === 'temporal' && !window._temporalInit) initTemporal();
+    // temporal tab disabled in v2 — needs species-specific rebuild
   });
 });
 
@@ -1501,128 +1400,227 @@ function togglePlay(btn, xcId) {
 // ==================== SYLLABLE ANALYSIS ====================
 function initSyllables() {
   window._sylInit = true;
-  const total = 17554;
-  const maxCount = 9607;
   
-  // Syllable bars
-  const barsDiv = document.getElementById('syl-bars');
-  SYLLABLE_DATA.types.forEach(t => {
-    const row = document.createElement('div');
-    row.className = 'syl-bar-row';
-    row.innerHTML = `
-      <div class="syl-label">${t.name}</div>
-      <div class="syl-track">
-        <div class="syl-fill" style="width:${(t.count/maxCount*100).toFixed(1)}%;background:${t.color}"></div>
-      </div>
-      <div class="syl-val">${t.count.toLocaleString()} <span class="syl-pct">${t.pct}%</span></div>`;
-    barsDiv.appendChild(row);
-  });
+  // === TŪĪ DISTRIBUTION BARS ===
+  const tuiTypes = [
+    {name:'RMNR',count:11494,pct:64.9,color:'#b07d22'},
+    {name:'Trill',count:3036,pct:17.1,color:'#7c5784'},
+    {name:'Harmonic',count:2452,pct:13.8,color:'#2c6c8c'},
+    {name:'High-frequency',count:630,pct:3.6,color:'#bb4a33'},
+    {name:'Low-frequency',count:104,pct:0.6,color:'#5f7a3a'},
+  ];
+  const tuiBars = document.getElementById('tui-syl-bars');
+  if(tuiBars) {
+    const maxC = tuiTypes[0].count;
+    tuiTypes.forEach(t => {
+      const row = document.createElement('div');
+      row.className = 'syl-bar-row';
+      row.innerHTML = `<div class="syl-label">${t.name}</div>
+        <div class="syl-track"><div class="syl-fill" style="width:${(t.count/maxC*100).toFixed(1)}%;background:${t.color}"></div></div>
+        <div class="syl-val">${t.count.toLocaleString()} <span class="syl-pct">${t.pct}%</span></div>`;
+      tuiBars.appendChild(row);
+    });
+  }
 
-  // Hill comparison chart
-  const chartColors = {
-    ours: ['#5f7a3a','#2c6c8c','#bb4a33','#b07d22','#7c5784'],
-    hill: ['#5f7a3a44','#2c6c8c44','#bb4a3344','#b07d2244','#7c578444']
+  // === BELLBIRD DISTRIBUTION BARS ===
+  const bbTypes = [
+    {name:'Stutter',count:4013,pct:62.8,color:'#b07d22'},
+    {name:'Click',count:1237,pct:19.4,color:'#5f7a3a'},
+    {name:'Trill',count:748,pct:11.7,color:'#bb4a33'},
+    {name:'Complex',count:233,pct:3.6,color:'#a99e89'},
+    {name:'Warble',count:152,pct:2.4,color:'#7c5784'},
+    {name:'Pipe',count:5,pct:0.1,color:'#2c6c8c'},
+  ];
+  const bbBars = document.getElementById('bellbird-syl-bars');
+  if(bbBars) {
+    const maxC = bbTypes[0].count;
+    bbTypes.forEach(t => {
+      const row = document.createElement('div');
+      row.className = 'syl-bar-row';
+      row.innerHTML = `<div class="syl-label">${t.name}</div>
+        <div class="syl-track"><div class="syl-fill" style="width:${(t.count/maxC*100).toFixed(1)}%;background:${t.color}"></div></div>
+        <div class="syl-val">${t.count.toLocaleString()} <span class="syl-pct">${t.pct}%</span></div>`;
+      bbBars.appendChild(row);
+    });
+  }
+
+  // === KĀKĀ DISTRIBUTION BARS ===
+  const kakaTypes = [
+    {name:'Snicker',count:889,pct:80.9,color:'#7c5784'},
+    {name:'Bark',count:177,pct:16.1,color:'#8c4a2c'},
+    {name:'Gurgle',count:33,pct:3.0,color:'#2c6c8c'},
+  ];
+  const kakaBars = document.getElementById('kaka-call-bars');
+  if(kakaBars) {
+    const maxC = kakaTypes[0].count;
+    kakaTypes.forEach(t => {
+      const row = document.createElement('div');
+      row.className = 'syl-bar-row';
+      row.innerHTML = `<div class="syl-label">${t.name}</div>
+        <div class="syl-track"><div class="syl-fill" style="width:${(t.count/maxC*100).toFixed(1)}%;background:${t.color}"></div></div>
+        <div class="syl-val">${t.count.toLocaleString()} <span class="syl-pct">${t.pct}%</span></div>`;
+      kakaBars.appendChild(row);
+    });
+  }
+
+  // === SAMPLE EXPLORER ===
+  window.showSampleSpecies = function(species, btn) {
+    document.querySelectorAll('#panel-samples .tab').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    const container = document.getElementById('sample-types');
+    container.innerHTML = '';
+    
+    const configs = {
+      tui: {
+        unit: 'syllable',
+        categories: ['harmonic','rmnr','trill','high_frequency','low_frequency'],
+        labels: {harmonic:'Harmonic',rmnr:'RMNR',trill:'Trill',high_frequency:'High-frequency',low_frequency:'Low-frequency'},
+        colors: {harmonic:'#2c6c8c',rmnr:'#b07d22',trill:'#7c5784',high_frequency:'#bb4a33',low_frequency:'#5f7a3a'},
+        descs: {harmonic:'Integer multiples of fundamental frequency',rmnr:'Rapid Multiple Note Repetition',trill:'Rapid frequency modulation',high_frequency:'f₀ ≥ 5 kHz',low_frequency:'Dominant energy below 2 kHz'},
+      },
+      bellbird: {
+        unit: 'syllable',
+        categories: ['pipe','stutter','warble','trill','click','complex'],
+        labels: {pipe:'Pipe',stutter:'Stutter',warble:'Warble',trill:'Trill',click:'Click',complex:'Complex'},
+        colors: {pipe:'#2c6c8c',stutter:'#b07d22',warble:'#7c5784',trill:'#bb4a33',click:'#5f7a3a',complex:'#a99e89'},
+        descs: {pipe:'Pure tone whistles',stutter:'Rapid repeated elements',warble:'Frequency-modulated, tonal',trill:'Rapid oscillatory FM',click:'Very short impulse (<40ms)',complex:'Multi-element'},
+      },
+      kaka: {
+        unit: 'call',
+        categories: ['snicker','bark','gurgle'],
+        labels: {snicker:'Snicker',bark:'Bark',gurgle:'Gurgle'},
+        colors: {snicker:'#7c5784',bark:'#8c4a2c',gurgle:'#2c6c8c'},
+        descs: {snicker:'Rapid chattering series',bark:'Short sharp percussive call',gurgle:'Complex low-frequency call'},
+      },
+    };
+    const cfg = configs[species];
+    if(!cfg) return;
+    
+    cfg.categories.forEach(cat => {
+      const section = document.createElement('div');
+      section.style.cssText = 'margin-bottom:2rem;';
+      section.innerHTML = `<h3 style="color:${cfg.colors[cat]};margin-bottom:.3rem">${cfg.labels[cat]}</h3>
+        <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem">${cfg.descs[cat]}</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem" id="samples-${species}-${cat}"></div>`;
+      container.appendChild(section);
+      
+      const grid = section.querySelector(`#samples-${species}-${cat}`);
+      for(let i = 0; i < 5; i++) {
+        const png = `samples_v2/${species}/${cat}_${i}.png`;
+        const wav = `samples_v2/${species}/${cat}_${i}.wav`;
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.cssText = 'padding:.6rem;text-align:center;';
+        card.innerHTML = `<img src="${png}" alt="${cfg.labels[cat]} #${i+1}" style="width:100%;border-radius:4px;margin-bottom:.4rem" onerror="this.parentElement.style.display='none'">
+          <button class="play-btn" onclick="toggleSamplePlay(this,'${wav}')" style="font-family:var(--mono);font-size:.72rem;cursor:pointer;padding:.3rem .6rem;border:1px solid var(--rule);border-radius:4px;background:var(--surface)">▶ Play</button>`;
+        grid.appendChild(card);
+      }
+    });
   };
-  new Chart(document.getElementById('hillCompareChart'), {
-    type: 'bar',
-    data: {
-      labels: ['Low-freq','Harmonic','High-freq','RMNR','Trill'],
-      datasets: [
-        {label:'Our Pipeline (n=116)',data:[54.7,18.8,11.1,9.2,6.2],backgroundColor:chartColors.ours,borderRadius:3},
-        {label:'Hill (2014)',data:[10,15,8,12,8],backgroundColor:chartColors.hill,borderRadius:3,borderWidth:1,borderColor:chartColors.ours}
-      ]
-    },
-    options: {
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{labels:{font:{family:'Spline Sans Mono',size:11},color:'#675e4f'},position:'bottom'}},
-      scales:{
-        x:{ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89'},grid:{display:false}},
-        y:{ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89',callback:v=>v+'%'},grid:{color:'#e2d9c7'}}
-      }
-    }
-  });
-
-  // Per-recording stacked bar
-  const typeKeys = ['low_frequency','harmonic','high_frequency','rmnr','trill'];
-  const typeColors = ['#5f7a3a','#2c6c8c','#bb4a33','#b07d22','#7c5784'];
-  const typeLabels = ['Low-freq','Harmonic','High-freq','RMNR','Trill'];
   
-  new Chart(document.getElementById('perRecordingChart'), {
-    type: 'bar',
-    data: {
-      labels: SYLLABLE_DATA.perRecording.map(r => r.id.replace('XC','')),
-      datasets: typeKeys.map((k,i) => ({
-        label: typeLabels[i],
-        data: SYLLABLE_DATA.perRecording.map(r => r.types[k] || 0),
-        backgroundColor: typeColors[i],
-        borderRadius: i === typeKeys.length-1 ? 2 : 0
-      }))
-    },
-    options: {
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{labels:{font:{family:'Spline Sans Mono',size:10},color:'#675e4f'},position:'bottom'}},
-      scales:{
-        x:{stacked:true,ticks:{font:{family:'Spline Sans Mono',size:9},color:'#a99e89',maxRotation:45},grid:{display:false}},
-        y:{stacked:true,ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89'},grid:{color:'#e2d9c7'}}
-      }
-    }
-  });
+  // Init with tui
+  showSampleSpecies('tui', document.querySelector('#panel-samples .tab'));
 
-  // Recording table
-  const tbody = document.querySelector('#recording-table tbody');
-  SYLLABLE_DATA.perRecording.forEach(r => {
-    const dominant = Object.entries(r.types).sort((a,b)=>b[1]-a[1])[0];
-    const dist = Object.entries(r.types).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k.replace('_',' ')}:${v}`).join(', ');
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><a href="https://xeno-canto.org/${r.id.replace('XC','')}" target="_blank">${r.id}</a></td>
-      <td class="num">${r.dur}s</td>
-      <td class="num">${r.songs}</td>
-      <td class="num">${r.syls}</td>
-      <td style="font-family:var(--mono);font-size:.8rem">${dominant[0].replace('_',' ')}</td>
-      <td style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint)">${dist}</td>`;
-    tbody.appendChild(tr);
-  });
 
-  // Grammar comparison charts
-  new Chart(document.getElementById('grammarCompareChart'), {
-    type:'bar',
-    data:{
-      labels:['Tūī','Bellbird','Kākā'],
-      datasets:[
-        {label:'Predictability',data:[23.8,45.7,47.2],backgroundColor:['#5f7a3a','#2c6c8c','#b04a3a'],borderRadius:3},
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y+'% predictable'}}},
-      scales:{
-        x:{ticks:{font:{family:'Spline Sans Mono',size:11},color:'#675e4f'},grid:{display:false}},
-        y:{max:60,ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89',callback:v=>v+'%'},grid:{color:'#e2d9c7'},title:{display:true,text:'Predictability (%)',font:{family:'Spline Sans Mono',size:10},color:'#a99e89'}}
+  // === PER-RECORDING STACKED BAR CHARTS ===
+  const chartFont = {family:'Spline Sans Mono',size:10};
+  const gridColor = '#e2d9c7';
+  const tickColor = '#a99e89';
+  
+  // Tui per-recording
+  if(document.getElementById('tuiPerRecChart')) {
+    new Chart(document.getElementById('tuiPerRecChart'), {
+      type:'bar',
+      data:{
+        labels:["XC926290", "XC925493", "XC856418", "XC1104055", "XC975449", "XC979573", "XC562526", "XC857958", "XC975439", "XC1093637", "XC857787", "XC925479", "XC927457", "XC975431", "XC1090728", "XC959355", "XC842782", "XC979580", "XC975454", "XC842783", "XC979576", "XC956104", "XC958860", "XC956959", "XC975414", "XC1093635", "XC1105557", "XC293355", "XC958861", "XC925495", "XC500853", "XC958849", "XC959027", "XC975435", "XC378281", "XC956965", "XC958857", "XC1088036", "XC975461", "XC500846", "XC1088034", "XC958850", "XC378275", "XC956615", "XC927459", "XC957405", "XC958028", "XC959356", "XC975421", "XC956611", "XC842766", "XC979570", "XC975481", "XC927463", "XC957403", "XC500852", "XC925480", "XC348767", "XC926289", "XC958846", "XC500854", "XC684497", "XC842647", "XC842718", "XC927436", "XC1089008", "XC926288", "XC500855", "XC892546", "XC1088035", "XC956103", "XC378278", "XC378279", "XC961546", "XC347358", "XC348752", "XC927460", "XC958039", "XC206472", "XC956098", "XC465230", "XC958859", "XC975467", "XC70960", "XC842514", "XC843914", "XC349523", "XC915121", "XC33763", "XC842651", "XC842746", "XC1093636", "XC975474", "XC198859", "XC842660", "XC198851", "XC207006", "XC842652", "XC321682", "XC927430", "XC956332", "XC975412", "XC979583", "XC927433", "XC975424", "XC956097", "XC926286", "XC956095", "XC842656", "XC214591", "XC979569", "XC40495", "XC956101", "XC500848", "XC842663", "XC481387"],
+        datasets:[
+        {label:'rmnr',data:[451, 471, 352, 264, 257, 218, 193, 242, 198, 127, 211, 180, 222, 178, 214, 183, 173, 166, 137, 149, 145, 130, 156, 151, 126, 148, 113, 121, 141, 114, 146, 158, 128, 107, 133, 91, 133, 104, 99, 115, 121, 119, 119, 99, 111, 95, 95, 128, 94, 91, 88, 90, 97, 104, 84, 107, 94, 81, 75, 104, 97, 86, 73, 67, 75, 70, 80, 85, 57, 58, 45, 48, 48, 47, 68, 60, 59, 63, 38, 57, 43, 57, 44, 32, 57, 55, 49, 36, 52, 44, 40, 36, 42, 44, 40, 36, 22, 30, 28, 30, 24, 22, 24, 23, 22, 19, 19, 16, 16, 10, 11, 12, 12, 13, 7, 5],backgroundColor:'#b07d22'},
+        {label:'trill',data:[191, 146, 80, 137, 69, 54, 72, 23, 60, 81, 14, 85, 36, 62, 46, 8, 22, 41, 69, 35, 41, 39, 43, 26, 38, 30, 51, 51, 38, 47, 31, 11, 29, 35, 13, 48, 10, 28, 41, 26, 11, 17, 20, 45, 22, 44, 44, 13, 29, 43, 34, 33, 13, 12, 44, 15, 32, 37, 21, 11, 13, 14, 31, 34, 15, 26, 6, 9, 21, 8, 12, 16, 16, 25, 4, 13, 1, 1, 27, 4, 16, 6, 7, 22, 4, 5, 3, 13, 4, 8, 13, 10, 10, 1, 3, 3, 14, 3, 8, 3, 3, 5, 3, 6, 5, 2, 2, 4, 0, 3, 0, 1, 3, 0, 0, 0],backgroundColor:'#7c5784'},
+        {label:'harmonic',data:[86, 87, 82, 45, 37, 68, 53, 52, 46, 77, 70, 30, 31, 42, 18, 80, 51, 53, 41, 26, 48, 47, 23, 30, 45, 24, 27, 12, 16, 28, 16, 23, 34, 39, 24, 30, 27, 31, 20, 17, 27, 17, 19, 7, 23, 17, 17, 14, 21, 13, 24, 20, 38, 26, 14, 16, 13, 15, 30, 17, 13, 12, 17, 17, 26, 6, 21, 13, 8, 19, 24, 8, 8, 4, 7, 5, 12, 11, 9, 12, 6, 5, 14, 5, 4, 5, 9, 6, 5, 9, 5, 9, 7, 7, 2, 5, 5, 8, 1, 4, 8, 8, 8, 2, 2, 5, 4, 2, 2, 4, 5, 3, 1, 0, 0, 1],backgroundColor:'#2c6c8c'},
+        {label:'high_frequency',data:[25, 30, 8, 46, 46, 18, 7, 3, 12, 28, 1, 4, 7, 10, 9, 0, 3, 5, 13, 5, 11, 26, 4, 5, 1, 2, 13, 17, 4, 9, 1, 1, 2, 8, 12, 8, 0, 8, 11, 10, 6, 8, 1, 8, 1, 0, 0, 0, 10, 6, 4, 7, 0, 0, 1, 4, 2, 4, 8, 0, 4, 12, 0, 2, 1, 10, 4, 2, 12, 1, 5, 10, 10, 5, 1, 2, 6, 1, 1, 1, 5, 1, 3, 6, 0, 0, 2, 5, 1, 1, 3, 3, 0, 0, 2, 0, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],backgroundColor:'#bb4a33'},
+        {label:'low_frequency',data:[0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 3, 0, 0, 0, 0, 1, 22, 0, 0, 43, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 1, 0, 0, 1, 1, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],backgroundColor:'#5f7a3a'}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{position:'bottom',labels:{font:chartFont,usePointStyle:true,pointStyle:'rect',padding:10}},
+          tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y}}},
+        scales:{
+          x:{stacked:true,ticks:{font:{...chartFont,size:7},color:tickColor,maxRotation:90,minRotation:45},grid:{display:false}},
+          y:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{color:gridColor},
+            title:{display:true,text:'Syllable count',font:chartFont,color:tickColor}}
+        }
       }
-    }
-  });
+    });
+  }
 
-  new Chart(document.getElementById('entropyChart'), {
-    type:'bar',
-    data:{
-      labels:['Tūī','Bellbird','Kākā'],
-      datasets:[
-        {label:'Observed',data:[3.54,2.52,2.45],backgroundColor:['#5f7a3a','#2c6c8c','#b04a3a'],borderRadius:3},
-        {label:'Random baseline',data:[3.70,2.69,2.66],backgroundColor:['#5f7a3a44','#2c6c8c44','#b04a3a44'],borderRadius:3,borderWidth:1,borderColor:['#5f7a3a','#2c6c8c','#b04a3a']}
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{labels:{font:{family:'Spline Sans Mono',size:10},color:'#675e4f'},position:'bottom'},
-               tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y+' bits'}}},
-      scales:{
-        x:{ticks:{font:{family:'Spline Sans Mono',size:11},color:'#675e4f'},grid:{display:false}},
-        y:{min:0,max:5,ticks:{font:{family:'Spline Sans Mono',size:10},color:'#a99e89',callback:v=>v+' bits'},grid:{color:'#e2d9c7'}}
+  // Bellbird per-recording
+  if(document.getElementById('bellbirdPerRecChart')) {
+    new Chart(document.getElementById('bellbirdPerRecChart'), {
+      type:'bar',
+      data:{
+        labels:["XC925265", "XC213409", "XC843997", "XC348762", "XC1089270", "XC33750", "XC112821", "XC925259", "XC474021", "XC1089006", "XC1089266", "XC293344", "XC856449", "XC663169", "XC1089007", "XC842925", "XC842722", "XC843994", "XC509572", "XC925262", "XC348789", "XC925263", "XC475984", "XC152939", "XC46600", "XC46601", "XC1092059", "XC348753", "XC428804", "XC506507", "XC1089268", "XC344384", "XC925261", "XC1059091", "XC360586", "XC1059099", "XC1093633", "XC293305", "XC40098", "XC345382"],
+        datasets:[
+        {label:'stutter',data:[617, 551, 298, 119, 133, 139, 115, 158, 107, 83, 77, 110, 79, 68, 56, 76, 75, 66, 58, 40, 67, 58, 63, 40, 38, 51, 28, 28, 24, 19, 19, 18, 13, 14, 17, 10, 6, 9, 6, 3],backgroundColor:'#b07d22'},
+        {label:'click',data:[212, 151, 94, 110, 31, 20, 32, 4, 33, 19, 23, 20, 38, 56, 14, 12, 23, 26, 20, 5, 11, 3, 13, 12, 14, 13, 5, 6, 17, 11, 6, 6, 5, 4, 1, 3, 4, 1, 5, 0],backgroundColor:'#5f7a3a'},
+        {label:'trill',data:[57, 9, 38, 70, 79, 18, 16, 11, 21, 53, 50, 13, 19, 12, 47, 17, 12, 4, 3, 43, 7, 19, 0, 9, 11, 2, 9, 2, 3, 10, 9, 0, 2, 0, 0, 0, 2, 0, 0, 0],backgroundColor:'#bb4a33'},
+        {label:'complex',data:[49, 31, 18, 11, 3, 16, 8, 2, 1, 2, 0, 4, 3, 0, 10, 7, 3, 2, 3, 0, 0, 3, 1, 4, 4, 1, 1, 2, 0, 3, 1, 1, 2, 0, 0, 3, 0, 2, 0, 0],backgroundColor:'#a99e89'},
+        {label:'warble',data:[15, 22, 5, 15, 4, 9, 11, 0, 2, 1, 6, 4, 2, 3, 1, 9, 1, 2, 4, 1, 0, 0, 3, 8, 1, 1, 2, 6, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0],backgroundColor:'#7c5784'},
+        {label:'pipe',data:[0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],backgroundColor:'#2c6c8c'},
+        {label:'harsh_buzz',data:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],backgroundColor:'#8c4a2c'}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{position:'bottom',labels:{font:chartFont,usePointStyle:true,pointStyle:'rect',padding:10}},
+          tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y}}},
+        scales:{
+          x:{stacked:true,ticks:{font:{...chartFont,size:7},color:tickColor,maxRotation:90,minRotation:45},grid:{display:false}},
+          y:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{color:gridColor},
+            title:{display:true,text:'Syllable count',font:chartFont,color:tickColor}}
+        }
       }
-    }
-  });
+    });
+  }
+
+  // Kaka per-recording
+  if(document.getElementById('kakaPerRecChart')) {
+    new Chart(document.getElementById('kakaPerRecChart'), {
+      type:'bar',
+      data:{
+        labels:["XC959270", "XC378283", "XC207335", "XC959284", "XC963596", "XC959281", "XC207311", "XC959275", "XC853668", "XC963595", "XC152946", "XC88155", "XC378285", "XC378282", "XC776552", "XC526605", "XC326938", "XC959427", "XC963598", "XC378284", "XC959271", "XC428663", "XC526606", "XC959278", "XC293110"],
+        datasets:[
+        {label:'snicker',data:[132, 77, 50, 67, 56, 61, 23, 49, 48, 43, 37, 40, 29, 18, 24, 22, 19, 17, 16, 15, 15, 12, 7, 7, 5],backgroundColor:'#7c5784'},
+        {label:'bark',data:[10, 57, 41, 8, 7, 1, 20, 2, 2, 5, 4, 1, 1, 7, 1, 1, 3, 2, 1, 1, 0, 2, 0, 0, 0],backgroundColor:'#8c4a2c'},
+        {label:'gurgle',data:[3, 8, 2, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 3, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],backgroundColor:'#2c6c8c'}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{position:'bottom',labels:{font:chartFont,usePointStyle:true,pointStyle:'rect',padding:10}},
+          tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.parsed.y}}},
+        scales:{
+          x:{stacked:true,ticks:{font:{...chartFont,size:8},color:tickColor,maxRotation:45},grid:{display:false}},
+          y:{stacked:true,ticks:{font:chartFont,color:tickColor},grid:{color:gridColor},
+            title:{display:true,text:'Call count',font:chartFont,color:tickColor}}
+        }
+      }
+    });
+  }
+
 }
+
+window.toggleSamplePlay = function(btn, src) {
+  if(window._sampleAudio) { window._sampleAudio.pause(); window._sampleAudio = null; }
+  if(btn._playing) { btn._playing = false; btn.textContent = '▶ Play'; return; }
+  document.querySelectorAll('.play-btn').forEach(b => { b._playing = false; b.textContent = '▶ Play'; });
+  const audio = new Audio(src);
+  audio.play().catch(()=>{});
+  audio.onended = () => { btn._playing = false; btn.textContent = '▶ Play'; };
+  btn._playing = true;
+  btn.textContent = '⏸ Stop';
+  window._sampleAudio = audio;
+};
 
 // ==================== MAP ====================
 function initMap() {
