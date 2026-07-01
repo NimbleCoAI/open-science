@@ -767,6 +767,7 @@ tr:hover td{background:var(--surface-2)}
     </div>
 
     <!-- TŪĪ REGIONAL COMPARISON -->
+    <div class="geo-species-section" data-geo-species="Tui">
     <div class="section-label" style="margin-top:2.5rem">Tūī — Regional Syllable Repertoires</div>
     <p style="color:var(--ink-soft);margin-bottom:1rem;font-size:.92rem">
       Syllable type proportions across regions, using v2 species-specific classifiers. 
@@ -804,8 +805,10 @@ tr:hover td{background:var(--surface-2)}
         </div>
       </div>
     </div>
+    </div><!-- /geo-species Tui -->
 
     <!-- KĀKĀ DIALECT COMPARISON -->
+    <div class="geo-species-section" data-geo-species="New Zealand Kaka">
     <div class="section-label" style="margin-top:2.5rem">Kākā — Forest Dialects</div>
     <div class="lede" style="font-size:1.15rem;margin-bottom:1rem">
       Kākā from different forests show strikingly different vocal profiles. Southland birds have the most bark calls (32.7%) 
@@ -853,8 +856,10 @@ tr:hover td{background:var(--surface-2)}
       many Pureora recordings, so recorder bias is also possible. More XC recordings from other kākā populations 
       (e.g. Zealandia, Codfish Island, Whirinaki) would strengthen these comparisons.</div>
     </div>
+    </div><!-- /geo-species Kaka -->
 
     <!-- BELLBIRD REGIONAL -->
+    <div class="geo-species-section" data-geo-species="New Zealand Bellbird">
     <div class="section-label" style="margin-top:2.5rem">Bellbird — Regional Variation</div>
     
     <div class="card">
@@ -866,7 +871,7 @@ tr:hover td{background:var(--surface-2)}
         46 geotagged bellbird recordings across 12 regions
       </div>
     </div>
-    </div>
+    </div><!-- /geo-species Bellbird -->
 
     <div class="two-col" style="margin-top:1.5rem">
       <div class="card">
@@ -1163,6 +1168,19 @@ document.querySelectorAll('.tab').forEach(tab => {
     if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
     // Init game tab
     if (tab.dataset.tab === 'game' && !window._gameInit) { GameEngine.init(); window._gameInit = true; }
+  });
+});
+
+// ==================== GEO SECTION FILTERS ====================
+// Standalone listener so geo chart sections filter even without map data
+document.querySelectorAll('.map-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.map-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const species = btn.dataset.species;
+    document.querySelectorAll('.geo-species-section').forEach(sec => {
+      sec.style.display = (species === 'all' || sec.dataset.geoSpecies === species) ? '' : 'none';
+    });
   });
 });
 
@@ -1516,12 +1534,11 @@ function initMap() {
         allMarkers.push({marker, species: en});
       });
 
-      // Filter buttons
+      // Filter buttons — map marker filtering
       document.querySelectorAll('.map-filter').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.map-filter').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
           const species = btn.dataset.species;
+          // Filter map markers
           allMarkers.forEach(({marker, species: s}) => {
             if (species === 'all' || s === species) {
               marker.setStyle({opacity: 0.8, fillOpacity: 0.6});
