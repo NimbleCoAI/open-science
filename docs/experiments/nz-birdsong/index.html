@@ -971,6 +971,24 @@ tr:hover td{background:var(--surface-2)}
         <li><b>Single-site vs multi-site:</b> Hill's results come from one population (Tawharanui); ours span the country, so inter-population variation is confounded with methodological differences</li>
       </ul>
 
+      <h4>Sample Size Adequacy — Entropy Rarefaction</h4>
+      <p>To verify our sample sizes are sufficient, we computed <b>Shannon entropy rarefaction curves</b> — 
+      subsampling recordings at each N (100 iterations) and measuring whether the entropy estimate stabilises. 
+      A plateau means adding more recordings would not substantially change the proportional distribution of vocalisation types.</p>
+      <div class="card" style="margin:1rem 0">
+        <h3>Entropy vs Recording Count</h3>
+        <div class="chart-wrap" style="height:320px">
+          <canvas id="rarefactionChart"></canvas>
+        </div>
+        <div style="font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);margin-top:.5rem">
+          Shaded bands: ±1 SD from 100 random subsamples at each N · All three species plateau well before their full sample size
+        </div>
+      </div>
+      <p>All three species reach stable entropy by ~15–20 recordings. Tūī (116 recordings) and bellbird (40) are well into the plateau. 
+      Kākā (25 recordings) also plateaus, though the lower entropy reflects its simpler 3-type repertoire (snicker/bark/gurgle). 
+      This confirms that our sample sizes are adequate for characterising the <em>proportional distribution</em> of vocalisation types — 
+      though not necessarily for capturing rare types (e.g., the absent shraak calls).</p>
+
       <h4>Reproducibility</h4>
       <p>The full analysis pipeline is available at <a href="https://github.com/NimbleCoAI/open-science">github.com/NimbleCoAI/open-science</a>. 
       The Python venv uses librosa for audio analysis and scikit-learn for clustering. All Xeno-Canto recordings are publicly available via their API.</p>
@@ -1151,6 +1169,13 @@ const TUI_REGIONS = [
 ];
 
 // ==================== TABS ====================
+
+const RAREFACTION = {
+  tui: [[1,0.891,0.191],[5,0.980,0.077],[10,0.996,0.062],[15,0.996,0.038],[20,0.997,0.036],[30,0.995,0.034],[40,1.003,0.025],[50,1.004,0.022],[60,1.005,0.020],[70,1.001,0.014],[80,1.007,0.011],[90,1.004,0.010],[100,1.005,0.008],[110,1.005,0.004],[116,1.006,0]],
+  bellbird: [[1,0.917,0.252],[5,1.059,0.090],[10,1.066,0.070],[15,1.067,0.052],[20,1.074,0.040],[25,1.077,0.029],[30,1.078,0.022],[35,1.080,0.015],[40,1.079,0]],
+  kaka: [[1,0.352,0.309],[5,0.534,0.215],[10,0.561,0.141],[15,0.539,0.103],[20,0.572,0.054],[25,0.571,0]]
+};
+
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1166,6 +1191,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     // 'syllables' tab removed in v2 — now separate per-species tabs
     if (tab.dataset.tab === 'vocalisation' && !window._sylInit) initSyllables();
     if (tab.dataset.tab === 'data' && !window._dataInit) initDataCharts();
+    if (tab.dataset.tab === 'methods' && !window._rarefInit) initRarefaction();
     // Init game tab
     if (tab.dataset.tab === 'game' && !window._gameInit) { GameEngine.init(); window._gameInit = true; }
   });
@@ -1820,6 +1846,78 @@ function initGeoCharts() {
   });
 }
 
+
+// ==================== RAREFACTION CHART ====================
+function initRarefaction() {
+  window._rarefInit = true;
+  const ctx = document.getElementById('rarefactionChart');
+  if (!ctx) return;
+  
+  const chartFont = {family:'Spline Sans Mono',size:10};
+  const species = [
+    {key:'tui', label:'Tūī (116 recordings)', color:'#5f7a3a', bg:'rgba(95,122,58,0.12)'},
+    {key:'bellbird', label:'Bellbird (40 recordings)', color:'#2c6c8c', bg:'rgba(44,108,140,0.12)'},
+    {key:'kaka', label:'Kākā (25 recordings)', color:'#b04a3a', bg:'rgba(176,74,58,0.12)'}
+  ];
+  
+  const datasets = [];
+  species.forEach(sp => {
+    const pts = RAREFACTION[sp.key];
+    // Main line
+    datasets.push({
+      label: sp.label,
+      data: pts.map(p => ({x: p[0], y: p[1]})),
+      borderColor: sp.color, backgroundColor: sp.color,
+      borderWidth: 2, pointRadius: 0, tension: 0.3, fill: false
+    });
+    // Upper SD band
+    datasets.push({
+      label: sp.label + ' +SD',
+      data: pts.map(p => ({x: p[0], y: p[1] + p[2]})),
+      borderColor: 'transparent', backgroundColor: sp.bg,
+      borderWidth: 0, pointRadius: 0, tension: 0.3,
+      fill: '+1', showLine: true
+    });
+    // Lower SD band
+    datasets.push({
+      label: sp.label + ' -SD',
+      data: pts.map(p => ({x: p[0], y: Math.max(0, p[1] - p[2])})),
+      borderColor: 'transparent', backgroundColor: 'transparent',
+      borderWidth: 0, pointRadius: 0, tension: 0.3, fill: false, showLine: true
+    });
+  });
+  
+  new Chart(ctx, {
+    type: 'line',
+    data: { datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: {
+            font: chartFont, color: '#675e4f',
+            filter: item => !item.text.includes('SD')
+          }
+        },
+        tooltip: {
+          filter: item => !item.dataset.label.includes('SD'),
+          callbacks: { label: ctx => ctx.dataset.label + ': H=' + ctx.parsed.y.toFixed(3) }
+        }
+      },
+      scales: {
+        x: {
+          type: 'linear', title: {display: true, text: 'Number of recordings', font: chartFont, color: '#675e4f'},
+          ticks: {font: chartFont, color: '#a99e89'}, grid: {color: '#e2d9c7'}
+        },
+        y: {
+          title: {display: true, text: 'Shannon entropy (H)', font: chartFont, color: '#675e4f'},
+          ticks: {font: chartFont, color: '#a99e89'}, grid: {color: '#e2d9c7'},
+          min: 0
+        }
+      }
+    }
+  });
+}
 
 // ==================== TE REO MANU GAME ====================
 const GAME_DATA = {
