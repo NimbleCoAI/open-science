@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "bellbird_0000",
+    "recording": "XC663169",
+    "auto_category": "click",
+    "duration_ms": 32.9,
+    "f0_hz": 2231.7,
+    "centroid_hz": 3133.4,
+    "syl_start_ms": 851.5,
+    "syl_end_ms": 884.4
+  },
+  {
+    "id": "bellbird_0001",
+    "recording": "XC663169",
+    "auto_category": "stutter",
+    "duration_ms": 49.9,
+    "f0_hz": 336.4,
+    "centroid_hz": 2622.3,
+    "syl_start_ms": 21662.4,
+    "syl_end_ms": 21712.3
+  },
+  {
+    "id": "bellbird_0002",
+    "recording": "XC663169",
+    "auto_category": "stutter",
+    "duration_ms": 106.8,
+    "f0_hz": 857.2,
+    "centroid_hz": 2125.0,
+    "syl_start_ms": 45629.2,
+    "syl_end_ms": 45736.0
+  },
+  {
+    "id": "bellbird_0003",
+    "recording": "XC663169",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 165.4,
+    "centroid_hz": 2971.5,
+    "syl_start_ms": 82639.8,
+    "syl_end_ms": 82665.8
+  },
+  {
+    "id": "bellbird_0004",
+    "recording": "XC663169",
+    "auto_category": "click",
+    "duration_ms": 35.9,
+    "f0_hz": 338.3,
+    "centroid_hz": 2856.1,
+    "syl_start_ms": 122514.3,
+    "syl_end_ms": 122550.2
+  },
+  {
+    "id": "bellbird_0005",
+    "recording": "XC663169",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 137.0,
+    "centroid_hz": 2885.9,
+    "syl_start_ms": 153507.1,
+    "syl_end_ms": 153533.1
+  },
+  {
+    "id": "bellbird_0006",
+    "recording": "XC46600",
+    "auto_category": "trill",
+    "duration_ms": 61.9,
+    "f0_hz": 823.6,
+    "centroid_hz": 3735.7,
+    "syl_start_ms": 2134.4,
+    "syl_end_ms": 2196.3
+  },
+  {
+    "id": "bellbird_0007",
+    "recording": "XC46600",
+    "auto_category": "stutter",
+    "duration_ms": 122.7,
+    "f0_hz": 2096.8,
+    "centroid_hz": 2940.9,
+    "syl_start_ms": 13475.7,
+    "syl_end_ms": 13598.5
+  },
+  {
+    "id": "bellbird_0008",
+    "recording": "XC46600",
+    "auto_category": "stutter",
+    "duration_ms": 139.7,
+    "f0_hz": 1251.9,
+    "centroid_hz": 2278.8,
+    "syl_start_ms": 40190.3,
+    "syl_end_ms": 40330.0
+  },
+  {
+    "id": "bellbird_0009",
+    "recording": "XC46600",
+    "auto_category": "click",
+    "duration_ms": 29.9,
+    "f0_hz": 4295.2,
+    "centroid_hz": 4324.8,
+    "syl_start_ms": 51014.2,
+    "syl_end_ms": 51044.2
+  },
+  {
+    "id": "bellbird_0010",
+    "recording": "XC46600",
+    "auto_category": "stutter",
+    "duration_ms": 80.8,
+    "f0_hz": 1580.4,
+    "centroid_hz": 2315.2,
+    "syl_start_ms": 62674.8,
+    "syl_end_ms": 62755.6
+  },
+  {
+    "id": "bellbird_0011",
+    "recording": "XC46600",
+    "auto_category": "complex",
+    "duration_ms": 41.9,
+    "f0_hz": 1707.4,
+    "centroid_hz": 3629.0,
+    "syl_start_ms": 66066.6,
+    "syl_end_ms": 66108.5
+  },
+  {
+    "id": "bellbird_0012",
+    "recording": "XC46601",
+    "auto_category": "stutter",
+    "duration_ms": 154.6,
+    "f0_hz": 2057.2,
+    "centroid_hz": 3306.7,
+    "syl_start_ms": 3446.3,
+    "syl_end_ms": 3601.0
+  },
+  {
+    "id": "bellbird_0013",
+    "recording": "XC46601",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 1625.6,
+    "centroid_hz": 3276.5,
+    "syl_start_ms": 16016.0,
+    "syl_end_ms": 16041.9
+  },
+  {
+    "id": "bellbird_0014",
+    "recording": "XC46601",
+    "auto_category": "stutter",
+    "duration_ms": 53.9,
+    "f0_hz": 1033.2,
+    "centroid_hz": 4536.3,
+    "syl_start_ms": 27945.6,
+    "syl_end_ms": 27999.5
+  },
+  {
+    "id": "bellbird_0015",
+    "recording": "XC46601",
+    "auto_category": "click",
+    "duration_ms": 29.9,
+    "f0_hz": 1009.3,
+    "centroid_hz": 2763.8,
+    "syl_start_ms": 34197.2,
+    "syl_end_ms": 34227.1
+  },
+  {
+    "id": "bellbird_0016",
+    "recording": "XC46601",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 1059.0,
+    "centroid_hz": 3777.5,
+    "syl_start_ms": 40518.8,
+    "syl_end_ms": 40544.8
+  },
+  {
+    "id": "bellbird_0017",
+    "recording": "XC46601",
+    "auto_category": "click",
+    "duration_ms": 35.9,
+    "f0_hz": 1011.8,
+    "centroid_hz": 3566.5,
+    "syl_start_ms": 47014.8,
+    "syl_end_ms": 47050.7
+  },
+  {
+    "id": "bellbird_0018",
+    "recording": "XC152939",
+    "auto_category": "trill",
+    "duration_ms": 190.6,
+    "f0_hz": 1541.1,
+    "centroid_hz": 5079.7,
+    "syl_start_ms": 1529.1,
+    "syl_end_ms": 1719.6
+  },
+  {
+    "id": "bellbird_0019",
+    "recording": "XC152939",
+    "auto_category": "stutter",
+    "duration_ms": 59.9,
+    "f0_hz": 1609.3,
+    "centroid_hz": 2114.6,
+    "syl_start_ms": 4556.9,
+    "syl_end_ms": 4616.8
+  },
+  {
+    "id": "bellbird_0020",
+    "recording": "XC152939",
+    "auto_category": "stutter",
+    "duration_ms": 49.9,
+    "f0_hz": 3266.6,
+    "centroid_hz": 3836.6,
+    "syl_start_ms": 8949.7,
+    "syl_end_ms": 8999.5
+  },
+  {
+    "id": "bellbird_0021",
+    "recording": "XC152939",
+    "auto_category": "stutter",
+    "duration_ms": 99.8,
+    "f0_hz": 1674.1,
+    "centroid_hz": 2298.1,
+    "syl_start_ms": 12771.0,
+    "syl_end_ms": 12870.7
+  },
+  {
+    "id": "bellbird_0022",
+    "recording": "XC152939",
+    "auto_category": "stutter",
+    "duration_ms": 59.9,
+    "f0_hz": 1808.2,
+    "centroid_hz": 2643.6,
+    "syl_start_ms": 19057.8,
+    "syl_end_ms": 19117.6
+  },
+  {
+    "id": "bellbird_0023",
+    "recording": "XC152939",
+    "auto_category": "stutter",
+    "duration_ms": 89.8,
+    "f0_hz": 990.0,
+    "centroid_hz": 3032.2,
+    "syl_start_ms": 23690.2,
+    "syl_end_ms": 23780.0
+  },
+  {
+    "id": "bellbird_0024",
+    "recording": "XC40098",
+    "auto_category": "stutter",
+    "duration_ms": 252.4,
+    "f0_hz": 2919.6,
+    "centroid_hz": 2694.2,
+    "syl_start_ms": 6366.4,
+    "syl_end_ms": 6618.9
+  },
+  {
+    "id": "bellbird_0025",
+    "recording": "XC40098",
+    "auto_category": "stutter",
+    "duration_ms": 284.4,
+    "f0_hz": 2408.1,
+    "centroid_hz": 2575.9,
+    "syl_start_ms": 7157.7,
+    "syl_end_ms": 7442.1
+  },
+  {
+    "id": "bellbird_0026",
+    "recording": "XC40098",
+    "auto_category": "stutter",
+    "duration_ms": 116.7,
+    "f0_hz": 1928.3,
+    "centroid_hz": 1916.5,
+    "syl_start_ms": 7487.0,
+    "syl_end_ms": 7603.7
+  },
+  {
+    "id": "bellbird_0027",
+    "recording": "XC40098",
+    "auto_category": "click",
+    "duration_ms": 21.0,
+    "f0_hz": 1966.2,
+    "centroid_hz": 1526.5,
+    "syl_start_ms": 7616.7,
+    "syl_end_ms": 7637.6
+  },
+  {
+    "id": "bellbird_0028",
+    "recording": "XC40098",
+    "auto_category": "stutter",
+    "duration_ms": 254.4,
+    "f0_hz": 2390.5,
+    "centroid_hz": 2591.8,
+    "syl_start_ms": 7848.5,
+    "syl_end_ms": 8102.9
+  },
+  {
+    "id": "bellbird_0029",
+    "recording": "XC40098",
+    "auto_category": "click",
+    "duration_ms": 21.0,
+    "f0_hz": 986.9,
+    "centroid_hz": 1869.1,
+    "syl_start_ms": 8121.9,
+    "syl_end_ms": 8142.9
+  },
+  {
+    "id": "bellbird_0030",
+    "recording": "XC112821",
+    "auto_category": "trill",
+    "duration_ms": 89.8,
+    "f0_hz": 750.9,
+    "centroid_hz": 2501.1,
+    "syl_start_ms": 289.0,
+    "syl_end_ms": 378.8
+  },
+  {
+    "id": "bellbird_0031",
+    "recording": "XC112821",
+    "auto_category": "stutter",
+    "duration_ms": 220.5,
+    "f0_hz": 1864.3,
+    "centroid_hz": 2501.4,
+    "syl_start_ms": 7686.2,
+    "syl_end_ms": 7906.7
+  },
+  {
+    "id": "bellbird_0032",
+    "recording": "XC112821",
+    "auto_category": "stutter",
+    "duration_ms": 66.8,
+    "f0_hz": 1400.4,
+    "centroid_hz": 2428.8,
+    "syl_start_ms": 19034.6,
+    "syl_end_ms": 19101.4
+  },
+  {
+    "id": "bellbird_0033",
+    "recording": "XC112821",
+    "auto_category": "stutter",
+    "duration_ms": 59.9,
+    "f0_hz": 1255.1,
+    "centroid_hz": 2732.4,
+    "syl_start_ms": 31492.1,
+    "syl_end_ms": 31551.9
+  },
+  {
+    "id": "bellbird_0034",
+    "recording": "XC112821",
+    "auto_category": "warble",
+    "duration_ms": 42.9,
+    "f0_hz": 965.4,
+    "centroid_hz": 2673.9,
+    "syl_start_ms": 46906.3,
+    "syl_end_ms": 46949.2
+  },
+  {
+    "id": "bellbird_0035",
+    "recording": "XC112821",
+    "auto_category": "click",
+    "duration_ms": 23.9,
+    "f0_hz": 1807.3,
+    "centroid_hz": 3241.9,
+    "syl_start_ms": 60070.2,
+    "syl_end_ms": 60094.1
+  },
+  {
+    "id": "bellbird_0036",
+    "recording": "XC842722",
+    "auto_category": "stutter",
+    "duration_ms": 203.5,
+    "f0_hz": 1658.8,
+    "centroid_hz": 1882.2,
+    "syl_start_ms": 36.8,
+    "syl_end_ms": 240.4
+  },
+  {
+    "id": "bellbird_0037",
+    "recording": "XC842722",
+    "auto_category": "stutter",
+    "duration_ms": 125.7,
+    "f0_hz": 872.8,
+    "centroid_hz": 1177.0,
+    "syl_start_ms": 13268.4,
+    "syl_end_ms": 13394.1
+  },
+  {
+    "id": "bellbird_0038",
+    "recording": "XC842722",
+    "auto_category": "stutter",
+    "duration_ms": 83.8,
+    "f0_hz": 1690.8,
+    "centroid_hz": 3191.2,
+    "syl_start_ms": 18192.8,
+    "syl_end_ms": 18276.6
+  },
+  {
+    "id": "bellbird_0039",
+    "recording": "XC842722",
+    "auto_category": "stutter",
+    "duration_ms": 192.6,
+    "f0_hz": 914.1,
+    "centroid_hz": 2065.5,
+    "syl_start_ms": 25153.0,
+    "syl_end_ms": 25345.6
+  },
+  {
+    "id": "bellbird_0040",
+    "recording": "XC842722",
+    "auto_category": "click",
+    "duration_ms": 24.9,
+    "f0_hz": 1485.1,
+    "centroid_hz": 1847.4,
+    "syl_start_ms": 33467.4,
+    "syl_end_ms": 33492.3
+  },
+  {
+    "id": "bellbird_0041",
+    "recording": "XC842722",
+    "auto_category": "stutter",
+    "duration_ms": 77.8,
+    "f0_hz": 1860.2,
+    "centroid_hz": 1415.3,
+    "syl_start_ms": 44686.8,
+    "syl_end_ms": 44764.6
+  },
+  {
+    "id": "bellbird_0042",
+    "recording": "XC925263",
+    "auto_category": "click",
+    "duration_ms": 23.9,
+    "f0_hz": 1436.6,
+    "centroid_hz": 5524.4,
+    "syl_start_ms": 4860.8,
+    "syl_end_ms": 4884.7
+  },
+  {
+    "id": "bellbird_0043",
+    "recording": "XC925263",
+    "auto_category": "stutter",
+    "duration_ms": 68.8,
+    "f0_hz": 616.9,
+    "centroid_hz": 5744.2,
+    "syl_start_ms": 16490.2,
+    "syl_end_ms": 16559.0
+  },
+  {
+    "id": "bellbird_0044",
+    "recording": "XC925263",
+    "auto_category": "stutter",
+    "duration_ms": 98.8,
+    "f0_hz": 602.8,
+    "centroid_hz": 5904.4,
+    "syl_start_ms": 18711.5,
+    "syl_end_ms": 18810.2
+  },
+  {
+    "id": "bellbird_0045",
+    "recording": "XC925263",
+    "auto_category": "stutter",
+    "duration_ms": 86.8,
+    "f0_hz": 649.9,
+    "centroid_hz": 5543.1,
+    "syl_start_ms": 21199.8,
+    "syl_end_ms": 21286.6
+  },
+  {
+    "id": "bellbird_0046",
+    "recording": "XC925263",
+    "auto_category": "trill",
+    "duration_ms": 90.8,
+    "f0_hz": 1120.0,
+    "centroid_hz": 5273.2,
+    "syl_start_ms": 24005.6,
+    "syl_end_ms": 24096.4
+  },
+  {
+    "id": "bellbird_0047",
+    "recording": "XC925263",
+    "auto_category": "trill",
+    "duration_ms": 92.8,
+    "f0_hz": 2101.2,
+    "centroid_hz": 5351.5,
+    "syl_start_ms": 26894.5,
+    "syl_end_ms": 26987.3
+  },
+  {
+    "id": "bellbird_0048",
+    "recording": "XC293305",
+    "auto_category": "complex",
+    "duration_ms": 51.9,
+    "f0_hz": 1207.5,
+    "centroid_hz": 2008.5,
+    "syl_start_ms": 17753.7,
+    "syl_end_ms": 17805.5
+  },
+  {
+    "id": "bellbird_0049",
+    "recording": "XC293305",
+    "auto_category": "stutter",
+    "duration_ms": 164.6,
+    "f0_hz": 2073.9,
+    "centroid_hz": 2604.8,
+    "syl_start_ms": 18171.6,
+    "syl_end_ms": 18336.2
+  },
+  {
+    "id": "bellbird_0050",
+    "recording": "XC293305",
+    "auto_category": "stutter",
+    "duration_ms": 238.5,
+    "f0_hz": 2525.4,
+    "centroid_hz": 4898.8,
+    "syl_start_ms": 18550.4,
+    "syl_end_ms": 18788.8
+  },
+  {
+    "id": "bellbird_0051",
+    "recording": "XC293305",
+    "auto_category": "complex",
+    "duration_ms": 47.9,
+    "f0_hz": 1250.3,
+    "centroid_hz": 2124.2,
+    "syl_start_ms": 44576.5,
+    "syl_end_ms": 44624.4
+  },
+  {
+    "id": "bellbird_0052",
+    "recording": "XC293305",
+    "auto_category": "stutter",
+    "duration_ms": 244.4,
+    "f0_hz": 2066.8,
+    "centroid_hz": 2874.5,
+    "syl_start_ms": 45031.3,
+    "syl_end_ms": 45275.7
+  },
+  {
+    "id": "bellbird_0053",
+    "recording": "XC293305",
+    "auto_category": "stutter",
+    "duration_ms": 238.5,
+    "f0_hz": 2906.5,
+    "centroid_hz": 4681.9,
+    "syl_start_ms": 45409.0,
+    "syl_end_ms": 45647.4
+  },
+  {
+    "id": "bellbird_0054",
+    "recording": "XC1089007",
+    "auto_category": "trill",
+    "duration_ms": 128.7,
+    "f0_hz": 824.8,
+    "centroid_hz": 4688.0,
+    "syl_start_ms": 1983.5,
+    "syl_end_ms": 2112.2
+  },
+  {
+    "id": "bellbird_0055",
+    "recording": "XC1089007",
+    "auto_category": "trill",
+    "duration_ms": 138.7,
+    "f0_hz": 517.9,
+    "centroid_hz": 5316.4,
+    "syl_start_ms": 15075.6,
+    "syl_end_ms": 15214.2
+  },
+  {
+    "id": "bellbird_0056",
+    "recording": "XC1089007",
+    "auto_category": "trill",
+    "duration_ms": 258.4,
+    "f0_hz": 1704.5,
+    "centroid_hz": 4402.4,
+    "syl_start_ms": 28585.8,
+    "syl_end_ms": 28844.2
+  },
+  {
+    "id": "bellbird_0057",
+    "recording": "XC1089007",
+    "auto_category": "trill",
+    "duration_ms": 124.7,
+    "f0_hz": 3674.4,
+    "centroid_hz": 5261.1,
+    "syl_start_ms": 42575.8,
+    "syl_end_ms": 42700.5
+  },
+  {
+    "id": "bellbird_0058",
+    "recording": "XC1089007",
+    "auto_category": "trill",
+    "duration_ms": 184.6,
+    "f0_hz": 1264.1,
+    "centroid_hz": 5416.6,
+    "syl_start_ms": 58171.8,
+    "syl_end_ms": 58356.4
+  },
+  {
+    "id": "bellbird_0059",
+    "recording": "XC1089007",
+    "auto_category": "stutter",
+    "duration_ms": 59.9,
+    "f0_hz": 1847.6,
+    "centroid_hz": 4640.1,
+    "syl_start_ms": 72870.0,
+    "syl_end_ms": 72929.9
+  },
+  {
+    "id": "bellbird_0060",
+    "recording": "XC925259",
+    "auto_category": "stutter",
+    "duration_ms": 116.7,
+    "f0_hz": 2509.7,
+    "centroid_hz": 2941.4,
+    "syl_start_ms": 5634.8,
+    "syl_end_ms": 5751.6
+  },
+  {
+    "id": "bellbird_0061",
+    "recording": "XC925259",
+    "auto_category": "stutter",
+    "duration_ms": 89.8,
+    "f0_hz": 501.8,
+    "centroid_hz": 5138.3,
+    "syl_start_ms": 29801.4,
+    "syl_end_ms": 29891.2
+  },
+  {
+    "id": "bellbird_0062",
+    "recording": "XC925259",
+    "auto_category": "stutter",
+    "duration_ms": 68.8,
+    "f0_hz": 591.9,
+    "centroid_hz": 5039.9,
+    "syl_start_ms": 37061.2,
+    "syl_end_ms": 37130.1
+  },
+  {
+    "id": "bellbird_0063",
+    "recording": "XC925259",
+    "auto_category": "stutter",
+    "duration_ms": 90.8,
+    "f0_hz": 800.4,
+    "centroid_hz": 4810.1,
+    "syl_start_ms": 44892.2,
+    "syl_end_ms": 44982.9
+  },
+  {
+    "id": "bellbird_0064",
+    "recording": "XC925259",
+    "auto_category": "stutter",
+    "duration_ms": 94.8,
+    "f0_hz": 599.6,
+    "centroid_hz": 5095.8,
+    "syl_start_ms": 53112.0,
+    "syl_end_ms": 53206.8
+  },
+  {
+    "id": "bellbird_0065",
+    "recording": "XC925259",
+    "auto_category": "stutter",
+    "duration_ms": 80.8,
+    "f0_hz": 592.6,
+    "centroid_hz": 5142.1,
+    "syl_start_ms": 60737.8,
+    "syl_end_ms": 60818.6
+  },
+  {
+    "id": "bellbird_0066",
+    "recording": "XC1089266",
+    "auto_category": "trill",
+    "duration_ms": 146.7,
+    "f0_hz": 726.5,
+    "centroid_hz": 4774.5,
+    "syl_start_ms": 3308.8,
+    "syl_end_ms": 3455.5
+  },
+  {
+    "id": "bellbird_0067",
+    "recording": "XC1089266",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 1617.7,
+    "centroid_hz": 3486.1,
+    "syl_start_ms": 32854.4,
+    "syl_end_ms": 32880.4
+  },
+  {
+    "id": "bellbird_0068",
+    "recording": "XC1089266",
+    "auto_category": "click",
+    "duration_ms": 27.9,
+    "f0_hz": 3826.5,
+    "centroid_hz": 3972.5,
+    "syl_start_ms": 54830.1,
+    "syl_end_ms": 54858.0
+  },
+  {
+    "id": "bellbird_0069",
+    "recording": "XC1089266",
+    "auto_category": "trill",
+    "duration_ms": 134.7,
+    "f0_hz": 1060.6,
+    "centroid_hz": 4876.5,
+    "syl_start_ms": 73104.2,
+    "syl_end_ms": 73238.9
+  },
+  {
+    "id": "bellbird_0070",
+    "recording": "XC1089266",
+    "auto_category": "warble",
+    "duration_ms": 86.8,
+    "f0_hz": 780.5,
+    "centroid_hz": 4907.0,
+    "syl_start_ms": 102045.9,
+    "syl_end_ms": 102132.7
+  },
+  {
+    "id": "bellbird_0071",
+    "recording": "XC1089266",
+    "auto_category": "stutter",
+    "duration_ms": 176.6,
+    "f0_hz": 1980.4,
+    "centroid_hz": 2830.9,
+    "syl_start_ms": 119278.5,
+    "syl_end_ms": 119455.1
+  },
+  {
+    "id": "bellbird_0072",
+    "recording": "XC956708",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 331.0,
+    "centroid_hz": 3131.0,
+    "syl_start_ms": 58.0,
+    "syl_end_ms": 84.0
+  },
+  {
+    "id": "bellbird_0073",
+    "recording": "XC956708",
+    "auto_category": "stutter",
+    "duration_ms": 114.7,
+    "f0_hz": 6257.9,
+    "centroid_hz": 4799.2,
+    "syl_start_ms": 5226.5,
+    "syl_end_ms": 5341.2
+  },
+  {
+    "id": "bellbird_0074",
+    "recording": "XC956708",
+    "auto_category": "stutter",
+    "duration_ms": 146.7,
+    "f0_hz": 5662.0,
+    "centroid_hz": 5064.1,
+    "syl_start_ms": 22169.3,
+    "syl_end_ms": 22315.9
+  },
+  {
+    "id": "bellbird_0075",
+    "recording": "XC956708",
+    "auto_category": "stutter",
+    "duration_ms": 138.7,
+    "f0_hz": 2436.9,
+    "centroid_hz": 2815.2,
+    "syl_start_ms": 37309.9,
+    "syl_end_ms": 37448.6
+  },
+  {
+    "id": "bellbird_0076",
+    "recording": "XC956708",
+    "auto_category": "stutter",
+    "duration_ms": 138.7,
+    "f0_hz": 5827.9,
+    "centroid_hz": 5345.5,
+    "syl_start_ms": 55104.9,
+    "syl_end_ms": 55243.6
+  },
+  {
+    "id": "bellbird_0077",
+    "recording": "XC956708",
+    "auto_category": "click",
+    "duration_ms": 33.9,
+    "f0_hz": 2050.5,
+    "centroid_hz": 3089.3,
+    "syl_start_ms": 59758.5,
+    "syl_end_ms": 59792.5
+  },
+  {
+    "id": "bellbird_0078",
+    "recording": "XC475984",
+    "auto_category": "stutter",
+    "duration_ms": 57.9,
+    "f0_hz": 1260.4,
+    "centroid_hz": 2399.1,
+    "syl_start_ms": 1581.0,
+    "syl_end_ms": 1638.8
+  },
+  {
+    "id": "bellbird_0079",
+    "recording": "XC475984",
+    "auto_category": "stutter",
+    "duration_ms": 152.7,
+    "f0_hz": 1478.7,
+    "centroid_hz": 2419.9,
+    "syl_start_ms": 17709.2,
+    "syl_end_ms": 17861.9
+  },
+  {
+    "id": "bellbird_0080",
+    "recording": "XC475984",
+    "auto_category": "stutter",
+    "duration_ms": 218.5,
+    "f0_hz": 2070.8,
+    "centroid_hz": 2758.3,
+    "syl_start_ms": 39420.2,
+    "syl_end_ms": 39638.7
+  },
+  {
+    "id": "bellbird_0081",
+    "recording": "XC475984",
+    "auto_category": "stutter",
+    "duration_ms": 146.7,
+    "f0_hz": 1416.3,
+    "centroid_hz": 2656.6,
+    "syl_start_ms": 49847.4,
+    "syl_end_ms": 49994.1
+  },
+  {
+    "id": "bellbird_0082",
+    "recording": "XC475984",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 2186.8,
+    "centroid_hz": 5318.5,
+    "syl_start_ms": 64253.8,
+    "syl_end_ms": 64279.7
+  },
+  {
+    "id": "bellbird_0083",
+    "recording": "XC475984",
+    "auto_category": "stutter",
+    "duration_ms": 204.5,
+    "f0_hz": 1997.9,
+    "centroid_hz": 3468.3,
+    "syl_start_ms": 78271.0,
+    "syl_end_ms": 78475.6
+  },
+  {
+    "id": "bellbird_0084",
+    "recording": "XC213409",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 2131.9,
+    "centroid_hz": 3377.6,
+    "syl_start_ms": 183.9,
+    "syl_end_ms": 209.9
+  },
+  {
+    "id": "bellbird_0085",
+    "recording": "XC213409",
+    "auto_category": "stutter",
+    "duration_ms": 118.7,
+    "f0_hz": 2392.2,
+    "centroid_hz": 3091.3,
+    "syl_start_ms": 84247.8,
+    "syl_end_ms": 84366.5
+  },
+  {
+    "id": "bellbird_0086",
+    "recording": "XC213409",
+    "auto_category": "stutter",
+    "duration_ms": 140.7,
+    "f0_hz": 1819.1,
+    "centroid_hz": 2227.8,
+    "syl_start_ms": 127514.6,
+    "syl_end_ms": 127655.2
+  },
+  {
+    "id": "bellbird_0087",
+    "recording": "XC213409",
+    "auto_category": "click",
+    "duration_ms": 37.9,
+    "f0_hz": 2007.7,
+    "centroid_hz": 2924.5,
+    "syl_start_ms": 167576.6,
+    "syl_end_ms": 167614.5
+  },
+  {
+    "id": "bellbird_0088",
+    "recording": "XC213409",
+    "auto_category": "stutter",
+    "duration_ms": 53.9,
+    "f0_hz": 1541.6,
+    "centroid_hz": 2399.4,
+    "syl_start_ms": 211307.4,
+    "syl_end_ms": 211361.3
+  },
+  {
+    "id": "bellbird_0089",
+    "recording": "XC213409",
+    "auto_category": "stutter",
+    "duration_ms": 174.6,
+    "f0_hz": 1784.6,
+    "centroid_hz": 2390.9,
+    "syl_start_ms": 255642.1,
+    "syl_end_ms": 255816.7
+  },
+  {
+    "id": "bellbird_0090",
+    "recording": "XC843997",
+    "auto_category": "stutter",
+    "duration_ms": 50.9,
+    "f0_hz": 2378.7,
+    "centroid_hz": 4306.1,
+    "syl_start_ms": 2147.8,
+    "syl_end_ms": 2198.7
+  },
+  {
+    "id": "bellbird_0091",
+    "recording": "XC843997",
+    "auto_category": "stutter",
+    "duration_ms": 108.8,
+    "f0_hz": 2400.9,
+    "centroid_hz": 4002.8,
+    "syl_start_ms": 28881.8,
+    "syl_end_ms": 28990.6
+  },
+  {
+    "id": "bellbird_0092",
+    "recording": "XC843997",
+    "auto_category": "click",
+    "duration_ms": 21.0,
+    "f0_hz": 1942.5,
+    "centroid_hz": 4702.5,
+    "syl_start_ms": 58757.2,
+    "syl_end_ms": 58778.1
+  },
+  {
+    "id": "bellbird_0093",
+    "recording": "XC843997",
+    "auto_category": "stutter",
+    "duration_ms": 56.9,
+    "f0_hz": 2411.8,
+    "centroid_hz": 4416.9,
+    "syl_start_ms": 90443.7,
+    "syl_end_ms": 90500.6
+  },
+  {
+    "id": "bellbird_0094",
+    "recording": "XC843997",
+    "auto_category": "stutter",
+    "duration_ms": 85.8,
+    "f0_hz": 2235.4,
+    "centroid_hz": 4744.6,
+    "syl_start_ms": 119806.4,
+    "syl_end_ms": 119892.2
+  },
+  {
+    "id": "bellbird_0095",
+    "recording": "XC843997",
+    "auto_category": "complex",
+    "duration_ms": 40.9,
+    "f0_hz": 2389.3,
+    "centroid_hz": 4497.9,
+    "syl_start_ms": 154142.2,
+    "syl_end_ms": 154183.1
+  },
+  {
+    "id": "bellbird_0096",
+    "recording": "XC509572",
+    "auto_category": "stutter",
+    "duration_ms": 47.9,
+    "f0_hz": 513.5,
+    "centroid_hz": 1891.8,
+    "syl_start_ms": 261.2,
+    "syl_end_ms": 309.1
+  },
+  {
+    "id": "bellbird_0097",
+    "recording": "XC509572",
+    "auto_category": "stutter",
+    "duration_ms": 180.6,
+    "f0_hz": 371.7,
+    "centroid_hz": 1439.3,
+    "syl_start_ms": 12119.9,
+    "syl_end_ms": 12300.5
+  },
+  {
+    "id": "bellbird_0098",
+    "recording": "XC509572",
+    "auto_category": "warble",
+    "duration_ms": 93.8,
+    "f0_hz": 1858.5,
+    "centroid_hz": 2838.2,
+    "syl_start_ms": 18367.0,
+    "syl_end_ms": 18460.8
+  },
+  {
+    "id": "bellbird_0099",
+    "recording": "XC509572",
+    "auto_category": "stutter",
+    "duration_ms": 64.9,
+    "f0_hz": 1467.2,
+    "centroid_hz": 2474.2,
+    "syl_start_ms": 41784.5,
+    "syl_end_ms": 41849.3
+  },
+  {
+    "id": "bellbird_0100",
+    "recording": "XC509572",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 401.8,
+    "centroid_hz": 1506.5,
+    "syl_start_ms": 46445.7,
+    "syl_end_ms": 46471.7
+  },
+  {
+    "id": "bellbird_0101",
+    "recording": "XC509572",
+    "auto_category": "stutter",
+    "duration_ms": 142.7,
+    "f0_hz": 2033.7,
+    "centroid_hz": 2530.4,
+    "syl_start_ms": 74768.3,
+    "syl_end_ms": 74910.9
+  },
+  {
+    "id": "bellbird_0102",
+    "recording": "XC96768",
+    "auto_category": "stutter",
+    "duration_ms": 65.9,
+    "f0_hz": 3362.8,
+    "centroid_hz": 3011.5,
+    "syl_start_ms": 1213.2,
+    "syl_end_ms": 1279.1
+  },
+  {
+    "id": "bellbird_0103",
+    "recording": "XC96768",
+    "auto_category": "stutter",
+    "duration_ms": 479.9,
+    "f0_hz": 1652.2,
+    "centroid_hz": 2044.8,
+    "syl_start_ms": 14965.3,
+    "syl_end_ms": 15445.2
+  },
+  {
+    "id": "bellbird_0104",
+    "recording": "XC96768",
+    "auto_category": "stutter",
+    "duration_ms": 143.7,
+    "f0_hz": 1854.0,
+    "centroid_hz": 2199.7,
+    "syl_start_ms": 30979.4,
+    "syl_end_ms": 31123.1
+  },
+  {
+    "id": "bellbird_0105",
+    "recording": "XC96768",
+    "auto_category": "stutter",
+    "duration_ms": 101.8,
+    "f0_hz": 3597.6,
+    "centroid_hz": 3248.0,
+    "syl_start_ms": 46856.1,
+    "syl_end_ms": 46957.8
+  },
+  {
+    "id": "bellbird_0106",
+    "recording": "XC96768",
+    "auto_category": "stutter",
+    "duration_ms": 91.8,
+    "f0_hz": 1616.1,
+    "centroid_hz": 2691.7,
+    "syl_start_ms": 67746.4,
+    "syl_end_ms": 67838.2
+  },
+  {
+    "id": "bellbird_0107",
+    "recording": "XC96768",
+    "auto_category": "click",
+    "duration_ms": 22.0,
+    "f0_hz": 2102.9,
+    "centroid_hz": 2429.4,
+    "syl_start_ms": 93684.9,
+    "syl_end_ms": 93706.8
+  },
+  {
+    "id": "bellbird_0108",
+    "recording": "XC348762",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 3856.8,
+    "centroid_hz": 3569.2,
+    "syl_start_ms": 2600.6,
+    "syl_end_ms": 2626.6
+  },
+  {
+    "id": "bellbird_0109",
+    "recording": "XC348762",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 2768.2,
+    "centroid_hz": 4808.7,
+    "syl_start_ms": 18628.2,
+    "syl_end_ms": 18654.1
+  },
+  {
+    "id": "bellbird_0110",
+    "recording": "XC348762",
+    "auto_category": "stutter",
+    "duration_ms": 53.9,
+    "f0_hz": 1387.4,
+    "centroid_hz": 3554.1,
+    "syl_start_ms": 34841.5,
+    "syl_end_ms": 34895.4
+  },
+  {
+    "id": "bellbird_0111",
+    "recording": "XC348762",
+    "auto_category": "click",
+    "duration_ms": 29.9,
+    "f0_hz": 3728.1,
+    "centroid_hz": 4534.2,
+    "syl_start_ms": 57347.5,
+    "syl_end_ms": 57377.4
+  },
+  {
+    "id": "bellbird_0112",
+    "recording": "XC348762",
+    "auto_category": "trill",
+    "duration_ms": 78.8,
+    "f0_hz": 3038.8,
+    "centroid_hz": 3855.4,
+    "syl_start_ms": 76921.9,
+    "syl_end_ms": 77000.7
+  },
+  {
+    "id": "bellbird_0113",
+    "recording": "XC348762",
+    "auto_category": "trill",
+    "duration_ms": 89.8,
+    "f0_hz": 1994.3,
+    "centroid_hz": 3324.4,
+    "syl_start_ms": 108069.8,
+    "syl_end_ms": 108159.6
+  },
+  {
+    "id": "bellbird_0114",
+    "recording": "XC842925",
+    "auto_category": "stutter",
+    "duration_ms": 51.9,
+    "f0_hz": 1795.7,
+    "centroid_hz": 2531.6,
+    "syl_start_ms": 965.8,
+    "syl_end_ms": 1017.7
+  },
+  {
+    "id": "bellbird_0115",
+    "recording": "XC842925",
+    "auto_category": "stutter",
+    "duration_ms": 95.8,
+    "f0_hz": 1248.5,
+    "centroid_hz": 4261.4,
+    "syl_start_ms": 10603.9,
+    "syl_end_ms": 10699.7
+  },
+  {
+    "id": "bellbird_0116",
+    "recording": "XC842925",
+    "auto_category": "stutter",
+    "duration_ms": 174.6,
+    "f0_hz": 1616.6,
+    "centroid_hz": 2484.0,
+    "syl_start_ms": 23597.3,
+    "syl_end_ms": 23771.9
+  },
+  {
+    "id": "bellbird_0117",
+    "recording": "XC842925",
+    "auto_category": "stutter",
+    "duration_ms": 67.8,
+    "f0_hz": 4207.0,
+    "centroid_hz": 3304.5,
+    "syl_start_ms": 40023.8,
+    "syl_end_ms": 40091.6
+  },
+  {
+    "id": "bellbird_0118",
+    "recording": "XC842925",
+    "auto_category": "stutter",
+    "duration_ms": 59.9,
+    "f0_hz": 4341.9,
+    "centroid_hz": 3578.7,
+    "syl_start_ms": 55188.0,
+    "syl_end_ms": 55247.9
+  },
+  {
+    "id": "bellbird_0119",
+    "recording": "XC842925",
+    "auto_category": "stutter",
+    "duration_ms": 71.8,
+    "f0_hz": 4350.9,
+    "centroid_hz": 3679.0,
+    "syl_start_ms": 75273.3,
+    "syl_end_ms": 75345.1
+  },
+  {
+    "id": "bellbird_0120",
+    "recording": "XC959319",
+    "auto_category": "pipe",
+    "duration_ms": 93.8,
+    "f0_hz": 2117.2,
+    "centroid_hz": 2656.0,
+    "syl_start_ms": 714.0,
+    "syl_end_ms": 807.8
+  },
+  {
+    "id": "bellbird_0121",
+    "recording": "XC959319",
+    "auto_category": "click",
+    "duration_ms": 29.9,
+    "f0_hz": 3845.5,
+    "centroid_hz": 3626.1,
+    "syl_start_ms": 58740.7,
+    "syl_end_ms": 58770.6
+  },
+  {
+    "id": "bellbird_0122",
+    "recording": "XC959319",
+    "auto_category": "trill",
+    "duration_ms": 131.7,
+    "f0_hz": 2156.6,
+    "centroid_hz": 2894.6,
+    "syl_start_ms": 62767.5,
+    "syl_end_ms": 62899.2
+  },
+  {
+    "id": "bellbird_0123",
+    "recording": "XC959319",
+    "auto_category": "complex",
+    "duration_ms": 43.9,
+    "f0_hz": 3159.8,
+    "centroid_hz": 3236.0,
+    "syl_start_ms": 66059.3,
+    "syl_end_ms": 66103.2
+  },
+  {
+    "id": "bellbird_0124",
+    "recording": "XC959319",
+    "auto_category": "stutter",
+    "duration_ms": 467.9,
+    "f0_hz": 1949.2,
+    "centroid_hz": 2196.4,
+    "syl_start_ms": 70579.8,
+    "syl_end_ms": 71047.7
+  },
+  {
+    "id": "bellbird_0125",
+    "recording": "XC959319",
+    "auto_category": "stutter",
+    "duration_ms": 53.9,
+    "f0_hz": 4108.3,
+    "centroid_hz": 3845.0,
+    "syl_start_ms": 86929.9,
+    "syl_end_ms": 86983.8
+  },
+  {
+    "id": "bellbird_0126",
+    "recording": "XC843994",
+    "auto_category": "stutter",
+    "duration_ms": 214.5,
+    "f0_hz": 3728.3,
+    "centroid_hz": 3757.5,
+    "syl_start_ms": 242.0,
+    "syl_end_ms": 456.5
+  },
+  {
+    "id": "bellbird_0127",
+    "recording": "XC843994",
+    "auto_category": "click",
+    "duration_ms": 27.9,
+    "f0_hz": 1778.1,
+    "centroid_hz": 1573.8,
+    "syl_start_ms": 10638.5,
+    "syl_end_ms": 10666.5
+  },
+  {
+    "id": "bellbird_0128",
+    "recording": "XC843994",
+    "auto_category": "stutter",
+    "duration_ms": 281.4,
+    "f0_hz": 4032.0,
+    "centroid_hz": 2839.6,
+    "syl_start_ms": 26649.1,
+    "syl_end_ms": 26930.4
+  },
+  {
+    "id": "bellbird_0129",
+    "recording": "XC843994",
+    "auto_category": "warble",
+    "duration_ms": 146.7,
+    "f0_hz": 1537.5,
+    "centroid_hz": 2205.3,
+    "syl_start_ms": 38167.8,
+    "syl_end_ms": 38314.5
+  },
+  {
+    "id": "bellbird_0130",
+    "recording": "XC843994",
+    "auto_category": "complex",
+    "duration_ms": 234.5,
+    "f0_hz": 1810.2,
+    "centroid_hz": 2131.7,
+    "syl_start_ms": 51496.1,
+    "syl_end_ms": 51730.5
+  },
+  {
+    "id": "bellbird_0131",
+    "recording": "XC843994",
+    "auto_category": "click",
+    "duration_ms": 35.9,
+    "f0_hz": 1809.9,
+    "centroid_hz": 1663.8,
+    "syl_start_ms": 80521.0,
+    "syl_end_ms": 80556.9
+  },
+  {
+    "id": "bellbird_0132",
+    "recording": "XC925261",
+    "auto_category": "click",
+    "duration_ms": 22.0,
+    "f0_hz": 1446.2,
+    "centroid_hz": 4619.4,
+    "syl_start_ms": 3719.2,
+    "syl_end_ms": 3741.1
+  },
+  {
+    "id": "bellbird_0133",
+    "recording": "XC925261",
+    "auto_category": "stutter",
+    "duration_ms": 162.6,
+    "f0_hz": 2575.1,
+    "centroid_hz": 3498.0,
+    "syl_start_ms": 4292.6,
+    "syl_end_ms": 4455.2
+  },
+  {
+    "id": "bellbird_0134",
+    "recording": "XC925261",
+    "auto_category": "stutter",
+    "duration_ms": 83.8,
+    "f0_hz": 2713.7,
+    "centroid_hz": 3589.9,
+    "syl_start_ms": 5155.0,
+    "syl_end_ms": 5238.8
+  },
+  {
+    "id": "bellbird_0135",
+    "recording": "XC925261",
+    "auto_category": "click",
+    "duration_ms": 24.9,
+    "f0_hz": 1623.1,
+    "centroid_hz": 3372.9,
+    "syl_start_ms": 16375.9,
+    "syl_end_ms": 16400.8
+  },
+  {
+    "id": "bellbird_0136",
+    "recording": "XC925261",
+    "auto_category": "trill",
+    "duration_ms": 80.8,
+    "f0_hz": 2781.7,
+    "centroid_hz": 4986.2,
+    "syl_start_ms": 19497.1,
+    "syl_end_ms": 19578.0
+  },
+  {
+    "id": "bellbird_0137",
+    "recording": "XC925261",
+    "auto_category": "warble",
+    "duration_ms": 76.8,
+    "f0_hz": 1387.0,
+    "centroid_hz": 2479.8,
+    "syl_start_ms": 20332.3,
+    "syl_end_ms": 20409.2
+  },
+  {
+    "id": "bellbird_0138",
+    "recording": "XC474021",
+    "auto_category": "stutter",
+    "duration_ms": 76.8,
+    "f0_hz": 1249.2,
+    "centroid_hz": 3592.7,
+    "syl_start_ms": 0.0,
+    "syl_end_ms": 76.8
+  },
+  {
+    "id": "bellbird_0139",
+    "recording": "XC474021",
+    "auto_category": "stutter",
+    "duration_ms": 368.2,
+    "f0_hz": 1254.8,
+    "centroid_hz": 2228.4,
+    "syl_start_ms": 13992.4,
+    "syl_end_ms": 14360.5
+  },
+  {
+    "id": "bellbird_0140",
+    "recording": "XC474021",
+    "auto_category": "stutter",
+    "duration_ms": 112.7,
+    "f0_hz": 1543.2,
+    "centroid_hz": 3670.8,
+    "syl_start_ms": 30029.2,
+    "syl_end_ms": 30142.0
+  },
+  {
+    "id": "bellbird_0141",
+    "recording": "XC474021",
+    "auto_category": "stutter",
+    "duration_ms": 100.8,
+    "f0_hz": 3233.0,
+    "centroid_hz": 3260.4,
+    "syl_start_ms": 51308.5,
+    "syl_end_ms": 51409.3
+  },
+  {
+    "id": "bellbird_0142",
+    "recording": "XC474021",
+    "auto_category": "click",
+    "duration_ms": 28.9,
+    "f0_hz": 899.2,
+    "centroid_hz": 2595.2,
+    "syl_start_ms": 75452.3,
+    "syl_end_ms": 75481.3
+  },
+  {
+    "id": "bellbird_0143",
+    "recording": "XC474021",
+    "auto_category": "stutter",
+    "duration_ms": 324.3,
+    "f0_hz": 1417.9,
+    "centroid_hz": 2501.1,
+    "syl_start_ms": 103842.4,
+    "syl_end_ms": 104166.6
+  },
+  {
+    "id": "bellbird_0144",
+    "recording": "XC360586",
+    "auto_category": "stutter",
+    "duration_ms": 172.6,
+    "f0_hz": 1596.4,
+    "centroid_hz": 1928.1,
+    "syl_start_ms": 1378.0,
+    "syl_end_ms": 1550.6
+  },
+  {
+    "id": "bellbird_0145",
+    "recording": "XC360586",
+    "auto_category": "stutter",
+    "duration_ms": 152.7,
+    "f0_hz": 1600.3,
+    "centroid_hz": 2046.7,
+    "syl_start_ms": 9893.9,
+    "syl_end_ms": 10046.5
+  },
+  {
+    "id": "bellbird_0146",
+    "recording": "XC360586",
+    "auto_category": "stutter",
+    "duration_ms": 152.7,
+    "f0_hz": 1604.1,
+    "centroid_hz": 2058.5,
+    "syl_start_ms": 17521.8,
+    "syl_end_ms": 17674.5
+  },
+  {
+    "id": "bellbird_0147",
+    "recording": "XC360586",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 807.4,
+    "centroid_hz": 8210.7,
+    "syl_start_ms": 24700.2,
+    "syl_end_ms": 24726.2
+  },
+  {
+    "id": "bellbird_0148",
+    "recording": "XC360586",
+    "auto_category": "stutter",
+    "duration_ms": 164.6,
+    "f0_hz": 1600.5,
+    "centroid_hz": 1985.0,
+    "syl_start_ms": 30041.2,
+    "syl_end_ms": 30205.8
+  },
+  {
+    "id": "bellbird_0149",
+    "recording": "XC360586",
+    "auto_category": "stutter",
+    "duration_ms": 182.6,
+    "f0_hz": 1604.9,
+    "centroid_hz": 2012.2,
+    "syl_start_ms": 37432.6,
+    "syl_end_ms": 37615.1
+  },
+  {
+    "id": "bellbird_0150",
+    "recording": "XC428804",
+    "auto_category": "stutter",
+    "duration_ms": 88.8,
+    "f0_hz": 2299.3,
+    "centroid_hz": 2575.3,
+    "syl_start_ms": 1139.8,
+    "syl_end_ms": 1228.6
+  },
+  {
+    "id": "bellbird_0151",
+    "recording": "XC428804",
+    "auto_category": "click",
+    "duration_ms": 29.9,
+    "f0_hz": 136.4,
+    "centroid_hz": 2798.0,
+    "syl_start_ms": 2263.9,
+    "syl_end_ms": 2293.9
+  },
+  {
+    "id": "bellbird_0152",
+    "recording": "XC428804",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 2303.0,
+    "centroid_hz": 3168.2,
+    "syl_start_ms": 3819.7,
+    "syl_end_ms": 3845.6
+  },
+  {
+    "id": "bellbird_0153",
+    "recording": "XC428804",
+    "auto_category": "stutter",
+    "duration_ms": 78.8,
+    "f0_hz": 2062.9,
+    "centroid_hz": 3075.0,
+    "syl_start_ms": 9568.6,
+    "syl_end_ms": 9647.4
+  },
+  {
+    "id": "bellbird_0154",
+    "recording": "XC428804",
+    "auto_category": "stutter",
+    "duration_ms": 156.6,
+    "f0_hz": 1210.3,
+    "centroid_hz": 2096.1,
+    "syl_start_ms": 13239.4,
+    "syl_end_ms": 13396.0
+  },
+  {
+    "id": "bellbird_0155",
+    "recording": "XC428804",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 2258.3,
+    "centroid_hz": 3681.8,
+    "syl_start_ms": 18494.7,
+    "syl_end_ms": 18520.6
+  },
+  {
+    "id": "bellbird_0156",
+    "recording": "XC925265",
+    "auto_category": "click",
+    "duration_ms": 35.9,
+    "f0_hz": 1659.7,
+    "centroid_hz": 2564.2,
+    "syl_start_ms": 27451.8,
+    "syl_end_ms": 27487.7
+  },
+  {
+    "id": "bellbird_0157",
+    "recording": "XC925265",
+    "auto_category": "stutter",
+    "duration_ms": 118.7,
+    "f0_hz": 2082.7,
+    "centroid_hz": 3477.5,
+    "syl_start_ms": 289268.6,
+    "syl_end_ms": 289387.3
+  },
+  {
+    "id": "bellbird_0158",
+    "recording": "XC925265",
+    "auto_category": "stutter",
+    "duration_ms": 45.9,
+    "f0_hz": 1774.5,
+    "centroid_hz": 2531.3,
+    "syl_start_ms": 345990.7,
+    "syl_end_ms": 346036.6
+  },
+  {
+    "id": "bellbird_0159",
+    "recording": "XC925265",
+    "auto_category": "stutter",
+    "duration_ms": 66.8,
+    "f0_hz": 1563.2,
+    "centroid_hz": 2838.3,
+    "syl_start_ms": 411417.0,
+    "syl_end_ms": 411483.8
+  },
+  {
+    "id": "bellbird_0160",
+    "recording": "XC925265",
+    "auto_category": "stutter",
+    "duration_ms": 169.6,
+    "f0_hz": 969.5,
+    "centroid_hz": 2557.6,
+    "syl_start_ms": 489192.4,
+    "syl_end_ms": 489362.0
+  },
+  {
+    "id": "bellbird_0161",
+    "recording": "XC925265",
+    "auto_category": "stutter",
+    "duration_ms": 55.9,
+    "f0_hz": 300.8,
+    "centroid_hz": 5851.6,
+    "syl_start_ms": 550206.6,
+    "syl_end_ms": 550262.5
+  },
+  {
+    "id": "bellbird_0162",
+    "recording": "XC956713",
+    "auto_category": "stutter",
+    "duration_ms": 54.9,
+    "f0_hz": 1818.0,
+    "centroid_hz": 3058.3,
+    "syl_start_ms": 2327.8,
+    "syl_end_ms": 2382.7
+  },
+  {
+    "id": "bellbird_0163",
+    "recording": "XC956713",
+    "auto_category": "stutter",
+    "duration_ms": 106.8,
+    "f0_hz": 1817.9,
+    "centroid_hz": 2579.8,
+    "syl_start_ms": 14831.7,
+    "syl_end_ms": 14938.5
+  },
+  {
+    "id": "bellbird_0164",
+    "recording": "XC956713",
+    "auto_category": "complex",
+    "duration_ms": 40.9,
+    "f0_hz": 2087.0,
+    "centroid_hz": 1839.6,
+    "syl_start_ms": 40603.5,
+    "syl_end_ms": 40644.4
+  },
+  {
+    "id": "bellbird_0165",
+    "recording": "XC956713",
+    "auto_category": "complex",
+    "duration_ms": 50.9,
+    "f0_hz": 5942.3,
+    "centroid_hz": 3119.0,
+    "syl_start_ms": 55234.5,
+    "syl_end_ms": 55285.4
+  },
+  {
+    "id": "bellbird_0166",
+    "recording": "XC956713",
+    "auto_category": "stutter",
+    "duration_ms": 128.7,
+    "f0_hz": 1168.2,
+    "centroid_hz": 2672.4,
+    "syl_start_ms": 65694.1,
+    "syl_end_ms": 65822.9
+  },
+  {
+    "id": "bellbird_0167",
+    "recording": "XC956713",
+    "auto_category": "stutter",
+    "duration_ms": 77.8,
+    "f0_hz": 984.2,
+    "centroid_hz": 3332.0,
+    "syl_start_ms": 70153.3,
+    "syl_end_ms": 70231.1
+  },
+  {
+    "id": "bellbird_0168",
+    "recording": "XC1059091",
+    "auto_category": "click",
+    "duration_ms": 22.0,
+    "f0_hz": 2216.4,
+    "centroid_hz": 2651.2,
+    "syl_start_ms": 2685.9,
+    "syl_end_ms": 2707.8
+  },
+  {
+    "id": "bellbird_0169",
+    "recording": "XC1059091",
+    "auto_category": "stutter",
+    "duration_ms": 186.6,
+    "f0_hz": 3149.1,
+    "centroid_hz": 4653.9,
+    "syl_start_ms": 3207.4,
+    "syl_end_ms": 3394.0
+  },
+  {
+    "id": "bellbird_0170",
+    "recording": "XC1059091",
+    "auto_category": "stutter",
+    "duration_ms": 152.7,
+    "f0_hz": 2164.1,
+    "centroid_hz": 2558.0,
+    "syl_start_ms": 3820.4,
+    "syl_end_ms": 3973.1
+  },
+  {
+    "id": "bellbird_0171",
+    "recording": "XC1059091",
+    "auto_category": "click",
+    "duration_ms": 22.0,
+    "f0_hz": 1906.2,
+    "centroid_hz": 3037.1,
+    "syl_start_ms": 20217.0,
+    "syl_end_ms": 20238.9
+  },
+  {
+    "id": "bellbird_0172",
+    "recording": "XC1059091",
+    "auto_category": "stutter",
+    "duration_ms": 176.6,
+    "f0_hz": 3144.8,
+    "centroid_hz": 4156.7,
+    "syl_start_ms": 20647.1,
+    "syl_end_ms": 20823.7
+  },
+  {
+    "id": "bellbird_0173",
+    "recording": "XC1059091",
+    "auto_category": "stutter",
+    "duration_ms": 152.7,
+    "f0_hz": 2169.6,
+    "centroid_hz": 2452.2,
+    "syl_start_ms": 21260.2,
+    "syl_end_ms": 21412.9
+  },
+  {
+    "id": "bellbird_0174",
+    "recording": "XC348789",
+    "auto_category": "click",
+    "duration_ms": 22.0,
+    "f0_hz": 1897.5,
+    "centroid_hz": 3427.6,
+    "syl_start_ms": 689.0,
+    "syl_end_ms": 710.9
+  },
+  {
+    "id": "bellbird_0175",
+    "recording": "XC348789",
+    "auto_category": "stutter",
+    "duration_ms": 199.5,
+    "f0_hz": 1341.6,
+    "centroid_hz": 3675.8,
+    "syl_start_ms": 16788.0,
+    "syl_end_ms": 16987.6
+  },
+  {
+    "id": "bellbird_0176",
+    "recording": "XC348789",
+    "auto_category": "click",
+    "duration_ms": 22.0,
+    "f0_hz": 1595.2,
+    "centroid_hz": 4033.7,
+    "syl_start_ms": 24319.5,
+    "syl_end_ms": 24341.4
+  },
+  {
+    "id": "bellbird_0177",
+    "recording": "XC348789",
+    "auto_category": "stutter",
+    "duration_ms": 172.6,
+    "f0_hz": 1421.7,
+    "centroid_hz": 3939.4,
+    "syl_start_ms": 33471.6,
+    "syl_end_ms": 33644.2
+  },
+  {
+    "id": "bellbird_0178",
+    "recording": "XC348789",
+    "auto_category": "stutter",
+    "duration_ms": 134.7,
+    "f0_hz": 1924.8,
+    "centroid_hz": 3059.6,
+    "syl_start_ms": 57223.8,
+    "syl_end_ms": 57358.5
+  },
+  {
+    "id": "bellbird_0179",
+    "recording": "XC348789",
+    "auto_category": "stutter",
+    "duration_ms": 112.7,
+    "f0_hz": 1471.3,
+    "centroid_hz": 3154.8,
+    "syl_start_ms": 67930.0,
+    "syl_end_ms": 68042.7
+  },
+  {
+    "id": "bellbird_0180",
+    "recording": "XC345382",
+    "auto_category": "stutter",
+    "duration_ms": 77.8,
+    "f0_hz": 1259.9,
+    "centroid_hz": 3154.2,
+    "syl_start_ms": 4748.5,
+    "syl_end_ms": 4826.3
+  },
+  {
+    "id": "bellbird_0181",
+    "recording": "XC345382",
+    "auto_category": "stutter",
+    "duration_ms": 372.2,
+    "f0_hz": 1598.3,
+    "centroid_hz": 2599.7,
+    "syl_start_ms": 4912.8,
+    "syl_end_ms": 5285.0
+  },
+  {
+    "id": "bellbird_0182",
+    "recording": "XC345382",
+    "auto_category": "stutter",
+    "duration_ms": 206.5,
+    "f0_hz": 1747.7,
+    "centroid_hz": 2534.4,
+    "syl_start_ms": 5339.9,
+    "syl_end_ms": 5546.4
+  },
+  {
+    "id": "bellbird_0183",
+    "recording": "XC956637",
+    "auto_category": "trill",
+    "duration_ms": 114.7,
+    "f0_hz": 6239.8,
+    "centroid_hz": 7070.2,
+    "syl_start_ms": 0.0,
+    "syl_end_ms": 114.7
+  },
+  {
+    "id": "bellbird_0184",
+    "recording": "XC956637",
+    "auto_category": "stutter",
+    "duration_ms": 68.8,
+    "f0_hz": 2856.8,
+    "centroid_hz": 4351.6,
+    "syl_start_ms": 2893.1,
+    "syl_end_ms": 2961.9
+  },
+  {
+    "id": "bellbird_0185",
+    "recording": "XC956637",
+    "auto_category": "click",
+    "duration_ms": 25.9,
+    "f0_hz": 1828.1,
+    "centroid_hz": 4573.9,
+    "syl_start_ms": 9862.7,
+    "syl_end_ms": 9888.6
+  },
+  {
+    "id": "bellbird_0186",
+    "recording": "XC956637",
+    "auto_category": "stutter",
+    "duration_ms": 91.8,
+    "f0_hz": 1960.0,
+    "centroid_hz": 3982.5,
+    "syl_start_ms": 13690.2,
+    "syl_end_ms": 13782.0
+  },
+  {
+    "id": "bellbird_0187",
+    "recording": "XC956637",
+    "auto_category": "stutter",
+    "duration_ms": 82.8,
+    "f0_hz": 2167.8,
+    "centroid_hz": 2894.6,
+    "syl_start_ms": 29114.0,
+    "syl_end_ms": 29196.8
+  },
+  {
+    "id": "bellbird_0188",
+    "recording": "XC956637",
+    "auto_category": "stutter",
+    "duration_ms": 105.8,
+    "f0_hz": 555.3,
+    "centroid_hz": 3261.4,
+    "syl_start_ms": 31677.5,
+    "syl_end_ms": 31783.2
+  },
+  {
+    "id": "bellbird_0189",
+    "recording": "XC293344",
+    "auto_category": "stutter",
+    "duration_ms": 62.9,
+    "f0_hz": 1945.0,
+    "centroid_hz": 2351.4,
+    "syl_start_ms": 478.5,
+    "syl_end_ms": 541.4
+  },
+  {
+    "id": "bellbird_0190",
+    "recording": "XC293344",
+    "auto_category": "stutter",
+    "duration_ms": 64.9,
+    "f0_hz": 1956.9,
+    "centroid_hz": 2439.4,
+    "syl_start_ms": 22849.0,
+    "syl_end_ms": 22913.8
+  },
+  {
+    "id": "bellbird_0191",
+    "recording": "XC293344",
+    "auto_category": "stutter",
+    "duration_ms": 66.8,
+    "f0_hz": 224.3,
+    "centroid_hz": 5062.5,
+    "syl_start_ms": 38489.1,
+    "syl_end_ms": 38555.9
+  },
+  {
+    "id": "bellbird_0192",
+    "recording": "XC293344",
+    "auto_category": "trill",
+    "duration_ms": 90.8,
+    "f0_hz": 1528.9,
+    "centroid_hz": 3411.2,
+    "syl_start_ms": 54561.5,
+    "syl_end_ms": 54652.2
+  },
+  {
+    "id": "bellbird_0193",
+    "recording": "XC293344",
+    "auto_category": "stutter",
+    "duration_ms": 116.7,
+    "f0_hz": 1963.4,
+    "centroid_hz": 2505.6,
+    "syl_start_ms": 68924.1,
+    "syl_end_ms": 69040.8
+  },
+  {
+    "id": "bellbird_0194",
+    "recording": "XC293344",
+    "auto_category": "warble",
+    "duration_ms": 42.9,
+    "f0_hz": 633.0,
+    "centroid_hz": 2401.4,
+    "syl_start_ms": 81264.0,
+    "syl_end_ms": 81306.9
+  },
+  {
+    "id": "bellbird_0195",
+    "recording": "XC925262",
+    "auto_category": "trill",
+    "duration_ms": 77.8,
+    "f0_hz": 1367.9,
+    "centroid_hz": 5320.5,
+    "syl_start_ms": 3036.0,
+    "syl_end_ms": 3113.8
+  },
+  {
+    "id": "bellbird_0196",
+    "recording": "XC925262",
+    "auto_category": "stutter",
+    "duration_ms": 93.8,
+    "f0_hz": 606.0,
+    "centroid_hz": 5030.6,
+    "syl_start_ms": 6048.8,
+    "syl_end_ms": 6142.6
+  },
+  {
+    "id": "bellbird_0197",
+    "recording": "XC925262",
+    "auto_category": "trill",
+    "duration_ms": 80.8,
+    "f0_hz": 1719.0,
+    "centroid_hz": 4938.4,
+    "syl_start_ms": 9375.1,
+    "syl_end_ms": 9455.9
+  },
+  {
+    "id": "bellbird_0198",
+    "recording": "XC925262",
+    "auto_category": "trill",
+    "duration_ms": 90.8,
+    "f0_hz": 1776.3,
+    "centroid_hz": 5050.5,
+    "syl_start_ms": 12635.6,
+    "syl_end_ms": 12726.4
+  },
+  {
+    "id": "bellbird_0199",
+    "recording": "XC925262",
+    "auto_category": "stutter",
+    "duration_ms": 62.9,
+    "f0_hz": 1767.9,
+    "centroid_hz": 2905.3,
+    "syl_start_ms": 15892.4,
+    "syl_end_ms": 15955.3
+  }
+]

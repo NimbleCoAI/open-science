@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syllable Annotation Tool — NZ Birdsong</title>
+<style>
+:root{
+  --bg:#0f0f1a; --surface:#1a1a2e; --surface2:#252540; --border:#333355;
+  --text:#e0ddd4; --text2:#9995aa; --accent:#6c8cff; --match:#4caf50; --reject:#ff5252;
+  --tui:#7fa842; --bellbird:#3a8cb0; --kaka:#c05a4a;
+  --mono:'Menlo','Monaco','Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+.header{padding:1.2rem 2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.header h1{font-size:1.2rem;font-weight:600;letter-spacing:-.02em}
+.header .meta{font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.species-bar{display:flex;gap:.5rem;padding:1rem 2rem;border-bottom:1px solid var(--border);background:var(--surface)}
+.species-btn{font-family:var(--mono);font-size:.78rem;padding:.5rem 1.2rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s}
+.species-btn:hover{border-color:var(--accent);color:var(--text)}
+.species-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.category-bar{display:flex;gap:.4rem;padding:.8rem 2rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.cat-btn{font-family:var(--mono);font-size:.7rem;padding:.35rem .8rem;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s}
+.cat-btn:hover{border-color:var(--text2)}
+.cat-btn.active{background:var(--surface2);color:var(--text);border-color:var(--accent)}
+.cat-btn .count{color:var(--text2);margin-left:.3rem}
+.main{display:grid;grid-template-columns:340px 1fr;height:calc(100vh - 160px);overflow:hidden}
+@media(max-width:900px){.main{grid-template-columns:1fr;height:auto}}
+/* Reference panel */
+.ref-panel{padding:1.5rem;border-right:1px solid var(--border);overflow-y:auto;background:var(--surface)}
+.ref-panel h2{font-size:.85rem;font-weight:600;margin-bottom:.8rem;color:var(--accent)}
+.ref-panel .ref-desc{font-size:.82rem;color:var(--text2);line-height:1.5;margin-bottom:1rem}
+.ref-img{width:100%;border-radius:6px;border:1px solid var(--border);margin-bottom:.5rem;cursor:pointer;transition:transform .2s}
+.ref-img:hover{transform:scale(1.02)}
+.ref-text-card{background:var(--surface2);border-radius:8px;padding:1rem;margin-bottom:1rem;border:1px solid var(--border)}
+.ref-text-card h3{font-size:.78rem;font-weight:600;color:var(--accent);margin-bottom:.4rem}
+.ref-text-card p{font-size:.75rem;color:var(--text2);line-height:1.5}
+/* Carousel panel */
+.carousel-panel{display:flex;flex-direction:column;overflow:hidden}
+.carousel-header{padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.carousel-header .progress{font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.carousel-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;overflow-y:auto}
+.candidate-card{text-align:center;max-width:600px;width:100%}
+.candidate-img{width:100%;max-width:560px;border-radius:8px;border:2px solid var(--border);margin-bottom:.5rem}
+.candidate-meta{font-family:var(--mono);font-size:.7rem;color:var(--text2);margin-bottom:1rem}
+.candidate-meta .auto-cat{background:var(--surface2);padding:.2rem .5rem;border-radius:4px;margin-left:.4rem}
+.controls{display:flex;gap:1rem;justify-content:center;margin-top:.5rem;flex-wrap:wrap}
+.ctrl-btn{font-family:var(--mono);font-size:.85rem;padding:.6rem 1.8rem;border-radius:8px;border:2px solid var(--border);background:transparent;color:var(--text);cursor:pointer;transition:all .15s;min-width:120px}
+.ctrl-btn:hover{transform:translateY(-1px)}
+.ctrl-btn.match{border-color:var(--match);color:var(--match)}
+.ctrl-btn.match:hover{background:var(--match);color:#fff}
+.ctrl-btn.skip{border-color:var(--text2);color:var(--text2)}
+.ctrl-btn.skip:hover{background:var(--surface2)}
+.ctrl-btn.play{border-color:var(--accent);color:var(--accent)}
+.ctrl-btn.play:hover{background:var(--accent);color:#fff}
+.key-hint{font-size:.6rem;display:block;margin-top:.2rem;opacity:.5}
+/* Match pile */
+.match-pile{border-top:1px solid var(--border);padding:1rem 2rem;background:var(--surface);max-height:200px;overflow-y:auto}
+.match-pile h3{font-size:.78rem;font-weight:600;color:var(--match);margin-bottom:.6rem}
+.match-pile .empty{font-size:.75rem;color:var(--text2);font-style:italic}
+.match-grid{display:flex;gap:.6rem;flex-wrap:wrap}
+.match-thumb{position:relative;width:100px;height:60px;border-radius:4px;overflow:hidden;border:1px solid var(--match);cursor:pointer;transition:opacity .15s}
+.match-thumb:hover{opacity:.8}
+.match-thumb img{width:100%;height:100%;object-fit:cover}
+.match-thumb .remove{position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:var(--reject);color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .15s}
+.match-thumb:hover .remove{opacity:1}
+.match-thumb .label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.7);font-size:.55rem;font-family:var(--mono);padding:1px 3px;color:var(--text);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Export button */
+.export-bar{padding:.8rem 2rem;border-top:1px solid var(--border);display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.export-btn{font-family:var(--mono);font-size:.75rem;padding:.4rem 1rem;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.export-btn:hover{background:var(--accent);color:#fff}
+.export-status{font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+/* Empty state */
+.empty-state{text-align:center;padding:3rem}
+.empty-state h2{font-size:1.1rem;margin-bottom:.5rem}
+.empty-state p{font-size:.85rem;color:var(--text2)}
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:100;cursor:pointer}
+.lightbox.show{display:flex}
+.lightbox img{max-width:95vw;max-height:95vh;border-radius:8px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🎵 Syllable Annotation Tool</h1>
+  <div class="meta">Match candidate spectrograms to published reference examples · <span id="total-matches">0</span> matches total</div>
+</div>
+
+<div class="species-bar" id="species-bar">
+  <button class="species-btn active" onclick="selectSpecies('tui')">Tūī</button>
+  <button class="species-btn" onclick="selectSpecies('bellbird')">Bellbird</button>
+  <button class="species-btn" onclick="selectSpecies('kaka')">Kākā</button>
+</div>
+
+<div class="category-bar" id="category-bar"><!-- Populated by JS --></div>
+
+<div class="main">
+  <div class="ref-panel" id="ref-panel"><!-- Populated by JS --></div>
+  <div class="carousel-panel">
+    <div class="carousel-header">
+      <span id="carousel-progress" class="progress">0 / 0</span>
+      <div style="display:flex;gap:.5rem">
+        <button class="ctrl-btn skip" onclick="prevCandidate()" style="min-width:40px;padding:.4rem .6rem">◀</button>
+        <button class="ctrl-btn skip" onclick="nextCandidate()" style="min-width:40px;padding:.4rem .6rem">▶</button>
+      </div>
+    </div>
+    <div class="carousel-body" id="carousel-body">
+      <div class="empty-state">
+        <h2>Select a syllable category</h2>
+        <p>Choose a species and category from the bar above to start annotating</p>
+      </div>
+    </div>
+    <div class="controls" id="controls" style="padding:1rem;display:none">
+      <button class="ctrl-btn play" onclick="playCandidate()">▶ Play<span class="key-hint">Space</span></button>
+      <button class="ctrl-btn match" onclick="matchCandidate()">✓ Match<span class="key-hint">M or →</span></button>
+      <button class="ctrl-btn skip" onclick="nextCandidate()">Skip<span class="key-hint">S or ↓</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="match-pile" id="match-pile">
+  <h3>Matched Templates (<span id="match-count">0</span>)</h3>
+  <div class="match-grid" id="match-grid">
+    <div class="empty">No matches yet — cycle through candidates and click "Match" for good examples</div>
+  </div>
+</div>
+
+<div class="export-bar">
+  <div>
+    <button class="export-btn" onclick="exportAnnotations()">💾 Export Annotations (JSON)</button>
+    <button class="export-btn" onclick="importAnnotations()">📂 Import</button>
+    <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
+  </div>
+  <div class="export-status" id="export-status">Annotations auto-saved to localStorage</div>
+</div>
+
+<!-- Lightbox for zooming reference images -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+// ==================== DATA ====================
+const SPECIES_CONFIG = {
+  tui: {
+    label: 'Tūī',
+    categories: {
+      harmonic: {name:'Harmonic', desc:'Clear harmonic structure with parallel frequency bands — integer multiples of fundamental frequency. Appears as evenly-spaced horizontal lines on spectrogram.', source:'Hill & Ji 2014'},
+      rmnr: {name:'RMNR', desc:'Rapid Multiple Note Repetition — machine-gun-like bursts of short notes in a narrow frequency band. Appears as rapid vertical striations.', source:'Hill & Ji 2014'},
+      trill: {name:'Trill', desc:'Rapid frequency modulation (>10 Hz) — characteristic warbling sound. Appears as a wavy or oscillating trace on the spectrogram.', source:'Hill & Ji 2014'},
+      high_frequency: {name:'High-frequency', desc:'Dominant frequency at or above 5 kHz — near the upper limit of human hearing. Energy concentrated in the upper portion of the spectrogram.', source:'Hill & Ji 2014'},
+      low_frequency: {name:'Low-frequency', desc:'Dominant energy below 2 kHz — deep tones at the bottom of the spectrogram. Relatively rare in tūī song.', source:'Hill & Ji 2014'},
+      harsh: {name:'Harsh/Other', desc:'Throaty, noisy syllables with broadband energy — no clear tonal structure. Appears as a smear across frequencies.', source:'Hill & Ji 2014'}
+    },
+    refImages: ['annotation/references/hill_thesis_p78.png', 'annotation/references/hill_thesis_p79.png'],
+    refCaption: 'Figure 4.5 from Hill (2011) MSc thesis — Spectrographic examples of tūī syllable categories at Tawharanui Regional Park.'
+  },
+  bellbird: {
+    label: 'Bellbird',
+    categories: {
+      stutter: {name:'Stutter', desc:'Rapid repeated short elements — high amplitude peak rate. The most common bellbird syllable family (62.8% of our dataset).', source:'Webb et al. 2021'},
+      pipe: {name:'Pipe', desc:'Pure tone whistles — very narrow bandwidth, often shared between populations. Clear single horizontal line on spectrogram.', source:'Webb et al. 2021'},
+      trill: {name:'Trill', desc:'Rapid oscillatory frequency modulation — similar to tūī trills but typically at lower frequencies.', source:'Webb et al. 2021'},
+      click: {name:'Click', desc:'Very short impulse sounds (<40ms) — brief vertical marks on spectrogram with broadband energy.', source:'Webb et al. 2021'},
+      warble: {name:'Warble', desc:'Frequency-modulated, tonal but with complex structure — undulating frequency contour.', source:'Webb et al. 2021'},
+      complex: {name:'Complex', desc:'Multi-element syllables that combine features from multiple families. Variable appearance.', source:'Webb et al. 2021'}
+    },
+    refImages: [],
+    refCaption: 'Bellbird syllable families from Webb et al. (2021) and Roper (2018). Reference spectrograms from the Koe dataset pending download.'
+  },
+  kaka: {
+    label: 'Kākā',
+    categories: {
+      snicker: {name:'Snicker', desc:'Rapid chattering series of short notes — used during close-range social interactions and copulation (Van Horik 2007). Appears as rapid vertical pulses.', source:'Van Horik et al. 2007'},
+      bark: {name:'Bark', desc:'Short, sharp percussive call — used as alarm/alert signals (Van Horik 2007). Brief broadband burst on spectrogram.', source:'Van Horik et al. 2007'},
+      gurgle: {name:'Gurgle', desc:'Complex low-frequency vocalisation — associated with social bonding (Van Horik 2007). Rich harmonic structure at lower frequencies.', source:'Van Horik et al. 2007'},
+      shraak: {name:'Shraak', desc:'Loud, long-distance contact call — used by widely separated birds for flock coordination (Van Horik 2007). Long, loud broadband call. NOT detected in our XC dataset.', source:'Van Horik et al. 2007'},
+      shraak_woo: {name:'Shraak-woo', desc:'Two-part long-distance call — shraak followed by a descending "woo" element. NOT detected in our XC dataset.', source:'Van Horik et al. 2007'}
+    },
+    refImages: [],
+    refCaption: 'Kākā call types from Van Horik, Bell & Burns (2007). Reference sonograms from the paper\'s Figure 1 — not yet digitised.'
+  }
+};
+
+let state = {
+  species: 'tui',
+  category: null,
+  candidateIndex: 0,
+  manifests: {},       // species -> manifest array
+  annotations: {},     // species -> category -> [{id, recording, ...}]
+  audio: null
+};
+
+// ==================== INIT ====================
+async function init() {
+  // Load manifests
+  for (const sp of ['tui', 'bellbird', 'kaka']) {
+    try {
+      const resp = await fetch(`annotation/${sp}/manifest.json`);
+      state.manifests[sp] = await resp.json();
+    } catch(e) {
+      console.warn(`Could not load ${sp} manifest:`, e);
+      state.manifests[sp] = [];
+    }
+  }
+  
+  // Load saved annotations from localStorage
+  try {
+    const saved = localStorage.getItem('birdsong-annotations');
+    if (saved) state.annotations = JSON.parse(saved);
+  } catch(e) {}
+  
+  selectSpecies('tui');
+  updateTotalMatches();
+}
+
+function saveAnnotations() {
+  localStorage.setItem('birdsong-annotations', JSON.stringify(state.annotations));
+  updateTotalMatches();
+}
+
+function updateTotalMatches() {
+  let total = 0;
+  for (const sp in state.annotations) {
+    for (const cat in state.annotations[sp]) {
+      total += state.annotations[sp][cat].length;
+    }
+  }
+  document.getElementById('total-matches').textContent = total;
+}
+
+// ==================== SPECIES ====================
+function selectSpecies(sp) {
+  state.species = sp;
+  state.category = null;
+  state.candidateIndex = 0;
+  
+  // Update species buttons
+  document.querySelectorAll('.species-btn').forEach(b => b.classList.remove('active'));
+  event?.target?.classList.add('active') || 
+    document.querySelector(`.species-btn[onclick*="${sp}"]`)?.classList.add('active');
+  
+  // Populate category bar
+  const cfg = SPECIES_CONFIG[sp];
+  const catBar = document.getElementById('category-bar');
+  catBar.innerHTML = '';
+  for (const [key, cat] of Object.entries(cfg.categories)) {
+    const matchCount = (state.annotations[sp]?.[key] || []).length;
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn';
+    btn.innerHTML = `${cat.name} <span class="count">${matchCount}</span>`;
+    btn.onclick = () => selectCategory(key);
+    catBar.appendChild(btn);
+  }
+  
+  // Update reference panel
+  updateRefPanel();
+  
+  // Clear carousel
+  document.getElementById('carousel-body').innerHTML = '<div class="empty-state"><h2>Select a syllable category</h2><p>Choose a category from the bar above to start annotating</p></div>';
+  document.getElementById('controls').style.display = 'none';
+}
+
+// ==================== CATEGORY ====================
+function selectCategory(cat) {
+  state.category = cat;
+  state.candidateIndex = 0;
+  
+  // Update category buttons
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  event?.target?.classList.add('active');
+  
+  // Update reference panel for this category
+  updateRefPanel();
+  
+  // Show carousel
+  document.getElementById('controls').style.display = 'flex';
+  showCandidate();
+  updateMatchPile();
+}
+
+// ==================== REFERENCE PANEL ====================
+function updateRefPanel() {
+  const panel = document.getElementById('ref-panel');
+  const cfg = SPECIES_CONFIG[state.species];
+  
+  let html = `<h2>Reference — ${cfg.label}</h2>`;
+  
+  if (state.category) {
+    const cat = cfg.categories[state.category];
+    html += `<div class="ref-text-card">
+      <h3>${cat.name}</h3>
+      <p>${cat.desc}</p>
+      <p style="margin-top:.4rem;font-size:.65rem;color:var(--accent)">Source: ${cat.source}</p>
+    </div>`;
+  }
+  
+  if (cfg.refImages.length > 0) {
+    html += `<p class="ref-desc">${cfg.refCaption}</p>`;
+    for (const img of cfg.refImages) {
+      html += `<img class="ref-img" src="${img}" alt="Reference spectrogram" onclick="showLightbox('${img}')">`;
+    }
+  } else {
+    html += `<p class="ref-desc">${cfg.refCaption}</p>`;
+    html += `<div class="ref-text-card"><h3>No reference image available</h3><p>Reference spectrograms for this species are pending. Use the text descriptions above and your best judgement, or skip this species for now.</p></div>`;
+  }
+  
+  // Show all category descriptions as quick reference
+  if (!state.category) {
+    html += '<div style="margin-top:1rem"><h2 style="font-size:.78rem;margin-bottom:.5rem">All categories</h2>';
+    for (const [key, cat] of Object.entries(cfg.categories)) {
+      html += `<div class="ref-text-card" style="cursor:pointer" onclick="selectCategory('${key}')"><h3>${cat.name}</h3><p>${cat.desc}</p></div>`;
+    }
+    html += '</div>';
+  }
+  
+  panel.innerHTML = html;
+}
+
+// ==================== CAROUSEL ====================
+function getCandidates() {
+  const manifest = state.manifests[state.species] || [];
+  // Don't filter by auto-category — show ALL candidates so the human can judge
+  return manifest;
+}
+
+function showCandidate() {
+  const candidates = getCandidates();
+  const body = document.getElementById('carousel-body');
+  
+  if (candidates.length === 0) {
+    body.innerHTML = '<div class="empty-state"><h2>No candidates</h2><p>No syllable candidates available for this species.</p></div>';
+    return;
+  }
+  
+  if (state.candidateIndex >= candidates.length) state.candidateIndex = 0;
+  if (state.candidateIndex < 0) state.candidateIndex = candidates.length - 1;
+  
+  const c = candidates[state.candidateIndex];
+  const isMatched = (state.annotations[state.species]?.[state.category] || []).some(m => m.id === c.id);
+  
+  body.innerHTML = `<div class="candidate-card">
+    <img class="candidate-img" src="annotation/${state.species}/${c.id}.png" alt="Candidate spectrogram"
+         style="${isMatched ? 'border-color:var(--match)' : ''}"
+         onclick="showLightbox('annotation/${state.species}/${c.id}.png')">
+    <div class="candidate-meta">
+      ${c.recording} · ${c.duration_ms}ms · f₀: ${c.f0_hz}Hz · centroid: ${c.centroid_hz}Hz
+      <span class="auto-cat">${isMatched ? '✓ MATCHED' : 'auto: ' + c.auto_category}</span>
+    </div>
+  </div>`;
+  
+  document.getElementById('carousel-progress').textContent = 
+    `${state.candidateIndex + 1} / ${candidates.length}`;
+}
+
+function nextCandidate() {
+  state.candidateIndex++;
+  showCandidate();
+}
+
+function prevCandidate() {
+  state.candidateIndex--;
+  showCandidate();
+}
+
+function playCandidate() {
+  const candidates = getCandidates();
+  if (candidates.length === 0) return;
+  const c = candidates[state.candidateIndex];
+  
+  if (state.audio) { state.audio.pause(); state.audio = null; }
+  state.audio = new Audio(`annotation/${state.species}/${c.id}.wav`);
+  state.audio.play();
+}
+
+function matchCandidate() {
+  if (!state.category) return;
+  
+  const candidates = getCandidates();
+  if (candidates.length === 0) return;
+  const c = candidates[state.candidateIndex];
+  
+  // Init annotation structure
+  if (!state.annotations[state.species]) state.annotations[state.species] = {};
+  if (!state.annotations[state.species][state.category]) state.annotations[state.species][state.category] = [];
+  
+  // Check if already matched
+  const existing = state.annotations[state.species][state.category];
+  if (existing.some(m => m.id === c.id)) {
+    // Already matched — skip to next
+    nextCandidate();
+    return;
+  }
+  
+  // Add to matches
+  existing.push({...c, matched_at: new Date().toISOString()});
+  saveAnnotations();
+  updateMatchPile();
+  updateCategoryCount();
+  
+  // Visual feedback then advance
+  showCandidate();
+  setTimeout(() => nextCandidate(), 300);
+}
+
+function removeMatch(id) {
+  if (!state.annotations[state.species]?.[state.category]) return;
+  state.annotations[state.species][state.category] = 
+    state.annotations[state.species][state.category].filter(m => m.id !== id);
+  saveAnnotations();
+  updateMatchPile();
+  updateCategoryCount();
+  showCandidate();
+}
+
+function updateCategoryCount() {
+  const catBtns = document.querySelectorAll('.cat-btn');
+  const cats = Object.keys(SPECIES_CONFIG[state.species].categories);
+  catBtns.forEach((btn, i) => {
+    const count = (state.annotations[state.species]?.[cats[i]] || []).length;
+    btn.querySelector('.count').textContent = count;
+  });
+}
+
+// ==================== MATCH PILE ====================
+function updateMatchPile() {
+  const grid = document.getElementById('match-grid');
+  const matches = state.annotations[state.species]?.[state.category] || [];
+  document.getElementById('match-count').textContent = matches.length;
+  
+  if (matches.length === 0) {
+    grid.innerHTML = '<div class="empty">No matches yet — cycle through candidates and click "Match" for good examples</div>';
+    return;
+  }
+  
+  grid.innerHTML = matches.map(m => `
+    <div class="match-thumb" title="${m.recording} (${m.duration_ms}ms)">
+      <img src="annotation/${state.species}/${m.id}.png" alt="${m.id}">
+      <div class="remove" onclick="event.stopPropagation(); removeMatch('${m.id}')">×</div>
+      <div class="label">${m.recording}</div>
+    </div>
+  `).join('');
+}
+
+// ==================== EXPORT/IMPORT ====================
+function exportAnnotations() {
+  const data = {
+    version: 1,
+    exported_at: new Date().toISOString(),
+    annotations: state.annotations
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `birdsong-annotations-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  document.getElementById('export-status').textContent = `Exported ${new Date().toLocaleTimeString()}`;
+}
+
+function importAnnotations() {
+  document.getElementById('import-file').click();
+}
+
+function handleImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.annotations) {
+        // Merge with existing
+        for (const sp in data.annotations) {
+          if (!state.annotations[sp]) state.annotations[sp] = {};
+          for (const cat in data.annotations[sp]) {
+            if (!state.annotations[sp][cat]) state.annotations[sp][cat] = [];
+            // Add new matches (avoid duplicates)
+            const existingIds = new Set(state.annotations[sp][cat].map(m => m.id));
+            for (const m of data.annotations[sp][cat]) {
+              if (!existingIds.has(m.id)) {
+                state.annotations[sp][cat].push(m);
+              }
+            }
+          }
+        }
+        saveAnnotations();
+        selectSpecies(state.species); // Refresh
+        document.getElementById('export-status').textContent = `Imported ${new Date().toLocaleTimeString()}`;
+      }
+    } catch(e) {
+      alert('Invalid annotation file: ' + e.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ==================== LIGHTBOX ====================
+function showLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+
+// ==================== KEYBOARD SHORTCUTS ====================
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT') return;
+  switch(e.key) {
+    case ' ': e.preventDefault(); playCandidate(); break;
+    case 'm': case 'M': case 'ArrowRight': matchCandidate(); break;
+    case 's': case 'S': case 'ArrowDown': nextCandidate(); break;
+    case 'ArrowUp': prevCandidate(); break;
+    case 'ArrowLeft': prevCandidate(); break;
+    case 'Escape': document.getElementById('lightbox').classList.remove('show'); break;
+  }
+});
+
+// ==================== START ====================
+init();
+</script>
+</body>
+</html>

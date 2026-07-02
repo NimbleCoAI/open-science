@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "tui_0000",
+    "recording": "XC927459",
+    "auto_category": "rmnr",
+    "duration_ms": 366.2,
+    "f0_hz": 1013.8,
+    "centroid_hz": 3922.1,
+    "syl_start_ms": 4279.4,
+    "syl_end_ms": 4645.5
+  },
+  {
+    "id": "tui_0001",
+    "recording": "XC927459",
+    "auto_category": "rmnr",
+    "duration_ms": 116.7,
+    "f0_hz": 871.7,
+    "centroid_hz": 2507.9,
+    "syl_start_ms": 25182.0,
+    "syl_end_ms": 25298.8
+  },
+  {
+    "id": "tui_0002",
+    "recording": "XC927459",
+    "auto_category": "rmnr",
+    "duration_ms": 51.9,
+    "f0_hz": 629.4,
+    "centroid_hz": 2810.5,
+    "syl_start_ms": 38494.9,
+    "syl_end_ms": 38546.8
+  },
+  {
+    "id": "tui_0003",
+    "recording": "XC927459",
+    "auto_category": "rmnr",
+    "duration_ms": 204.5,
+    "f0_hz": 593.9,
+    "centroid_hz": 3375.9,
+    "syl_start_ms": 54282.4,
+    "syl_end_ms": 54487.0
+  },
+  {
+    "id": "tui_0004",
+    "recording": "XC927459",
+    "auto_category": "rmnr",
+    "duration_ms": 93.8,
+    "f0_hz": 678.4,
+    "centroid_hz": 2059.1,
+    "syl_start_ms": 77461.8,
+    "syl_end_ms": 77555.6
+  },
+  {
+    "id": "tui_0005",
+    "recording": "XC927459",
+    "auto_category": "rmnr",
+    "duration_ms": 90.8,
+    "f0_hz": 1702.8,
+    "centroid_hz": 4627.4,
+    "syl_start_ms": 93373.2,
+    "syl_end_ms": 93464.0
+  },
+  {
+    "id": "tui_0006",
+    "recording": "XC979569",
+    "auto_category": "rmnr",
+    "duration_ms": 595.6,
+    "f0_hz": 1356.8,
+    "centroid_hz": 1474.6,
+    "syl_start_ms": 3316.6,
+    "syl_end_ms": 3912.3
+  },
+  {
+    "id": "tui_0007",
+    "recording": "XC979569",
+    "auto_category": "rmnr",
+    "duration_ms": 141.7,
+    "f0_hz": 806.2,
+    "centroid_hz": 2323.4,
+    "syl_start_ms": 10930.8,
+    "syl_end_ms": 11072.5
+  },
+  {
+    "id": "tui_0008",
+    "recording": "XC979569",
+    "auto_category": "harmonic",
+    "duration_ms": 38.9,
+    "f0_hz": 3434.2,
+    "centroid_hz": 3904.1,
+    "syl_start_ms": 12637.5,
+    "syl_end_ms": 12676.4
+  },
+  {
+    "id": "tui_0009",
+    "recording": "XC979569",
+    "auto_category": "rmnr",
+    "duration_ms": 537.8,
+    "f0_hz": 1355.2,
+    "centroid_hz": 1489.8,
+    "syl_start_ms": 21695.4,
+    "syl_end_ms": 22233.2
+  },
+  {
+    "id": "tui_0010",
+    "recording": "XC979569",
+    "auto_category": "rmnr",
+    "duration_ms": 239.5,
+    "f0_hz": 1632.0,
+    "centroid_hz": 1809.0,
+    "syl_start_ms": 37192.6,
+    "syl_end_ms": 37432.0
+  },
+  {
+    "id": "tui_0011",
+    "recording": "XC979569",
+    "auto_category": "harmonic",
+    "duration_ms": 48.9,
+    "f0_hz": 881.7,
+    "centroid_hz": 2900.1,
+    "syl_start_ms": 37628.7,
+    "syl_end_ms": 37677.6
+  },
+  {
+    "id": "tui_0012",
+    "recording": "XC957403",
+    "auto_category": "rmnr",
+    "duration_ms": 65.9,
+    "f0_hz": 6031.9,
+    "centroid_hz": 5528.6,
+    "syl_start_ms": 75.5,
+    "syl_end_ms": 141.3
+  },
+  {
+    "id": "tui_0013",
+    "recording": "XC957403",
+    "auto_category": "trill",
+    "duration_ms": 82.8,
+    "f0_hz": 5038.4,
+    "centroid_hz": 7728.1,
+    "syl_start_ms": 9009.3,
+    "syl_end_ms": 9092.2
+  },
+  {
+    "id": "tui_0014",
+    "recording": "XC957403",
+    "auto_category": "rmnr",
+    "duration_ms": 91.8,
+    "f0_hz": 2327.8,
+    "centroid_hz": 3859.2,
+    "syl_start_ms": 14341.0,
+    "syl_end_ms": 14432.8
+  },
+  {
+    "id": "tui_0015",
+    "recording": "XC957403",
+    "auto_category": "rmnr",
+    "duration_ms": 135.7,
+    "f0_hz": 2588.9,
+    "centroid_hz": 3370.5,
+    "syl_start_ms": 25814.8,
+    "syl_end_ms": 25950.5
+  },
+  {
+    "id": "tui_0016",
+    "recording": "XC957403",
+    "auto_category": "rmnr",
+    "duration_ms": 93.8,
+    "f0_hz": 3789.4,
+    "centroid_hz": 4950.3,
+    "syl_start_ms": 36704.9,
+    "syl_end_ms": 36798.7
+  },
+  {
+    "id": "tui_0017",
+    "recording": "XC957403",
+    "auto_category": "rmnr",
+    "duration_ms": 99.8,
+    "f0_hz": 2872.4,
+    "centroid_hz": 4489.3,
+    "syl_start_ms": 45197.8,
+    "syl_end_ms": 45297.6
+  },
+  {
+    "id": "tui_0018",
+    "recording": "XC843914",
+    "auto_category": "rmnr",
+    "duration_ms": 77.8,
+    "f0_hz": 6689.3,
+    "centroid_hz": 5973.4,
+    "syl_start_ms": 1439.6,
+    "syl_end_ms": 1517.5
+  },
+  {
+    "id": "tui_0019",
+    "recording": "XC843914",
+    "auto_category": "rmnr",
+    "duration_ms": 231.5,
+    "f0_hz": 1114.2,
+    "centroid_hz": 3019.4,
+    "syl_start_ms": 5888.6,
+    "syl_end_ms": 6120.1
+  },
+  {
+    "id": "tui_0020",
+    "recording": "XC843914",
+    "auto_category": "rmnr",
+    "duration_ms": 39.9,
+    "f0_hz": 3496.4,
+    "centroid_hz": 5558.5,
+    "syl_start_ms": 13771.4,
+    "syl_end_ms": 13811.3
+  },
+  {
+    "id": "tui_0021",
+    "recording": "XC843914",
+    "auto_category": "rmnr",
+    "duration_ms": 187.6,
+    "f0_hz": 502.3,
+    "centroid_hz": 2807.3,
+    "syl_start_ms": 16480.4,
+    "syl_end_ms": 16667.9
+  },
+  {
+    "id": "tui_0022",
+    "recording": "XC843914",
+    "auto_category": "rmnr",
+    "duration_ms": 63.9,
+    "f0_hz": 239.4,
+    "centroid_hz": 3226.4,
+    "syl_start_ms": 28347.8,
+    "syl_end_ms": 28411.6
+  },
+  {
+    "id": "tui_0023",
+    "recording": "XC843914",
+    "auto_category": "trill",
+    "duration_ms": 146.7,
+    "f0_hz": 6313.3,
+    "centroid_hz": 5873.0,
+    "syl_start_ms": 35033.1,
+    "syl_end_ms": 35179.8
+  },
+  {
+    "id": "tui_0024",
+    "recording": "XC842652",
+    "auto_category": "rmnr",
+    "duration_ms": 304.3,
+    "f0_hz": 1605.8,
+    "centroid_hz": 3092.4,
+    "syl_start_ms": 780.2,
+    "syl_end_ms": 1084.5
+  },
+  {
+    "id": "tui_0025",
+    "recording": "XC842652",
+    "auto_category": "high_frequency",
+    "duration_ms": 53.9,
+    "f0_hz": 6456.3,
+    "centroid_hz": 5854.3,
+    "syl_start_ms": 12846.4,
+    "syl_end_ms": 12900.3
+  },
+  {
+    "id": "tui_0026",
+    "recording": "XC842652",
+    "auto_category": "rmnr",
+    "duration_ms": 71.8,
+    "f0_hz": 960.0,
+    "centroid_hz": 4029.8,
+    "syl_start_ms": 18401.8,
+    "syl_end_ms": 18473.7
+  },
+  {
+    "id": "tui_0027",
+    "recording": "XC842652",
+    "auto_category": "rmnr",
+    "duration_ms": 276.4,
+    "f0_hz": 1257.9,
+    "centroid_hz": 3468.8,
+    "syl_start_ms": 24011.6,
+    "syl_end_ms": 24288.0
+  },
+  {
+    "id": "tui_0028",
+    "recording": "XC842652",
+    "auto_category": "trill",
+    "duration_ms": 45.9,
+    "f0_hz": 959.2,
+    "centroid_hz": 1964.4,
+    "syl_start_ms": 26420.5,
+    "syl_end_ms": 26466.4
+  },
+  {
+    "id": "tui_0029",
+    "recording": "XC842652",
+    "auto_category": "rmnr",
+    "duration_ms": 171.6,
+    "f0_hz": 1558.4,
+    "centroid_hz": 1775.2,
+    "syl_start_ms": 33150.7,
+    "syl_end_ms": 33322.3
+  },
+  {
+    "id": "tui_0030",
+    "recording": "XC321682",
+    "auto_category": "rmnr",
+    "duration_ms": 51.9,
+    "f0_hz": 5190.6,
+    "centroid_hz": 5578.4,
+    "syl_start_ms": 646.3,
+    "syl_end_ms": 698.2
+  },
+  {
+    "id": "tui_0031",
+    "recording": "XC321682",
+    "auto_category": "trill",
+    "duration_ms": 47.9,
+    "f0_hz": 3669.3,
+    "centroid_hz": 6438.7,
+    "syl_start_ms": 4870.4,
+    "syl_end_ms": 4918.3
+  },
+  {
+    "id": "tui_0032",
+    "recording": "XC321682",
+    "auto_category": "rmnr",
+    "duration_ms": 216.5,
+    "f0_hz": 1172.3,
+    "centroid_hz": 4322.4,
+    "syl_start_ms": 6861.7,
+    "syl_end_ms": 7078.2
+  },
+  {
+    "id": "tui_0033",
+    "recording": "XC321682",
+    "auto_category": "rmnr",
+    "duration_ms": 41.9,
+    "f0_hz": 6827.2,
+    "centroid_hz": 7025.5,
+    "syl_start_ms": 16584.9,
+    "syl_end_ms": 16626.8
+  },
+  {
+    "id": "tui_0034",
+    "recording": "XC321682",
+    "auto_category": "rmnr",
+    "duration_ms": 47.9,
+    "f0_hz": 5470.6,
+    "centroid_hz": 5622.7,
+    "syl_start_ms": 18541.1,
+    "syl_end_ms": 18589.0
+  },
+  {
+    "id": "tui_0035",
+    "recording": "XC321682",
+    "auto_category": "rmnr",
+    "duration_ms": 208.5,
+    "f0_hz": 1140.8,
+    "centroid_hz": 3805.9,
+    "syl_start_ms": 21550.3,
+    "syl_end_ms": 21758.8
+  },
+  {
+    "id": "tui_0036",
+    "recording": "XC958028",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 1826.2,
+    "centroid_hz": 2388.1,
+    "syl_start_ms": 1480.3,
+    "syl_end_ms": 1516.2
+  },
+  {
+    "id": "tui_0037",
+    "recording": "XC958028",
+    "auto_category": "trill",
+    "duration_ms": 234.5,
+    "f0_hz": 2744.8,
+    "centroid_hz": 5129.7,
+    "syl_start_ms": 14516.8,
+    "syl_end_ms": 14751.3
+  },
+  {
+    "id": "tui_0038",
+    "recording": "XC958028",
+    "auto_category": "rmnr",
+    "duration_ms": 100.8,
+    "f0_hz": 2117.1,
+    "centroid_hz": 3285.8,
+    "syl_start_ms": 21374.0,
+    "syl_end_ms": 21474.7
+  },
+  {
+    "id": "tui_0039",
+    "recording": "XC958028",
+    "auto_category": "rmnr",
+    "duration_ms": 141.7,
+    "f0_hz": 3167.5,
+    "centroid_hz": 3438.9,
+    "syl_start_ms": 27729.5,
+    "syl_end_ms": 27871.2
+  },
+  {
+    "id": "tui_0040",
+    "recording": "XC958028",
+    "auto_category": "trill",
+    "duration_ms": 109.8,
+    "f0_hz": 2525.7,
+    "centroid_hz": 6059.2,
+    "syl_start_ms": 49855.2,
+    "syl_end_ms": 49965.0
+  },
+  {
+    "id": "tui_0041",
+    "recording": "XC958028",
+    "auto_category": "rmnr",
+    "duration_ms": 118.7,
+    "f0_hz": 6263.3,
+    "centroid_hz": 6911.7,
+    "syl_start_ms": 63031.5,
+    "syl_end_ms": 63150.2
+  },
+  {
+    "id": "tui_0042",
+    "recording": "XC958850",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 1164.0,
+    "centroid_hz": 4087.1,
+    "syl_start_ms": 63.9,
+    "syl_end_ms": 99.8
+  },
+  {
+    "id": "tui_0043",
+    "recording": "XC958850",
+    "auto_category": "rmnr",
+    "duration_ms": 426.0,
+    "f0_hz": 2602.0,
+    "centroid_hz": 3799.2,
+    "syl_start_ms": 14592.8,
+    "syl_end_ms": 15018.9
+  },
+  {
+    "id": "tui_0044",
+    "recording": "XC958850",
+    "auto_category": "rmnr",
+    "duration_ms": 65.9,
+    "f0_hz": 5565.6,
+    "centroid_hz": 4984.9,
+    "syl_start_ms": 39410.1,
+    "syl_end_ms": 39475.9
+  },
+  {
+    "id": "tui_0045",
+    "recording": "XC958850",
+    "auto_category": "rmnr",
+    "duration_ms": 178.6,
+    "f0_hz": 1315.2,
+    "centroid_hz": 2131.0,
+    "syl_start_ms": 77420.6,
+    "syl_end_ms": 77599.2
+  },
+  {
+    "id": "tui_0046",
+    "recording": "XC958850",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 329.8,
+    "centroid_hz": 3821.6,
+    "syl_start_ms": 114828.5,
+    "syl_end_ms": 114864.4
+  },
+  {
+    "id": "tui_0047",
+    "recording": "XC958850",
+    "auto_category": "rmnr",
+    "duration_ms": 204.5,
+    "f0_hz": 3580.9,
+    "centroid_hz": 3607.5,
+    "syl_start_ms": 126969.3,
+    "syl_end_ms": 127173.8
+  },
+  {
+    "id": "tui_0048",
+    "recording": "XC959027",
+    "auto_category": "rmnr",
+    "duration_ms": 312.3,
+    "f0_hz": 1164.5,
+    "centroid_hz": 2768.3,
+    "syl_start_ms": 0.0,
+    "syl_end_ms": 312.3
+  },
+  {
+    "id": "tui_0049",
+    "recording": "XC959027",
+    "auto_category": "rmnr",
+    "duration_ms": 2046.3,
+    "f0_hz": 4061.8,
+    "centroid_hz": 4042.2,
+    "syl_start_ms": 8272.8,
+    "syl_end_ms": 10319.2
+  },
+  {
+    "id": "tui_0050",
+    "recording": "XC959027",
+    "auto_category": "rmnr",
+    "duration_ms": 104.8,
+    "f0_hz": 1887.3,
+    "centroid_hz": 2532.7,
+    "syl_start_ms": 40462.9,
+    "syl_end_ms": 40567.7
+  },
+  {
+    "id": "tui_0051",
+    "recording": "XC959027",
+    "auto_category": "rmnr",
+    "duration_ms": 153.7,
+    "f0_hz": 1131.1,
+    "centroid_hz": 3263.9,
+    "syl_start_ms": 59292.2,
+    "syl_end_ms": 59445.8
+  },
+  {
+    "id": "tui_0052",
+    "recording": "XC959027",
+    "auto_category": "rmnr",
+    "duration_ms": 41.9,
+    "f0_hz": 1074.1,
+    "centroid_hz": 3339.5,
+    "syl_start_ms": 89216.9,
+    "syl_end_ms": 89258.8
+  },
+  {
+    "id": "tui_0053",
+    "recording": "XC959027",
+    "auto_category": "rmnr",
+    "duration_ms": 55.9,
+    "f0_hz": 2720.8,
+    "centroid_hz": 4017.2,
+    "syl_start_ms": 125409.2,
+    "syl_end_ms": 125465.0
+  },
+  {
+    "id": "tui_0054",
+    "recording": "XC926289",
+    "auto_category": "rmnr",
+    "duration_ms": 135.7,
+    "f0_hz": 4837.8,
+    "centroid_hz": 5130.7,
+    "syl_start_ms": 1956.3,
+    "syl_end_ms": 2092.0
+  },
+  {
+    "id": "tui_0055",
+    "recording": "XC926289",
+    "auto_category": "rmnr",
+    "duration_ms": 153.7,
+    "f0_hz": 4769.6,
+    "centroid_hz": 5097.3,
+    "syl_start_ms": 16108.8,
+    "syl_end_ms": 16262.5
+  },
+  {
+    "id": "tui_0056",
+    "recording": "XC926289",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 1746.4,
+    "centroid_hz": 3039.6,
+    "syl_start_ms": 25605.8,
+    "syl_end_ms": 25641.7
+  },
+  {
+    "id": "tui_0057",
+    "recording": "XC926289",
+    "auto_category": "trill",
+    "duration_ms": 69.8,
+    "f0_hz": 4150.7,
+    "centroid_hz": 5565.1,
+    "syl_start_ms": 35673.8,
+    "syl_end_ms": 35743.7
+  },
+  {
+    "id": "tui_0058",
+    "recording": "XC926289",
+    "auto_category": "rmnr",
+    "duration_ms": 59.9,
+    "f0_hz": 3781.2,
+    "centroid_hz": 4839.1,
+    "syl_start_ms": 51867.6,
+    "syl_end_ms": 51927.4
+  },
+  {
+    "id": "tui_0059",
+    "recording": "XC926289",
+    "auto_category": "trill",
+    "duration_ms": 336.2,
+    "f0_hz": 2517.1,
+    "centroid_hz": 4526.0,
+    "syl_start_ms": 63073.2,
+    "syl_end_ms": 63409.4
+  },
+  {
+    "id": "tui_0060",
+    "recording": "XC500848",
+    "auto_category": "rmnr",
+    "duration_ms": 117.7,
+    "f0_hz": 1135.2,
+    "centroid_hz": 2543.6,
+    "syl_start_ms": 1561.5,
+    "syl_end_ms": 1679.3
+  },
+  {
+    "id": "tui_0061",
+    "recording": "XC500848",
+    "auto_category": "rmnr",
+    "duration_ms": 156.6,
+    "f0_hz": 1373.8,
+    "centroid_hz": 3465.6,
+    "syl_start_ms": 3074.8,
+    "syl_end_ms": 3231.5
+  },
+  {
+    "id": "tui_0062",
+    "recording": "XC500848",
+    "auto_category": "rmnr",
+    "duration_ms": 170.6,
+    "f0_hz": 1341.4,
+    "centroid_hz": 3452.9,
+    "syl_start_ms": 3744.2,
+    "syl_end_ms": 3914.8
+  },
+  {
+    "id": "tui_0063",
+    "recording": "XC500848",
+    "auto_category": "rmnr",
+    "duration_ms": 270.4,
+    "f0_hz": 1361.8,
+    "centroid_hz": 3318.0,
+    "syl_start_ms": 24187.6,
+    "syl_end_ms": 24458.0
+  },
+  {
+    "id": "tui_0064",
+    "recording": "XC500848",
+    "auto_category": "rmnr",
+    "duration_ms": 162.6,
+    "f0_hz": 1320.0,
+    "centroid_hz": 3211.1,
+    "syl_start_ms": 24946.0,
+    "syl_end_ms": 25108.7
+  },
+  {
+    "id": "tui_0065",
+    "recording": "XC500848",
+    "auto_category": "rmnr",
+    "duration_ms": 93.8,
+    "f0_hz": 446.0,
+    "centroid_hz": 2356.8,
+    "syl_start_ms": 27527.3,
+    "syl_end_ms": 27621.0
+  },
+  {
+    "id": "tui_0066",
+    "recording": "XC956098",
+    "auto_category": "trill",
+    "duration_ms": 61.9,
+    "f0_hz": 972.4,
+    "centroid_hz": 3674.6,
+    "syl_start_ms": 3179.3,
+    "syl_end_ms": 3241.2
+  },
+  {
+    "id": "tui_0067",
+    "recording": "XC956098",
+    "auto_category": "rmnr",
+    "duration_ms": 146.7,
+    "f0_hz": 1348.8,
+    "centroid_hz": 3482.8,
+    "syl_start_ms": 5683.4,
+    "syl_end_ms": 5830.1
+  },
+  {
+    "id": "tui_0068",
+    "recording": "XC956098",
+    "auto_category": "rmnr",
+    "duration_ms": 147.7,
+    "f0_hz": 793.9,
+    "centroid_hz": 3561.8,
+    "syl_start_ms": 8626.2,
+    "syl_end_ms": 8773.9
+  },
+  {
+    "id": "tui_0069",
+    "recording": "XC956098",
+    "auto_category": "rmnr",
+    "duration_ms": 227.5,
+    "f0_hz": 903.4,
+    "centroid_hz": 2467.7,
+    "syl_start_ms": 11853.8,
+    "syl_end_ms": 12081.3
+  },
+  {
+    "id": "tui_0070",
+    "recording": "XC956098",
+    "auto_category": "rmnr",
+    "duration_ms": 53.9,
+    "f0_hz": 838.7,
+    "centroid_hz": 3069.5,
+    "syl_start_ms": 40890.3,
+    "syl_end_ms": 40944.2
+  },
+  {
+    "id": "tui_0071",
+    "recording": "XC956098",
+    "auto_category": "rmnr",
+    "duration_ms": 49.9,
+    "f0_hz": 206.6,
+    "centroid_hz": 2938.1,
+    "syl_start_ms": 45051.1,
+    "syl_end_ms": 45101.0
+  },
+  {
+    "id": "tui_0072",
+    "recording": "XC1105557",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 240.2,
+    "centroid_hz": 5148.6,
+    "syl_start_ms": 2798.0,
+    "syl_end_ms": 2833.9
+  },
+  {
+    "id": "tui_0073",
+    "recording": "XC1105557",
+    "auto_category": "rmnr",
+    "duration_ms": 473.9,
+    "f0_hz": 1316.0,
+    "centroid_hz": 3481.1,
+    "syl_start_ms": 17684.2,
+    "syl_end_ms": 18158.1
+  },
+  {
+    "id": "tui_0074",
+    "recording": "XC1105557",
+    "auto_category": "rmnr",
+    "duration_ms": 99.8,
+    "f0_hz": 1418.4,
+    "centroid_hz": 2935.0,
+    "syl_start_ms": 33570.4,
+    "syl_end_ms": 33670.2
+  },
+  {
+    "id": "tui_0075",
+    "recording": "XC1105557",
+    "auto_category": "rmnr",
+    "duration_ms": 71.8,
+    "f0_hz": 3058.8,
+    "centroid_hz": 5416.8,
+    "syl_start_ms": 50010.0,
+    "syl_end_ms": 50081.8
+  },
+  {
+    "id": "tui_0076",
+    "recording": "XC1105557",
+    "auto_category": "rmnr",
+    "duration_ms": 256.4,
+    "f0_hz": 856.0,
+    "centroid_hz": 2145.9,
+    "syl_start_ms": 75362.5,
+    "syl_end_ms": 75619.0
+  },
+  {
+    "id": "tui_0077",
+    "recording": "XC1105557",
+    "auto_category": "rmnr",
+    "duration_ms": 57.9,
+    "f0_hz": 2305.8,
+    "centroid_hz": 3240.7,
+    "syl_start_ms": 95476.6,
+    "syl_end_ms": 95534.5
+  },
+  {
+    "id": "tui_0078",
+    "recording": "XC958861",
+    "auto_category": "rmnr",
+    "duration_ms": 128.7,
+    "f0_hz": 1665.0,
+    "centroid_hz": 5759.3,
+    "syl_start_ms": 0.0,
+    "syl_end_ms": 128.7
+  },
+  {
+    "id": "tui_0079",
+    "recording": "XC958861",
+    "auto_category": "trill",
+    "duration_ms": 117.7,
+    "f0_hz": 2005.0,
+    "centroid_hz": 5453.9,
+    "syl_start_ms": 12445.9,
+    "syl_end_ms": 12563.6
+  },
+  {
+    "id": "tui_0080",
+    "recording": "XC958861",
+    "auto_category": "trill",
+    "duration_ms": 100.8,
+    "f0_hz": 2917.1,
+    "centroid_hz": 4097.4,
+    "syl_start_ms": 23926.3,
+    "syl_end_ms": 24027.1
+  },
+  {
+    "id": "tui_0081",
+    "recording": "XC958861",
+    "auto_category": "rmnr",
+    "duration_ms": 221.5,
+    "f0_hz": 2706.2,
+    "centroid_hz": 5830.8,
+    "syl_start_ms": 38477.1,
+    "syl_end_ms": 38698.6
+  },
+  {
+    "id": "tui_0082",
+    "recording": "XC958861",
+    "auto_category": "rmnr",
+    "duration_ms": 146.7,
+    "f0_hz": 3681.5,
+    "centroid_hz": 4672.7,
+    "syl_start_ms": 49322.4,
+    "syl_end_ms": 49469.1
+  },
+  {
+    "id": "tui_0083",
+    "recording": "XC958861",
+    "auto_category": "rmnr",
+    "duration_ms": 149.7,
+    "f0_hz": 2238.2,
+    "centroid_hz": 3205.5,
+    "syl_start_ms": 67438.7,
+    "syl_end_ms": 67588.4
+  },
+  {
+    "id": "tui_0084",
+    "recording": "XC842766",
+    "auto_category": "rmnr",
+    "duration_ms": 47.9,
+    "f0_hz": 1622.5,
+    "centroid_hz": 3107.8,
+    "syl_start_ms": 1956.3,
+    "syl_end_ms": 2004.2
+  },
+  {
+    "id": "tui_0085",
+    "recording": "XC842766",
+    "auto_category": "harmonic",
+    "duration_ms": 45.9,
+    "f0_hz": 907.6,
+    "centroid_hz": 2643.5,
+    "syl_start_ms": 11677.1,
+    "syl_end_ms": 11723.0
+  },
+  {
+    "id": "tui_0086",
+    "recording": "XC842766",
+    "auto_category": "rmnr",
+    "duration_ms": 73.8,
+    "f0_hz": 520.7,
+    "centroid_hz": 2477.0,
+    "syl_start_ms": 23276.2,
+    "syl_end_ms": 23350.0
+  },
+  {
+    "id": "tui_0087",
+    "recording": "XC842766",
+    "auto_category": "rmnr",
+    "duration_ms": 180.6,
+    "f0_hz": 1055.9,
+    "centroid_hz": 3834.1,
+    "syl_start_ms": 46200.1,
+    "syl_end_ms": 46380.7
+  },
+  {
+    "id": "tui_0088",
+    "recording": "XC842766",
+    "auto_category": "rmnr",
+    "duration_ms": 197.6,
+    "f0_hz": 1244.8,
+    "centroid_hz": 2677.9,
+    "syl_start_ms": 58412.3,
+    "syl_end_ms": 58609.9
+  },
+  {
+    "id": "tui_0089",
+    "recording": "XC842766",
+    "auto_category": "rmnr",
+    "duration_ms": 145.7,
+    "f0_hz": 4210.6,
+    "centroid_hz": 3883.2,
+    "syl_start_ms": 73969.3,
+    "syl_end_ms": 74115.0
+  },
+  {
+    "id": "tui_0090",
+    "recording": "XC956104",
+    "auto_category": "trill",
+    "duration_ms": 65.9,
+    "f0_hz": 3751.9,
+    "centroid_hz": 6281.9,
+    "syl_start_ms": 2769.0,
+    "syl_end_ms": 2834.8
+  },
+  {
+    "id": "tui_0091",
+    "recording": "XC956104",
+    "auto_category": "trill",
+    "duration_ms": 53.9,
+    "f0_hz": 3907.9,
+    "centroid_hz": 6308.9,
+    "syl_start_ms": 60778.2,
+    "syl_end_ms": 60832.1
+  },
+  {
+    "id": "tui_0092",
+    "recording": "XC956104",
+    "auto_category": "trill",
+    "duration_ms": 65.9,
+    "f0_hz": 4556.1,
+    "centroid_hz": 4931.1,
+    "syl_start_ms": 147586.0,
+    "syl_end_ms": 147651.9
+  },
+  {
+    "id": "tui_0093",
+    "recording": "XC956104",
+    "auto_category": "harmonic",
+    "duration_ms": 53.9,
+    "f0_hz": 830.2,
+    "centroid_hz": 3263.1,
+    "syl_start_ms": 202350.7,
+    "syl_end_ms": 202404.5
+  },
+  {
+    "id": "tui_0094",
+    "recording": "XC956104",
+    "auto_category": "rmnr",
+    "duration_ms": 298.3,
+    "f0_hz": 2329.7,
+    "centroid_hz": 4856.7,
+    "syl_start_ms": 235711.6,
+    "syl_end_ms": 236009.9
+  },
+  {
+    "id": "tui_0095",
+    "recording": "XC956104",
+    "auto_category": "trill",
+    "duration_ms": 111.7,
+    "f0_hz": 3205.5,
+    "centroid_hz": 6027.3,
+    "syl_start_ms": 284624.4,
+    "syl_end_ms": 284736.1
+  },
+  {
+    "id": "tui_0096",
+    "recording": "XC975454",
+    "auto_category": "rmnr",
+    "duration_ms": 174.6,
+    "f0_hz": 1253.4,
+    "centroid_hz": 2234.2,
+    "syl_start_ms": 3341.1,
+    "syl_end_ms": 3515.7
+  },
+  {
+    "id": "tui_0097",
+    "recording": "XC975454",
+    "auto_category": "rmnr",
+    "duration_ms": 65.9,
+    "f0_hz": 4550.4,
+    "centroid_hz": 5660.1,
+    "syl_start_ms": 29384.9,
+    "syl_end_ms": 29450.7
+  },
+  {
+    "id": "tui_0098",
+    "recording": "XC975454",
+    "auto_category": "rmnr",
+    "duration_ms": 59.9,
+    "f0_hz": 5438.8,
+    "centroid_hz": 5707.3,
+    "syl_start_ms": 47450.0,
+    "syl_end_ms": 47509.8
+  },
+  {
+    "id": "tui_0099",
+    "recording": "XC975454",
+    "auto_category": "rmnr",
+    "duration_ms": 157.6,
+    "f0_hz": 4142.0,
+    "centroid_hz": 4605.0,
+    "syl_start_ms": 78832.5,
+    "syl_end_ms": 78990.1
+  },
+  {
+    "id": "tui_0100",
+    "recording": "XC975454",
+    "auto_category": "rmnr",
+    "duration_ms": 53.9,
+    "f0_hz": 3645.5,
+    "centroid_hz": 4696.9,
+    "syl_start_ms": 92949.5,
+    "syl_end_ms": 93003.4
+  },
+  {
+    "id": "tui_0101",
+    "recording": "XC975454",
+    "auto_category": "rmnr",
+    "duration_ms": 161.6,
+    "f0_hz": 1073.2,
+    "centroid_hz": 3796.3,
+    "syl_start_ms": 115411.0,
+    "syl_end_ms": 115572.6
+  },
+  {
+    "id": "tui_0102",
+    "recording": "XC958859",
+    "auto_category": "rmnr",
+    "duration_ms": 159.6,
+    "f0_hz": 1972.9,
+    "centroid_hz": 2550.7,
+    "syl_start_ms": 2906.7,
+    "syl_end_ms": 3066.3
+  },
+  {
+    "id": "tui_0103",
+    "recording": "XC958859",
+    "auto_category": "rmnr",
+    "duration_ms": 89.8,
+    "f0_hz": 620.1,
+    "centroid_hz": 2533.9,
+    "syl_start_ms": 15743.1,
+    "syl_end_ms": 15832.9
+  },
+  {
+    "id": "tui_0104",
+    "recording": "XC958859",
+    "auto_category": "rmnr",
+    "duration_ms": 158.6,
+    "f0_hz": 2773.9,
+    "centroid_hz": 2860.1,
+    "syl_start_ms": 19046.5,
+    "syl_end_ms": 19205.2
+  },
+  {
+    "id": "tui_0105",
+    "recording": "XC958859",
+    "auto_category": "rmnr",
+    "duration_ms": 164.6,
+    "f0_hz": 3443.9,
+    "centroid_hz": 3400.8,
+    "syl_start_ms": 31266.2,
+    "syl_end_ms": 31430.8
+  },
+  {
+    "id": "tui_0106",
+    "recording": "XC958859",
+    "auto_category": "rmnr",
+    "duration_ms": 172.6,
+    "f0_hz": 2682.1,
+    "centroid_hz": 2846.7,
+    "syl_start_ms": 38390.6,
+    "syl_end_ms": 38563.2
+  },
+  {
+    "id": "tui_0107",
+    "recording": "XC958859",
+    "auto_category": "rmnr",
+    "duration_ms": 164.6,
+    "f0_hz": 2270.5,
+    "centroid_hz": 2444.9,
+    "syl_start_ms": 45919.3,
+    "syl_end_ms": 46083.9
+  },
+  {
+    "id": "tui_0108",
+    "recording": "XC40495",
+    "auto_category": "rmnr",
+    "duration_ms": 174.6,
+    "f0_hz": 1265.3,
+    "centroid_hz": 3691.6,
+    "syl_start_ms": 288.8,
+    "syl_end_ms": 463.4
+  },
+  {
+    "id": "tui_0109",
+    "recording": "XC40495",
+    "auto_category": "rmnr",
+    "duration_ms": 146.7,
+    "f0_hz": 2156.4,
+    "centroid_hz": 2342.7,
+    "syl_start_ms": 1494.1,
+    "syl_end_ms": 1640.7
+  },
+  {
+    "id": "tui_0110",
+    "recording": "XC40495",
+    "auto_category": "rmnr",
+    "duration_ms": 172.6,
+    "f0_hz": 1260.7,
+    "centroid_hz": 3879.8,
+    "syl_start_ms": 2997.4,
+    "syl_end_ms": 3170.0
+  },
+  {
+    "id": "tui_0111",
+    "recording": "XC40495",
+    "auto_category": "rmnr",
+    "duration_ms": 89.8,
+    "f0_hz": 5547.4,
+    "centroid_hz": 4905.3,
+    "syl_start_ms": 3889.3,
+    "syl_end_ms": 3979.1
+  },
+  {
+    "id": "tui_0112",
+    "recording": "XC40495",
+    "auto_category": "rmnr",
+    "duration_ms": 120.7,
+    "f0_hz": 2167.2,
+    "centroid_hz": 2377.6,
+    "syl_start_ms": 5550.1,
+    "syl_end_ms": 5670.8
+  },
+  {
+    "id": "tui_0113",
+    "recording": "XC40495",
+    "auto_category": "rmnr",
+    "duration_ms": 176.6,
+    "f0_hz": 1414.2,
+    "centroid_hz": 3624.1,
+    "syl_start_ms": 6885.3,
+    "syl_end_ms": 7061.9
+  },
+  {
+    "id": "tui_0114",
+    "recording": "XC70960",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 829.8,
+    "centroid_hz": 3029.4,
+    "syl_start_ms": 1050.7,
+    "syl_end_ms": 1086.6
+  },
+  {
+    "id": "tui_0115",
+    "recording": "XC70960",
+    "auto_category": "rmnr",
+    "duration_ms": 226.5,
+    "f0_hz": 2174.9,
+    "centroid_hz": 4384.4,
+    "syl_start_ms": 8129.0,
+    "syl_end_ms": 8355.5
+  },
+  {
+    "id": "tui_0116",
+    "recording": "XC70960",
+    "auto_category": "high_frequency",
+    "duration_ms": 53.9,
+    "f0_hz": 4078.4,
+    "centroid_hz": 8066.2,
+    "syl_start_ms": 11058.5,
+    "syl_end_ms": 11112.4
+  },
+  {
+    "id": "tui_0117",
+    "recording": "XC70960",
+    "auto_category": "rmnr",
+    "duration_ms": 89.8,
+    "f0_hz": 731.3,
+    "centroid_hz": 3070.9,
+    "syl_start_ms": 13456.0,
+    "syl_end_ms": 13545.8
+  },
+  {
+    "id": "tui_0118",
+    "recording": "XC70960",
+    "auto_category": "trill",
+    "duration_ms": 213.5,
+    "f0_hz": 4127.3,
+    "centroid_hz": 6566.5,
+    "syl_start_ms": 17371.2,
+    "syl_end_ms": 17584.8
+  },
+  {
+    "id": "tui_0119",
+    "recording": "XC70960",
+    "auto_category": "rmnr",
+    "duration_ms": 133.7,
+    "f0_hz": 2059.1,
+    "centroid_hz": 4537.2,
+    "syl_start_ms": 19988.2,
+    "syl_end_ms": 20121.9
+  },
+  {
+    "id": "tui_0120",
+    "recording": "XC1088035",
+    "auto_category": "rmnr",
+    "duration_ms": 321.3,
+    "f0_hz": 1837.7,
+    "centroid_hz": 3984.0,
+    "syl_start_ms": 354.1,
+    "syl_end_ms": 675.4
+  },
+  {
+    "id": "tui_0121",
+    "recording": "XC1088035",
+    "auto_category": "rmnr",
+    "duration_ms": 71.8,
+    "f0_hz": 1507.9,
+    "centroid_hz": 2336.8,
+    "syl_start_ms": 9694.3,
+    "syl_end_ms": 9766.2
+  },
+  {
+    "id": "tui_0122",
+    "recording": "XC1088035",
+    "auto_category": "harmonic",
+    "duration_ms": 39.9,
+    "f0_hz": 1119.3,
+    "centroid_hz": 1803.4,
+    "syl_start_ms": 19750.9,
+    "syl_end_ms": 19790.8
+  },
+  {
+    "id": "tui_0123",
+    "recording": "XC1088035",
+    "auto_category": "rmnr",
+    "duration_ms": 95.8,
+    "f0_hz": 1186.4,
+    "centroid_hz": 1887.5,
+    "syl_start_ms": 27490.4,
+    "syl_end_ms": 27586.2
+  },
+  {
+    "id": "tui_0124",
+    "recording": "XC1088035",
+    "auto_category": "rmnr",
+    "duration_ms": 69.8,
+    "f0_hz": 978.6,
+    "centroid_hz": 3064.6,
+    "syl_start_ms": 33798.8,
+    "syl_end_ms": 33868.7
+  },
+  {
+    "id": "tui_0125",
+    "recording": "XC1088035",
+    "auto_category": "harmonic",
+    "duration_ms": 41.9,
+    "f0_hz": 1543.9,
+    "centroid_hz": 2706.5,
+    "syl_start_ms": 42829.4,
+    "syl_end_ms": 42871.3
+  },
+  {
+    "id": "tui_0126",
+    "recording": "XC500853",
+    "auto_category": "rmnr",
+    "duration_ms": 83.8,
+    "f0_hz": 735.2,
+    "centroid_hz": 6010.5,
+    "syl_start_ms": 191.6,
+    "syl_end_ms": 275.4
+  },
+  {
+    "id": "tui_0127",
+    "recording": "XC500853",
+    "auto_category": "rmnr",
+    "duration_ms": 70.8,
+    "f0_hz": 838.9,
+    "centroid_hz": 6100.1,
+    "syl_start_ms": 19208.7,
+    "syl_end_ms": 19279.5
+  },
+  {
+    "id": "tui_0128",
+    "recording": "XC500853",
+    "auto_category": "rmnr",
+    "duration_ms": 144.7,
+    "f0_hz": 1626.6,
+    "centroid_hz": 5876.0,
+    "syl_start_ms": 39160.5,
+    "syl_end_ms": 39305.1
+  },
+  {
+    "id": "tui_0129",
+    "recording": "XC500853",
+    "auto_category": "rmnr",
+    "duration_ms": 274.4,
+    "f0_hz": 1331.8,
+    "centroid_hz": 4683.0,
+    "syl_start_ms": 57606.9,
+    "syl_end_ms": 57881.3
+  },
+  {
+    "id": "tui_0130",
+    "recording": "XC500853",
+    "auto_category": "rmnr",
+    "duration_ms": 55.9,
+    "f0_hz": 3016.6,
+    "centroid_hz": 7026.3,
+    "syl_start_ms": 79480.3,
+    "syl_end_ms": 79536.1
+  },
+  {
+    "id": "tui_0131",
+    "recording": "XC500853",
+    "auto_category": "rmnr",
+    "duration_ms": 94.8,
+    "f0_hz": 2984.3,
+    "centroid_hz": 5023.7,
+    "syl_start_ms": 99524.2,
+    "syl_end_ms": 99619.0
+  },
+  {
+    "id": "tui_0132",
+    "recording": "XC349523",
+    "auto_category": "rmnr",
+    "duration_ms": 112.7,
+    "f0_hz": 600.0,
+    "centroid_hz": 5855.1,
+    "syl_start_ms": 6172.7,
+    "syl_end_ms": 6285.4
+  },
+  {
+    "id": "tui_0133",
+    "recording": "XC349523",
+    "auto_category": "rmnr",
+    "duration_ms": 81.8,
+    "f0_hz": 705.7,
+    "centroid_hz": 4061.4,
+    "syl_start_ms": 35668.0,
+    "syl_end_ms": 35749.8
+  },
+  {
+    "id": "tui_0134",
+    "recording": "XC349523",
+    "auto_category": "rmnr",
+    "duration_ms": 71.8,
+    "f0_hz": 424.0,
+    "centroid_hz": 5326.7,
+    "syl_start_ms": 41906.4,
+    "syl_end_ms": 41978.2
+  },
+  {
+    "id": "tui_0135",
+    "recording": "XC349523",
+    "auto_category": "rmnr",
+    "duration_ms": 65.9,
+    "f0_hz": 3166.2,
+    "centroid_hz": 3656.2,
+    "syl_start_ms": 58561.1,
+    "syl_end_ms": 58626.9
+  },
+  {
+    "id": "tui_0136",
+    "recording": "XC349523",
+    "auto_category": "rmnr",
+    "duration_ms": 41.9,
+    "f0_hz": 1802.3,
+    "centroid_hz": 3148.0,
+    "syl_start_ms": 80770.6,
+    "syl_end_ms": 80812.5
+  },
+  {
+    "id": "tui_0137",
+    "recording": "XC349523",
+    "auto_category": "rmnr",
+    "duration_ms": 47.9,
+    "f0_hz": 2218.5,
+    "centroid_hz": 3525.4,
+    "syl_start_ms": 106295.1,
+    "syl_end_ms": 106343.0
+  },
+  {
+    "id": "tui_0138",
+    "recording": "XC1093637",
+    "auto_category": "harmonic",
+    "duration_ms": 47.9,
+    "f0_hz": 1292.6,
+    "centroid_hz": 2000.3,
+    "syl_start_ms": 4284.1,
+    "syl_end_ms": 4332.0
+  },
+  {
+    "id": "tui_0139",
+    "recording": "XC1093637",
+    "auto_category": "rmnr",
+    "duration_ms": 65.9,
+    "f0_hz": 3551.7,
+    "centroid_hz": 3901.2,
+    "syl_start_ms": 33419.3,
+    "syl_end_ms": 33485.2
+  },
+  {
+    "id": "tui_0140",
+    "recording": "XC1093637",
+    "auto_category": "rmnr",
+    "duration_ms": 115.7,
+    "f0_hz": 1220.4,
+    "centroid_hz": 4002.5,
+    "syl_start_ms": 72117.6,
+    "syl_end_ms": 72233.3
+  },
+  {
+    "id": "tui_0141",
+    "recording": "XC1093637",
+    "auto_category": "rmnr",
+    "duration_ms": 182.6,
+    "f0_hz": 1280.8,
+    "centroid_hz": 3342.5,
+    "syl_start_ms": 117672.9,
+    "syl_end_ms": 117855.5
+  },
+  {
+    "id": "tui_0142",
+    "recording": "XC1093637",
+    "auto_category": "trill",
+    "duration_ms": 59.9,
+    "f0_hz": 3014.9,
+    "centroid_hz": 5764.7,
+    "syl_start_ms": 158209.3,
+    "syl_end_ms": 158269.2
+  },
+  {
+    "id": "tui_0143",
+    "recording": "XC1093637",
+    "auto_category": "trill",
+    "duration_ms": 153.7,
+    "f0_hz": 6155.1,
+    "centroid_hz": 6764.5,
+    "syl_start_ms": 192794.9,
+    "syl_end_ms": 192948.6
+  },
+  {
+    "id": "tui_0144",
+    "recording": "XC500855",
+    "auto_category": "rmnr",
+    "duration_ms": 71.8,
+    "f0_hz": 1719.0,
+    "centroid_hz": 6943.8,
+    "syl_start_ms": 830.1,
+    "syl_end_ms": 902.0
+  },
+  {
+    "id": "tui_0145",
+    "recording": "XC500855",
+    "auto_category": "rmnr",
+    "duration_ms": 47.9,
+    "f0_hz": 1447.7,
+    "centroid_hz": 8320.8,
+    "syl_start_ms": 15331.0,
+    "syl_end_ms": 15378.9
+  },
+  {
+    "id": "tui_0146",
+    "recording": "XC500855",
+    "auto_category": "harmonic",
+    "duration_ms": 37.9,
+    "f0_hz": 1040.5,
+    "centroid_hz": 6981.3,
+    "syl_start_ms": 30120.3,
+    "syl_end_ms": 30158.2
+  },
+  {
+    "id": "tui_0147",
+    "recording": "XC500855",
+    "auto_category": "trill",
+    "duration_ms": 47.9,
+    "f0_hz": 963.4,
+    "centroid_hz": 7387.2,
+    "syl_start_ms": 45122.2,
+    "syl_end_ms": 45170.1
+  },
+  {
+    "id": "tui_0148",
+    "recording": "XC500855",
+    "auto_category": "trill",
+    "duration_ms": 123.7,
+    "f0_hz": 1130.9,
+    "centroid_hz": 6786.7,
+    "syl_start_ms": 53812.2,
+    "syl_end_ms": 53936.0
+  },
+  {
+    "id": "tui_0149",
+    "recording": "XC500855",
+    "auto_category": "rmnr",
+    "duration_ms": 123.7,
+    "f0_hz": 797.7,
+    "centroid_hz": 7542.0,
+    "syl_start_ms": 70582.9,
+    "syl_end_ms": 70706.6
+  },
+  {
+    "id": "tui_0150",
+    "recording": "XC956959",
+    "auto_category": "rmnr",
+    "duration_ms": 111.7,
+    "f0_hz": 6188.3,
+    "centroid_hz": 5957.6,
+    "syl_start_ms": 464.4,
+    "syl_end_ms": 576.1
+  },
+  {
+    "id": "tui_0151",
+    "recording": "XC956959",
+    "auto_category": "rmnr",
+    "duration_ms": 244.4,
+    "f0_hz": 8200.1,
+    "centroid_hz": 7601.4,
+    "syl_start_ms": 19787.8,
+    "syl_end_ms": 20032.2
+  },
+  {
+    "id": "tui_0152",
+    "recording": "XC956959",
+    "auto_category": "harmonic",
+    "duration_ms": 35.9,
+    "f0_hz": 3716.5,
+    "centroid_hz": 5276.6,
+    "syl_start_ms": 42277.7,
+    "syl_end_ms": 42313.7
+  },
+  {
+    "id": "tui_0153",
+    "recording": "XC956959",
+    "auto_category": "rmnr",
+    "duration_ms": 82.8,
+    "f0_hz": 6015.9,
+    "centroid_hz": 5996.2,
+    "syl_start_ms": 58729.1,
+    "syl_end_ms": 58811.9
+  },
+  {
+    "id": "tui_0154",
+    "recording": "XC956959",
+    "auto_category": "rmnr",
+    "duration_ms": 157.6,
+    "f0_hz": 6388.6,
+    "centroid_hz": 6320.8,
+    "syl_start_ms": 71366.7,
+    "syl_end_ms": 71524.4
+  },
+  {
+    "id": "tui_0155",
+    "recording": "XC956959",
+    "auto_category": "rmnr",
+    "duration_ms": 108.8,
+    "f0_hz": 6705.0,
+    "centroid_hz": 6709.6,
+    "syl_start_ms": 97800.6,
+    "syl_end_ms": 97909.4
+  },
+  {
+    "id": "tui_0156",
+    "recording": "XC979583",
+    "auto_category": "harmonic",
+    "duration_ms": 37.9,
+    "f0_hz": 951.9,
+    "centroid_hz": 2914.2,
+    "syl_start_ms": 4665.4,
+    "syl_end_ms": 4703.3
+  },
+  {
+    "id": "tui_0157",
+    "recording": "XC979583",
+    "auto_category": "rmnr",
+    "duration_ms": 69.8,
+    "f0_hz": 750.4,
+    "centroid_hz": 3120.4,
+    "syl_start_ms": 5708.3,
+    "syl_end_ms": 5778.1
+  },
+  {
+    "id": "tui_0158",
+    "recording": "XC979583",
+    "auto_category": "rmnr",
+    "duration_ms": 106.8,
+    "f0_hz": 1185.6,
+    "centroid_hz": 3410.8,
+    "syl_start_ms": 6788.2,
+    "syl_end_ms": 6895.0
+  },
+  {
+    "id": "tui_0159",
+    "recording": "XC979583",
+    "auto_category": "rmnr",
+    "duration_ms": 107.8,
+    "f0_hz": 984.6,
+    "centroid_hz": 3104.5,
+    "syl_start_ms": 8450.4,
+    "syl_end_ms": 8558.2
+  },
+  {
+    "id": "tui_0160",
+    "recording": "XC979583",
+    "auto_category": "rmnr",
+    "duration_ms": 96.8,
+    "f0_hz": 1180.4,
+    "centroid_hz": 3365.7,
+    "syl_start_ms": 9475.7,
+    "syl_end_ms": 9572.5
+  },
+  {
+    "id": "tui_0161",
+    "recording": "XC979583",
+    "auto_category": "rmnr",
+    "duration_ms": 495.9,
+    "f0_hz": 1198.9,
+    "centroid_hz": 1721.0,
+    "syl_start_ms": 12321.6,
+    "syl_end_ms": 12817.5
+  },
+  {
+    "id": "tui_0162",
+    "recording": "XC1104055",
+    "auto_category": "rmnr",
+    "duration_ms": 142.7,
+    "f0_hz": 472.0,
+    "centroid_hz": 3820.0,
+    "syl_start_ms": 811.2,
+    "syl_end_ms": 953.9
+  },
+  {
+    "id": "tui_0163",
+    "recording": "XC1104055",
+    "auto_category": "harmonic",
+    "duration_ms": 31.9,
+    "f0_hz": 2212.3,
+    "centroid_hz": 4380.0,
+    "syl_start_ms": 61531.1,
+    "syl_end_ms": 61563.0
+  },
+  {
+    "id": "tui_0164",
+    "recording": "XC1104055",
+    "auto_category": "rmnr",
+    "duration_ms": 45.9,
+    "f0_hz": 4566.9,
+    "centroid_hz": 4038.4,
+    "syl_start_ms": 98791.7,
+    "syl_end_ms": 98837.6
+  },
+  {
+    "id": "tui_0165",
+    "recording": "XC1104055",
+    "auto_category": "trill",
+    "duration_ms": 77.8,
+    "f0_hz": 2039.1,
+    "centroid_hz": 4989.2,
+    "syl_start_ms": 158081.5,
+    "syl_end_ms": 158159.3
+  },
+  {
+    "id": "tui_0166",
+    "recording": "XC1104055",
+    "auto_category": "trill",
+    "duration_ms": 175.6,
+    "f0_hz": 1342.5,
+    "centroid_hz": 4578.5,
+    "syl_start_ms": 197973.3,
+    "syl_end_ms": 198148.9
+  },
+  {
+    "id": "tui_0167",
+    "recording": "XC1104055",
+    "auto_category": "rmnr",
+    "duration_ms": 85.8,
+    "f0_hz": 5767.7,
+    "centroid_hz": 6253.2,
+    "syl_start_ms": 251486.1,
+    "syl_end_ms": 251571.9
+  },
+  {
+    "id": "tui_0168",
+    "recording": "XC926286",
+    "auto_category": "rmnr",
+    "duration_ms": 382.1,
+    "f0_hz": 1219.9,
+    "centroid_hz": 2171.3,
+    "syl_start_ms": 2782.8,
+    "syl_end_ms": 3164.9
+  },
+  {
+    "id": "tui_0169",
+    "recording": "XC926286",
+    "auto_category": "rmnr",
+    "duration_ms": 316.3,
+    "f0_hz": 1248.0,
+    "centroid_hz": 4224.9,
+    "syl_start_ms": 5995.3,
+    "syl_end_ms": 6311.6
+  },
+  {
+    "id": "tui_0170",
+    "recording": "XC926286",
+    "auto_category": "rmnr",
+    "duration_ms": 48.9,
+    "f0_hz": 2693.9,
+    "centroid_hz": 6559.7,
+    "syl_start_ms": 7500.0,
+    "syl_end_ms": 7548.9
+  },
+  {
+    "id": "tui_0171",
+    "recording": "XC926286",
+    "auto_category": "rmnr",
+    "duration_ms": 126.7,
+    "f0_hz": 1354.8,
+    "centroid_hz": 2086.0,
+    "syl_start_ms": 19297.4,
+    "syl_end_ms": 19424.1
+  },
+  {
+    "id": "tui_0172",
+    "recording": "XC926286",
+    "auto_category": "harmonic",
+    "duration_ms": 59.9,
+    "f0_hz": 4657.2,
+    "centroid_hz": 5380.7,
+    "syl_start_ms": 28003.4,
+    "syl_end_ms": 28063.3
+  },
+  {
+    "id": "tui_0173",
+    "recording": "XC926286",
+    "auto_category": "rmnr",
+    "duration_ms": 126.7,
+    "f0_hz": 941.6,
+    "centroid_hz": 3275.3,
+    "syl_start_ms": 28934.6,
+    "syl_end_ms": 29061.3
+  },
+  {
+    "id": "tui_0174",
+    "recording": "XC857787",
+    "auto_category": "rmnr",
+    "duration_ms": 65.9,
+    "f0_hz": 1141.6,
+    "centroid_hz": 4095.5,
+    "syl_start_ms": 917.2,
+    "syl_end_ms": 983.0
+  },
+  {
+    "id": "tui_0175",
+    "recording": "XC857787",
+    "auto_category": "rmnr",
+    "duration_ms": 160.6,
+    "f0_hz": 1163.1,
+    "centroid_hz": 2683.3,
+    "syl_start_ms": 29553.2,
+    "syl_end_ms": 29713.8
+  },
+  {
+    "id": "tui_0176",
+    "recording": "XC857787",
+    "auto_category": "rmnr",
+    "duration_ms": 75.8,
+    "f0_hz": 238.6,
+    "centroid_hz": 3140.5,
+    "syl_start_ms": 66829.0,
+    "syl_end_ms": 66904.9
+  },
+  {
+    "id": "tui_0177",
+    "recording": "XC857787",
+    "auto_category": "rmnr",
+    "duration_ms": 47.9,
+    "f0_hz": 2649.7,
+    "centroid_hz": 5356.0,
+    "syl_start_ms": 98203.2,
+    "syl_end_ms": 98251.1
+  },
+  {
+    "id": "tui_0178",
+    "recording": "XC857787",
+    "auto_category": "rmnr",
+    "duration_ms": 102.8,
+    "f0_hz": 2471.1,
+    "centroid_hz": 3725.9,
+    "syl_start_ms": 141165.7,
+    "syl_end_ms": 141268.5
+  },
+  {
+    "id": "tui_0179",
+    "recording": "XC857787",
+    "auto_category": "harmonic",
+    "duration_ms": 36.9,
+    "f0_hz": 1874.5,
+    "centroid_hz": 3488.9,
+    "syl_start_ms": 169118.9,
+    "syl_end_ms": 169155.8
+  },
+  {
+    "id": "tui_0180",
+    "recording": "XC842746",
+    "auto_category": "rmnr",
+    "duration_ms": 151.7,
+    "f0_hz": 496.8,
+    "centroid_hz": 1771.5,
+    "syl_start_ms": 988.8,
+    "syl_end_ms": 1140.5
+  },
+  {
+    "id": "tui_0181",
+    "recording": "XC842746",
+    "auto_category": "rmnr",
+    "duration_ms": 77.8,
+    "f0_hz": 7089.7,
+    "centroid_hz": 5479.0,
+    "syl_start_ms": 6263.6,
+    "syl_end_ms": 6341.4
+  },
+  {
+    "id": "tui_0182",
+    "recording": "XC842746",
+    "auto_category": "rmnr",
+    "duration_ms": 135.7,
+    "f0_hz": 1095.5,
+    "centroid_hz": 2827.6,
+    "syl_start_ms": 9119.6,
+    "syl_end_ms": 9255.3
+  },
+  {
+    "id": "tui_0183",
+    "recording": "XC842746",
+    "auto_category": "rmnr",
+    "duration_ms": 53.9,
+    "f0_hz": 2383.1,
+    "centroid_hz": 5096.7,
+    "syl_start_ms": 22372.4,
+    "syl_end_ms": 22426.3
+  },
+  {
+    "id": "tui_0184",
+    "recording": "XC842746",
+    "auto_category": "trill",
+    "duration_ms": 47.9,
+    "f0_hz": 1457.9,
+    "centroid_hz": 4714.8,
+    "syl_start_ms": 26145.7,
+    "syl_end_ms": 26193.6
+  },
+  {
+    "id": "tui_0185",
+    "recording": "XC842746",
+    "auto_category": "rmnr",
+    "duration_ms": 77.8,
+    "f0_hz": 3341.9,
+    "centroid_hz": 4140.6,
+    "syl_start_ms": 30400.9,
+    "syl_end_ms": 30478.7
+  },
+  {
+    "id": "tui_0186",
+    "recording": "XC927433",
+    "auto_category": "rmnr",
+    "duration_ms": 53.9,
+    "f0_hz": 671.3,
+    "centroid_hz": 3109.4,
+    "syl_start_ms": 4406.0,
+    "syl_end_ms": 4459.9
+  },
+  {
+    "id": "tui_0187",
+    "recording": "XC927433",
+    "auto_category": "trill",
+    "duration_ms": 65.9,
+    "f0_hz": 1555.5,
+    "centroid_hz": 3593.2,
+    "syl_start_ms": 5735.5,
+    "syl_end_ms": 5801.4
+  },
+  {
+    "id": "tui_0188",
+    "recording": "XC927433",
+    "auto_category": "rmnr",
+    "duration_ms": 88.8,
+    "f0_hz": 1207.6,
+    "centroid_hz": 4743.1,
+    "syl_start_ms": 6505.9,
+    "syl_end_ms": 6594.7
+  },
+  {
+    "id": "tui_0189",
+    "recording": "XC927433",
+    "auto_category": "rmnr",
+    "duration_ms": 264.4,
+    "f0_hz": 1746.8,
+    "centroid_hz": 2793.9,
+    "syl_start_ms": 7515.6,
+    "syl_end_ms": 7780.0
+  },
+  {
+    "id": "tui_0190",
+    "recording": "XC927433",
+    "auto_category": "rmnr",
+    "duration_ms": 41.9,
+    "f0_hz": 821.8,
+    "centroid_hz": 2466.8,
+    "syl_start_ms": 8440.5,
+    "syl_end_ms": 8482.4
+  },
+  {
+    "id": "tui_0191",
+    "recording": "XC927433",
+    "auto_category": "rmnr",
+    "duration_ms": 49.9,
+    "f0_hz": 1802.8,
+    "centroid_hz": 2602.4,
+    "syl_start_ms": 9459.8,
+    "syl_end_ms": 9509.7
+  },
+  {
+    "id": "tui_0192",
+    "recording": "XC842514",
+    "auto_category": "rmnr",
+    "duration_ms": 62.9,
+    "f0_hz": 2605.2,
+    "centroid_hz": 2867.7,
+    "syl_start_ms": 1389.4,
+    "syl_end_ms": 1452.2
+  },
+  {
+    "id": "tui_0193",
+    "recording": "XC842514",
+    "auto_category": "trill",
+    "duration_ms": 145.7,
+    "f0_hz": 2167.3,
+    "centroid_hz": 3438.3,
+    "syl_start_ms": 4489.3,
+    "syl_end_ms": 4634.9
+  },
+  {
+    "id": "tui_0194",
+    "recording": "XC842514",
+    "auto_category": "rmnr",
+    "duration_ms": 101.8,
+    "f0_hz": 697.9,
+    "centroid_hz": 3301.5,
+    "syl_start_ms": 16536.8,
+    "syl_end_ms": 16638.5
+  },
+  {
+    "id": "tui_0195",
+    "recording": "XC842514",
+    "auto_category": "rmnr",
+    "duration_ms": 39.9,
+    "f0_hz": 1291.5,
+    "centroid_hz": 2794.9,
+    "syl_start_ms": 27720.8,
+    "syl_end_ms": 27760.7
+  },
+  {
+    "id": "tui_0196",
+    "recording": "XC842514",
+    "auto_category": "rmnr",
+    "duration_ms": 66.8,
+    "f0_hz": 1689.3,
+    "centroid_hz": 2509.9,
+    "syl_start_ms": 39073.7,
+    "syl_end_ms": 39140.6
+  },
+  {
+    "id": "tui_0197",
+    "recording": "XC842514",
+    "auto_category": "rmnr",
+    "duration_ms": 258.4,
+    "f0_hz": 2048.3,
+    "centroid_hz": 3731.5,
+    "syl_start_ms": 41186.4,
+    "syl_end_ms": 41444.8
+  },
+  {
+    "id": "tui_0198",
+    "recording": "XC856418",
+    "auto_category": "rmnr",
+    "duration_ms": 51.9,
+    "f0_hz": 2332.6,
+    "centroid_hz": 3542.5,
+    "syl_start_ms": 4082.9,
+    "syl_end_ms": 4134.8
+  },
+  {
+    "id": "tui_0199",
+    "recording": "XC856418",
+    "auto_category": "rmnr",
+    "duration_ms": 122.7,
+    "f0_hz": 288.4,
+    "centroid_hz": 3925.5,
+    "syl_start_ms": 48851.2,
+    "syl_end_ms": 48973.9
+  }
+]

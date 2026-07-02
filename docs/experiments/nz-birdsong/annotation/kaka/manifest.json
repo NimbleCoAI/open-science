@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "kaka_0000",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 119.7,
+    "f0_hz": 2221.4,
+    "centroid_hz": 2410.7,
+    "syl_start_ms": 544.0,
+    "syl_end_ms": 663.8
+  },
+  {
+    "id": "kaka_0001",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 730.3,
+    "f0_hz": 2276.8,
+    "centroid_hz": 2832.5,
+    "syl_start_ms": 1053.4,
+    "syl_end_ms": 1783.8
+  },
+  {
+    "id": "kaka_0002",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 630.6,
+    "f0_hz": 2334.1,
+    "centroid_hz": 2595.4,
+    "syl_start_ms": 2616.4,
+    "syl_end_ms": 3247.0
+  },
+  {
+    "id": "kaka_0003",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 638.5,
+    "f0_hz": 1933.4,
+    "centroid_hz": 2423.6,
+    "syl_start_ms": 4669.2,
+    "syl_end_ms": 5307.8
+  },
+  {
+    "id": "kaka_0004",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 105.8,
+    "f0_hz": 285.9,
+    "centroid_hz": 2205.6,
+    "syl_start_ms": 5613.4,
+    "syl_end_ms": 5719.2
+  },
+  {
+    "id": "kaka_0005",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 181.6,
+    "f0_hz": 491.6,
+    "centroid_hz": 2216.8,
+    "syl_start_ms": 5741.3,
+    "syl_end_ms": 5922.9
+  },
+  {
+    "id": "kaka_0006",
+    "recording": "XC959271",
+    "auto_category": "snicker",
+    "duration_ms": 752.3,
+    "f0_hz": 1161.1,
+    "centroid_hz": 1906.3,
+    "syl_start_ms": 6616.4,
+    "syl_end_ms": 7368.7
+  },
+  {
+    "id": "kaka_0007",
+    "recording": "XC959271",
+    "auto_category": "bark",
+    "duration_ms": 59.9,
+    "f0_hz": 419.6,
+    "centroid_hz": 2405.1,
+    "syl_start_ms": 7424.6,
+    "syl_end_ms": 7484.4
+  },
+  {
+    "id": "kaka_0008",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 848.1,
+    "f0_hz": 1615.8,
+    "centroid_hz": 2373.3,
+    "syl_start_ms": 2.0,
+    "syl_end_ms": 850.1
+  },
+  {
+    "id": "kaka_0009",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 798.2,
+    "f0_hz": 1502.0,
+    "centroid_hz": 1846.3,
+    "syl_start_ms": 5211.2,
+    "syl_end_ms": 6009.4
+  },
+  {
+    "id": "kaka_0010",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 698.4,
+    "f0_hz": 1999.2,
+    "centroid_hz": 2148.1,
+    "syl_start_ms": 14650.9,
+    "syl_end_ms": 15349.3
+  },
+  {
+    "id": "kaka_0011",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 1319.6,
+    "centroid_hz": 2324.0,
+    "syl_start_ms": 17600.7,
+    "syl_end_ms": 17666.6
+  },
+  {
+    "id": "kaka_0012",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 600.6,
+    "f0_hz": 1478.6,
+    "centroid_hz": 1522.9,
+    "syl_start_ms": 22273.7,
+    "syl_end_ms": 22874.4
+  },
+  {
+    "id": "kaka_0013",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 79.8,
+    "f0_hz": 1665.6,
+    "centroid_hz": 2479.4,
+    "syl_start_ms": 30509.4,
+    "syl_end_ms": 30589.2
+  },
+  {
+    "id": "kaka_0014",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 1047.6,
+    "f0_hz": 1542.2,
+    "centroid_hz": 2245.7,
+    "syl_start_ms": 30776.4,
+    "syl_end_ms": 31824.0
+  },
+  {
+    "id": "kaka_0015",
+    "recording": "XC776552",
+    "auto_category": "snicker",
+    "duration_ms": 93.8,
+    "f0_hz": 3882.7,
+    "centroid_hz": 2138.0,
+    "syl_start_ms": 35358.2,
+    "syl_end_ms": 35452.0
+  },
+  {
+    "id": "kaka_0016",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 500.9,
+    "f0_hz": 1908.1,
+    "centroid_hz": 4915.5,
+    "syl_start_ms": 1173.2,
+    "syl_end_ms": 1674.0
+  },
+  {
+    "id": "kaka_0017",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 604.6,
+    "f0_hz": 1895.7,
+    "centroid_hz": 4806.1,
+    "syl_start_ms": 2560.4,
+    "syl_end_ms": 3165.0
+  },
+  {
+    "id": "kaka_0018",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 654.5,
+    "f0_hz": 2496.8,
+    "centroid_hz": 4045.3,
+    "syl_start_ms": 4309.7,
+    "syl_end_ms": 4964.2
+  },
+  {
+    "id": "kaka_0019",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 520.8,
+    "f0_hz": 2494.5,
+    "centroid_hz": 3893.3,
+    "syl_start_ms": 5913.5,
+    "syl_end_ms": 6434.3
+  },
+  {
+    "id": "kaka_0020",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 89.8,
+    "f0_hz": 2621.7,
+    "centroid_hz": 3910.9,
+    "syl_start_ms": 7308.5,
+    "syl_end_ms": 7398.3
+  },
+  {
+    "id": "kaka_0021",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 327.3,
+    "f0_hz": 1684.1,
+    "centroid_hz": 3328.0,
+    "syl_start_ms": 7442.0,
+    "syl_end_ms": 7769.3
+  },
+  {
+    "id": "kaka_0022",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 1613.7,
+    "centroid_hz": 3171.9,
+    "syl_start_ms": 8086.3,
+    "syl_end_ms": 8152.2
+  },
+  {
+    "id": "kaka_0023",
+    "recording": "XC428663",
+    "auto_category": "snicker",
+    "duration_ms": 542.8,
+    "f0_hz": 1584.4,
+    "centroid_hz": 3305.7,
+    "syl_start_ms": 8461.9,
+    "syl_end_ms": 9004.6
+  },
+  {
+    "id": "kaka_0024",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 141.7,
+    "f0_hz": 291.8,
+    "centroid_hz": 3094.4,
+    "syl_start_ms": 2072.6,
+    "syl_end_ms": 2214.2
+  },
+  {
+    "id": "kaka_0025",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 117.7,
+    "f0_hz": 4386.8,
+    "centroid_hz": 2954.6,
+    "syl_start_ms": 6141.7,
+    "syl_end_ms": 6259.4
+  },
+  {
+    "id": "kaka_0026",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 77.8,
+    "f0_hz": 1208.6,
+    "centroid_hz": 2459.2,
+    "syl_start_ms": 7871.6,
+    "syl_end_ms": 7949.4
+  },
+  {
+    "id": "kaka_0027",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 297.3,
+    "f0_hz": 2192.6,
+    "centroid_hz": 2562.9,
+    "syl_start_ms": 21170.8,
+    "syl_end_ms": 21468.1
+  },
+  {
+    "id": "kaka_0028",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 872.0,
+    "f0_hz": 1839.9,
+    "centroid_hz": 3285.4,
+    "syl_start_ms": 30366.8,
+    "syl_end_ms": 31238.8
+  },
+  {
+    "id": "kaka_0029",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 123.7,
+    "f0_hz": 2330.9,
+    "centroid_hz": 2705.7,
+    "syl_start_ms": 38103.9,
+    "syl_end_ms": 38227.7
+  },
+  {
+    "id": "kaka_0030",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 1730.4,
+    "centroid_hz": 2776.9,
+    "syl_start_ms": 51420.6,
+    "syl_end_ms": 51486.4
+  },
+  {
+    "id": "kaka_0031",
+    "recording": "XC959281",
+    "auto_category": "snicker",
+    "duration_ms": 572.7,
+    "f0_hz": 1724.9,
+    "centroid_hz": 3269.7,
+    "syl_start_ms": 59302.5,
+    "syl_end_ms": 59875.2
+  },
+  {
+    "id": "kaka_0032",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 482.9,
+    "f0_hz": 2165.1,
+    "centroid_hz": 3658.4,
+    "syl_start_ms": 0.0,
+    "syl_end_ms": 482.9
+  },
+  {
+    "id": "kaka_0033",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 536.8,
+    "f0_hz": 1976.2,
+    "centroid_hz": 3717.7,
+    "syl_start_ms": 2204.4,
+    "syl_end_ms": 2741.2
+  },
+  {
+    "id": "kaka_0034",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 564.7,
+    "f0_hz": 2345.7,
+    "centroid_hz": 3257.3,
+    "syl_start_ms": 6363.0,
+    "syl_end_ms": 6927.7
+  },
+  {
+    "id": "kaka_0035",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 658.5,
+    "f0_hz": 2419.9,
+    "centroid_hz": 3138.2,
+    "syl_start_ms": 8763.9,
+    "syl_end_ms": 9422.4
+  },
+  {
+    "id": "kaka_0036",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 704.4,
+    "f0_hz": 2354.3,
+    "centroid_hz": 3056.2,
+    "syl_start_ms": 10994.6,
+    "syl_end_ms": 11699.0
+  },
+  {
+    "id": "kaka_0037",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 674.5,
+    "f0_hz": 2340.5,
+    "centroid_hz": 3102.9,
+    "syl_start_ms": 13183.1,
+    "syl_end_ms": 13857.6
+  },
+  {
+    "id": "kaka_0038",
+    "recording": "XC959278",
+    "auto_category": "snicker",
+    "duration_ms": 722.4,
+    "f0_hz": 2372.0,
+    "centroid_hz": 2956.4,
+    "syl_start_ms": 16277.2,
+    "syl_end_ms": 16999.5
+  },
+  {
+    "id": "kaka_0039",
+    "recording": "XC378283",
+    "auto_category": "snicker",
+    "duration_ms": 355.2,
+    "f0_hz": 1428.5,
+    "centroid_hz": 2256.3,
+    "syl_start_ms": 1120.4,
+    "syl_end_ms": 1475.6
+  },
+  {
+    "id": "kaka_0040",
+    "recording": "XC378283",
+    "auto_category": "snicker",
+    "duration_ms": 405.1,
+    "f0_hz": 212.6,
+    "centroid_hz": 3444.2,
+    "syl_start_ms": 9924.7,
+    "syl_end_ms": 10329.8
+  },
+  {
+    "id": "kaka_0041",
+    "recording": "XC378283",
+    "auto_category": "bark",
+    "duration_ms": 59.9,
+    "f0_hz": 571.3,
+    "centroid_hz": 3790.3,
+    "syl_start_ms": 29524.2,
+    "syl_end_ms": 29584.0
+  },
+  {
+    "id": "kaka_0042",
+    "recording": "XC378283",
+    "auto_category": "bark",
+    "duration_ms": 55.9,
+    "f0_hz": 1064.1,
+    "centroid_hz": 2741.1,
+    "syl_start_ms": 41962.4,
+    "syl_end_ms": 42018.3
+  },
+  {
+    "id": "kaka_0043",
+    "recording": "XC378283",
+    "auto_category": "snicker",
+    "duration_ms": 89.8,
+    "f0_hz": 575.5,
+    "centroid_hz": 3309.3,
+    "syl_start_ms": 50724.0,
+    "syl_end_ms": 50813.8
+  },
+  {
+    "id": "kaka_0044",
+    "recording": "XC378283",
+    "auto_category": "bark",
+    "duration_ms": 53.9,
+    "f0_hz": 547.0,
+    "centroid_hz": 1655.5,
+    "syl_start_ms": 73166.1,
+    "syl_end_ms": 73220.0
+  },
+  {
+    "id": "kaka_0045",
+    "recording": "XC378283",
+    "auto_category": "snicker",
+    "duration_ms": 349.2,
+    "f0_hz": 1482.5,
+    "centroid_hz": 3410.0,
+    "syl_start_ms": 93779.6,
+    "syl_end_ms": 94128.8
+  },
+  {
+    "id": "kaka_0046",
+    "recording": "XC378283",
+    "auto_category": "snicker",
+    "duration_ms": 69.8,
+    "f0_hz": 189.3,
+    "centroid_hz": 3560.1,
+    "syl_start_ms": 110935.3,
+    "syl_end_ms": 111005.2
+  },
+  {
+    "id": "kaka_0047",
+    "recording": "XC378282",
+    "auto_category": "snicker",
+    "duration_ms": 53.9,
+    "f0_hz": 161.6,
+    "centroid_hz": 3673.9,
+    "syl_start_ms": 1613.8,
+    "syl_end_ms": 1667.7
+  },
+  {
+    "id": "kaka_0048",
+    "recording": "XC378282",
+    "auto_category": "snicker",
+    "duration_ms": 157.6,
+    "f0_hz": 1616.9,
+    "centroid_hz": 3040.1,
+    "syl_start_ms": 3308.8,
+    "syl_end_ms": 3466.5
+  },
+  {
+    "id": "kaka_0049",
+    "recording": "XC378282",
+    "auto_category": "snicker",
+    "duration_ms": 145.7,
+    "f0_hz": 699.9,
+    "centroid_hz": 2396.2,
+    "syl_start_ms": 5214.0,
+    "syl_end_ms": 5359.6
+  },
+  {
+    "id": "kaka_0050",
+    "recording": "XC378282",
+    "auto_category": "gurgle",
+    "duration_ms": 213.5,
+    "f0_hz": 1336.5,
+    "centroid_hz": 2761.0,
+    "syl_start_ms": 6702.9,
+    "syl_end_ms": 6916.5
+  },
+  {
+    "id": "kaka_0051",
+    "recording": "XC378282",
+    "auto_category": "snicker",
+    "duration_ms": 71.8,
+    "f0_hz": 1018.8,
+    "centroid_hz": 2940.9,
+    "syl_start_ms": 14268.7,
+    "syl_end_ms": 14340.5
+  },
+  {
+    "id": "kaka_0052",
+    "recording": "XC378282",
+    "auto_category": "snicker",
+    "duration_ms": 101.8,
+    "f0_hz": 482.9,
+    "centroid_hz": 2147.1,
+    "syl_start_ms": 15631.0,
+    "syl_end_ms": 15732.8
+  },
+  {
+    "id": "kaka_0053",
+    "recording": "XC378282",
+    "auto_category": "bark",
+    "duration_ms": 65.9,
+    "f0_hz": 3386.9,
+    "centroid_hz": 3109.5,
+    "syl_start_ms": 16462.9,
+    "syl_end_ms": 16528.8
+  },
+  {
+    "id": "kaka_0054",
+    "recording": "XC378282",
+    "auto_category": "gurgle",
+    "duration_ms": 1348.9,
+    "f0_hz": 960.4,
+    "centroid_hz": 2008.3,
+    "syl_start_ms": 22685.9,
+    "syl_end_ms": 24034.8
+  },
+  {
+    "id": "kaka_0055",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 686.4,
+    "f0_hz": 2088.0,
+    "centroid_hz": 4163.5,
+    "syl_start_ms": 2792.2,
+    "syl_end_ms": 3478.6
+  },
+  {
+    "id": "kaka_0056",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 129.7,
+    "f0_hz": 4371.3,
+    "centroid_hz": 4389.1,
+    "syl_start_ms": 6617.7,
+    "syl_end_ms": 6747.4
+  },
+  {
+    "id": "kaka_0057",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 89.8,
+    "f0_hz": 4186.9,
+    "centroid_hz": 4529.5,
+    "syl_start_ms": 7132.7,
+    "syl_end_ms": 7222.5
+  },
+  {
+    "id": "kaka_0058",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 4104.6,
+    "centroid_hz": 4806.6,
+    "syl_start_ms": 7500.0,
+    "syl_end_ms": 7565.9
+  },
+  {
+    "id": "kaka_0059",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 77.8,
+    "f0_hz": 3966.4,
+    "centroid_hz": 4475.8,
+    "syl_start_ms": 8005.3,
+    "syl_end_ms": 8083.1
+  },
+  {
+    "id": "kaka_0060",
+    "recording": "XC526605",
+    "auto_category": "bark",
+    "duration_ms": 99.8,
+    "f0_hz": 628.4,
+    "centroid_hz": 1381.5,
+    "syl_start_ms": 12167.3,
+    "syl_end_ms": 12267.0
+  },
+  {
+    "id": "kaka_0061",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 722.4,
+    "f0_hz": 2150.2,
+    "centroid_hz": 3850.6,
+    "syl_start_ms": 15905.7,
+    "syl_end_ms": 16628.0
+  },
+  {
+    "id": "kaka_0062",
+    "recording": "XC526605",
+    "auto_category": "snicker",
+    "duration_ms": 313.3,
+    "f0_hz": 1774.5,
+    "centroid_hz": 3547.3,
+    "syl_start_ms": 17957.2,
+    "syl_end_ms": 18270.5
+  },
+  {
+    "id": "kaka_0063",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 421.0,
+    "f0_hz": 1352.1,
+    "centroid_hz": 3042.2,
+    "syl_start_ms": 50.4,
+    "syl_end_ms": 471.5
+  },
+  {
+    "id": "kaka_0064",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 931.9,
+    "f0_hz": 1306.0,
+    "centroid_hz": 2855.9,
+    "syl_start_ms": 10906.7,
+    "syl_end_ms": 11838.5
+  },
+  {
+    "id": "kaka_0065",
+    "recording": "XC959270",
+    "auto_category": "bark",
+    "duration_ms": 59.9,
+    "f0_hz": 1568.1,
+    "centroid_hz": 3447.9,
+    "syl_start_ms": 25745.3,
+    "syl_end_ms": 25805.2
+  },
+  {
+    "id": "kaka_0066",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 103.8,
+    "f0_hz": 616.3,
+    "centroid_hz": 3053.0,
+    "syl_start_ms": 44346.3,
+    "syl_end_ms": 44450.1
+  },
+  {
+    "id": "kaka_0067",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 117.7,
+    "f0_hz": 192.4,
+    "centroid_hz": 2667.3,
+    "syl_start_ms": 60226.8,
+    "syl_end_ms": 60344.5
+  },
+  {
+    "id": "kaka_0068",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 1895.2,
+    "centroid_hz": 2118.1,
+    "syl_start_ms": 78506.7,
+    "syl_end_ms": 78572.5
+  },
+  {
+    "id": "kaka_0069",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 568.7,
+    "f0_hz": 2112.5,
+    "centroid_hz": 2976.9,
+    "syl_start_ms": 112345.4,
+    "syl_end_ms": 112914.1
+  },
+  {
+    "id": "kaka_0070",
+    "recording": "XC959270",
+    "auto_category": "snicker",
+    "duration_ms": 636.6,
+    "f0_hz": 2015.1,
+    "centroid_hz": 2954.1,
+    "syl_start_ms": 150179.6,
+    "syl_end_ms": 150816.1
+  },
+  {
+    "id": "kaka_0071",
+    "recording": "XC959427",
+    "auto_category": "snicker",
+    "duration_ms": 221.5,
+    "f0_hz": 1115.6,
+    "centroid_hz": 2710.6,
+    "syl_start_ms": 1875.0,
+    "syl_end_ms": 2096.5
+  },
+  {
+    "id": "kaka_0072",
+    "recording": "XC959427",
+    "auto_category": "bark",
+    "duration_ms": 53.9,
+    "f0_hz": 2302.9,
+    "centroid_hz": 3143.3,
+    "syl_start_ms": 3036.0,
+    "syl_end_ms": 3089.9
+  },
+  {
+    "id": "kaka_0073",
+    "recording": "XC959427",
+    "auto_category": "snicker",
+    "duration_ms": 419.0,
+    "f0_hz": 1989.3,
+    "centroid_hz": 3010.5,
+    "syl_start_ms": 3930.5,
+    "syl_end_ms": 4349.6
+  },
+  {
+    "id": "kaka_0074",
+    "recording": "XC959427",
+    "auto_category": "bark",
+    "duration_ms": 53.9,
+    "f0_hz": 4076.8,
+    "centroid_hz": 3827.4,
+    "syl_start_ms": 4823.9,
+    "syl_end_ms": 4877.8
+  },
+  {
+    "id": "kaka_0075",
+    "recording": "XC959427",
+    "auto_category": "bark",
+    "duration_ms": 53.9,
+    "f0_hz": 3844.7,
+    "centroid_hz": 3658.2,
+    "syl_start_ms": 5218.9,
+    "syl_end_ms": 5272.7
+  },
+  {
+    "id": "kaka_0076",
+    "recording": "XC959427",
+    "auto_category": "snicker",
+    "duration_ms": 117.7,
+    "f0_hz": 1991.4,
+    "centroid_hz": 3186.4,
+    "syl_start_ms": 6141.7,
+    "syl_end_ms": 6259.4
+  },
+  {
+    "id": "kaka_0077",
+    "recording": "XC959427",
+    "auto_category": "snicker",
+    "duration_ms": 59.9,
+    "f0_hz": 2602.7,
+    "centroid_hz": 3118.0,
+    "syl_start_ms": 7378.1,
+    "syl_end_ms": 7438.0
+  },
+  {
+    "id": "kaka_0078",
+    "recording": "XC959427",
+    "auto_category": "snicker",
+    "duration_ms": 431.0,
+    "f0_hz": 1618.1,
+    "centroid_hz": 2785.9,
+    "syl_start_ms": 9428.4,
+    "syl_end_ms": 9859.4
+  },
+  {
+    "id": "kaka_0079",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 582.7,
+    "f0_hz": 1168.8,
+    "centroid_hz": 3753.0,
+    "syl_start_ms": 1236.5,
+    "syl_end_ms": 1819.1
+  },
+  {
+    "id": "kaka_0080",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 488.9,
+    "f0_hz": 1545.8,
+    "centroid_hz": 3850.4,
+    "syl_start_ms": 3407.5,
+    "syl_end_ms": 3896.4
+  },
+  {
+    "id": "kaka_0081",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 536.8,
+    "f0_hz": 1444.8,
+    "centroid_hz": 3912.5,
+    "syl_start_ms": 5317.4,
+    "syl_end_ms": 5854.1
+  },
+  {
+    "id": "kaka_0082",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 461.0,
+    "f0_hz": 1930.7,
+    "centroid_hz": 3800.7,
+    "syl_start_ms": 7546.5,
+    "syl_end_ms": 8007.4
+  },
+  {
+    "id": "kaka_0083",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 558.7,
+    "f0_hz": 1910.6,
+    "centroid_hz": 3767.2,
+    "syl_start_ms": 8962.9,
+    "syl_end_ms": 9521.6
+  },
+  {
+    "id": "kaka_0084",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 576.7,
+    "f0_hz": 1927.5,
+    "centroid_hz": 3818.0,
+    "syl_start_ms": 10431.6,
+    "syl_end_ms": 11008.3
+  },
+  {
+    "id": "kaka_0085",
+    "recording": "XC526606",
+    "auto_category": "snicker",
+    "duration_ms": 634.6,
+    "f0_hz": 1353.6,
+    "centroid_hz": 3636.3,
+    "syl_start_ms": 11923.4,
+    "syl_end_ms": 12558.0
+  },
+  {
+    "id": "kaka_0086",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 431.0,
+    "f0_hz": 1239.3,
+    "centroid_hz": 2238.6,
+    "syl_start_ms": 1712.5,
+    "syl_end_ms": 2143.5
+  },
+  {
+    "id": "kaka_0087",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 99.8,
+    "f0_hz": 4356.4,
+    "centroid_hz": 3348.2,
+    "syl_start_ms": 10617.3,
+    "syl_end_ms": 10717.1
+  },
+  {
+    "id": "kaka_0088",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 548.8,
+    "f0_hz": 2321.8,
+    "centroid_hz": 2589.9,
+    "syl_start_ms": 20048.8,
+    "syl_end_ms": 20597.6
+  },
+  {
+    "id": "kaka_0089",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 281.4,
+    "f0_hz": 2091.7,
+    "centroid_hz": 2538.1,
+    "syl_start_ms": 23537.6,
+    "syl_end_ms": 23819.0
+  },
+  {
+    "id": "kaka_0090",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 131.7,
+    "f0_hz": 7229.3,
+    "centroid_hz": 4149.1,
+    "syl_start_ms": 47210.3,
+    "syl_end_ms": 47342.0
+  },
+  {
+    "id": "kaka_0091",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 123.7,
+    "f0_hz": 7136.1,
+    "centroid_hz": 4222.9,
+    "syl_start_ms": 48593.6,
+    "syl_end_ms": 48717.3
+  },
+  {
+    "id": "kaka_0092",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 149.2,
+    "centroid_hz": 2432.7,
+    "syl_start_ms": 60331.2,
+    "syl_end_ms": 60397.1
+  },
+  {
+    "id": "kaka_0093",
+    "recording": "XC959275",
+    "auto_category": "snicker",
+    "duration_ms": 117.7,
+    "f0_hz": 2159.7,
+    "centroid_hz": 2323.1,
+    "syl_start_ms": 70089.4,
+    "syl_end_ms": 70207.2
+  },
+  {
+    "id": "kaka_0094",
+    "recording": "XC207311",
+    "auto_category": "snicker",
+    "duration_ms": 59.9,
+    "f0_hz": 6701.7,
+    "centroid_hz": 6759.2,
+    "syl_start_ms": 3581.7,
+    "syl_end_ms": 3641.5
+  },
+  {
+    "id": "kaka_0095",
+    "recording": "XC207311",
+    "auto_category": "snicker",
+    "duration_ms": 89.8,
+    "f0_hz": 4927.7,
+    "centroid_hz": 5547.8,
+    "syl_start_ms": 25274.9,
+    "syl_end_ms": 25364.7
+  },
+  {
+    "id": "kaka_0096",
+    "recording": "XC207311",
+    "auto_category": "snicker",
+    "duration_ms": 105.8,
+    "f0_hz": 915.1,
+    "centroid_hz": 1573.6,
+    "syl_start_ms": 51763.1,
+    "syl_end_ms": 51868.8
+  },
+  {
+    "id": "kaka_0097",
+    "recording": "XC207311",
+    "auto_category": "bark",
+    "duration_ms": 59.9,
+    "f0_hz": 7292.5,
+    "centroid_hz": 6626.3,
+    "syl_start_ms": 77049.6,
+    "syl_end_ms": 77109.5
+  },
+  {
+    "id": "kaka_0098",
+    "recording": "XC207311",
+    "auto_category": "gurgle",
+    "duration_ms": 698.4,
+    "f0_hz": 1701.6,
+    "centroid_hz": 2213.0,
+    "syl_start_ms": 81246.8,
+    "syl_end_ms": 81945.2
+  },
+  {
+    "id": "kaka_0099",
+    "recording": "XC207311",
+    "auto_category": "bark",
+    "duration_ms": 199.5,
+    "f0_hz": 1580.1,
+    "centroid_hz": 2343.3,
+    "syl_start_ms": 93093.9,
+    "syl_end_ms": 93293.4
+  },
+  {
+    "id": "kaka_0100",
+    "recording": "XC207311",
+    "auto_category": "bark",
+    "duration_ms": 169.6,
+    "f0_hz": 1253.9,
+    "centroid_hz": 2596.8,
+    "syl_start_ms": 106748.1,
+    "syl_end_ms": 106917.7
+  },
+  {
+    "id": "kaka_0101",
+    "recording": "XC207311",
+    "auto_category": "bark",
+    "duration_ms": 163.6,
+    "f0_hz": 2003.5,
+    "centroid_hz": 2618.7,
+    "syl_start_ms": 112460.0,
+    "syl_end_ms": 112623.7
+  },
+  {
+    "id": "kaka_0102",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 55.9,
+    "f0_hz": 1776.0,
+    "centroid_hz": 3175.4,
+    "syl_start_ms": 1821.3,
+    "syl_end_ms": 1877.2
+  },
+  {
+    "id": "kaka_0103",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 371.2,
+    "f0_hz": 1774.8,
+    "centroid_hz": 2792.3,
+    "syl_start_ms": 3421.7,
+    "syl_end_ms": 3792.8
+  },
+  {
+    "id": "kaka_0104",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 71.8,
+    "f0_hz": 1068.3,
+    "centroid_hz": 3471.9,
+    "syl_start_ms": 5816.6,
+    "syl_end_ms": 5888.4
+  },
+  {
+    "id": "kaka_0105",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 584.7,
+    "f0_hz": 1629.7,
+    "centroid_hz": 3153.2,
+    "syl_start_ms": 9477.7,
+    "syl_end_ms": 10062.4
+  },
+  {
+    "id": "kaka_0106",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 65.9,
+    "f0_hz": 2380.8,
+    "centroid_hz": 3588.1,
+    "syl_start_ms": 22395.6,
+    "syl_end_ms": 22461.5
+  },
+  {
+    "id": "kaka_0107",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 415.1,
+    "f0_hz": 1757.7,
+    "centroid_hz": 2831.4,
+    "syl_start_ms": 25517.3,
+    "syl_end_ms": 25932.3
+  },
+  {
+    "id": "kaka_0108",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 155.6,
+    "f0_hz": 1765.7,
+    "centroid_hz": 2924.6,
+    "syl_start_ms": 27913.3,
+    "syl_end_ms": 28068.9
+  },
+  {
+    "id": "kaka_0109",
+    "recording": "XC88155",
+    "auto_category": "snicker",
+    "duration_ms": 614.6,
+    "f0_hz": 1712.1,
+    "centroid_hz": 3026.4,
+    "syl_start_ms": 32486.9,
+    "syl_end_ms": 33101.5
+  },
+  {
+    "id": "kaka_0110",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 285.4,
+    "f0_hz": 2041.9,
+    "centroid_hz": 3477.1,
+    "syl_start_ms": 1718.3,
+    "syl_end_ms": 2003.6
+  },
+  {
+    "id": "kaka_0111",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 113.7,
+    "f0_hz": 2262.0,
+    "centroid_hz": 2338.0,
+    "syl_start_ms": 22869.8,
+    "syl_end_ms": 22983.6
+  },
+  {
+    "id": "kaka_0112",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 115.7,
+    "f0_hz": 5654.7,
+    "centroid_hz": 4318.2,
+    "syl_start_ms": 24371.3,
+    "syl_end_ms": 24487.1
+  },
+  {
+    "id": "kaka_0113",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 93.8,
+    "f0_hz": 2182.7,
+    "centroid_hz": 2614.1,
+    "syl_start_ms": 27312.7,
+    "syl_end_ms": 27406.4
+  },
+  {
+    "id": "kaka_0114",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 538.8,
+    "f0_hz": 2165.9,
+    "centroid_hz": 3736.5,
+    "syl_start_ms": 30751.2,
+    "syl_end_ms": 31290.0
+  },
+  {
+    "id": "kaka_0115",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 1327.0,
+    "f0_hz": 3591.3,
+    "centroid_hz": 3759.6,
+    "syl_start_ms": 34416.1,
+    "syl_end_ms": 35743.1
+  },
+  {
+    "id": "kaka_0116",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 85.8,
+    "f0_hz": 1813.1,
+    "centroid_hz": 2028.6,
+    "syl_start_ms": 52281.9,
+    "syl_end_ms": 52367.7
+  },
+  {
+    "id": "kaka_0117",
+    "recording": "XC963595",
+    "auto_category": "snicker",
+    "duration_ms": 77.8,
+    "f0_hz": 393.2,
+    "centroid_hz": 1559.0,
+    "syl_start_ms": 55791.7,
+    "syl_end_ms": 55869.6
+  },
+  {
+    "id": "kaka_0118",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 205.5,
+    "f0_hz": 2123.0,
+    "centroid_hz": 3254.5,
+    "syl_start_ms": 1892.4,
+    "syl_end_ms": 2098.0
+  },
+  {
+    "id": "kaka_0119",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 63.9,
+    "f0_hz": 845.4,
+    "centroid_hz": 2273.1,
+    "syl_start_ms": 7229.2,
+    "syl_end_ms": 7293.1
+  },
+  {
+    "id": "kaka_0120",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 592.7,
+    "f0_hz": 1390.0,
+    "centroid_hz": 2037.2,
+    "syl_start_ms": 24876.4,
+    "syl_end_ms": 25469.0
+  },
+  {
+    "id": "kaka_0121",
+    "recording": "XC853668",
+    "auto_category": "bark",
+    "duration_ms": 59.9,
+    "f0_hz": 996.2,
+    "centroid_hz": 2517.4,
+    "syl_start_ms": 39920.9,
+    "syl_end_ms": 39980.8
+  },
+  {
+    "id": "kaka_0122",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 407.1,
+    "f0_hz": 1026.5,
+    "centroid_hz": 1752.9,
+    "syl_start_ms": 60894.5,
+    "syl_end_ms": 61301.6
+  },
+  {
+    "id": "kaka_0123",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 359.2,
+    "f0_hz": 959.3,
+    "centroid_hz": 2029.5,
+    "syl_start_ms": 75339.3,
+    "syl_end_ms": 75698.5
+  },
+  {
+    "id": "kaka_0124",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 281.4,
+    "f0_hz": 2227.3,
+    "centroid_hz": 3228.7,
+    "syl_start_ms": 86320.2,
+    "syl_end_ms": 86601.5
+  },
+  {
+    "id": "kaka_0125",
+    "recording": "XC853668",
+    "auto_category": "snicker",
+    "duration_ms": 205.5,
+    "f0_hz": 2268.0,
+    "centroid_hz": 3010.7,
+    "syl_start_ms": 93147.0,
+    "syl_end_ms": 93352.6
+  },
+  {
+    "id": "kaka_0126",
+    "recording": "XC207335",
+    "auto_category": "snicker",
+    "duration_ms": 83.8,
+    "f0_hz": 1246.7,
+    "centroid_hz": 3761.6,
+    "syl_start_ms": 16190.1,
+    "syl_end_ms": 16273.9
+  },
+  {
+    "id": "kaka_0127",
+    "recording": "XC207335",
+    "auto_category": "snicker",
+    "duration_ms": 61.9,
+    "f0_hz": 416.1,
+    "centroid_hz": 2819.7,
+    "syl_start_ms": 45805.4,
+    "syl_end_ms": 45867.2
+  },
+  {
+    "id": "kaka_0128",
+    "recording": "XC207335",
+    "auto_category": "bark",
+    "duration_ms": 71.8,
+    "f0_hz": 1173.7,
+    "centroid_hz": 3105.8,
+    "syl_start_ms": 63169.9,
+    "syl_end_ms": 63241.7
+  },
+  {
+    "id": "kaka_0129",
+    "recording": "XC207335",
+    "auto_category": "bark",
+    "duration_ms": 77.8,
+    "f0_hz": 697.8,
+    "centroid_hz": 3288.6,
+    "syl_start_ms": 121591.3,
+    "syl_end_ms": 121669.1
+  },
+  {
+    "id": "kaka_0130",
+    "recording": "XC207335",
+    "auto_category": "bark",
+    "duration_ms": 65.9,
+    "f0_hz": 1032.3,
+    "centroid_hz": 4002.4,
+    "syl_start_ms": 148584.5,
+    "syl_end_ms": 148650.3
+  },
+  {
+    "id": "kaka_0131",
+    "recording": "XC207335",
+    "auto_category": "snicker",
+    "duration_ms": 443.0,
+    "f0_hz": 2337.4,
+    "centroid_hz": 2960.1,
+    "syl_start_ms": 164838.8,
+    "syl_end_ms": 165281.8
+  },
+  {
+    "id": "kaka_0132",
+    "recording": "XC207335",
+    "auto_category": "snicker",
+    "duration_ms": 77.8,
+    "f0_hz": 3214.4,
+    "centroid_hz": 5178.2,
+    "syl_start_ms": 195848.7,
+    "syl_end_ms": 195926.5
+  },
+  {
+    "id": "kaka_0133",
+    "recording": "XC207335",
+    "auto_category": "bark",
+    "duration_ms": 55.9,
+    "f0_hz": 3281.4,
+    "centroid_hz": 4358.3,
+    "syl_start_ms": 201506.8,
+    "syl_end_ms": 201562.6
+  },
+  {
+    "id": "kaka_0134",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 309.3,
+    "f0_hz": 1666.8,
+    "centroid_hz": 2930.7,
+    "syl_start_ms": 0.0,
+    "syl_end_ms": 309.3
+  },
+  {
+    "id": "kaka_0135",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 93.8,
+    "f0_hz": 1988.9,
+    "centroid_hz": 2359.4,
+    "syl_start_ms": 19127.4,
+    "syl_end_ms": 19221.2
+  },
+  {
+    "id": "kaka_0136",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 443.0,
+    "f0_hz": 1730.4,
+    "centroid_hz": 2695.8,
+    "syl_start_ms": 32484.7,
+    "syl_end_ms": 32927.7
+  },
+  {
+    "id": "kaka_0137",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 704.4,
+    "f0_hz": 2153.7,
+    "centroid_hz": 3554.6,
+    "syl_start_ms": 37726.6,
+    "syl_end_ms": 38431.0
+  },
+  {
+    "id": "kaka_0138",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 169.6,
+    "f0_hz": 1522.4,
+    "centroid_hz": 2874.9,
+    "syl_start_ms": 42829.2,
+    "syl_end_ms": 42998.8
+  },
+  {
+    "id": "kaka_0139",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 63.9,
+    "f0_hz": 172.5,
+    "centroid_hz": 2775.0,
+    "syl_start_ms": 49303.8,
+    "syl_end_ms": 49367.6
+  },
+  {
+    "id": "kaka_0140",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 111.7,
+    "f0_hz": 2507.1,
+    "centroid_hz": 2640.4,
+    "syl_start_ms": 54485.6,
+    "syl_end_ms": 54597.4
+  },
+  {
+    "id": "kaka_0141",
+    "recording": "XC963596",
+    "auto_category": "snicker",
+    "duration_ms": 141.7,
+    "f0_hz": 1583.9,
+    "centroid_hz": 2638.0,
+    "syl_start_ms": 59872.7,
+    "syl_end_ms": 60014.3
+  },
+  {
+    "id": "kaka_0142",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 343.2,
+    "f0_hz": 1095.1,
+    "centroid_hz": 2671.1,
+    "syl_start_ms": 385.1,
+    "syl_end_ms": 728.3
+  },
+  {
+    "id": "kaka_0143",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 251.4,
+    "f0_hz": 1233.2,
+    "centroid_hz": 2584.5,
+    "syl_start_ms": 4719.5,
+    "syl_end_ms": 4970.9
+  },
+  {
+    "id": "kaka_0144",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 153.7,
+    "f0_hz": 3774.1,
+    "centroid_hz": 4333.5,
+    "syl_start_ms": 5954.1,
+    "syl_end_ms": 6107.8
+  },
+  {
+    "id": "kaka_0145",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 644.5,
+    "f0_hz": 1766.5,
+    "centroid_hz": 3196.5,
+    "syl_start_ms": 6428.1,
+    "syl_end_ms": 7072.7
+  },
+  {
+    "id": "kaka_0146",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 99.8,
+    "f0_hz": 3314.6,
+    "centroid_hz": 3799.5,
+    "syl_start_ms": 8457.9,
+    "syl_end_ms": 8557.6
+  },
+  {
+    "id": "kaka_0147",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 1121.5,
+    "f0_hz": 1116.8,
+    "centroid_hz": 2954.6,
+    "syl_start_ms": 9375.1,
+    "syl_end_ms": 10496.5
+  },
+  {
+    "id": "kaka_0148",
+    "recording": "XC326938",
+    "auto_category": "snicker",
+    "duration_ms": 1061.6,
+    "f0_hz": 1545.9,
+    "centroid_hz": 2325.7,
+    "syl_start_ms": 15269.1,
+    "syl_end_ms": 16330.7
+  },
+  {
+    "id": "kaka_0149",
+    "recording": "XC326938",
+    "auto_category": "bark",
+    "duration_ms": 65.9,
+    "f0_hz": 736.3,
+    "centroid_hz": 2380.2,
+    "syl_start_ms": 18279.9,
+    "syl_end_ms": 18345.8
+  }
+]
