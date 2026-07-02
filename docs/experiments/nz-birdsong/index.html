@@ -100,6 +100,11 @@ a:hover{color:var(--accent-2)}
   transition:all .18s ease;white-space:nowrap}
 .tab:hover{color:var(--ink);background:var(--surface-2)}
 .tab.active{color:var(--surface);background:var(--ink);border-color:var(--ink)}
+.voc-tab{font-family:var(--mono);font-size:.72rem;padding:.4rem .9rem;border-radius:999px;
+  border:1px solid var(--rule);background:var(--surface);color:var(--ink-soft);cursor:pointer;
+  transition:all .18s ease;white-space:nowrap}
+.voc-tab:hover{color:var(--ink);background:var(--surface-2)}
+.voc-tab.active{color:var(--surface);background:var(--ink);border-color:var(--ink)}
 .panel{display:none;animation:fade .5s ease both}
 .panel.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -611,13 +616,13 @@ tr:hover td{background:var(--surface-2)}
 
     <!-- Species sub-tabs -->
     <div style="display:flex;gap:.3rem;margin-bottom:2rem;flex-wrap:wrap" id="voc-species-tabs">
-      <button class="tab active" onclick="showVocSpecies('tui',this)" style="cursor:pointer">Tūī</button>
-      <button class="tab" onclick="showVocSpecies('bellbird',this)" style="cursor:pointer">Bellbird</button>
-      <button class="tab" onclick="showVocSpecies('kaka',this)" style="cursor:pointer">Kākā</button>
+      <button class="voc-tab" onclick="showVocSpecies('tui',this)" style="cursor:pointer">Tūī</button>
+      <button class="voc-tab" onclick="showVocSpecies('bellbird',this)" style="cursor:pointer">Bellbird</button>
+      <button class="voc-tab" onclick="showVocSpecies('kaka',this)" style="cursor:pointer">Kākā</button>
     </div>
 
     <!-- TŪĪ sub-panel -->
-    <div class="voc-species-panel" id="voc-tui">
+    <div class="voc-species-panel" id="voc-tui" style="display:none">
       <div class="prose" style="margin-bottom:1.5rem">
         <p>Classification follows <b>Hill &amp; Ji (2014)</b> — 6 syllable categories identified from visual spectrographic
         inspection of tūī at Tawharanui Regional Park. Syllable boundaries defined by ≥20ms silence gaps.
@@ -1367,7 +1372,7 @@ function initSyllables() {
 
   // === SPECIES SUB-TAB SWITCHING ===
   window.showVocSpecies = function(species, btn) {
-    document.querySelectorAll('#voc-species-tabs .tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#voc-species-tabs .voc-tab').forEach(b => b.classList.remove('active'));
     if(btn) btn.classList.add('active');
     document.querySelectorAll('.voc-species-panel').forEach(p => p.style.display = 'none');
     const panel = document.getElementById('voc-' + species);
@@ -1431,9 +1436,7 @@ function initSyllables() {
     });
   }
   
-  // Init tūī samples (default species shown)
-  renderVocSamples('tui');
-  window._vocSamples_tui = true;
+  // No species shown by default — user clicks a sub-tab to reveal
 
 
   // === PER-RECORDING STACKED BAR CHARTS ===
