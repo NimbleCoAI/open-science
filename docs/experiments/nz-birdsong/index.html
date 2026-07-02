@@ -564,6 +564,51 @@ tr:hover td{background:var(--surface-2)}
   <div class="panel" id="panel-vocalisation">
     <div class="section-label">Vocalisation Analysis — Species-Specific Classification</div>
 
+    <!-- INTRO: why vocalisation analysis matters -->
+    <div class="prose" style="margin-bottom:2rem">
+      <p><span class="drop">V</span>ocal learning — the ability to acquire vocalisations through imitation rather
+      than instinct — is rare among animals. In the entire animal kingdom, only three groups of birds
+      (songbirds, parrots, and hummingbirds) share this capacity with humans
+      (<a href="https://doi.org/10.1146/annurev-linguistics-090420-121034">Hyland Bruno et al. 2021</a>).
+      This convergent evolution makes birdsong one of the most powerful natural models for understanding
+      how brains learn, produce, and culturally transmit complex vocal behaviour — including human speech
+      (<a href="https://doi.org/10.1098/rstb.2019.0060">Aamodt, Farias-Virgens &amp; White 2019</a>).</p>
+
+      <p>Detailed vocalisation analysis is how researchers decode this system. By classifying vocal units
+      and measuring their diversity, sequencing, and geographic variation, we can ask: How complex is a
+      species' repertoire? Does it vary between populations? What does vocal complexity signal about
+      ecology and social structure?</p>
+
+      <h4 style="font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:1.5rem 0 .5rem">Songs vs Calls</h4>
+      <p>The traditional distinction (<a href="https://doi.org/10.1017/CBO9780511754791">Catchpole &amp; Slater 2008</a>):
+      <b>songs</b> are longer, more complex, often learned vocalisations typically associated with
+      territory defence and mate attraction; <b>calls</b> are shorter, simpler, and often innate — used
+      for alarm, contact, and flock coordination. In practice the boundary blurs, especially in
+      Southern Hemisphere species, but the distinction matters for analysis: tūī and bellbird produce
+      <em>songs</em> built from <em>syllables</em>, while kākā produce <em>calls</em> of distinct types.</p>
+
+      <h4 style="font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:1.5rem 0 .5rem">Song Structure: Syllables, Motifs, and Call Types</h4>
+      <p>Birdsong is hierarchically structured (<a href="https://doi.org/10.1016/j.tics.2011.01.002">Berwick et al. 2011</a>).
+      A <b>syllable</b> is the smallest discrete vocal unit — a continuous sound bounded by silence.
+      Syllables combine into <b>motifs</b> (repeated stereotyped sequences), and motifs into <b>songs</b>.
+      Different species organise these units differently: tūī songs contain hundreds of syllable types
+      in flexible sequences, while bellbird researchers found that <em>syllable types</em> (not song types)
+      are the functional units of vocal culture, because bellbirds flexibly recombine syllables across songs.
+      Parrots like kākā don't produce songs at all — they use distinct <b>call types</b>, each serving a
+      different social function.</p>
+
+      <div class="note" style="margin-top:1.2rem">
+        <div class="mark">Kākā: What are the calls for?</div>
+        <div><a href="https://doi.org/10.1080/03014220709510093">Van Horik, Bell &amp; Burns (2007)</a>
+        found that each kākā call type serves a distinct social function tied to spatial context:
+        <b>snicker</b> calls are used during close-range social interactions and copulation;
+        <b>shraak</b> calls carry over long distances for flock coordination between widely separated birds;
+        <b>bark</b> calls serve as alarm or alert signals; and <b>gurgle</b> calls are associated
+        with social bonding. The call repertoire is tuned to communication at different distances —
+        from intimate contact to forest-wide coordination.</div>
+      </div>
+    </div>
+
     <!-- Species sub-tabs -->
     <div style="display:flex;gap:.3rem;margin-bottom:2rem;flex-wrap:wrap" id="voc-species-tabs">
       <button class="tab active" onclick="showVocSpecies('tui',this)" style="cursor:pointer">Tūī</button>
@@ -873,20 +918,6 @@ tr:hover td{background:var(--surface-2)}
     </div>
     </div><!-- /geo-species Bellbird -->
 
-    <div class="two-col" style="margin-top:1.5rem">
-      <div class="card">
-        <h3>All Recordings by Region</h3>
-        <div class="chart-wrap chart-small">
-          <canvas id="regionChart"></canvas>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Tūī Recordings by Region</h3>
-        <div class="chart-wrap chart-small">
-          <canvas id="tuiRegionChart"></canvas>
-        </div>
-      </div>
-    </div>
   </div>
 
 
@@ -1153,19 +1184,6 @@ const SPECIES_TABLE = [
   {en:"Rarotonga Monarch",sp:"Pomarea dimidiata",count:29,q_a:18,q_b:10,songs:4,calls:25,top_regions:"Kermadec Islands(29)"},
   {en:"Yellowhead",sp:"Mohoua ochrocephala",count:28,q_a:10,q_b:15,songs:10,calls:13,top_regions:"Southland(19), West Coast(4), Canterbury(2)"},
   {en:"Black Robin",sp:"Petroica traversi",count:27,q_a:1,q_b:21,songs:7,calls:20,top_regions:"Offshore(27)"}
-];
-
-const ALL_REGIONS = [
-  ["Auckland",380],["Southland",234],["Canterbury",179],["Otago",136],["Waikato",117],
-  ["Wairarapa",106],["Wellington",87],["Northland",75],["Hawke's Bay",74],
-  ["Bay of Plenty",65],["Subantarctic",40],["Tasman/Nelson",39],["West Coast",38],
-  ["Manawatū",32]
-];
-
-const TUI_REGIONS = [
-  ["Auckland",44],["Bay of Plenty",35],["Southland",32],["Wellington",16],
-  ["Wairarapa",11],["Waikato",6],["Northland",5],["Tasman/Nelson",5],
-  ["Canterbury",5],["Hawke's Bay",4]
 ];
 
 // ==================== TABS ====================
@@ -1661,35 +1679,7 @@ function initDataCharts() {
 // ==================== MAP CHARTS (region bars below map) ====================
 function initMapCharts() {
   window._mapChartsInit = true;
-  const chartFont = {family:'Spline Sans Mono',size:10};
-  const gridColor = '#e2d9c7';
-  const tickColor = '#a99e89';
-
-  new Chart(document.getElementById('regionChart'), {
-    type:'bar',
-    data:{
-      labels: ALL_REGIONS.map(r=>r[0]),
-      datasets:[{data:ALL_REGIONS.map(r=>r[1]),backgroundColor:'#1f4257',borderRadius:3}]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,indexAxis:'y',
-      plugins:{legend:{display:false}},
-      scales:{x:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor}},y:{ticks:{font:chartFont,color:tickColor},grid:{display:false}}}
-    }
-  });
-
-  new Chart(document.getElementById('tuiRegionChart'), {
-    type:'bar',
-    data:{
-      labels: TUI_REGIONS.map(r=>r[0]),
-      datasets:[{data:TUI_REGIONS.map(r=>r[1]),backgroundColor:'#5f7a3a',borderRadius:3}]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,indexAxis:'y',
-      plugins:{legend:{display:false}},
-      scales:{x:{ticks:{font:chartFont,color:tickColor},grid:{color:gridColor}},y:{ticks:{font:chartFont,color:tickColor},grid:{display:false}}}
-    }
-  });
+  // Charts removed in v2 — species-specific region data now in initGeoCharts()
 }
 
 // ==================== GEOGRAPHIC DATA (v2 species-specific) ====================
