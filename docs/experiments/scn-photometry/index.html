@@ -1096,8 +1096,8 @@ function renderClockShift(){
   if(clockShiftChart) clockShiftChart.destroy();
   clockShiftChart=new Chart($('clockShiftChart'),{type:'scatter',data:{datasets:ds},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
-      scales:{x:{title:{display:true,text:'wheel-clock shift (ΔCT h)'},grid:{color:RULE}},
-              y:{title:{display:true,text:'calcium-clock shift (ΔCT h)'},grid:{color:RULE}}},
+      scales:{x:{min:-6,max:6,ticks:{stepSize:6},title:{display:true,text:'wheel-clock shift (ΔCT h)'},grid:{color:RULE}},
+              y:{min:-6,max:6,ticks:{stepSize:6},title:{display:true,text:'calcium-clock shift (ΔCT h)'},grid:{color:RULE}}},
       plugins:{legend:{display:false},
         tooltip:{callbacks:{label:it=>{const a=labels[it.datasetIndex];return a?`#${a}: wheel ${pts[a].wheel.toFixed(2)}, calcium ${pts[a].ca.toFixed(2)} CT`:'';}}}}}});
 }
@@ -1273,7 +1273,7 @@ function renderLP2(){
     options:{responsive:true,maintainAspectRatio:false,animation:false,
       scales:{x:{type:'linear',min:0,max:24,ticks:{stepSize:6,callback:v=>['CT0','CT6','CT12','CT18','CT24'][v/6]},
               title:{display:true,text:'CT of second pulse in the wheel clock\'s frame (h)'},grid:{color:RULE}},
-              y:{title:{display:true,text:'phase shift (ΔCT h)'},grid:{color:RULE}}},
+              y:{min:-6,max:6,ticks:{stepSize:6},title:{display:true,text:'phase shift (ΔCT h)'},grid:{color:RULE}}},
       plugins:{legend:{display:false},
         tooltip:{callbacks:{label:it=>{
           const lbl=it.dataset.label;
