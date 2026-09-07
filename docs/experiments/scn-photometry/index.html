@@ -381,7 +381,7 @@ footer a{color:var(--accent)}
 <section id="boutca">
 <div class="wrap">
   <h2><span class="no">09</span>Calcium at the start of a run</h2>
-  <p class="lede">When a mouse breaks a ≥10-min stillness and starts running, SCN calcium rises. The size of that rise depends on circadian time — and the pattern differs between animals.</p>
+  <p class="lede">When a mouse breaks a stillness of ≥10 min (left) or ≥5 min (right) and starts running, SCN calcium shifts. The size of that shift depends on circadian time — and the pattern differs between animals.</p>
   <div class="controls" style="margin-bottom:14px">
     <div class="chips" id="sec9-ct-chips">
       <span class="chip on" data-frame="wheel">CT frame: behavior clock</span>
@@ -392,18 +392,33 @@ footer a{color:var(--accent)}
     <div class="card">
       <div class="chart-head">
         <span class="chart-title">Bout-onset ΔCa across the cycle</span>
-        <span class="badge">base→peak, z</span>
+        <span class="badge" id="bout-metric-badge">base→peak, z</span>
+      </div>
+      <div class="controls" style="margin-bottom:10px">
+        <div class="chips" id="sec9-metric-chips">
+          <span class="chip on" data-metric="peak">Peak (base→max, 0–60 s)</span>
+          <span class="chip" data-metric="int">Integral (0–180 s)</span>
+        </div>
       </div>
       <div class="chart-box"><canvas id="boutCaChart"></canvas></div>
-      <p class="footnote" style="margin-top:10px">CT frame from wheel onsets (onset = CT12); bins 12–18 and 18–24 are the subjective night. 6977 and 6978 show the early-night &gt; late-night gradient; 7390 doesn't; VIP 6976 runs flat — the odd one out.</p>
+      <p class="footnote" style="margin-top:10px" id="bout-ca-footnote">CT frame per the toggle above (behavior clock: wheel onsets = CT12, bins 12–24 the subjective night; calcium clock: the S+6 sine-acrophase convention). Peak = baseline-to-max in the first 60 s (z). Integral = area of the baseline-normalized trace over 0–180 s post-onset, computed per onset and then averaged within each CT bin (z·s). A trace that stays at baseline integrates to ~0; a negative-going trace to negative. No onset's 0–180 s window is truncated by recording end; the smallest bin (any animal, either frame) holds 20 onsets. (Three of 6978's onsets fall in a 68-min photometry gap near recording start and integrate to NaN — excluded from their bin mean by construction; no other bin loses members.) Under base→peak, 6977 and 6978 show the early-night &gt; late-night gradient, 7390 doesn't, and VIP 6976 runs flat. Under the integral the ordering changes: 6977 and 6978 stay positive everywhere (6977 peaks at CT6–12 in the behavior frame, CT0–6 in the calcium frame), 6577 stays mildly positive, 7390 runs negative through the mid-cycle bins — and 6976, flat under base→peak, is negative in every bin, deepest in CT12–18 in both frames.</p>
     </div>
     <div class="card">
       <div class="chart-head">
         <span class="chart-title">Quiescence → running, group means</span>
         <span class="badge" id="onset-badge">—</span>
       </div>
+      <div class="controls" style="margin-bottom:10px">
+        <div class="chips" id="sec9-quartile-chips">
+          <span class="chip on" data-q="all">All onsets</span>
+          <span class="chip" data-q="q1">CT0–6</span>
+          <span class="chip" data-q="q2">CT6–12</span>
+          <span class="chip" data-q="q3">CT12–18</span>
+          <span class="chip" data-q="q4">CT18–24</span>
+        </div>
+      </div>
       <div class="chart-box"><canvas id="onsetTrigChart"></canvas></div>
-      <p class="footnote" style="margin-top:10px">Baseline-normalized (mean of −60…−10 s → 0). Shading = SEM across animals.</p>
+      <p class="footnote" style="margin-top:10px" id="onset-trig-footnote">First rev after ≥5 min stillness; baseline-normalized (mean of −60…−10 s → 0). Shading = SEM across animals. Quartiles are of the behavior clock (wheel onsets = CT12): CT0–12 subjective day, CT12–24 night; the legend shows the animals contributing onsets in each quartile.</p>
     </div>
   </div>
   <details>
@@ -913,7 +928,8 @@ function col(g){return g==='VIP'?C_VIPC:C_D1C;}
 
 let CT_FRAMES=null, SE=null, RL=null;
 let sec4Frame='wheel', sec8Frame='wheel', sec9Frame='wheel';
-let prcDualChart=null, clockShiftChart=null, compChart=null, boutCaChart=null;
+let sec9Metric='peak', sec9Quartile='all';
+let prcDualChart=null, clockShiftChart=null, compChart=null, boutCaChart=null, onsetTrigChart=null;
 
 function frameChipHandler(chipsId, get, set, rerender){
   document.querySelectorAll('#'+chipsId+' .chip').forEach(ch=>{
@@ -1006,7 +1022,8 @@ function renderComp(){
 }
 
 function renderBoutCa(){
-  const B=CT_FRAMES.bout_by_ct[sec9Frame];
+  const metric=(sec9Metric==='int');
+  const B=metric?CT_FRAMES.bout_by_ct_int[sec9Frame]:CT_FRAMES.bout_by_ct[sec9Frame];
   const ds=[];
   for(const [a,bins] of Object.entries(B)){
     const g=ANA.dual_clock[a].group;
@@ -1015,13 +1032,14 @@ function renderBoutCa(){
       borderColor:col(g),borderWidth:1.5,pointRadius:4,pointBackgroundColor:col(g),
       borderDash:a==='6577'?[4,3]:undefined});
   }
+  $('bout-metric-badge').textContent=metric?'integral, z·s (0–180 s)':'base→peak, z';
   if(boutCaChart) boutCaChart.destroy();
   boutCaChart=new Chart($('boutCaChart'),{type:'scatter',data:{datasets:ds},
     options:{responsive:true,maintainAspectRatio:false,animation:false,showLine:true,
       scales:{x:{type:'linear',min:0,max:24,ticks:{stepSize:6,callback:v=>['CT0','CT6','CT12','CT18','CT24'][v/6]},
               title:{display:true,text:`circadian time of bout onset (${
                 (sec9Frame==='wheel')?'behavior clock':'calcium clock, S+6'})`}},
-              y:{title:{display:true,text:'bout-onset ΔCa (z)'},grid:{color:RULE}}},
+              y:{title:{display:true,text:metric?'post-onset Ca integral (z·s, 0–180 s)':'bout-onset ΔCa (z)'},grid:{color:RULE}}},
       plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}}}}});
 }
 
@@ -1300,20 +1318,36 @@ function renderFirstDays(){
 }
 
 function renderOnsetTrig(){
+  // cur quartile: 'all' (shipped overall average) or 'q1'..'q4'
+  const q=sec9Quartile;
   const groups={};
-  for(const [a,d] of Object.entries(ANA.onset_triggered)){
-    const g=ANA.dual_clock[a].group;
-    (groups[g]=groups[g]||[]).push(d);
+  if(q==='all'){
+    for(const [a,d] of Object.entries(ANA.onset_triggered)){
+      const g=ANA.dual_clock[a].group;
+      (groups[g]=groups[g]||[]).push(d);
+    }
+  } else {
+    for(const [a,qs] of Object.entries(ANA.onset_quartile_curves)){
+      if(!qs[q]) continue;                 // no onsets in this quartile
+      const g=ANA.dual_clock[a].group;
+      (groups[g]=groups[g]||[]).push(qs[q]);
+    }
   }
   const ds=[];
   const t0=Object.values(ANA.onset_triggered)[0].t;
-  let tot=0; for(const g of ['VIP','D1']) tot+=groups[g].length;
-  $('onset-badge').textContent=`${tot} animals · 52–91 onsets each`;
+  let tot=0; for(const g of ['VIP','D1']) tot+=(groups[g]||[]).length;
+  const qlabel=q==='all'?'':({q1:' · CT0–6',q2:' · CT6–12',q3:' · CT12–18',q4:' · CT18–24'})[q];
+  $('onset-badge').textContent=q==='all'
+    ? `${tot} animals · 341–400 onsets each`
+    : `${tot} animals${qlabel}`;
   for(const [g,arr] of Object.entries(groups)){
+    if(!arr.length) continue;
     const M=arr.map(d=>d.z);
+    const nOn=arr.reduce((s,d)=>s+d.n,0);
     const mean=M[0].map((_,i)=>M.reduce((s,m)=>s+m[i],0)/M.length);
     const se=mean.map((m,i)=>Math.sqrt(M.reduce((s,m2)=>s+(m2[i]-m)**2,0)/(M.length-1)/M.length));
-    ds.push({type:'line',label:`${g}-Cre (n=${M.length})`,data:t0.map((t,i)=>({x:t,y:mean[i]})),
+    ds.push({type:'line',label:`${g}-Cre (n=${M.length} animals, ${nOn} onsets)`,
+      data:t0.map((t,i)=>({x:t,y:mean[i]})),
       borderColor:col(g),borderWidth:2,pointRadius:0});
     ds.push({type:'line',data:t0.map((t,i)=>({x:t,y:mean[i]+se[i]})),borderColor:'transparent',
       backgroundColor:col(g)+'22',fill:'+1',pointRadius:0});
@@ -1326,10 +1360,12 @@ function renderOnsetTrig(){
       y:{title:{display:true,text:'ΔF/F change (z)'},grid:{color:RULE}}
     },
     plugins:{
-      legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}}
+      legend:{position:'bottom',labels:{boxWidth:12,font:{size:10},
+        filter:it=>!!it.text}}
     }
   };
-  new Chart($('onsetTrigChart'),{type:'scatter',data:{datasets:ds},options:opts});
+  if(onsetTrigChart) onsetTrigChart.destroy();
+  onsetTrigChart=new Chart($('onsetTrigChart'),{type:'scatter',data:{datasets:ds},options:opts});
 }
 
 function renderEarlyLate(){
@@ -1376,6 +1412,23 @@ fetch('data/analyses.json').then(r=>r.json()).then(a=>{
           ()=>{renderPRCDual();renderClockShift();});
         frameChipHandler('sec8-ct-chips', ()=>sec8Frame, v=>{sec8Frame=v;}, renderComp);
         frameChipHandler('sec9-ct-chips', ()=>sec9Frame, v=>{sec9Frame=v;}, renderBoutCa);
+        // metric toggle (peak <-> integral) and quartile toggle (all <-> CT quarters)
+        document.querySelectorAll('#sec9-metric-chips .chip').forEach(ch=>{
+          ch.onclick=()=>{
+            document.querySelectorAll('#sec9-metric-chips .chip').forEach(c=>c.classList.remove('on'));
+            ch.classList.add('on');
+            sec9Metric=ch.dataset.metric;
+            renderBoutCa();
+          };
+        });
+        document.querySelectorAll('#sec9-quartile-chips .chip').forEach(ch=>{
+          ch.onclick=()=>{
+            document.querySelectorAll('#sec9-quartile-chips .chip').forEach(c=>c.classList.remove('on'));
+            ch.classList.add('on');
+            sec9Quartile=ch.dataset.q;
+            renderOnsetTrig();
+          };
+        });
       }).catch(e=>{ $('#relock-foot').textContent='relock data unavailable: '+e; });
     }).catch(e=>{ console.error('s_estimator load failed', e); });
   }).catch(e=>{ console.error('ct_frames load failed', e); });
