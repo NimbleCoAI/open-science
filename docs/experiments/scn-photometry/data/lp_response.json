@@ -6846,6 +6846,6 @@
   "trough": "min of 2-min rolling-mean dF in [0, +240 min], minus baseline",
   "latency": "minutes from LP onset",
   "lp_source": "sessions.json light_pulse (params.LPontimes, photodiode-verified)",
-  "note": "pulses pooled at different circadian phases: ZT12 (221014 cohort), ZT8 (7390)"
+  "note": "pulses pooled at different circadian phases: ZT12 (221014 cohort), ZT8 (7390, 7382, 7386 — second session)"
  }
 }
