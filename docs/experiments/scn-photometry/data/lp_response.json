@@ -6842,8 +6842,8 @@
   ],
   "bin_min": 1.0,
   "baseline": "mean of -120..-30 min before LP onset, per animal",
-  "peak": "max of 2-min rolling-mean dF in [LP onset, +40 min] (30-min pulse + 10 min after), minus baseline",
-  "trough": "min of 2-min rolling-mean dF in [0, +40 min] (30-min pulse + 10 min after), minus baseline",
+  "peak": "max of 8-min rolling-mean dF (8×1-min bins) in [LP onset, +40 min] (30-min pulse + 10 min after), minus baseline",
+  "trough": "min of 8-min rolling-mean dF (8×1-min bins) in [0, +40 min] (30-min pulse + 10 min after), minus baseline",
   "latency": "minutes from LP onset",
   "lp_source": "sessions.json light_pulse (params.LPontimes, photodiode-verified)",
   "note": "pulses pooled at different circadian phases: ZT12 (221014 cohort), ZT8 (7390, 7382, 7386 — second session)"
