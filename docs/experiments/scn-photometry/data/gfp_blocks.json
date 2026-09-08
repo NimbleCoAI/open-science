@@ -6849,7 +6849,7 @@
  },
  "conventions": {
   "lp_trig": "1-min bins -120..+360 min from LP onset; baseline mean(-120,-30) subtracted",
-  "peaks": "extrema of 2-min rolling mean in [LP onset, +240 min], latency from onset",
+  "peaks": "extrema of 2-min rolling mean in [LP onset, +40 min] (30-min pulse + 10 min after), latency from onset",
   "onset_triggered": ">=5-min quiescence onsets, cap 400 (rng 42), full-record z dF, peri_event 1-s bins -60..180, baseline -60..-10",
   "earlylate": ">=10-min onsets, base(-60,-10)->peak(0,60) deltas, behavioral-clock CT (CT12 at onset), early CT12-18 / late CT18-24, subsample 250 (rng 1)",
   "bout_by_ct": "same deltas, 4x6-h CT bins, >=5 onsets",
