@@ -291,7 +291,8 @@
    "n_post2": 1,
    "fit_mode": "1pt npost=1",
    "excluded": false,
-   "exclusion_reason": null
+   "exclusion_reason": null,
+   "lp2_in_ct_S": 18.31
   },
   "6976": {
    "shift_ZT": -2.286,
@@ -302,7 +303,8 @@
    "n_post2": 1,
    "fit_mode": "1pt npost=1",
    "excluded": true,
-   "exclusion_reason": "post-LP2 data unusable for rhythm estimation (no clean rest/onset structure after the pulse); single-span animal, self-consistency-validated only"
+   "exclusion_reason": "post-LP2 data unusable for rhythm estimation (no clean rest/onset structure after the pulse); single-span animal, self-consistency-validated only",
+   "lp2_in_ct_S": 22.73
   },
   "6977": {
    "shift_ZT": -0.857,
@@ -313,7 +315,8 @@
    "n_post2": 1,
    "fit_mode": "1pt npost=1",
    "excluded": false,
-   "exclusion_reason": null
+   "exclusion_reason": null,
+   "lp2_in_ct_S": 17.74
   },
   "6978": {
    "shift_ZT": 3.162,
@@ -324,7 +327,8 @@
    "n_post2": 1,
    "fit_mode": "1pt npost=1",
    "excluded": false,
-   "exclusion_reason": null
+   "exclusion_reason": null,
+   "lp2_in_ct_S": 14.33
   }
  },
  "bracket": {
