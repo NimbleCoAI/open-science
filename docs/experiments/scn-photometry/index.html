@@ -159,12 +159,13 @@ footer a{color:var(--accent)}
 <section id="cycleavg">
   <div class="wrap">
     <h2><span class="no">03</span>The average circadian cycle</h2>
-    <p class="lede">Every cycle at its native length, anchored at each animal's own activity onset (CT12): the average calcium day and the wheel-running probability beside it. Cycles are never stretched — a 23-h cycle occupies 23 h — so the 23–24 h tail is honest thinner, not filled. The pulse-containing cycle is excluded; everything before and after is kept.</p>
+    <p class="lede">Every cycle at its native length, anchored at each animal's own activity onset (CT12): the average calcium day and the wheel-running rate beside it. Cycles are never stretched — a 23-h cycle occupies 23 h — so the 23–24 h tail is honest thinner, not filled. The pulse-containing cycle is excluded; everything before and after is kept.</p>
     <div class="controls" style="margin-bottom:14px">
       <div class="chips" id="cycle-gt-chips">
         <span class="chip on" data-gt="VIP">VIP-Cre</span>
         <span class="chip" data-gt="D1">D1-Cre</span>
         <span class="chip" data-gt="both">Both</span>
+        <span class="chip" data-gt="gfp">+ GFP controls</span>
       </div>
     </div>
     <div class="card">
@@ -383,6 +384,16 @@ footer a{color:var(--accent)}
   </table>
   </div>
   <p class="footnote">GFP animals are fluorescence controls — their ΔF/F is movement artifact, not biology. 6577 is statistically borderline (SNR 0.65) but was kept after review: it shows a clear rhythm. 7121/7122 (GFlamp1) carry no detectable signal; 7381's fiber was likely off-target.</p>
+  <details style="margin-top:12px">
+    <summary style="cursor:pointer;font-size:12px;color:#889">Per-day signal QC (round 7, wheel + photometry stream audit)</summary>
+    <div style="overflow-x:auto;margin-top:10px">
+    <table id="qcday-table" style="font-size:12px">
+      <thead><tr><th>Animal</th><th>Modality</th><th>Stream span (h)</th><th>Per-day audit</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    </div>
+    <p class="footnote" style="margin-top:8px">Audit scope: every kept §03 cycle carries full wheel coverage and 100% finite ΔF/F for the five GCaMP animals — no cycle exclusions required. The GFP pair's stream breaks are disclosed here rather than silently truncated: 7382's wheel detection ends at 213.5 h (128.5 h of clean photometry after; all 6 kept cycles precede the break), and 7386 carries two low-wheel windows in subjective day (235–241 h, 307–313 h) with wheel coverage resuming after both.</p>
+  </details>
 </div>
 </section>
 
@@ -697,9 +708,14 @@ function renderLP(a){
 
 // ---- average cycle (section 03) ---------------------------------------
 let CYC=null, cycleChart=null, cycleGt='VIP';
+function barHeadroom(vals){ // page-wide rule: no bar touches the axis top
+  const mx=Math.max(...vals.filter(v=>v!=null&&isFinite(v)),0);
+  if(!isFinite(mx)||mx<=0) return undefined;
+  return Math.ceil(mx*1.15*10)/10; // ~15% above the tallest bar
+}
 function renderCycle(){
   if(!CYC) return;
-  const sel=cycleGt==='both'?['VIP','D1']:[cycleGt];
+  const sel=cycleGt==='both'?['VIP','D1']:cycleGt==='gfp'?['VIP','D1','GFP']:[cycleGt];
   const ds=[];
   const t0=CYC.t_hours;
   for(const g of sel){
@@ -711,8 +727,8 @@ function renderCycle(){
       borderColor:'transparent',backgroundColor:col(g)+'22',fill:'+1',pointRadius:0,yAxisID:'y'});
     ds.push({type:'line',data:t0.map((t,i)=>({x:t,y:G.ca_mean[i]-G.ca_sem[i]})),
       borderColor:'transparent',pointRadius:0,fill:false,yAxisID:'y'});
-    ds.push({type:'bar',label:`${g} wheel-running probability`,
-      data:t0.map((t,i)=>({x:t,y:G.wh_prob[i]})),backgroundColor:col(g)+'33',
+    ds.push({type:'bar',label:`${g} wheel rate (events/30 min)`,
+      data:t0.map((t,i)=>({x:t,y:G.wh_rate_mean[i]})),backgroundColor:col(g)+'33',
       borderWidth:0,yAxisID:'y1',order:4});
   }
   $('cycle-badge').textContent=sel.map(g=>{
@@ -723,24 +739,28 @@ function renderCycle(){
   if(cycleChart) cycleChart.destroy();
   cycleChart=new Chart($('cycleChart'),{type:'scatter',data:{datasets:ds},
     options:{responsive:true,maintainAspectRatio:false,animation:false,showLine:true,
-      scales:{x:{type:'linear',min:0,max:24,ticks:{stepSize:6,
-               callback:v=>['CT12','CT18','CT24','CT30','CT36'][v/6]},
-               title:{display:true,text:'elapsed hours from activity onset (CT12), native cycle lengths'},
+      scales:{x:{type:'linear',min:-2,max:26,ticks:{stepSize:6,
+               callback:v=>v===0?'CT 0':(v<0||v>24)?'':String(v)},
+               title:{display:true,text:'Within-Day Average Cycle (hrs), native cycle lengths'},
                grid:{color:RULE}},
               y:{type:'linear',position:'left',title:{display:true,text:'ΔF/F (mean ± SEM across animals)'},
                  grid:{color:RULE}},
-              y1:{type:'linear',position:'right',min:0,max:1,
-                  title:{display:true,text:'wheel-running probability (per bin)'},grid:{display:false}}},
+              y1:{type:'linear',position:'right',min:0,
+                  suggestedMax:barHeadroom(sel.flatMap(g=>CYC.groups[g].wh_rate_mean)),
+                  title:{display:true,text:'wheel rate (events/30 min)'},grid:{display:false}}},
       plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:10},
         filter:it=>!!it.text}}}}});
   $('cycle-title').textContent=`Average cycle — ${sel.map(g=>g+'-Cre').join(' & ')}`;
   const tail=sel.map(g=>{const G=CYC.groups[g];
     return `${G.animals.join('/')} reach 23.5–24 h: ${G.n_reach[47]}/${G.n_reach[0]} cycles`;}).join(' · ');
   $('cycle-foot').textContent=`Each cycle at its native length (18–30 h guard): no stretching, no resampling. `+
+    `Wheel shown as rate (events per 30-min bin) — the ≥1-event probability saturated (day bins carry ~170–230 events, so P(≥1)≈1 all day); the rate contrast is ~5× night/day. `+
+    `Calcium is anchored to the wheel clock; the calcium acrophase follows ~19 h after wheel onset (ψ circ-SD 2.2–2.5 h for 4/5 GCaMP), so cross-cycle calcium averaging carries that bound of smearing — re-anchoring to the calcium clock moves group amplitude only 19.0→16.7% (VIP) / 16.6→18.9% (D1). `+
     `Bins past a cycle's end are excluded from that cycle — the thinning tail is real. ${tail}. `+
     `Pulse-containing cycles excluded; first post-pulse cycle kept (7%–12% of each animal's average; 6977's `+
-    `17-h post-pulse interval fails the guard so it has none). Wheel probability = fraction of cycles `+
-    `whose native duration reaches the bin with ≥1 event (non-reach cycles are excluded, not counted as rest).`;
+    `17-h post-pulse interval fails the guard so it has none). Non-reach cycles are excluded, not counted as rest.`+
+    (cycleGt==='gfp'?` GFP controls shown as their own n=2 series — ΔF/F is movement artifact, not biology. `+
+      `7382's wheel detection ends at 213.5 h; all 6 kept cycles precede the break. 7386: two low-wheel windows in subjective day, coverage resumes.`:'');
 }
 document.querySelectorAll('#cycle-gt-chips .chip').forEach(ch=>{
   ch.onclick=()=>{
@@ -1504,6 +1524,33 @@ function renderQC(){
   }
 }
 
+function renderQCDay(){
+  const rows=[
+    {a:'6577',mod:'wheel',span:'12.2–417.1',audit:'full coverage; night-frac 0.89 median; no break'},
+    {a:'6577',mod:'photometry',span:'10.2–417.1',audit:'100% finite dF in all kept cycles'},
+    {a:'6976',mod:'wheel',span:'12.1–417.1',audit:'full coverage; night-frac 0.89 median; no break'},
+    {a:'6976',mod:'photometry',span:'10.2–417.1',audit:'100% finite dF in all kept cycles'},
+    {a:'6977',mod:'wheel',span:'12.2–417.2',audit:'full coverage; night-frac 0.93 median; no break'},
+    {a:'6977',mod:'photometry',span:'10.2–417.1',audit:'100% finite dF in all kept cycles'},
+    {a:'6978',mod:'wheel',span:'12.0–417.2',audit:'full coverage; near-arrhythmic (night-frac 0.51) — heterogeneous, not broken'},
+    {a:'6978',mod:'photometry',span:'10.2–417.1',audit:'100% finite dF in all kept cycles'},
+    {a:'7390',mod:'wheel',span:'7.6–342.0',audit:'full coverage; night-frac 0.98 median; no break'},
+    {a:'7390',mod:'photometry',span:'7.0–342.0',audit:'100% finite dF in all kept cycles'},
+    {a:'7382',mod:'wheel',span:'9.1–213.5',audit:'DETECTION BREAK at 213.5 h — zero events to record end; 128.5 h orphaned photometry; all 6 kept cycles precede it'},
+    {a:'7382',mod:'photometry',span:'7.0–342.0',audit:'100% finite dF throughout, no level step at the wheel break'},
+    {a:'7386',mod:'wheel',span:'7.0–342.0',audit:'two low-wheel windows (235–241 h, 307–313 h; 7/18 events vs ~4k median) both in subjective day; coverage resumes after both'},
+    {a:'7386',mod:'photometry',span:'7.0–342.0',audit:'100% finite dF throughout both windows'},
+  ];
+  const tb=$('qcday-table').querySelector('tbody');
+  tb.innerHTML='';
+  for(const r of rows){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><b>#${r.a}</b></td><td>${r.mod}</td><td>${r.span}</td>
+      <td style="font-size:11px">${r.audit}</td>`;
+    tb.appendChild(tr);
+  }
+}
+
 function renderArtifact(){
   const sc=ANA.night_feedback.structural_control;
   const animals=Object.keys(sc);
@@ -1515,7 +1562,7 @@ function renderArtifact(){
   ];
   new Chart($('artifactChart'),{type:'bar',data:{labels:animals.map(a=>'#'+a),datasets:ds},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
-      scales:{x:{grid:{display:false}},y:{title:{display:true,text:'r with next cycle length'},grid:{color:RULE},min:-1,max:0.5}},
+      scales:{x:{grid:{display:false}},y:{title:{display:true,text:'r with next cycle length'},grid:{color:RULE},min:-1,suggestedMax:barHeadroom(animals.flatMap(a=>[sc[a].obs,sc[a].null_mean]).concat([0.5]))}},
       plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}}}}});
 }
 
@@ -1633,7 +1680,7 @@ function renderEarlyLate(){
 
 fetch('data/analyses.json').then(r=>r.json()).then(a=>{
   ANA=a;
-  renderStability(); renderQC(); renderArtifact(); renderFirstDays(); renderOnsetTrig(); renderEarlyLate();
+  renderStability(); renderQC(); renderQCDay(); renderArtifact(); renderFirstDays(); renderOnsetTrig(); renderEarlyLate();
   renderWithin();
   loadRepeatRecordings();
   // new S+6 surfaces
